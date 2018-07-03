@@ -413,53 +413,6 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
             console.log('hello from pagiOut')
     }
 
-    Transition.recognitionUp = function() {
-
-        const recUp = new S.Timeline()
-        const isObj16 = S.Is.object(recUp)
-
-        recUp.from({el: '#section-7', p: {opacity: [0, 1]}, d: 1200, e: 'Power3In'})
-
-        recUp.from({el: Transition.sectionTitle[0], p: {y: [0, 100]}, d: 1200,  e: 'Power4InOut'})
-        recUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        recUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        
-        recUp.from({el: Transition.sectionTitle[1], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
-        recUp.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
-        recUp.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
-        // recUp.from({el: '#h-reco-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
-        // recUp.from({el: '.h-reco-txt-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        // recUp.from({el: '.h-reco-txt-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 100})
-
-        recUp.play()
-
-   }
-
-   Transition.recognitionDown = function() {
-
-    const recDown = new S.Timeline()
-    const isObj17 = S.Is.object(recDown)
-
-    // recDown.from({el: Transition.arrBotTitle[0], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
-    // recDown.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 2100, e: 'Power4InOut'})
-    // recDown.from({el: Transition.arrBotTitle[2], p: {y: [100, 0]}, d: 2400, e: 'Power4InOut'})
-
-    recDown.from({el: '#section-7', p: {opacity: [1, 0]}, d: 1200, e: 'Power3In'})
-
-    recDown.from({el: Transition.sectionTitle[1], p: {y: [0, 100]}, d: 1200,  e: 'Power4InOut'})
-    recDown.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-    recDown.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-    
-    recDown.from({el: Transition.sectionTitle[0], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
-    recDown.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
-    recDown.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
-    // recDown.from({el: '#h-reco-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-    // recDown.from({el: '.h-reco-txt-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-    // recDown.from({el: '.h-reco-txt-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-
-    recDown.play()
-
-    }
 
     Transition.experienceUp = function() {
         
@@ -499,6 +452,60 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
    }
 
+    Transition.recognitionUp = function() {
+
+        const recUp = new S.Timeline()
+        const isObj16 = S.Is.object(recUp)
+
+        recUp.from({el: '#section-7', p: {opacity: [0, 1]}, d: 1200, e: 'Power3In'})
+
+        recUp.from({el: Transition.sectionTitle[0], p: {y: [0, 100]}, d: 1200,  e: 'Power4InOut'})
+        recUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        recUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        recUp.from({el: '#h-xp-col-back', p: {x: [0, 100], opacity: [.15, 0]}, d: 1200, e: 'Power4InOut'})
+        
+        recUp.from({el: Transition.sectionTitle[1], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
+        recUp.from({el: '#h-xp-col-back', p: {x: [100, 0], opacity: [0, .15]}, d: 1200, e: 'Power4InOut'})
+        recUp.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
+        recUp.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
+        
+        // recUp.from({el: '#h-reco-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
+        // recUp.from({el: '.h-reco-txt-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        // recUp.from({el: '.h-reco-txt-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 100})
+
+        recUp.play()
+
+   }
+
+
+   Transition.socialUp = function() {
+
+    const socUp = new S.Timeline()
+    const isObj20 = S.Is.object(socUp)
+
+    socUp.from({el: '#section-8', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
+    
+    socUp.from({el: Transition.sectionTitle[1], p: {y: [0, 100]}, d: 1200,  e: 'Power4InOut'})
+    socUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+    socUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+    socUp.from({el: '#h-xp-col-back', p: {x: [0, 100], opacity: [.15, 0]}, d: 1200, e: 'Power4InOut'})
+    
+    socUp.from({el: Transition.sectionTitle[2], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
+    socUp.from({el: '#h-xp-col-back', p: {x: [100, 0], opacity: [0, .15]}, d: 1200, e: 'Power4InOut'})
+    socUp.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
+    socUp.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
+    
+    // socUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+    // socUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+
+    // socUp.from({el: '#h-social', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+    // socUp.from({el: '#h-social-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+    // socUp.from({el: '.cf', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+
+    socUp.play()
+
+}
+
    Transition.experienceDown = function() {
         
         const openExpIn = new S.Timeline()
@@ -512,8 +519,6 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         openExpIn.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
         openExpIn.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
         openExpIn.from({el: '#h-xp-col-back', p: {x: [0, 100], opacity: [.15, 0]}, d: 1200, e: 'Power4InOut'})
-
-        //openExpIn.from({el: '#h-txt-desc-line', p: {x: [-110, 0], opacity: [0, 1]}})
 
         openExpIn.from({el: Transition.arr[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
         openExpIn.from({el: Transition.arrText[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
@@ -537,30 +542,32 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
 }
 
-    Transition.socialUp = function() {
+Transition.recognitionDown = function() {
 
-        const socUp = new S.Timeline()
-        const isObj20 = S.Is.object(socUp)
+    const recDown = new S.Timeline()
+    const isObj17 = S.Is.object(recDown)
 
-        socUp.from({el: '#section-8', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
-        
-        socUp.from({el: Transition.sectionTitle[1], p: {y: [0, 100]}, d: 1200,  e: 'Power4InOut'})
-        socUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        socUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        
-        socUp.from({el: Transition.sectionTitle[2], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
-        socUp.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
-        socUp.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
-        
-        
-        // socUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        // socUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+    // recDown.from({el: Transition.arrBotTitle[0], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
+    // recDown.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 2100, e: 'Power4InOut'})
+    // recDown.from({el: Transition.arrBotTitle[2], p: {y: [100, 0]}, d: 2400, e: 'Power4InOut'})
 
-        // socUp.from({el: '#h-social', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        // socUp.from({el: '#h-social-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        // socUp.from({el: '.cf', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+    recDown.from({el: '#section-7', p: {opacity: [1, 0]}, d: 1200, e: 'Power3In'})
 
-        socUp.play()
+    recDown.from({el: Transition.sectionTitle[1], p: {y: [0, 100]}, d: 1200,  e: 'Power4InOut'})
+    recDown.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+    recDown.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+    recDown.from({el: '#h-xp-col-back', p: {x: [0, 100], opacity: [.15, 0]}, d: 1200, e: 'Power4InOut'})
+    
+    recDown.from({el: Transition.sectionTitle[0], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
+    recDown.from({el: '#h-xp-col-back', p: {x: [100, 0], opacity: [0, .15]}, d: 1200, e: 'Power4InOut'})
+    recDown.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
+    recDown.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
+
+    // recDown.from({el: '#h-reco-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+    // recDown.from({el: '.h-reco-txt-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+    // recDown.from({el: '.h-reco-txt-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+
+    recDown.play()
 
     }
 
@@ -576,10 +583,13 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         socDown.from({el: Transition.sectionTitle[2], p: {y: [0, 100]}, d: 1200,  e: 'Power4InOut'})
         socDown.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         socDown.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        socDown.from({el: '#h-xp-col-back', p: {x: [0, 100], opacity: [.15, 0]}, d: 1200, e: 'Power4InOut'})
         
         socDown.from({el: Transition.sectionTitle[1], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
+        socDown.from({el: '#h-xp-col-back', p: {x: [100, 0], opacity: [0, .15]}, d: 1200, e: 'Power4InOut'})
         socDown.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
         socDown.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
+        
         // socDown.from({el: '#h-social', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         // socDown.from({el: '#h-social-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         // socDown.from({el: '.cf', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
