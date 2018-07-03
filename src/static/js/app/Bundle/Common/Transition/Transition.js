@@ -471,7 +471,8 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         openExp.from({el: '#body-mid-line', p: {y: [0, -100]}})
         openExp.from({el: '#body-mid', p: {x: [0, -100]}, d: 1200, e: 'Power4InOut'})
-        openExp.from({el: '#body-right', p: {x: [0, 100]}, d: 1200,  e: 'Power4InOut'})
+        openExp.from({el: '#body-right', p: {x: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        openExp.from({el: '#section-6', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
 
         openExp.from({el: Transition.arrBotTitle[0], p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
         openExp.from({el: Transition.arrBotTitle[1], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
@@ -480,18 +481,17 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         openExp.from({el: Transition.arrBotRole[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         openExp.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         openExp.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [0, 100]}, d: 1400, e: 'Power4InOut'})
-
-        //openExp.from({el: '#h-txt-desc-line', p: {x: [0, -110], opacity: [1, 0]}})
-        openExp.from({el: Transition.sectionTitle[0], p: {y: [100, 0]}, d: 1200, delay: 400, e: 'Power4InOut'})
-        openExp.from({el: '#h-xp-col-back', p: {x: [100, 0], opacity: [0, .15]}, d: 1200, e: 'Power4InOut'})
-        openExp.from({el: '#section-6', p: {opacity: [0, 1]}, d: 1800, e: 'Power4InOut'})
-        openExp.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1800, delay: 600, e: 'Power4InOut'})
-        openExp.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1800, delay: 600, e: 'Power4InOut'})
+        
 
         openExp.from({el: Transition.arr[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         console.log('title text')
         openExp.from({el: Transition.arrText[Transition.currentStep], p: {y: [0, 100]}, d: 1000, e: 'Power4InOut'})
         openExp.from({el: Transition.arrTitle[Transition.currentStep], p: {y: [0, 100]}, d: 1000, e: 'Power4InOut'})
+
+        openExp.from({el: Transition.sectionTitle[0], p: {y: [100, 0]}, d: 1200, delay: 400, e: 'Power4InOut'})
+        openExp.from({el: '#h-xp-col-back', p: {x: [100, 0], opacity: [0, .15]}, d: 1200, delay: 600, e: 'Power4InOut'})
+        openExp.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1800, delay: 600, e: 'Power4InOut'})
+        openExp.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1800, delay: 600, e: 'Power4InOut'})
 
 
         openExp.play()
