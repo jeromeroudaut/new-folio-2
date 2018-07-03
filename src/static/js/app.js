@@ -10627,6 +10627,7 @@ Transition.open = function () {
     Transition.arrBotPagiWrap = skylake.Geb.class('h-pagi-bottom-no-wrap');
     Transition.arrBotTitleWrap = skylake.Geb.class('h-pagi-bottom-title-wrap');
     Transition.sectionTitle = skylake.Geb.class("h-section-title");
+    Transition.sectionBck = skylake.Geb.class("h-xp-col-back");
 
     Transition.pagiBottomMarkerWrap = skylake.Geb.id('h-pagi-bottom-marker-wrap');
     Transition.pagiLine = skylake.Geb.id('h-pagi-line');
@@ -10966,7 +10967,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         openExp.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [0, 100] }, d: 1000, e: 'Power4InOut' });
 
         openExp.from({ el: Transition.sectionTitle[0], p: { y: [100, 0] }, d: 1200, delay: 400, e: 'Power4InOut' });
-        openExp.from({ el: '#h-xp-col-back', p: { x: [100, 0], opacity: [0, .15] }, d: 1200, delay: 600, e: 'Power4InOut' });
+        openExp.from({ el: Transition.sectionBck[0], p: { x: [100, 0], opacity: [0, .15] }, d: 1200, delay: 600, e: 'Power4InOut' });
         openExp.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1800, delay: 600, e: 'Power4InOut' });
         openExp.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1800, delay: 600, e: 'Power4InOut' });
 
@@ -10984,10 +10985,10 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         recUp.from({ el: Transition.sectionTitle[0], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         recUp.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
         recUp.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
-        //recUp.from({el: '#h-xp-col-back', p: {x: [0, 100], opacity: [.15, 0]}, d: 1200, delay: 600, e: 'Power4InOut'})
+        recUp.from({ el: Transition.sectionBck[0], p: { x: [0, 100], opacity: [.15, 0] }, d: 1200, delay: 600, e: 'Power4InOut' });
 
         recUp.from(defineProperty({ el: Transition.sectionTitle[1], p: { y: [100, 0] }, d: 1200, delay: 400, e: 'Power4InOut' }, "delay", 1000));
-        //recUp.from({el: '#h-xp-col-back', p: {x: [100, 0], opacity: [0, .15]}, d: 1200, delay: 600, e: 'Power4InOut'})
+        recUp.from({ el: Transition.sectionBck[1], p: { x: [100, 0], opacity: [0, .15] }, d: 1200, delay: 600, e: 'Power4InOut' });
         recUp.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
         recUp.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
 
@@ -11008,10 +11009,10 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         socUp.from({ el: Transition.sectionTitle[1], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         socUp.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
         socUp.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
-        //socUp.from({el: '#h-xp-col-back', p: {x: [0, 100], opacity: [.15, 0]}, d: 1200, delay: 600, e: 'Power4InOut'})
+        socUp.from({ el: Transition.sectionBck[1], p: { x: [0, 100], opacity: [.15, 0] }, d: 1200, delay: 600, e: 'Power4InOut' });
 
         socUp.from(defineProperty({ el: Transition.sectionTitle[2], p: { y: [100, 0] }, d: 1200, delay: 400, e: 'Power4InOut' }, "delay", 1000));
-        //socUp.from({el: '#h-xp-col-back', p: {x: [100, 0], opacity: [0, .15]}, d: 1200, delay: 600, e: 'Power4InOut'})
+        socUp.from({ el: Transition.sectionBck[2], p: { x: [100, 0], opacity: [0, .15] }, d: 1200, delay: 600, e: 'Power4InOut' });
         socUp.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
         socUp.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
 

@@ -465,7 +465,12 @@
                     </div>
                 </div>
             </section>
-            <div id="h-xp-col-back"></div>
+            <div id="h-xp-col-back-wrap">
+                <div id="h-bck-0" class="h-xp-col-back"></div>
+                <div id="h-bck-1" class="h-xp-col-back"></div>
+                <div id="h-bck-2" class="h-xp-col-back"></div>
+                <div id="h-bck-3" class="h-xp-col-back"></div>&nbsp;</div>
+            </div>
             <section id="h-xp-wrap">
                 <div id="h-xp">
                     <div class="h-xp-col">
