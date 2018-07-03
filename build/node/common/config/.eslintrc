@@ -1,0 +1,25 @@
+{
+    "extends": "standard",
+    "env": {
+        "browser": true,
+        "jquery" : true
+    },
+    "globals": {
+        "google": true,
+        "bodymovin": true,
+        "THREE": true,
+        "STRY": true
+    },
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "no-new": 0,
+        "no-labels": ["error", { "allowLoop": true }],
+        "no-unused-vars": 0,
+        "object-property-newline": 0,
+        "padded-blocks": ["error", {
+            "blocks": "never",
+            "classes": "always",
+            "switches": "never"
+        }]
+    }
+}

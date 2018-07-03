@@ -1,0 +1,77 @@
+
+@font-face {
+    font-family: "GT-Eesti-Text-Thin";
+    src: url("../../../../static/media/sou/GT-Eesti-Text-Thin.otf");
+  }
+
+  @font-face {
+    font-family: "FuturaStd-Book";
+    src: url("../../../../static/media/sou/FuturaStd-Book.otf");
+  }
+
+  @font-face {
+    font-family: "FuturaStd-ExtraBold";
+    src: url("../../../../static/media/sou/FuturaStd-ExtraBold.otf");
+  }
+
+  @font-face {
+    font-family: GinesoBold;
+    font-weight: 400;
+    font-style: normal;
+    src: local('GinesoBold'), url('../../../../static/media/sou/GinesoBold.woff2') format("woff2"),url('../../../../static/media/sou/GinesoBold.woff') format("woff")
+  }
+
+  @font-face {
+    font-family: trump-gothic-pro;
+    font-weight: 400;
+    font-style: normal;
+    src: url('../../../../static/media/sou/TrumpGothicPro.woff2') format("woff2"),url('../../../../static/media/sou/TrumpGothicPro.woff') format("woff")
+  }
+  
+  @font-face {
+    font-family: goku;
+    font-weight: 400;
+    font-style: normal;
+    src: url('../../../../static/media/sou/Goku.woff2') format("woff2"),url('../../../../static/media/sou/Goku.woff') format("woff")
+  }
+  
+  .tagline {
+    color: #fff;
+    text-align: center;
+    font-family: "GinesoBold", sans-serif;
+    text-transform: uppercase;
+    //padding-top: 10em;
+    //padding-bottom: 11em;
+    text-rendering: optimizeLegibility;
+  }
+  
+  .main-headline-r1 {
+    color: #f95759;
+    border-bottom: 3px dotted rgba(255, 255, 255, 0.3);
+    font-size: 3.2em;
+    font-weight: 800;
+    line-height: 1.6em;
+    letter-spacing: 0.5em;
+    display: inline-block;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  
+    @include respond(ipad-port) {
+      font-size: 4.2vw;
+    }
+  
+  }
+  
+  .main-headline-r2 {
+    margin: 0;
+    font-size: 9em;
+    line-height: 1em;
+    font-weight: 100;
+    letter-spacing: 2rem;
+    font-family: "GinesoBold", sans-serif;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  
+    @include respond(phone) {
+      font-size: 6rem;
+    }
+  }
+  

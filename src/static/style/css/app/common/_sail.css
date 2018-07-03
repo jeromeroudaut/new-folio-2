@@ -1,0 +1,26 @@
+
+#sail-top {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 50vh;
+    width: 100vw;
+    /* background: #1a1c1e; */
+    background: #222222;
+    transform: translate3d(0,0%,0);
+    opacity: 1;
+}
+#sail-bot {
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 0;
+    height: 50vh;
+    width: 100vw;
+    /* background: #1a1c1e; */
+    background: #222222;
+    transform: translate3d(0,0%,0);
+    opacity: 1;
+}
+
