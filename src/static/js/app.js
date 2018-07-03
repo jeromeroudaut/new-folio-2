@@ -11014,7 +11014,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         socUp.from({ el: Transition.sectionTitle[2], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
         socUp.from({ el: Transition.sectionBck[2], p: { opacity: [0, .15] }, d: 1200, e: 'Power4InOut' });
         socUp.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
-        socUp.from(defineProperty({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, delay: 300, e: 'Power4InOut' }, "delay", 600));
+        socUp.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
 
         // socUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         // socUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
@@ -11070,8 +11070,8 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         recDown.from({ el: '#section-7', p: { opacity: [1, 0] }, d: 1200, e: 'Power3In' });
 
-        recDown.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 600 });
-        recDown.from(defineProperty({ el: '#h-xp-list', p: { y: [0, 100] }, d: 1200, delay: 300, e: 'Power4InOut' }, "delay", 600));
+        recDown.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
+        recDown.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
         recDown.from(defineProperty({ el: Transition.sectionTitle[1], p: { y: [0, 100] }, d: 1200, delay: 400, e: 'Power4InOut' }, "delay", 1000));
         recDown.from({ el: Transition.sectionBck[1], p: { opacity: [.15, 0] }, d: 1200, e: 'Power4InOut' });
 
@@ -11096,8 +11096,8 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         socDown.from({ el: '#section-8', p: { opacity: [1, 0] }, d: 1200, e: 'Power4InOut' });
 
-        socDown.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 600 });
-        socDown.from(defineProperty({ el: '#h-xp-list', p: { y: [0, 100] }, d: 1200, delay: 300, e: 'Power4InOut' }, "delay", 600));
+        socDown.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
+        socDown.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
         socDown.from(defineProperty({ el: Transition.sectionTitle[2], p: { y: [0, 100] }, d: 1200, delay: 400, e: 'Power4InOut' }, "delay", 1000));
         socDown.from({ el: Transition.sectionBck[2], p: { opacity: [.15, 0] }, d: 1200, e: 'Power4InOut' });
 
