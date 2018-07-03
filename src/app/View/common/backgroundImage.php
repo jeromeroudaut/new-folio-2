@@ -8,8 +8,8 @@
     <img src="/static/media/img/home/case/ocean.jpg" alt="">
 </div>
 <div id="section-7">
-    <img src="/static/media/img/home/case/ocean2.jpg" alt="">
+    <img src="/static/media/img/home/case/ocean-1.jpg" alt="">
 </div>
 <div id="section-8">
-    <img src="/static/media/img/home/case/palms.jpg" alt="">
+    <img src="/static/media/img/home/case/ocean-2.jpg" alt="">
 </div>
