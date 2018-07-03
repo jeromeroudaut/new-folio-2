@@ -512,13 +512,13 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const isObj28 = S.Is.object(openExpIn)
 
         //////
+        openExpIn.from({el: Transition.sectionTitle[0], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        openExpIn.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
+        openExpIn.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 600, delay: 300, e: 'Power4InOut'})
+        openExpIn.from({el: '#h-xp-col-back', p: {x: [0, 100], opacity: [.15, 0]}, d: 1200, delay: 600, e: 'Power4InOut'})
+
         openExpIn.from({el: '#body-mid', p: {x: [-100, 0]}, d: 1200, delay: 600, e: 'Power4InOut'})
         openExpIn.from({el: '#body-right', p: {x: [100, 0]}, d: 1200, e: 'Power4InOut'})
-
-        openExpIn.from({el: Transition.sectionTitle[Transition.currentStep - 3], p: {y: [0, 100]}, d: 1200,  e: 'Power4InOut'})
-        openExpIn.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
-        openExpIn.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
-        openExpIn.from({el: '#h-xp-col-back', p: {x: [0, 100], opacity: [.15, 0]}, d: 1200, e: 'Power4InOut'})
 
         openExpIn.from({el: Transition.arr[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
         openExpIn.from({el: Transition.arrText[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
