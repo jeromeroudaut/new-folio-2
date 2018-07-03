@@ -11076,7 +11076,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         recDown.from({ el: Transition.sectionBck[1], p: { opacity: [.15, 0] }, d: 1200, e: 'Power4InOut' });
 
         recDown.from({ el: Transition.sectionBck[0], p: { opacity: [0, .15] }, d: 1200, e: 'Power4InOut' });
-        recDown.from({ el: Transition.sectionTitle[0], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 400 });
+        recDown.from({ el: Transition.sectionTitle[0], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
         recDown.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
         recDown.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
 
@@ -11102,7 +11102,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         socDown.from({ el: Transition.sectionBck[2], p: { opacity: [.15, 0] }, d: 1200, e: 'Power4InOut' });
 
         socDown.from({ el: Transition.sectionBck[1], p: { opacity: [0, .15] }, d: 1200, delay: 600, e: 'Power4InOut' });
-        socDown.from({ el: Transition.sectionTitle[1], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 400 });
+        socDown.from({ el: Transition.sectionTitle[1], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
         socDown.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
         socDown.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
 
