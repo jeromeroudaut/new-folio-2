@@ -4863,6 +4863,7 @@ a:hover {
   /* bottom: -11vw; */
   /* left: 40vw; */
   /* transform: translate3d(0, -46%, 0); */
+  
 }
   
   #h-img-0,
@@ -4871,7 +4872,7 @@ a:hover {
 }
   
   #h-img-0 {
-  /* position: relative; */
+  /* transform: translateX(-41.8%) */
 }
   
   /* #h-img-0-b {
@@ -4892,6 +4893,9 @@ a:hover {
   #h-img-wrap-2 {
   /* bottom: -11vw; */
   /* transform: translate3d(0, -50%, 0); */
+  -webkit-transform: translateX(-41.75%) rotate(-90deg) !important;
+          transform: translateX(-41.75%) rotate(-90deg) !important;
+
 }
   
   #h-img-2 {
@@ -4901,6 +4905,9 @@ a:hover {
   #h-img-wrap-3 {
   /* bottom: 12vw; */
   /* transform: translate3d(0, -50%, 0); */
+  -webkit-transform: translateX(-41.9%) rotate(-90deg) !important;
+          transform: translateX(-41.9%) rotate(-90deg) !important;
+
 }
   
   #h-img-3 {

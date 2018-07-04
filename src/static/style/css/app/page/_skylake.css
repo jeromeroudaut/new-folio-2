@@ -3658,6 +3658,7 @@ svg:not(:root) {
   /* bottom: -11vw; */
   /* left: 40vw; */
   /* transform: translate3d(0, -46%, 0); */
+  
 }
 
 #h-img-0,
@@ -3666,7 +3667,7 @@ svg:not(:root) {
 }
 
 #h-img-0 {
-  /* position: relative; */
+  /* transform: translateX(-41.8%) */
 }
 
 /* #h-img-0-b {
@@ -3687,6 +3688,8 @@ svg:not(:root) {
 #h-img-wrap-2 {
   /* bottom: -11vw; */
   /* transform: translate3d(0, -50%, 0); */
+  transform: translateX(-41.75%) rotate(-90deg) !important;
+
 }
 
 #h-img-2 {
@@ -3696,6 +3699,8 @@ svg:not(:root) {
 #h-img-wrap-3 {
   /* bottom: 12vw; */
   /* transform: translate3d(0, -50%, 0); */
+  transform: translateX(-41.9%) rotate(-90deg) !important;
+
 }
 
 #h-img-3 {
