@@ -3583,7 +3583,7 @@ svg:not(:root) {
     background: #222222;
     border-radius: 2px;
     z-index: 1;
-    transform: translate3d(0, 100%, 0);
+    transform: translate3d(-165%, 0%, 0);
  }
 
 .h-pagi-prog-no-wrap {
