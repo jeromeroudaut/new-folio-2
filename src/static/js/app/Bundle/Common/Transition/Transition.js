@@ -529,10 +529,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         openExpIn.from({el: Transition.arr[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
         openExpIn.from({el: Transition.arrText[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        openExpIn.from({el: Transition.arrTitle[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-
-        openExpIn.from({el: '#body-mid-line', p: {opacity: [0, 1]}, e: 'Power4InOut'})
-        
+        openExpIn.from({el: Transition.arrTitle[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})        
 
         openExpIn.from({el: Transition.arrBotTitle[0], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
         openExpIn.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
@@ -541,7 +538,8 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         openExpIn.from({el: Transition.arrBotRole[Transition.currentStep], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
         openExpIn.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
         openExpIn.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [100, 0]}, d: 2000, e: 'Power4InOut'})
-        //openExpIn.from({el: '#body-mid-line', p: {y: [-110, 0]}, d: 600, delay: 1500, e: 'Power4InOut'})
+
+        openExpIn.from({el: '#body-mid-line', p: {opacity: [0, 1]}, d: 1200, delay: 600, e: 'Power4InOut'})
 
         
         openExpIn.play()
