@@ -219,7 +219,7 @@ function drawText(){
 	// lingrad.addColorStop(0.25, '#dddddd');
 	lingrad.addColorStop(0.50, '#203a43');
 	// lingrad.addColorStop(0.75, '#dddddd');
-	lingrad.addColorStop(1, '#2c5364');
+	lingrad.addColorStop(1, '#1a1e1c');
  	ctx.fillStyle = lingrad;
 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
 	ctx.textBaseline = 'top';

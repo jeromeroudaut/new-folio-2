@@ -346,7 +346,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
     
         textInit.from({el: '#h-txt-desc-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2800, e: 'Power4InOut'})
         textInit.from({el: '#body-mid-line', p: {y: [-100, 0], opacity: [0, 1]}, d: 2800, e: 'Power4InOut'})
-        textInit.from({el: '#h-pagi-progress', p: {x: [-165, 0]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: '#h-pagi-progress', p: {x: [-165, 0]}, d: 600, e: 'Power4InOut'})
 
 
         Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";

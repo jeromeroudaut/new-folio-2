@@ -3272,7 +3272,8 @@ svg:not(:root) {
   bottom: 0;
   /* background: #3d3560; */
   /* background: #e8e8e8; */
-  background: -webkit-linear-gradient( 45deg,#ff3000, #ed0200, #ff096c, #ff1f44, #d50082 );
+  /* background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: linear-gradient(to right top, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff);
   transform: translate3d(-110%, 0, 0);
   opacity: 0;
 }
