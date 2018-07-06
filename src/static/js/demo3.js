@@ -78,10 +78,10 @@ function init() {
 
 
 	//three init
-	renderer = new THREE.WebGLRenderer({ antialias: true } );
+	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true } );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( window.innerWidth, window.innerHeight );
-	renderer.setClearColor( 0x6534ff ); 
+	//renderer.setClearColor( 0x6534ff ); 
 
 	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
 	camera.position.z = 700;
@@ -210,16 +210,16 @@ function drawText(){
   	//ctx.fillStyle =  'rgba(0, 0, 0, 1)';
 	//ctx.fillStyle =  'rgba(72, 72, 72, 1)';
 	var lingrad = ctx.createLinearGradient(0, 0, 0, 750);
-	lingrad.addColorStop(0, '#ff3000');
-	lingrad.addColorStop(0.25, '#ed0200');
-	lingrad.addColorStop(0.50, '#ff096c');
-	lingrad.addColorStop(0.75, '#ff1f44');
-	lingrad.addColorStop(1, '#d50082');
-	// lingrad.addColorStop(0, '#F90490');
-	// lingrad.addColorStop(0.25, '#DC1AAE');
-	// lingrad.addColorStop(0.50, '#C52CC4');
-	// lingrad.addColorStop(0.75, '#9E4AE6');
-	// lingrad.addColorStop(1, '#8A57F7');
+	// lingrad.addColorStop(0, '#ff3000');
+	// lingrad.addColorStop(0.25, '#ed0200');
+	// lingrad.addColorStop(0.50, '#ff096c');
+	// lingrad.addColorStop(0.75, '#ff1f44');
+	// lingrad.addColorStop(1, '#d50082');
+	lingrad.addColorStop(0, '#0f2027');
+	// lingrad.addColorStop(0.25, '#dddddd');
+	lingrad.addColorStop(0.50, '#203a43');
+	// lingrad.addColorStop(0.75, '#dddddd');
+	lingrad.addColorStop(1, '#2c5364');
  	ctx.fillStyle = lingrad;
 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
 	ctx.textBaseline = 'top';
