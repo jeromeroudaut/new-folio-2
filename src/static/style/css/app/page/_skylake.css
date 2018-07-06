@@ -62,9 +62,10 @@ html {
   left: 66.66666vw;
   height: 100vh;
   width: 2px;
-  background: #e5e5e5;
+  /* background: #e5e5e5; */
+  background-image: linear-gradient(to right top, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff);
   -webkit-transform: rotate(-90deg) translate3d(0,0%,0);
-  transform: translate3d(0,-100%,0);
+  transform: translate3d(0, -110%, 0);
   z-index: 0;
   opacity: 0;
 
