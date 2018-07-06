@@ -426,7 +426,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         //////
         openExp.from({el: '#body-mid-line', p: {x: [0, -110], opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
 
-        openExp.from({el: '#body-mid-line', p: {y: [0, -100]}})
+        //openExp.from({el: '#body-mid-line', p: {y: [0, -100]}})
         openExp.from({el: '#body-mid', p: {x: [0, -100]}, d: 1200, e: 'Power4InOut'})
         openExp.from({el: '#body-right', p: {x: [0, 100]}, d: 1200, e: 'Power4InOut'})
         openExp.from({el: '#section-6', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
