@@ -10947,9 +10947,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         var isObj27 = skylake.Is.object(openExp);
 
         //////
-        openExp.from({ el: '#body-mid-line', p: { x: [0, -110], opacity: [1, 0] }, d: 1200, e: 'Power4InOut' });
 
-        //openExp.from({el: '#body-mid-line', p: {y: [0, -100]}})
         openExp.from({ el: '#body-mid', p: { x: [0, -100] }, d: 1200, e: 'Power4InOut' });
         openExp.from({ el: '#body-right', p: { x: [0, 100] }, d: 1200, e: 'Power4InOut' });
         openExp.from({ el: '#section-6', p: { opacity: [0, 1] }, d: 1200, e: 'Power4InOut' });
@@ -10966,6 +10964,8 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         console.log('title text');
         openExp.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1000, e: 'Power4InOut' });
         openExp.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [0, 100] }, d: 1000, e: 'Power4InOut' });
+
+        openExp.from({ el: '#body-mid-line', p: { opacity: [1, 0] }, d: 1200, e: 'Power4InOut' });
 
         openExp.from({ el: Transition.sectionTitle[0], p: { y: [100, 0] }, d: 1200, delay: 400, e: 'Power4InOut' });
         openExp.from({ el: Transition.sectionBck[0], p: { opacity: [0, .15] }, d: 1200, e: 'Power4InOut' });
