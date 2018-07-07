@@ -304,7 +304,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.headerDown.from({el: '#h-pagi-progress', p: {x: [0, -165]}, d: 600, e: 'Power4InOut'})
         Transition.headerDown.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         Transition.headerDown.from({el: '#gloss-overlay', p: {x: [0, -100]}, d: 300, e: 'Power4InOut'})
-        //Transition.headerDown.from({el: '#body-mid-line', p: {y: [0, -100], opacity: [1, 0]}, d: 600, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '#body-mid-line', p: {y: [0, -100], opacity: [1, 0]}, d: 600, e: 'Power4InOut'})
 
 
         //Transition.headerDown.from({el: '#h-txt-desc-line', p: {x: [-110, 0]}, d: 2800, e: 'Power4InOut'})
@@ -354,7 +354,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         textInit.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {y: [-100, 0]}, d: 1200, e: 'Power4InOut'})
 
-        // textInit.from({el: '#h-pagi-line', p: {x: [-100, 0], opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: '#body-mid-line', p: {x: [-100, 0], opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: '#h-pagi-bottom-marker', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
 
         textInit.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
@@ -444,7 +444,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         openExp.from({el: Transition.arrText[Transition.currentStep], p: {y: [0, 100]}, d: 1000, e: 'Power4InOut'})
         openExp.from({el: Transition.arrTitle[Transition.currentStep], p: {y: [0, 100]}, d: 1000, e: 'Power4InOut'})
 
-        //openExp.from({el: '#h-pagi-line', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
+        openExp.from({el: '#body-mid-line', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
 
 
         openExp.from({el: Transition.sectionTitle[0], p: {y: [100, 0]}, d: 1200, delay: 400, e: 'Power4InOut'})
@@ -539,7 +539,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         openExpIn.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
         openExpIn.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [100, 0]}, d: 2000, e: 'Power4InOut'})
 
-        //openExpIn.from({el: '#h-pagi-line', p: {opacity: [0, 1]}, d: 1200, delay: 600, e: 'Power4InOut'})
+        openExpIn.from({el: '#body-mid-line', p: {opacity: [0, 1]}, d: 1200, delay: 600, e: 'Power4InOut'})
 
         
         openExpIn.play()

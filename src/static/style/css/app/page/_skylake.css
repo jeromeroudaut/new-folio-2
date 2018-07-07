@@ -62,13 +62,11 @@ html {
   left: 66.66666vw;
   height: 100vh;
   width: 2px;
-  /* background: #e5e5e5; */
-  background-image: linear-gradient(to top, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff);
-  -webkit-transform: rotate(-90deg) translate3d(0,0%,0);
-  transform: translate3d(0, -110%, 0);
+  background: #e5e5e5;
+  /* background-image: linear-gradient(to top, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
+  transform: translate3d(0, -100%, 0);
   z-index: 0;
   opacity: 0;
-
 }
 
 #section-6, #section-7, #section-8 {
