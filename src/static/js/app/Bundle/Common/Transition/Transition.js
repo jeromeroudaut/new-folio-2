@@ -674,9 +674,11 @@ Transition.recognitionDown = function() {
         Transition.next()
 
         if (Transition.currentStep <= 5) {
-        Transition.updateProgress(Transition.currentStep + 1);
-        } else if (Transition.currentStep >= 6) {
+            Transition.updateProgress(Transition.currentStep + 1);
+        } else if (Transition.currentStep === 6) {
             Transition.updateProgress(Transition.currentStep)
+        } else if (Transition.currentStep >= 7) {
+            Transition.updateProgress(6)
         }
         
         Transition.textInOut = new S.Timeline()
