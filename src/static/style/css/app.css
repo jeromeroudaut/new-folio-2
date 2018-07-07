@@ -3354,6 +3354,7 @@ a:hover {
           transform: translate3d(17.5px, -46px, 0) rotate(-90deg);
   -webkit-transform-origin: center;
           transform-origin: center;
+
 }
   
   #h-pagi-line,
@@ -3367,11 +3368,11 @@ a:hover {
   #h-pagi-line {
   left: 0;
   right: 0;
-  /* background: rgba(255, 255, 255, .2); */
-  /* background: #89898A; */
-  background: #1e1e20;
-  -webkit-transform: translate3d(-100, 0, 0);
-          transform: translate3d(-100, 0, 0);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#16ffdf), color-stop(#00e0ff), color-stop(#00baff), color-stop(#008aff), to(#6534ff));
+  background-image: linear-gradient(to top, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff);
+  z-index: 0;
+  -webkit-transform: translate3d(-110, 0, 0);
+          transform: translate3d(-110, 0, 0);
   opacity: 0;
 }
   

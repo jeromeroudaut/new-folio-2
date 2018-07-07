@@ -10874,7 +10874,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         textInit.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 2000, e: 'Power4InOut' });
 
         //textInit.from({el: '#h-txt-desc-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2800, e: 'Power4InOut'})
-        textInit.from({ el: '#body-mid-line', p: { y: [-110, 0], opacity: [0, 1] }, d: 2800, e: 'Power4InOut' });
+        textInit.from({ el: '#h-pagi-line', p: { x: [-110, 0], opacity: [0, 1] }, d: 2800, e: 'Power4InOut' });
         textInit.from({ el: '#h-pagi-progress', p: { x: [-165, 0] }, d: 600, e: 'Power4InOut' });
 
         Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
@@ -10882,7 +10882,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         textInit.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [-100, 0] }, d: 1200, e: 'Power4InOut' });
 
-        textInit.from({ el: '#h-pagi-line', p: { x: [-100, 0], opacity: [0, 1] }, d: 1200, e: 'Power4InOut' });
+        // textInit.from({el: '#h-pagi-line', p: {x: [-100, 0], opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
         textInit.from({ el: '#h-pagi-bottom-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
 
         textInit.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
@@ -10902,7 +10902,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         var elReset = new skylake.Timeline();
         var isObj15 = skylake.Is.object(elReset);
 
-        elReset.from({ el: '#body-mid-line', p: { y: [0, -100] } });
+        elReset.from({ el: '#h-pagi-line', p: { x: [0, -100] } });
 
         console.log('hello from Transition.reset');
         elReset.play();
@@ -10965,7 +10965,8 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         openExp.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1000, e: 'Power4InOut' });
         openExp.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [0, 100] }, d: 1000, e: 'Power4InOut' });
 
-        openExp.from({ el: '#body-mid-line', p: { opacity: [1, 0] }, d: 1200, e: 'Power4InOut' });
+        //openExp.from({el: '#h-pagi-line', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
+
 
         openExp.from({ el: Transition.sectionTitle[0], p: { y: [100, 0] }, d: 1200, delay: 400, e: 'Power4InOut' });
         openExp.from({ el: Transition.sectionBck[0], p: { opacity: [0, .15] }, d: 1200, e: 'Power4InOut' });
@@ -11053,7 +11054,8 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         openExpIn.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [100, 0] }, d: 1800, e: 'Power4InOut' });
         openExpIn.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 2000, e: 'Power4InOut' });
 
-        openExpIn.from({ el: '#body-mid-line', p: { opacity: [0, 1] }, d: 1200, delay: 600, e: 'Power4InOut' });
+        //openExpIn.from({el: '#h-pagi-line', p: {opacity: [0, 1]}, d: 1200, delay: 600, e: 'Power4InOut'})
+
 
         openExpIn.play();
         //////
@@ -11192,7 +11194,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         var isObj8 = skylake.Is.object(Transition.textInOut);
         var t = -1;
 
-        Transition.textInOut.from({ el: '#body-mid-line', p: { y: [0, -110 * t] }, d: 1200, e: 'Power4InOut' });
+        Transition.textInOut.from({ el: '#h-pagi-line', p: { x: [0, -110 * t] }, d: 1200, e: 'Power4InOut' });
 
         Transition.textInOut.from({ el: Transition.arr[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         Transition.textInOut.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
@@ -11231,7 +11233,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
                 // if (Transition.currentStep === 4) {
                 // Transition.textInOut.from({el: '#h-txt-desc-line', p: {opacity: [0, 0]}, e: 'Power4InOut'}) } else {
-                Transition.textIn2.from({ el: '#body-mid-line', p: { y: [-110, 0] }, d: 1200, e: 'Power4InOut' });
+                Transition.textIn2.from({ el: '#h-pagi-line', p: { x: [-110, 0] }, d: 1200, e: 'Power4InOut' });
                 // }
 
                 Transition.textIn2.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
@@ -11281,7 +11283,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         // if (Transition.currentStep === 3) {
         //      Transition.textOutIn.from({el: '#h-txt-desc-line', p: {opacity: [1, 0]}})
         // } else {
-        Transition.textOutIn.from({ el: '#body-mid-line', p: { y: [0, -110] }, d: 1200, e: 'Power4InOut' });
+        Transition.textOutIn.from({ el: '#h-pagi-line', p: { x: [0, -110] }, d: 1200, e: 'Power4InOut' });
         //}
 
         Transition.textOutIn.from({ el: Transition.arr[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
@@ -11318,9 +11320,9 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
                 var t = -1;
 
                 if (Transition.currentStep === -1) {
-                    Transition.textOut2.from({ el: '#body-mid-line', p: { y: [-110, -110] }, d: 1200, e: 'Power4InOut' });
+                    Transition.textOut2.from({ el: '#h-pagi-line', p: { x: [-110, -110] }, d: 1200, e: 'Power4InOut' });
                 } else {
-                    Transition.textOut2.from({ el: '#body-mid-line', p: { y: [-110 * t, 0] }, d: 1200, e: 'Power4InOut' });
+                    Transition.textOut2.from({ el: '#h-pagi-line', p: { x: [-110 * t, 0] }, d: 1200, e: 'Power4InOut' });
                 }
 
                 Transition.textOut2.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
