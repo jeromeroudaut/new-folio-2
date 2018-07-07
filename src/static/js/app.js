@@ -10725,9 +10725,9 @@ Transition.next = debounce(function () {
 
     }
 
-    if (Transition.currentStep > 6) {
+    if (Transition.currentStep >= 7) {
 
-        return Transition.currentStep = 6;
+        return Transition.currentStep = 7;
     }
 
     return Transition.currentStep;
@@ -11205,6 +11205,14 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         Transition.textInOut.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
 
+        if (Transition.currentStep >= 6) {
+
+            Transition.textInOut.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
+                p: { x: [0, 0] }, d: 1200, e: 'Power4InOut' });
+
+            Transition.textInOut.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 1200, e: 'Power4InOut' });
+        }
+
         if (Transition.currentStep < 4) {
             Transition.textInOut.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [1, 0], y: [0, -60] }, d: 1200, e: 'Power4InOut' });
         }
@@ -11235,6 +11243,13 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
                 Transition.textIn2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [100, 0] }, d: 1200, e: 'Power4InOut' });
 
                 Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+
+                if (Transition.currentStep >= 7) {
+
+                    Transition.textIn2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] } });
+
+                    Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] } });
+                }
 
                 if (Transition.currentStep < 4) {
                     Transition.textIn2.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, 1], y: [-60, 0] }, d: 1200, e: 'Power4InOut' });
