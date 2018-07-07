@@ -672,8 +672,12 @@ Transition.recognitionDown = function() {
 
 
         Transition.next()
-            // var height = document.body.getBoundingClientRect().height - window.innerHeight;
+
+        if (Transition.currentStep <= 5) {
         Transition.updateProgress(Transition.currentStep + 1);
+        } else if (Transition.currentStep >= 6) {
+            Transition.updateProgress(Transition.currentStep)
+        }
         
         Transition.textInOut = new S.Timeline()
         const isObj8 = S.Is.object(Transition.textInOut)
@@ -831,12 +835,7 @@ Transition.recognitionDown = function() {
         }})
 
     }
-
-    // window.addEventListener('scroll', function(){
-    //     var top = window.scrollY;
-    //     var height = document.body.getBoundingClientRect().height - window.innerHeight;
-    //     updateProgress(top, height);
-    // });  
+ 
 
     if ( !event ) { // if the event is not provided, we get it from the window object
         event = window.event;

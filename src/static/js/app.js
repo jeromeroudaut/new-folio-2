@@ -11179,8 +11179,12 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
     Transition.n2 = function () {
 
         Transition.next();
-        // var height = document.body.getBoundingClientRect().height - window.innerHeight;
-        Transition.updateProgress(Transition.currentStep + 1);
+
+        if (Transition.currentStep <= 5) {
+            Transition.updateProgress(Transition.currentStep + 1);
+        } else if (Transition.currentStep >= 6) {
+            Transition.updateProgress(Transition.currentStep);
+        }
 
         Transition.textInOut = new skylake.Timeline();
         var isObj8 = skylake.Is.object(Transition.textInOut);
@@ -11322,12 +11326,6 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
                 Transition.textOut2.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
             } });
     };
-
-    // window.addEventListener('scroll', function(){
-    //     var top = window.scrollY;
-    //     var height = document.body.getBoundingClientRect().height - window.innerHeight;
-    //     updateProgress(top, height);
-    // });  
 
     if (!event) {
         // if the event is not provided, we get it from the window object
