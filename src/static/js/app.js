@@ -10629,6 +10629,8 @@ Transition.open = function () {
     Transition.sectionTitle = skylake.Geb.class("h-section-title");
     Transition.sectionBck = skylake.Geb.class("h-xp-col-back");
 
+    Transition.burgerMenu = document.querySelector(".menu__icon");
+
     Transition.pagiBottomMarkerWrap = skylake.Geb.id('h-pagi-bottom-marker-wrap');
     Transition.pagiLine = skylake.Geb.id('h-pagi-line');
     Transition.pagiBottomMarker = skylake.Geb.id('h-pagi-bottom-marker');

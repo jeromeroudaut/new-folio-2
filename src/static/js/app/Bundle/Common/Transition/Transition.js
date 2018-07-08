@@ -32,6 +32,7 @@ Transition.arrBotTitleWrap = S.Geb.class('h-pagi-bottom-title-wrap')
 Transition.sectionTitle = S.Geb.class("h-section-title")
 Transition.sectionBck = S.Geb.class("h-xp-col-back")
 
+Transition.burgerMenu = document.querySelector(".menu__icon")
 
 Transition.pagiBottomMarkerWrap = S.Geb.id('h-pagi-bottom-marker-wrap')
 Transition.pagiLine = S.Geb.id('h-pagi-line')
@@ -297,7 +298,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         
         Transition.headerDown.from({el: '.header', p: {y: [-100, 0]}, d: 800, e: 'Power4InOut'})
         Transition.headerDown.from({el: '.scroll-icon-wrap', p: {opacity: [0, 1], y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 900})
-
+        
 
         Transition.imgReset()
 
