@@ -53,14 +53,6 @@
             src: url("./static/media/sou/FuturaStd-ExtraBold.otf");
         }
         @font-face {
-            font-family: "DrukText-Bold";
-            src: url("./static/media/sou/DrukText-Bold.otf");
-        }
-        @font-face {
-            font-family: "MaisonNeueMono";
-            src: url("./static/media/sou/MaisonNeueMono.otf");
-        }
-        @font-face {
             font-family: "FuturaStdBold";
             src: url("./static/media/sou/FuturaStdBold.otf");
         }

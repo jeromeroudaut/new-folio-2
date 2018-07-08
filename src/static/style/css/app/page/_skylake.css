@@ -3603,7 +3603,7 @@ svg:not(:root) {
 
 .h-pagi-prog-no {
   /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-  background-image: linear-gradient(to right top, #0f2027, #fff, #1a1e1c);
+  background-image: linear-gradient(to left top, #0f2027, #fff, #203a43);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transform: translate3d(0, 100%, 0);
@@ -3625,9 +3625,10 @@ svg:not(:root) {
 .progress{
   height: 3.5px;
   /* background: red; */
-  background: #6534ff;
+  /* background: #6534ff; */
+  background: rgba(255, 255, 255, .6);
   /* background-image: linear-gradient(to right, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-  /* background-image: linear-gradient(45deg, #0f2027, #fff, #1a1e1c); */
+  /* background-image: linear-gradient(to right top, #fff, #203a43); */
   width: 0;
   transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 }

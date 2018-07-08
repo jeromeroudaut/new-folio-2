@@ -166,7 +166,8 @@
     z-index: 1002;
     text-align: center;
     font-size: 42px;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "FuturaStdBold", sans-serif;
+    text-transform: uppercase;
     font-weight: bold;
     opacity: 0;
     color: #fff;
@@ -226,17 +227,17 @@
   }
   .nav-header-line {
     display: block;
-    height: 2px;
+    height: 1px;
     width: 100%;
     z-index: -1;
     background-color: #fff;
     position: absolute;
-    top: 6px;
+    top: 4px;
     -webkit-transform: scaleX(0.3);
     transform: scaleX(0.3);
   }
   .nav-header-text {
-    padding: 0 10px;
+    padding: 0 7px;
     z-index: 1;
     position: relative;
     /* background-color: #4c688b; */
@@ -311,11 +312,11 @@
   }
   .nav-sublinks {
     font-size: 0.45em;
-    color: #80bece;
+    color: #426b79;
     padding-top: 30px;
     padding-bottom: 30px;
-    border-top: 2px solid #80bece;
-    border-bottom: 2px solid #80bece;
+    border-top: 1px solid #426b79;
+    border-bottom: 1px solid #426b79;
     width: 100%;
     text-align: center;
   }
