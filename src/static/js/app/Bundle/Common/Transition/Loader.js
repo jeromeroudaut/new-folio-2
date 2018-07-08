@@ -1,5 +1,10 @@
 /* eslint-disable */
 
+const Loader = {}
+
+Loader.lineWrap = S.Geb.id('loader-line-wrap')
+
+
 import JQuery from 'jquery'
 import S from 'skylake'
 
@@ -7,7 +12,9 @@ const intro = function() {
   const tl = new S.Timeline()
   const isObj = S.Is.object(tl)
 
-  tl.from({el: "#loader-line-wrap", p: { opacity: [1, 0]}, d: 400, e: 'Power4InOut'});
+  tl.from({el: "#loader-line-wrap", p: { opacity: [1, 0]}, d: 400, e: 'Power4InOut'})
+  Loader.lineWrap.style.display = "none";
+
   tl.from({el: '#sail-top', p: {y: [0, -100]}, d: 1500, e: 'Power4InOut'})
   tl.from({el: '#sail-bot', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut'})
   tl.from({el: '.header', p: {scale: [1.2, 1]}, d: 1800, delay: 250, e: 'Power3In'})
@@ -21,7 +28,7 @@ const intro = function() {
 }
 
 
-const Loader = {}
+
 
 Loader.pr = new S.Timeline()
 const isObj = S.Is.object(Loader.pr)

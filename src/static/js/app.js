@@ -12207,11 +12207,17 @@ var Router = function () {
 
 /* eslint-disable */
 
+var Loader = {};
+
+Loader.lineWrap = skylake.Geb.id('loader-line-wrap');
+
 var intro = function intro() {
   var tl = new skylake.Timeline();
   var isObj = skylake.Is.object(tl);
 
   tl.from({ el: "#loader-line-wrap", p: { opacity: [1, 0] }, d: 400, e: 'Power4InOut' });
+  Loader.lineWrap.style.display = "none";
+
   tl.from({ el: '#sail-top', p: { y: [0, -100] }, d: 1500, e: 'Power4InOut' });
   tl.from({ el: '#sail-bot', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
   tl.from({ el: '.header', p: { scale: [1.2, 1] }, d: 1800, delay: 250, e: 'Power3In' });
@@ -12223,8 +12229,6 @@ var intro = function intro() {
 
   tl.play();
 };
-
-var Loader = {};
 
 Loader.pr = new skylake.Timeline();
 var isObj = skylake.Is.object(Loader.pr);

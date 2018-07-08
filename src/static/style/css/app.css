@@ -530,14 +530,16 @@ $grid-width: 114rem;
   }
   
   .shape-overlays path:nth-of-type(1) {
-    fill: #c4dbea;
+    /* fill: #c4dbea; */
+    fill: #0f2027;
+
   }
   
   /* Nav Menu Bg Color */
   
   .shape-overlays path:nth-of-type(2) {
     /* fill: #4c688b; */
-    fill: #222222;
+    fill: #1a1e1c;
 
   }
   
@@ -564,7 +566,6 @@ $grid-width: 114rem;
   .menu {
     position: fixed;
     z-index: 5000;
-  
     outline: none;
     -webkit-tap-highlight-color: transparent;
     width: 5rem;
@@ -757,7 +758,7 @@ $grid-width: 114rem;
     z-index: 1;
     position: relative;
     /* background-color: #4c688b; */
-    background-color: #222222;
+    background-color: #1a1e1c;
 
   }
   
@@ -850,7 +851,7 @@ $grid-width: 114rem;
     position: fixed;
     width: 100%;
     min-height: 100vh;
-    //background-color: transparent;
+    /* background-color: transparent; */
     z-index: 110;
     pointer-events: none;
   }

@@ -26,10 +26,10 @@
                                 <a href="#projects" class="nav-link">Projects</a>
                             </li>
                             <li class="nav-category js-nav-animate">
-                                <a href="#about" class="nav-link">About</a>
+                                <a href="#home" class="nav-link">Home</a>
                             </li>
                             <li class="nav-category js-nav-animate">
-                                <a href="#contact" class="nav-link">Contact</a>
+                                <a href="#projects" class="nav-link">Projects</a>
                             </li>
                         </ul>
 
