@@ -7,6 +7,7 @@
 @import './app/lib/_easing.css';
 @import './app/lib/_fonts.css';
 @import './app/lib/_animations.css';
+@import './app/lib/_nav-menu.css';
 @import './app/lib/_loading-animation.css';
 
 @import './app/issue/*.css';

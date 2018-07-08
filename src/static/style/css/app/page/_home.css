@@ -60,7 +60,7 @@ a {
   z-index: 3000;
   transform: scale(1.2);
   /* background: #ecec;  fallback for old browsers */
-  background-image: linear-gradient(to right top, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff);
+  background-image: linear-gradient(to right top, #0f2027, #203a43, #1a1e1c);
   /* background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  Chrome 10-25, Safari 5.1-6 */
   /* background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 

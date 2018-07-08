@@ -60,7 +60,7 @@ class HomeController extends Listeners {
             Loader.run({cb: this.intro()})
         })
         console.log('Loader.run from HomeController')
-        Menu.prototype.bindButtonClick()
+        //Menu.prototype.bindButtonClick()
         //EventDelegation.destAbout()  
         //EventDelegation.prototype.run()
         
