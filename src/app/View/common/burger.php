@@ -4,7 +4,10 @@
                 </div>
                 <a class="menu">
                     <div class="menu__button">
-                        <span class="menu__icon">&nbsp;</span>
+                    <!-- <div class="burger-line-wrap-0 burger-line-wrap oh">
+                        <div class="burger-line burger-line-light"></div>
+                    </div> -->
+                    <span class="menu__icon">&nbsp;</span>
                     </div>
                 </a>
 
