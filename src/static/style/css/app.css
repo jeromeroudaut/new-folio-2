@@ -536,7 +536,9 @@ $grid-width: 114rem;
   /* Nav Menu Bg Color */
   
   .shape-overlays path:nth-of-type(2) {
-    fill: #4c688b;
+    /* fill: #4c688b; */
+    fill: #222222;
+
   }
   
   .shape-overlays path:nth-of-type(3) {
@@ -589,7 +591,9 @@ $grid-width: 114rem;
         width: 3rem;
         height: 2px;
         /* background: #e6e6e6; */
-        background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff);
+        /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#0f2027), color-stop(#fff), to(#1a1e1c));
+        background-image: linear-gradient(to bottom, #0f2027, #fff, #1a1e1c);
         display: inline-block;
       }
   
@@ -752,7 +756,9 @@ $grid-width: 114rem;
     padding: 0 10px;
     z-index: 1;
     position: relative;
-    background-color: #4c688b;
+    /* background-color: #4c688b; */
+    background-color: #222222;
+
   }
   
   .nav-categories {
