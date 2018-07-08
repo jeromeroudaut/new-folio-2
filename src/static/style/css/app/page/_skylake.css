@@ -2223,7 +2223,7 @@ svg:not(:root) {
 #h-pagi-line {
   left: 0;
   right: 0;
-  background-image: linear-gradient(to top, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff);
+  background: #1a1e1c;
   z-index: 0;
   transform: translate3d(-110, 0, 0);
   opacity: 0;
@@ -2275,7 +2275,6 @@ svg:not(:root) {
 }
 
 .h-pagi-top-no {
-  /* color: rgba(255, 255, 255, .3); */
   color: #1e1e20;
   opacity: 1;
 
@@ -3596,11 +3595,15 @@ svg:not(:root) {
   /* text-align: center; */
   font-family: trump-gothic-pro;
   font-size: calc(1rem + 4.2vw);
-  color: white;
+  /* color: white; */
+
 
 }
 
 .h-pagi-prog-no {
+  background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   transform: translate3d(0, 100%, 0);
 }
 
@@ -3620,8 +3623,8 @@ svg:not(:root) {
 .progress{
   height: 3.5px;
   /* background: red; */
-  background: #6534ff;
-  /* background: -webkit-linear-gradient( 45deg, #0278d8, #ed0200, #ff096c, #ff1f44, #d50082 ); */
+  /* background: #6534ff; */
+  background-image: linear-gradient(to right, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff);
   width: 0;
   transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
