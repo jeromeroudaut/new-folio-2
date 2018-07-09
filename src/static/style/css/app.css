@@ -1110,13 +1110,11 @@ $grid-width: 114rem;
 
 }
   
-  .glcanvas-wrap {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    text-rendering: optimizeLegibility;
+  #glcanvas-wrap {
+    /* position: absolute 0;
+    text-rendering: optimizeLegibility; */
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
     /* width: 100vw;
     height: 95vh; */
 }

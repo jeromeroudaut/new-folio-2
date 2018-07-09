@@ -363,6 +363,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         textInit.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, 1], y:[-60, 0]}, d: 1200, delay: 400, e: 'Power4InOut'})
 
+
         // textInit.from({el: "#h-img-0-b", p: {opacity: [0, 1], x:[4, 0]}, d: 1200, delay: 150, e: 'Power4InOut'})
     
         textInit.play({cb: setTimeout(Transition.enable_scroll, 3000)})

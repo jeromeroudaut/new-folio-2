@@ -12218,12 +12218,17 @@ var intro = function intro() {
 
   tl.from({ el: '#sail-top', p: { y: [0, -100] }, d: 1500, e: 'Power4InOut' });
   tl.from({ el: '#sail-bot', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
-  tl.from({ el: '.header', p: { scale: [1.2, 1] }, d: 1800, delay: 250, e: 'Power3In' });
-  //tl.from({el: '.tagline', p: {y: [100, 0]}, d: 1600, e: 'Power4InOut'})
+  tl.from({ el: '.header', p: { scale: [1.2, 1] }, d: 1800, e: 'Power3In' });
+
   tl.from({ el: '#burger-border-wrap', p: { opacity: [0, .6] }, d: 1500, e: 'ExpoOut', delay: 200 });
   tl.from({ el: '.burger-line-hover', p: { x: [105, 0] }, d: 1000, e: 'ExpoOut', delay: 500 });
   tl.from({ el: '.scroll-icon-wrap', p: { opacity: [0, 1], y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 500 });
-  tl.from({ el: '#burger-mask', p: { y: [100, -100] }, d: 2000, e: 'ExpoOut', delay: 500 });
+
+  tl.from({ el: '#glcanvas-wrap', p: { y: [-100, 0] }, d: 1800, delay: 1800, e: 'Power4InOut' });
+
+  //tl.from({el: '.tagline', p: {y: [100, 0]}, d: 1600, e: 'Power4InOut'})
+
+  // tl.from({el: '#burger-mask', p: {y: [100, -100]}, d: 2000, e: 'ExpoOut', delay: 500})
 
   tl.play();
 };

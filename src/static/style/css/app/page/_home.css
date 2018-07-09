@@ -71,9 +71,10 @@ a {
 
 }
 
-.glcanvas-wrap {
-    position: absolute 0;
-    text-rendering: optimizeLegibility;
+#glcanvas-wrap {
+    /* position: absolute 0;
+    text-rendering: optimizeLegibility; */
+    transform: translate3d(0, -100%, 0);
     /* width: 100vw;
     height: 95vh; */
 }
