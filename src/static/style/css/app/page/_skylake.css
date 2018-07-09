@@ -3626,7 +3626,8 @@ svg:not(:root) {
   height: 3.5px;
   /* background: red; */
   /* background: #6534ff; */
-  background: rgba(255, 255, 255, .6);
+  /* background: rgba(255, 255, 255, .6); */
+  background: #92FE9D;
   /* background-image: linear-gradient(to right, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
   /* background-image: linear-gradient(to right top, #fff, #203a43); */
   width: 0;

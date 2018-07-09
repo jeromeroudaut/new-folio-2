@@ -724,7 +724,7 @@ $grid-width: 114rem;
     width: 620px;
     max-width: 100%;
     margin: 40px auto;
-    margin-top: 18vh;
+    margin-top: 15vh;
     padding: 0 60px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -5195,7 +5195,8 @@ a:hover {
   height: 3.5px;
   /* background: red; */
   /* background: #6534ff; */
-  background: rgba(255, 255, 255, .6);
+  /* background: rgba(255, 255, 255, .6); */
+  background: #92FE9D;
   /* background-image: linear-gradient(to right, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
   /* background-image: linear-gradient(to right top, #fff, #203a43); */
   width: 0;

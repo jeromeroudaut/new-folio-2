@@ -93,8 +93,8 @@ function init() {
 	texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
 	material = new THREE.MeshPhongMaterial( {
-		color: 0xffffff, //change to brighten scene
-		specular: 0xdddddd,
+		color: 0x928d97, //change to brighten scene
+		specular: 0x928d97,
 		shininess: 40,
 		map: texture,
 		specularMap: texture, //only shine on white text
@@ -114,7 +114,7 @@ function init() {
 	normalsHelper.visible = false;
 
 	//lights
-	scene.add( new THREE.AmbientLight( 0x666666 ) );
+	scene.add( new THREE.AmbientLight( 0xffffff ) );
 
 	var light = new THREE.SpotLight( 0x292a2b, 1);
 	light.position.set( 0, 0, 2000 );
@@ -215,11 +215,11 @@ function drawText(){
 	// lingrad.addColorStop(0.50, '#ff096c');
 	// lingrad.addColorStop(0.75, '#ff1f44');
 	// lingrad.addColorStop(1, '#d50082');
-	lingrad.addColorStop(0, '#0f2027');
+	lingrad.addColorStop(0, '#00C9FF');
 	// lingrad.addColorStop(0.25, '#dddddd');
-	lingrad.addColorStop(0.50, '#203a43');
+	//lingrad.addColorStop(0.50, '#203a43');
 	// lingrad.addColorStop(0.75, '#dddddd');
-	lingrad.addColorStop(1, '#1a1e1c');
+	lingrad.addColorStop(1, '#92FE9D');
  	ctx.fillStyle = lingrad;
 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
 	ctx.textBaseline = 'top';
