@@ -116,7 +116,7 @@ function init() {
 	//lights
 	scene.add( new THREE.AmbientLight( 0xffffff ) );
 
-	var light = new THREE.SpotLight( 0x292a2b, 1);
+	var light = new THREE.SpotLight( 0xffffff, 1);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
@@ -215,11 +215,11 @@ function drawText(){
 	// lingrad.addColorStop(0.50, '#ff096c');
 	// lingrad.addColorStop(0.75, '#ff1f44');
 	// lingrad.addColorStop(1, '#d50082');
-	lingrad.addColorStop(0, '#00C9FF');
-	// lingrad.addColorStop(0.25, '#dddddd');
-	//lingrad.addColorStop(0.50, '#203a43');
-	// lingrad.addColorStop(0.75, '#dddddd');
-	lingrad.addColorStop(1, '#92FE9D');
+	lingrad.addColorStop(0, '#0c1b42');  
+	lingrad.addColorStop(0.25, '#1f45a7');
+	lingrad.addColorStop(0.50, '#008aff');
+	lingrad.addColorStop(0.75, '#00e0ff');
+	lingrad.addColorStop(1, '#16ffdf');
  	ctx.fillStyle = lingrad;
 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
 	ctx.textBaseline = 'top';
