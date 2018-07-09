@@ -591,10 +591,10 @@ $grid-width: 114rem;
       .menu__icon::after {
         width: 3rem;
         height: 2px;
-        /* background: #e6e6e6; */
+        /* background: #a5ded5; */
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#0f2027), color-stop(#fff), to(#1a1e1c));
-        background-image: linear-gradient(to bottom, #0f2027, #fff, #1a1e1c);
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#071113), to(#a5ded5));
+        background-image: linear-gradient(to bottom, #071113, #a5ded5);
         display: inline-block;
       }
   
@@ -819,11 +819,11 @@ $grid-width: 114rem;
   
   .nav-sublinks {
     font-size: 0.45em;
-    color: #426b79;
+    color: #a5ded5;
     padding-top: 30px;
     padding-bottom: 30px;
-    border-top: 1px solid #426b79;
-    border-bottom: 1px solid #426b79;
+    border-top: 1px solid #a5ded5;
+    border-bottom: 1px solid #a5ded5;
     width: 100%;
     text-align: center;
   }
@@ -842,7 +842,7 @@ $grid-width: 114rem;
   }
   
   .nav-sublink::after {
-    background-color: #80bece;
+    background-color: #a5ded5;
   }
   
   .portfolio {
@@ -1076,8 +1076,10 @@ $grid-width: 114rem;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   /* background: #ecec;  fallback for old browsers */
-  background-image: -webkit-gradient(linear, left bottom, right top, from(#0f2027), color-stop(#203a43), to(#1a1e1c));
-  background-image: linear-gradient(to right top, #0f2027, #203a43, #1a1e1c);
+  background-image: url('../../../../../static/media/img/home/case/bamboo.jpg');
+  background-size: cover;
+  background-position: 50%;
+  /* background-image: linear-gradient(to left top, #0f2027, #203a43, #1d1f20, #1a1e1c); */
   /* background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  Chrome 10-25, Safari 5.1-6 */
   /* background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
@@ -1261,7 +1263,7 @@ $grid-width: 114rem;
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #e8e8e8;
+    border: 2px solid #071113;
   }
   
   .scroll-icon div {
@@ -1270,7 +1272,7 @@ $grid-width: 114rem;
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #e8e8e8;
+    background: #071113;
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }
@@ -5169,10 +5171,10 @@ a:hover {
   
   .h-pagi-prog-no {
   /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-  background-image: -webkit-gradient(linear, right bottom, left top, from(#0f2027), color-stop(#fff), to(#1f45a7));
-  background-image: linear-gradient(to left top, #0f2027, #fff, #1f45a7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* background-image: linear-gradient(to left top, #0f2027, #fff, #1f45a7); */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: #a5ded5;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
 }
@@ -5196,7 +5198,7 @@ a:hover {
   /* background: red; */
   /* background: #6534ff; */
   /* background: rgba(255, 255, 255, .6); */
-  background: #5f7abf;
+  background: #a5ded5;
   /* background-image: linear-gradient(to right, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
   /* background-image: linear-gradient(to right top, #fff, #203a43); */
   width: 0;

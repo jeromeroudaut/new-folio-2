@@ -32,8 +32,6 @@ Transition.arrBotTitleWrap = S.Geb.class('h-pagi-bottom-title-wrap')
 Transition.sectionTitle = S.Geb.class("h-section-title")
 Transition.sectionBck = S.Geb.class("h-xp-col-back")
 
-Transition.burgerMenu = document.querySelector(".menu__icon")
-
 Transition.pagiBottomMarkerWrap = S.Geb.id('h-pagi-bottom-marker-wrap')
 Transition.pagiLine = S.Geb.id('h-pagi-line')
 Transition.pagiBottomMarker = S.Geb.id('h-pagi-bottom-marker')

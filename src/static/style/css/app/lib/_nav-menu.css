@@ -90,9 +90,9 @@
       &::after {
         width: 3rem;
         height: 2px;
-        /* background: #e6e6e6; */
+        /* background: #a5ded5; */
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-        background-image: linear-gradient(to bottom, #0f2027, #fff, #1a1e1c);
+        background-image: linear-gradient(to bottom, #071113, #a5ded5);
         display: inline-block;
       }
   
@@ -312,11 +312,11 @@
   }
   .nav-sublinks {
     font-size: 0.45em;
-    color: #426b79;
+    color: #a5ded5;
     padding-top: 30px;
     padding-bottom: 30px;
-    border-top: 1px solid #426b79;
-    border-bottom: 1px solid #426b79;
+    border-top: 1px solid #a5ded5;
+    border-bottom: 1px solid #a5ded5;
     width: 100%;
     text-align: center;
   }
@@ -344,7 +344,7 @@
     color: #3e6c78;
   }
   .nav-sublink::after {
-    background-color: #80bece;
+    background-color: #a5ded5;
   }
   
   .portfolio {

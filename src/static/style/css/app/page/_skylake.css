@@ -3603,9 +3603,10 @@ svg:not(:root) {
 
 .h-pagi-prog-no {
   /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-  background-image: linear-gradient(to left top, #0f2027, #fff, #1f45a7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* background-image: linear-gradient(to left top, #0f2027, #fff, #1f45a7); */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: #a5ded5;
   transform: translate3d(0, 100%, 0);
 }
 
@@ -3627,7 +3628,7 @@ svg:not(:root) {
   /* background: red; */
   /* background: #6534ff; */
   /* background: rgba(255, 255, 255, .6); */
-  background: #5f7abf;
+  background: #a5ded5;
   /* background-image: linear-gradient(to right, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
   /* background-image: linear-gradient(to right top, #fff, #203a43); */
   width: 0;

@@ -100,8 +100,8 @@ function init() {
 		specularMap: texture, //only shine on white text
 		transparent: true,
 		opacity:0,
-		side: THREE.DoubleSide,
-  });
+		side: THREE.DoubleSide
+	});
   
 	planeGeometry = new THREE.PlaneGeometry( CANVAS_W, CANVAS_H , MESH_DIMS, MESH_DIMS );
 	plane = new THREE.Mesh( planeGeometry, material );
@@ -116,11 +116,11 @@ function init() {
 	//lights
 	scene.add( new THREE.AmbientLight( 0xffffff ) );
 
-	var light = new THREE.SpotLight( 0xffffff, 1);
+	var light = new THREE.SpotLight( 0xffffff, .8);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+	var directionalLight = new THREE.DirectionalLight( 0xfefefe, .6 );
 	directionalLight.position.set( 200, 0, 50 );
 	scene.add( directionalLight );
 
@@ -143,7 +143,7 @@ function init() {
 	onResize();
 
 	//fade up from black
-  TweenLite.to(material, 2, {opacity:1});
+  TweenLite.to(material, 2, {opacity:.6});
   // anim = new S.Merom({el: material, p: {opacity: [0, 1]}, d: 2000, e: 'Power4Out'})
   // anim.play()
 	drawText();
@@ -209,18 +209,19 @@ function drawText(){
 	//wipe
   	//ctx.fillStyle =  'rgba(0, 0, 0, 1)';
 	//ctx.fillStyle =  'rgba(72, 72, 72, 1)';
-	var lingrad = ctx.createLinearGradient(0, 0, 0, 750);
+	//var lingrad = ctx.createLinearGradient(0, 0, 0, 750);
 	// lingrad.addColorStop(0, '#ff3000');
 	// lingrad.addColorStop(0.25, '#ed0200');
 	// lingrad.addColorStop(0.50, '#ff096c');
 	// lingrad.addColorStop(0.75, '#ff1f44');
 	// lingrad.addColorStop(1, '#d50082');
-	lingrad.addColorStop(0, '#0c1b42');  
-	lingrad.addColorStop(0.25, '#1f45a7');
-	lingrad.addColorStop(0.50, '#008aff');
-	lingrad.addColorStop(0.75, '#00e0ff');
-	lingrad.addColorStop(1, '#16ffdf');
- 	ctx.fillStyle = lingrad;
+	// lingrad.addColorStop(0, '#000851');  
+	// lingrad.addColorStop(0.25, '#0000c1');
+	// lingrad.addColorStop(0.50, '#0000c1');
+	// lingrad.addColorStop(0.75, '#0000c1');
+	// lingrad.addColorStop(1, '#0000c1');
+	// ctx.fillStyle = lingrad;
+	ctx.fillStyle = 'rgba(66, 107, 121, 1.0 )';
 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
 	ctx.textBaseline = 'top';
 	ctx.fillStyle = 'rgba(255, 255, 255, 1.0 )'; //text color
