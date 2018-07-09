@@ -116,11 +116,11 @@ function init() {
 	//lights
 	scene.add( new THREE.AmbientLight( 0xffffff ) );
 
-	var light = new THREE.SpotLight( 0xffffff, .8);
+	var light = new THREE.SpotLight( 0xffffff, 1);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0xfefefe, .6 );
+	var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
 	directionalLight.position.set( 200, 0, 50 );
 	scene.add( directionalLight );
 
@@ -143,7 +143,7 @@ function init() {
 	onResize();
 
 	//fade up from black
-  TweenLite.to(material, 2, {opacity:.6});
+  TweenLite.to(material, 2, {opacity:.5});
   // anim = new S.Merom({el: material, p: {opacity: [0, 1]}, d: 2000, e: 'Power4Out'})
   // anim.play()
 	drawText();
@@ -221,7 +221,9 @@ function drawText(){
 	// lingrad.addColorStop(0.75, '#0000c1');
 	// lingrad.addColorStop(1, '#0000c1');
 	// ctx.fillStyle = lingrad;
-	ctx.fillStyle = 'rgba(66, 107, 121, 1.0 )';
+	ctx.fillStyle = 'rgba(32, 32, 32, 1.0 )';
+	//ctx.fillStyle = 'rgba(1, 38, 70, 1.0 )';
+	// ctx.fillStyle = 'rgba(0, 0, 193, 1.0 )';
 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
 	ctx.textBaseline = 'top';
 	ctx.fillStyle = 'rgba(255, 255, 255, 1.0 )'; //text color

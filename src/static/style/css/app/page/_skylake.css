@@ -3668,6 +3668,10 @@ svg:not(:root) {
   /* left: 40vw; */
   /* transform: translate3d(0, -46%, 0); */
   
+  /* background-color: #7fe5ed;
+  background-blend-mode: darken;
+  background-image: url('../../../../../static/media/img/home/case/img-0.jpg'); */
+  
 }
 
 #h-img-0,

@@ -516,6 +516,28 @@ $grid-width: 114rem;
     }
   }
   
+  @-webkit-keyframes scale-in {
+    0% {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2)
+    }
+    100% {
+      -webkit-transform: scale(1.6);
+              transform: scale(1.6)
+    }
+  }
+  
+  @keyframes scale-in {
+    0% {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2)
+    }
+    100% {
+      -webkit-transform: scale(1.6);
+              transform: scale(1.6)
+    }
+  }
+  
   .shape-overlays {
     width: 100vw;
     height: 100vh;
@@ -590,11 +612,12 @@ $grid-width: 114rem;
       .menu__icon::before,
       .menu__icon::after {
         width: 3rem;
-        height: 2px;
+        height: 1px;
         /* background: #a5ded5; */
+        /* background: #071113; */
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#071113), to(#a5ded5));
-        background-image: linear-gradient(to bottom, #071113, #a5ded5);
+        background-image: -webkit-gradient(linear, left bottom, right top, from(#071113), to(#a5ded5));
+        background-image: linear-gradient(to right top, #071113, #a5ded5);
         display: inline-block;
       }
   
@@ -1075,10 +1098,12 @@ $grid-width: 114rem;
   z-index: 3000;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-  /* background: #ecec;  fallback for old browsers */
   background-image: url('../../../../../static/media/img/home/case/bamboo.jpg');
+  /* background-color: #eeccee;   */
+  background-color: #7fe5ed;
+  background-blend-mode: darken;
   background-size: cover;
-  background-position: 50%;
+  background-position: center center;
   /* background-image: linear-gradient(to left top, #0f2027, #203a43, #1d1f20, #1a1e1c); */
   /* background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  Chrome 10-25, Safari 5.1-6 */
   /* background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -1264,6 +1289,7 @@ $grid-width: 114rem;
     height: 25px;
     border-radius: 8px;
     border: 2px solid #071113;
+
   }
   
   .scroll-icon div {
@@ -5239,6 +5265,10 @@ a:hover {
   /* bottom: -11vw; */
   /* left: 40vw; */
   /* transform: translate3d(0, -46%, 0); */
+  
+  /* background-color: #7fe5ed;
+  background-blend-mode: darken;
+  background-image: url('../../../../../static/media/img/home/case/img-0.jpg'); */
   
 }
   
