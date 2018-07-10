@@ -3668,33 +3668,40 @@ svg:not(:root) {
 .h-img-wrap-2,
 .h-img-wrap-3 {
   background-size: cover;
-  background-position: 50%;
+  background-position: 75% 25%;
   height: 100vh;
   width: 100vw;
-  background-color: #7fe5ed;
-  background-blend-mode: screen;
-
+  
 }
+
 
 #h-img-0 {
   background-image: url('../../../../../static/media/img/home/case/img-0.jpg');
+  background-color: #9d25a0;
+  background-blend-mode: screen;
   opacity: 0;
 }
 
 #h-img-1 {
   background-image: url('../../../../../static/media/img/home/case/img-1.jpg');
+  background-color: #ff5454;
+  background-blend-mode: screen;
   opacity: 0;
 
 }
 
 #h-img-2 {
   background-image: url('../../../../../static/media/img/home/case/img-2.jpg');
+  background-color: #40a171;
+  background-blend-mode: screen;
   opacity: 0;
 
 }
 
 #h-img-3 {
   background-image: url('../../../../../static/media/img/home/case/img-3.jpg');
+  background-color: #7fc0fd;
+  background-blend-mode: screen;
   opacity: 0;
 
 }
