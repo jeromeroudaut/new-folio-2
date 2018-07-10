@@ -75,8 +75,8 @@ a {
     /* position: absolute 0;
     text-rendering: optimizeLegibility; */
     transform: translate3d(0, -100%, 0);
-    /* width: 100vw;
-    height: 95vh; */
+    /* /* width: 100vw; */
+    height: 100vh; 
 }
 
 canvas {

@@ -3645,8 +3645,7 @@ svg:not(:root) {
   -ms-flex-pack: center;
   justify-content: center;
   */
-  background-size: cover;
-  background-position: 50%; 
+   
   position: fixed;
   width: 100%;
   height: 100%;
@@ -3657,10 +3656,11 @@ svg:not(:root) {
 
 }
 
-
 .h-img {
   transform: translate3d(-60%, 0, 0);
   opacity: 0; 
+  
+  
 }
 
 #h-img-wrap-0 {
@@ -3668,15 +3668,22 @@ svg:not(:root) {
   /* left: 40vw; */
   /* transform: translate3d(0, -46%, 0); */
   
-  /* background-color: #7fe5ed;
-  background-blend-mode: darken;
-  background-image: url('../../../../../static/media/img/home/case/img-0.jpg'); */
-  
 }
 
 #h-img-0,
-#h-img-0-b {
-  /* width: 52vw; */
+#h-img-1,
+#h-img-2,
+#h-img-3 {
+  background-size: cover;
+  background-position: 50%;
+  height: 100vh;
+  width: 100vw;
+  background-color: #7fe5ed;
+  background-blend-mode: screen;
+  background-image: url('../../../../../static/media/img/home/case/img-0.jpg');
+  background-blend-mode: screen;
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); */
 }
 
 #h-img-0 {

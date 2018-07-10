@@ -282,11 +282,21 @@
                 </div>
             </div>
             <div id="h-img-wrap-0" class="h-img-wrap">
-                <img id="h-img-0" class="h-img" src="/static/media/img/home/case/img-0.jpg" alt=""> <img id="h-img-0-b" class="h-img" src="/static/media/img/home/case/img-0-b.png" alt="">
+                <div id="h-img-0"></div>
+                <!-- <img id="h-img-0" class="h-img" src="/static/media/img/home/case/img-0.jpg" alt=""> <img id="h-img-0-b" class="h-img" src="/static/media/img/home/case/img-0-b.png" alt=""> -->
             </div>
-            <div id="h-img-wrap-1" class="h-img-wrap"><img id="h-img-1" class="h-img" src="/static/media/img/home/case/img-1.jpg" alt=""></div>
-            <div id="h-img-wrap-2" class="h-img-wrap"><img id="h-img-2" class="h-img" src="/static/media/img/home/case/img-2.jpg" alt=""></div>
-            <div id="h-img-wrap-3" class="h-img-wrap"><img id="h-img-3" class="h-img" src="/static/media/img/home/case/img-3.jpg" alt=""></div>
+            <div id="h-img-wrap-1" class="h-img-wrap">
+                <div id="h-img-1"></div>
+                <!-- <img id="h-img-1" class="h-img" src="/static/media/img/home/case/img-1.jpg" alt=""> -->
+            </div>
+            <div id="h-img-wrap-2" class="h-img-wrap">
+                <div id="h-img-2"></div>
+                <!-- <img id="h-img-2" class="h-img" src="/static/media/img/home/case/img-2.jpg" alt=""> -->
+            </div>
+            <div id="h-img-wrap-3" class="h-img-wrap">
+                <div id="h-img-3"></div>
+                <!-- <img id="h-img-3" class="h-img" src="/static/media/img/home/case/img-3.jpg" alt=""> -->
+            </div>
             </div>
         <div id="body-mid-line"></div>
         <div id="body-mid"></div>
