@@ -10889,7 +10889,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         textInit.from({ el: '#gloss-overlay', p: { x: [-100, 0] }, d: 1200, e: 'Power4InOut' });
 
-        textInit.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, .6], y: [-60, 0] }, d: 1200, delay: 400, e: 'Power4InOut' });
+        textInit.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, 1], y: [-60, 0] }, d: 1200, delay: 400, e: 'Power4InOut' });
 
         // textInit.from({el: "#h-img-0-b", p: {opacity: [0, 1], x:[4, 0]}, d: 1200, delay: 150, e: 'Power4InOut'})
 
