@@ -181,9 +181,9 @@
                 
             <div id="h-case">
                 <div id="h-client-wrap" class="oh">
-                    <div id="h-client-0" class="h-client">REACT</div>
+                    <div id="h-client-0" class="h-client">VANILLA JAVASCRIPT</div>
                     <div id="h-client-1" class="h-client">VANILLA JAVASCRIPT</div>
-                    <div id="h-client-2" class="h-client">VANILLA JAVSCRIPT</div>
+                    <div id="h-client-2" class="h-client">HTML5  CSS3</div>
                     <div id="h-client-3" class="h-client">REACT</div>&nbsp;</div>
                 <div id="h-txt">
                     <div id="h-txt-desc-line-container">
@@ -194,7 +194,7 @@
                             <div class="h-txt-title">Budgety</div>
                             <div class="h-txt-title">Pig Dice Game</div>
                             <div class="h-txt-title">Natours Travel Site</div>
-                            <div class="h-txt-title">Face App</div>&nbsp;</div>
+                            <div class="h-txt-title">Face Reco App</div>&nbsp;</div>
                         <div class="h-text-desc-txt-wrap oh">
                             <p class="h-txt-desc-txt">Built with React. Bacon ipsum dolor amet tail meatloaf turducken bresaola, picanha ham hock salami pork t-bone pig doner ground round porchetta boudin. Porchetta filet mignon tongue kielbasa ground round shoulder short loin tail turducken ball tip. </p>
                         </div>

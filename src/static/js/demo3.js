@@ -95,7 +95,7 @@ function init() {
 	material = new THREE.MeshPhongMaterial( {
 		color: 0x928d97, //change to brighten scene
 		specular: 0x928d97,
-		shininess: 40,
+		shininess: 80,
 		map: texture,
 		specularMap: texture, //only shine on white text
 		transparent: true,
@@ -114,15 +114,16 @@ function init() {
 	normalsHelper.visible = false;
 
 	//lights
-	scene.add( new THREE.AmbientLight( 0xffffff ) );
+	scene.add( new THREE.AmbientLight( 0x333333 ) );
 
-	var light = new THREE.SpotLight( 0xffffff, 1);
+	var light = new THREE.SpotLight( 0xffffff, 0.4);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
-	directionalLight.position.set( 200, 0, 50 );
+	var directionalLight = new THREE.DirectionalLight( 0xdddddd, 1 );
+	directionalLight.position.set( 100, 0, 50 );
 	scene.add( directionalLight );
+
 
 	//controls
   	controls = new THREE.OrbitControls( camera, renderer.domElement );
@@ -143,7 +144,7 @@ function init() {
 	onResize();
 
 	//fade up from black
-  TweenLite.to(material, 2, {opacity:.5});
+  TweenLite.to(material, 2, {opacity:.85});
   // anim = new S.Merom({el: material, p: {opacity: [0, 1]}, d: 2000, e: 'Power4Out'})
   // anim.play()
 	drawText();
@@ -221,9 +222,11 @@ function drawText(){
 	// lingrad.addColorStop(0.75, '#0000c1');
 	// lingrad.addColorStop(1, '#0000c1');
 	// ctx.fillStyle = lingrad;
+	//ctx.fillStyle = 'rgba(101, 52, 255, 1.0 )';
 	ctx.fillStyle = 'rgba(32, 32, 32, 1.0 )';
+	//ctx.fillStyle = 'rgba(15, 17, 14, 1.0 )';
 	//ctx.fillStyle = 'rgba(1, 38, 70, 1.0 )';
-	// ctx.fillStyle = 'rgba(0, 0, 193, 1.0 )';
+	//ctx.fillStyle = 'rgba(0, 0, 193, 1.0 )';
 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
 	ctx.textBaseline = 'top';
 	ctx.fillStyle = 'rgba(255, 255, 255, 1.0 )'; //text color
