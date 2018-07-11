@@ -17,15 +17,15 @@ const intro = function() {
 
   tl.from({el: '#sail-top', p: {y: [0, -100]}, d: 1500, e: 'Power4InOut'})
   tl.from({el: '#sail-bot', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut'})
-  tl.from({el: '#h-back-0', p: {opacity: [0, 1]}, d: 300, e: 'ExpoOut'})
+  //tl.from({el: '#h-back-0', p: {opacity: [0, 1]}, d: 300, e: 'ExpoOut'})
   tl.from({el: '.header', p: {scale: [1.2, 1]}, d: 1200, delay: 900, e: 'Power4InOut'})
+  //tl.from({el: '#glcanvas-wrap', p: {opacity: [0, 1]}, d: 900, e: 'ExpoOut'})
 
 
   tl.from({el: '#burger-border-wrap', p: {opacity: [0, .6]}, d: 1500, e: 'ExpoOut', delay: 200})
   tl.from({el: '.burger-line-hover', p: {x: [105, 0]}, d: 1000, e: 'ExpoOut', delay: 500})
   tl.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 1200})
 
-  tl.from({el: '#glcanvas-wrap', p: {x: [100, 0]}, d: 900, delay: 900, e: 'ExpoOut'})
 
   //tl.from({el: '.tagline', p: {y: [100, 0]}, d: 1600, e: 'Power4InOut'})
   

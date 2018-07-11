@@ -1,9 +1,8 @@
 
 <header class="header">
-                <div id="glcanvas-wrap" >
-
-                </div>
                 
+                <div id="glcanvas-wrap" ></div>
+
                 <article>
                     <div id="scroll-icon-wrap" class="oh">
                         <div class="scroll-icon">

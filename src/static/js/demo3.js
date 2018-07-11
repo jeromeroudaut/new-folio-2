@@ -94,7 +94,7 @@ function init() {
 				map: texture
 			})
 		);
-	 
+		
 		backgroundMesh.material.depthTest = false;
 		backgroundMesh.material.depthWrite = false;
 	 
@@ -247,9 +247,9 @@ function drawText(){
 	// lingrad.addColorStop(1, '#0000c1');
 	// ctx.fillStyle = lingrad;
 	//ctx.fillStyle = 'rgba(101, 52, 255, 1.0 )';
-	ctx.fillStyle = 'rgba(32, 32, 32, 1.0 )';
+	//ctx.fillStyle = 'rgba(32, 32, 32, 1.0 )';
 	//ctx.fillStyle = 'rgba(15, 17, 14, 1.0 )';
-	//ctx.fillStyle = 'rgba(1, 38, 70, 1.0 )';
+	ctx.fillStyle = 'rgba(1, 38, 70, 1.0 )';
 	//ctx.fillStyle = 'rgba(0, 0, 193, 1.0 )';
 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
 	ctx.textBaseline = 'top';

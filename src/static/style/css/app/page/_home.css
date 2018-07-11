@@ -76,9 +76,9 @@ a {
 #glcanvas-wrap {
     /* position: absolute 0;
     text-rendering: optimizeLegibility; */
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(0%, 0, 0);
     /* /* width: 100vw; */
-    height: 100vh; 
+    height: 100vh;
 }
 
 canvas {
@@ -240,7 +240,7 @@ canvas {
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #fff;
+    border: 2px solid rgba(1, 38, 70, 1);
     transform: translate3d(0, 100%, 0);
 
   }
@@ -251,7 +251,7 @@ canvas {
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #fff;
+    background: rgba(1, 38, 70, 1);
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }
