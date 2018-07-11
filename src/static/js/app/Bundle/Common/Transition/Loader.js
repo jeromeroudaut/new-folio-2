@@ -34,7 +34,12 @@ const intro = function() {
   tl.play()
 }
 
+function unloadScrollBars() {
+  document.documentElement.style.overflow = 'hidden';  // firefox, chrome
+  document.body.scroll = "no"; // ie only
+}
 
+unloadScrollBars()
 
 
 Loader.pr = new S.Timeline()

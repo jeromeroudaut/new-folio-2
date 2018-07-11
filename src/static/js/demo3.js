@@ -9,12 +9,7 @@
 	(C) @felixturner / www.airtight.cc
 
 */
-function unloadScrollBars() {
-  document.documentElement.style.overflow = 'hidden';  // firefox, chrome
-  document.body.scroll = "no"; // ie only
-}
 
-unloadScrollBars()
 
 //var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 var days = ['Front-End Web Developer'];
