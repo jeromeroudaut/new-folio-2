@@ -10898,7 +10898,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         //textInit.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [0, 1]}, d: 1200, delay: 400, e: 'Power4InOut'})
 
-        textInit.from({ el: '#gloss-overlay', p: { x: [-100, 0] }, d: 1200, e: 'Power4InOut' });
+        // textInit.from({el: '#gloss-overlay', p: {x: [-100, 0]}, d: 1200, e: 'Power4InOut'})
 
         textInit.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, 1], y: [-60, 0] }, d: 1200, delay: 400, e: 'Power4InOut' });
 

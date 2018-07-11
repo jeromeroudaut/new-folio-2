@@ -29,12 +29,13 @@ html {
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-    url(../../../../../static/media/img/home/case/plants.jpg);
+    url(../../../../../static/media/img/home/case/plants-bw.jpg);
   /* background-image: ; */
   /* background-color: #eeccee;   */
   /* background-color: #7fe5ed; */
   /* background-color: #2c2c2c; */
   background-blend-mode: multiply;
+  /* filter: grayscale(20%); */
   background-size: cover;
   background-position: center center;
   height: 100%;
@@ -3778,30 +3779,51 @@ svg:not(:root) {
         url(../../../../../static/media/img/home/case/img-0.jpg);
   /* background-image: url('../../../../../static/media/img/home/case/img-0.jpg');
   background-color: #eeccee; */
-  background-blend-mode: multiply;
+  background-blend-mode: screen;
   opacity: 0;
 }
 
 #h-img-1 {
-  background-image: url('../../../../../static/media/img/home/case/img-1.jpg');
-  background-color: #c2dde5;
+  background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 189, 143, 0.8),
+        rgba(357, 100, 78, 0.8),
+        rgba(235, 87, 113, 0.8),
+        rgba(179, 74, 119, 0.8)),
+        url(../../../../../static/media/img/home/case/img-1.jpg);
+  /* background-image: url('../../../../../static/media/img/home/case/img-1.jpg');
+  background-color: #c2dde5; */
   background-blend-mode: multiply;
   opacity: 0;
 
 }
 
 #h-img-2 {
-  background-image: url('../../../../../static/media/img/home/case/img-2.jpg');
-  background-color: #e3e897;
-  background-blend-mode: screen;
+  background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 189, 143, 0.8),
+        rgba(357, 100, 78, 0.8),
+        rgba(235, 87, 113, 0.8),
+        rgba(179, 74, 119, 0.8)),
+        url(../../../../../static/media/img/home/case/img-2.jpg);
+  /* background-image: url('../../../../../static/media/img/home/case/img-2.jpg');
+  background-color: #e3e897; */
+  background-blend-mode: multiply;
   opacity: 0;
 
 }
 
 #h-img-3 {
-  background-image: url('../../../../../static/media/img/home/case/img-3.jpg');
-  background-color: #7bc6dc;
-  background-blend-mode: screen;
+  background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 189, 143, 0.8),
+        rgba(357, 100, 78, 0.8),
+        rgba(235, 87, 113, 0.8),
+        rgba(179, 74, 119, 0.8)),
+        url(../../../../../static/media/img/home/case/img-3.jpg);
+  /* background-image: url('../../../../../static/media/img/home/case/img-3.jpg');
+  background-color: #7bc6dc; */
+  background-blend-mode: multiply;
   opacity: 0;
 
 }
