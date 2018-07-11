@@ -92,7 +92,8 @@
         height: 1px;
         /* background: #a5ded5; */
         /* background: #071113; */
-        background: #0000c1;
+        /* background: #0000c1; */
+        background: #000;
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
         /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
