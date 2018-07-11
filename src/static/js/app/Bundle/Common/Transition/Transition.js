@@ -369,7 +369,6 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         textInit.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, 1], y:[-60, 0]}, d: 1200, delay: 400, e: 'Power4InOut'})
 
-        textInit.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [0, 1]}, d: 1200, delay: 400, e: 'Power4InOut'})
 
 
         // textInit.from({el: "#h-img-0-b", p: {opacity: [0, 1], x:[4, 0]}, d: 1200, delay: 150, e: 'Power4InOut'})
@@ -832,7 +831,7 @@ Transition.recognitionDown = function() {
         Transition.textOutIn.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [1, 0], y:[0, -60]}, d: 1200, e: 'Power4InOut'})
         }
 
-        if (Transition.currentStep < 7) {
+        if (Transition.currentStep < 7 && Transition.currentStep < -1) {
             Transition.textOutIn.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
         }
 
