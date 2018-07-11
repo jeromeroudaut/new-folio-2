@@ -45,7 +45,7 @@ html {
   /* border-right: 1px solid gray; */
   background: #fff;
   transform: translate3d(-200%, 0, 0);
-  z-index: -1;
+  z-index: 0;
   opacity: .7;
 }
 
@@ -58,7 +58,7 @@ html {
   width: 33.33333vw;
   background: #fff;
   transform: translate3d(0 ,100%, 0);
-  z-index: -1;
+  z-index: 0;
   opacity: .7;
 }
 

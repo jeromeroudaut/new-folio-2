@@ -276,7 +276,9 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const isObj3 = S.Is.object(Transition.headerUp)
         
         Transition.headerUp.from({el: '.header', p: {y: [0, -100]}, d: 1300, e: 'ExpoOut'})
-        Transition.headerUp.play({cb: Transition.titleInit})
+        // Transition.headerUp.play({cb: Transition.titleInit})
+        Transition.headerUp.play()
+
 
         //console.log(divOffset.left, divOffset.top);
 
@@ -346,6 +348,9 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         textInit.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
         textInit.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [100, 0]}, d: 2000, e: 'Power4InOut'})
     
+        textInit.from({el: '#body-mid', p: {x: [-200, 0]}, d: 600, e: 'Power4InOut'})
+        textInit.from({el: '#body-right', p: {x: [100, 0]}, d: 600, e: 'Power4InOut'})
+
         //textInit.from({el: '#h-txt-desc-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2800, e: 'Power4InOut'})
         textInit.from({el: '#h-pagi-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2800, e: 'Power4InOut'})
         textInit.from({el: '#h-pagi-progress', p: {x: [-165, 0]}, d: 600, e: 'Power4InOut'})

@@ -30,6 +30,7 @@ var noisePos = Math.random()*1000;
 
 var camera, scene, renderer;
 var plane, material, texture, planeGeometry;
+var backgroundMesh, backgroundScene, backgroundCamera;
 var controls;
 var gui, stats;
 var normalsHelper;
@@ -78,10 +79,30 @@ function init() {
 
 
 	//three init
-	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true } );
+	renderer = new THREE.WebGLRenderer({ antialias: true} );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.autoClear = false;
 	//renderer.setClearColor( 0x6534ff ); 
+
+	//image loader
+	var loader = new THREE.TextureLoader();
+	loader.load( '../../static/media/img/home/case/plants.jpg', function( texture ) {
+		backgroundMesh = new THREE.Mesh(
+			new THREE.PlaneGeometry(2, 2, 0),
+				new THREE.MeshBasicMaterial({
+				map: texture
+			})
+		);
+	 
+		backgroundMesh.material.depthTest = false;
+		backgroundMesh.material.depthWrite = false;
+	 
+		backgroundScene = new THREE.Scene();
+		backgroundCamera = new THREE.Camera();
+		backgroundScene.add( backgroundCamera );
+		backgroundScene.add( backgroundMesh );
+	});
 
 	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
 	camera.position.z = 700;
@@ -91,6 +112,7 @@ function init() {
 
 	texture = new THREE.Texture(canvas);
 	texture.minFilter = texture.magFilter = THREE.LinearFilter;
+
 
 	material = new THREE.MeshPhongMaterial( {
 		color: 0x928d97, //change to brighten scene
@@ -102,6 +124,7 @@ function init() {
 		opacity:0,
 		side: THREE.DoubleSide
 	});
+
   
 	planeGeometry = new THREE.PlaneGeometry( CANVAS_W, CANVAS_H , MESH_DIMS, MESH_DIMS );
 	plane = new THREE.Mesh( planeGeometry, material );
@@ -145,6 +168,7 @@ function init() {
 
 	//fade up from black
   TweenLite.to(material, 2, {opacity:.85});
+
   // anim = new S.Merom({el: material, p: {opacity: [0, 1]}, d: 2000, e: 'Power4Out'})
   // anim.play()
 	drawText();
@@ -269,6 +293,7 @@ function drawText(){
 
 	texture.needsUpdate = true;
 
+
 }
 
 function fontStyle(px, weight){
@@ -295,6 +320,8 @@ function animate() {
 
 	noisePos += guiParams.rippleSpeed/1000;
 	normalsHelper.update();
+	renderer.clear();
+	renderer.render( backgroundScene, backgroundCamera );
 	renderer.render( scene, camera );
 
 }
