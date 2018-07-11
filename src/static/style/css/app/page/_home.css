@@ -59,13 +59,14 @@ a {
 .header {
   z-index: 3000;
   transform: scale(1.2);
-  background-image: url('../../../../../static/media/img/home/case/plants.jpg');
+  /* background-image: url('../../../../../static/media/img/home/case/plants.jpg'); */
   /* background-color: #eeccee;   */
   /* background-color: #7fe5ed; */
-  background-color: #2c2c2c;
-  background-blend-mode: multiply;
+  /* background-color: #2c2c2c; */
+  /* background-blend-mode: multiply;
   background-size: cover;
-  background-position: center center;
+  background-position: center center; */
+  background: transparent;
   /* background-image: linear-gradient(to left top, #0f2027, #203a43, #1d1f20, #1a1e1c); */
   /* background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  Chrome 10-25, Safari 5.1-6 */
   /* background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
