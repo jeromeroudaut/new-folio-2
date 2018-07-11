@@ -11324,7 +11324,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         }
 
         if (Transition.currentStep < 7 && Transition.currentStep < -1) {
-            Transition.textOutIn.from({ el: "#h-back-" + Transition.currentStep, p: { opacity: [1, 0] }, d: 1200, e: 'Power4InOut' });
+            Transition.textOutIn.from({ el: "#h-back-" + Transition.currentStep, p: { opacity: [1, .5] }, d: 1200, e: 'Power4InOut' });
         }
 
         Transition.textOutIn.play({ cb: function cb() {
