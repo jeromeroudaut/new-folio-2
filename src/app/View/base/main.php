@@ -66,10 +66,10 @@
         <?php include ROOT . 'app/View/common/sail.php'; ?>
         <div id="app">
         <?php include ROOT . 'app/View/common/burger.php'; ?>
-        <?php include ROOT . 'app/View/common/backgroundImage.php'; ?>
         <div id="xhr">
             <?= $this->content; ?>
         </div>
+        <?php include ROOT . 'app/View/common/backgroundImage.php'; ?>
         </div>
         <?php include ROOT . 'app/View/common/loader.php'; ?>
         <?php include ROOT . 'app/View/common/svg.php'; ?>
