@@ -19,7 +19,8 @@
   /* Nav Menu Bg Color */
   .shape-overlays path:nth-of-type(2) {
     /* fill: #4c688b; */
-    fill: #1a1e1c;
+    /* fill: #1a1e1c; */
+    fill: #242529;
 
   }
   .shape-overlays path:nth-of-type(3) {
