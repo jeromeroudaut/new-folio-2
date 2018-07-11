@@ -229,13 +229,11 @@ canvas {
     }
   }
 
-  .scroll-icon-wrap {
+  #scroll-icon-wrap {
     position: absolute;
     top: 90%;
     left: 50%;
-    opacity: 0;
     z-index: 7000;
-    transform: translate3d(0, 100%, 0);
   }
 
   .scroll-icon {
@@ -243,6 +241,7 @@ canvas {
     height: 25px;
     border-radius: 8px;
     border: 2px solid #fff;
+    transform: translate3d(0, 100%, 0);
 
   }
 

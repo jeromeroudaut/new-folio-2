@@ -18,17 +18,17 @@ html {
   position: relative;
   top: 0;
   left: 0;
-  box-shadow: 0 4px 2px -2px rgba(255,255,255,0.2);
+  /* box-shadow: 0 4px 2px -2px rgba(255,255,255,0.2); */
   /* background-color: #292a2b; */
   /* background-color: #1b1b1b; */
   /* background-color: #ecec; */
-  background-image: url('../../../../../static/media/img/home/case/plants.jpg');
-  background-color: #eeccee;  
+  /* background-image: url('../../../../../static/media/img/home/case/plants.jpg');
+  background-color: #eeccee;   */
   /* background-color: #7fe5ed; */
   /* background-color: #2c2c2c; */
-  background-blend-mode: multiply;
+  /* background-blend-mode: multiply;
   background-size: cover;
-  background-position: center center;
+  background-position: center center; */
   height: 100%;
   max-width: 100%;
   z-index: 1;
@@ -3612,8 +3612,8 @@ svg:not(:root) {
   /* background-image: linear-gradient(to left top, #0f2027, #fff, #1f45a7); */
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
-  /* color: #a5ded5; */
-  color: rgba(0, 0, 193, .6);
+  color: #a5ded5;
+  /* color: rgba(0, 0, 193, .6); */
   transform: translate3d(0, 100%, 0);
 }
 
@@ -3635,12 +3635,82 @@ svg:not(:root) {
   /* background: red; */
   /* background: #6534ff; */
   /* background: rgba(255, 255, 255, .6); */
-  background: rgba(0, 0, 193, .6);
-  /* background: rgba(241, 238, 237, 1); */
+  /* background: rgba(0, 0, 193, .6); */
+  background: #a5ded5;
   /* background-image: linear-gradient(to right, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
   /* background-image: linear-gradient(to right top, #fff, #203a43); */
   width: 0;
   transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.h-back-wrap {
+  /* position: absolute;
+  z-index: -1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  */
+   
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  z-index: -1;
+  opacity: .7;
+
+}
+
+.h-back {
+  /* transform: translate3d(-60%, 0, 0);
+  opacity: 0;  */
+  
+  
+}
+
+.h-back-wrap-0,
+.h-back-wrap-1,
+.h-back-wrap-2,
+.h-back-wrap-3 {
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  width: 100vw;
+  
+}
+
+
+#h-back-0 {
+  background-image: url('../../../../../static/media/img/home/case/plants.jpg');
+  background-color: #a5ded5;
+  background-blend-mode: luminosity;
+  opacity: 0;
+}
+
+#h-back-1 {
+  background-image: url('../../../../../static/media/img/home/case/plants.jpg');
+  background-color: #a5ded5;
+  background-blend-mode: screen;
+  opacity: 0;
+
+}
+
+#h-back-2 {
+  background-image: url('../../../../../static/media/img/home/case/plants.jpg');
+  background-color: #a5ded5;
+  background-blend-mode: screen;
+  opacity: 0;
+
+}
+
+#h-back-3 {
+  background-image: url('../../../../../static/media/img/home/case/plants.jpg');
+  background-color: #a5ded5;
+  background-blend-mode: screen;
+  opacity: 0;
+
 }
 
 .h-img-wrap {

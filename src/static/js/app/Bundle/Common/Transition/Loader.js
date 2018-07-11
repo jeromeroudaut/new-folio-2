@@ -21,7 +21,7 @@ const intro = function() {
 
   tl.from({el: '#burger-border-wrap', p: {opacity: [0, .6]}, d: 1500, e: 'ExpoOut', delay: 200})
   tl.from({el: '.burger-line-hover', p: {x: [105, 0]}, d: 1000, e: 'ExpoOut', delay: 500})
-  tl.from({el: '.scroll-icon-wrap', p: {opacity: [0, 1], y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 500})
+  tl.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 1200})
 
   tl.from({el: '#glcanvas-wrap', p: {x: [100, 0]}, d: 900, delay: 900, e: 'ExpoOut'})
 

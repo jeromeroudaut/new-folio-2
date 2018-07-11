@@ -274,7 +274,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.disable_scroll()
         Transition.headerUp = new S.Timeline()
         const isObj3 = S.Is.object(Transition.headerUp)
-        //Transition.headerUp.from({el: '.scroll-icon', p: {opacity: [1, 0]}, d: 1200, delay: 200, e: 'Power4InOut'})
+        
         Transition.headerUp.from({el: '.header', p: {y: [0, -100]}, d: 1300, e: 'ExpoOut'})
         Transition.headerUp.play({cb: Transition.titleInit})
 
@@ -295,7 +295,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         
         
         Transition.headerDown.from({el: '.header', p: {y: [-100, 0]}, d: 800, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '.scroll-icon-wrap', p: {opacity: [0, 1], y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 900})
+        Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 900})
         
 
         Transition.imgReset()
@@ -368,6 +368,8 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         textInit.from({el: '#gloss-overlay', p: {x: [-100, 0]}, d: 1200, e: 'Power4InOut'})
 
         textInit.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, 1], y:[-60, 0]}, d: 1200, delay: 400, e: 'Power4InOut'})
+
+        textInit.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [0, 1]}, d: 1200, delay: 400, e: 'Power4InOut'})
 
 
         // textInit.from({el: "#h-img-0-b", p: {opacity: [0, 1], x:[4, 0]}, d: 1200, delay: 150, e: 'Power4InOut'})
@@ -721,6 +723,10 @@ Transition.recognitionDown = function() {
             Transition.textInOut.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [1, 0], y:[0, -60]}, d: 1200, e: 'Power4InOut'})
         }
 
+        if (Transition.currentStep < 7) {
+            Transition.textInOut.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
+        }
+
         if (Transition.currentStep <= 6) {
         Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
         Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
@@ -761,6 +767,10 @@ Transition.recognitionDown = function() {
             if (Transition.currentStep < 4) {
                 Transition.textIn2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, 1], y:[-60, 0]}, d: 1200, e: 'Power4InOut'})
                 } 
+
+            if (Transition.currentStep < 7) {
+                Transition.textIn2.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
+            } 
 
             if (Transition.currentStep <= 6) {
             Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
@@ -822,6 +832,10 @@ Transition.recognitionDown = function() {
         Transition.textOutIn.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [1, 0], y:[0, -60]}, d: 1200, e: 'Power4InOut'})
         }
 
+        if (Transition.currentStep < 7) {
+            Transition.textOutIn.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
+        }
+
         
         
         Transition.textOutIn.play({cb: function() {
@@ -868,6 +882,10 @@ Transition.recognitionDown = function() {
 
                 if (Transition.currentStep < 4 && Transition.currentStep > -1) {
                 Transition.textOut2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, 1], y:[-60, 0]}, d: 1200, e: 'Power4InOut'})
+                }
+
+                if (Transition.currentStep < 7 && Transition.currentStep > -1) {
+                    Transition.textOut2.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
                 }
                 
                 Transition.textOut2.play({cb: setTimeout(Transition.enable_scroll, 3000)})

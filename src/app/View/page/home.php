@@ -5,13 +5,7 @@
                 </div>
                 
                 <article>
-                    <div id="tagline-wrap" class="oh">
-                        <div class="tagline">
-                            <h1 class="main-headline-r1">Front-End Web Developer</h1>
-                            <h1 class="main-headline-r2">John Milner</h1>
-                        </div>
-                    </div>
-                    <div class="scroll-icon-wrap">
+                    <div id="scroll-icon-wrap" class="oh">
                         <div class="scroll-icon">
                             <div></div>
                         </div>
