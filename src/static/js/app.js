@@ -10890,7 +10890,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         textInit.from({ el: '#body-mid', p: { x: [-200, 0] }, d: 1200, e: 'Power4InOut' });
         textInit.from({ el: '#body-right', p: { x: [100, 0] }, d: 1200, e: 'Power4InOut' });
 
-        textInit.from({ el: '#body-mid-line', p: { x: [-100, 0], opacity: [0, .5] }, d: 1200, e: 'Power4InOut' });
+        //textInit.from({el: '#body-mid-line', p: {x: [-100, 0], opacity: [0, .5]}, d: 1200, e: 'Power4InOut'})
         textInit.from({ el: '#h-pagi-bottom-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
 
         textInit.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });

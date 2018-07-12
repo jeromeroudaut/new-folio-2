@@ -476,6 +476,12 @@
                 <div id="h-bck-2" class="h-xp-col-back"></div>
                 <div id="h-bck-3" class="h-xp-col-back"></div>&nbsp;</div>
             </div>
+            <div id="h-section-title-wrap" class="oh">
+                <div id="h-section-0" class="h-section-title">Experience</div>
+                <div id="h-section-1" class="h-section-title">Recognition</div>
+                <div id="h-section-2" class="h-section-title">Social</div>
+                <div id="h-section-3" class="h-section-title">Face App</div>&nbsp;</div>
+            </div>
             <section id="h-xp-wrap">
                 <div id="h-xp">
                     <div class="h-xp-col">

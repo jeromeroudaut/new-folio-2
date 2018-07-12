@@ -5572,8 +5572,8 @@ a:hover {
   
   #h-xp-col-back-wrap {
   position: absolute;
-  top: 30vh;
-  left: 25.9vw;
+  top: 0;
+  left: 33.33333vw;
   
 
 }
@@ -5583,8 +5583,8 @@ a:hover {
   position: absolute;
   top: 0;
   left: 0;
-  height: 45vh;
-  width: 60vw;
+  height: 100vh;
+  width: 66.66666vw;
   z-index: -1;
   opacity: 0;
   -webkit-transform: translate3d(0%, 0, 0);
@@ -5596,7 +5596,7 @@ a:hover {
 }
   
   #h-bck-1 {
-  background: #ff5454;
+  background: #7bc6dc;
 }
   
   #h-bck-2 {
