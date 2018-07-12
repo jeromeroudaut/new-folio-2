@@ -74,30 +74,30 @@ function init() {
 
 
 	//three init
-	renderer = new THREE.WebGLRenderer({ antialias: true} );
+	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true} );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	renderer.autoClear = false;
 	//renderer.setClearColor( 0x6534ff ); 
 
 	//image loader
-	var loader = new THREE.TextureLoader();
-	loader.load( '../../static/media/img/home/case/plants.jpg', function( texture ) {
-		backgroundMesh = new THREE.Mesh(
-			new THREE.PlaneGeometry(2, 2, 0),
-				new THREE.MeshBasicMaterial({
-				map: texture
-			})
-		);
+	// var loader = new THREE.TextureLoader();
+	// loader.load( '../../static/media/img/home/case/plants.jpg', function( texture ) {
+	// 	backgroundMesh = new THREE.Mesh(
+	// 		new THREE.PlaneGeometry(2, 2, 0),
+	// 			new THREE.MeshBasicMaterial({
+	// 			map: texture
+	// 		})
+	// 	);
 		
-		backgroundMesh.material.depthTest = false;
-		backgroundMesh.material.depthWrite = false;
+	// 	backgroundMesh.material.depthTest = false;
+	// 	backgroundMesh.material.depthWrite = false;
 	 
-		backgroundScene = new THREE.Scene();
-		backgroundCamera = new THREE.Camera();
-		backgroundScene.add( backgroundCamera );
-		backgroundScene.add( backgroundMesh );
-	});
+	// 	backgroundScene = new THREE.Scene();
+	// 	backgroundCamera = new THREE.Camera();
+	// 	backgroundScene.add( backgroundCamera );
+	// 	backgroundScene.add( backgroundMesh );
+	// });
 
 	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
 	camera.position.z = 700;
@@ -315,8 +315,8 @@ function animate() {
 
 	noisePos += guiParams.rippleSpeed/1000;
 	normalsHelper.update();
-	renderer.clear();
-	renderer.render( backgroundScene, backgroundCamera );
+	//renderer.clear();
+	//renderer.render( backgroundScene, backgroundCamera );
 	renderer.render( scene, camera );
 
 }

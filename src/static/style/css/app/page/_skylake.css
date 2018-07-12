@@ -3252,11 +3252,11 @@ svg:not(:root) {
 }
 
 #h-client-1 {
-  color: #ff5454;
+  color: #57599f;
 }
 
 #h-client-2 {
-  color: #40a171;
+  color: #e3e897;
 }
 
 #h-client-3 {
@@ -3298,7 +3298,7 @@ svg:not(:root) {
 
 #h-txt-title-wrap {
   position: absolute;
-  bottom: calc(12px + -4.1vw);
+  bottom: calc(12px + -3.1vw);
   left: 32.55vw;  
   width: 41.66vw;
   font-family: FuturaStd-ExtraBold;

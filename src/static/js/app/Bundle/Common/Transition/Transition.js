@@ -275,7 +275,8 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.headerUp = new S.Timeline()
         const isObj3 = S.Is.object(Transition.headerUp)
         
-        Transition.headerUp.from({el: '.header', p: {y: [0, -100]}, d: 1300, e: 'ExpoOut'})
+        // Transition.headerUp.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1500, e: 'ExpoOut'})
+        Transition.headerUp.from({el: '.header', p: {y: [0, -100]}, d: 1300, delay: 1000, e: 'ExpoOut'})
         Transition.headerUp.play({cb: Transition.titleInit})
 
 
@@ -350,7 +351,6 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         textInit.from({el: '#body-mid', p: {x: [-200, 0]}, d: 600, e: 'Power4InOut'})
         textInit.from({el: '#body-right', p: {x: [100, 0]}, d: 600, e: 'Power4InOut'})
 
-        //textInit.from({el: '#h-txt-desc-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2800, e: 'Power4InOut'})
         textInit.from({el: '#h-pagi-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2800, e: 'Power4InOut'})
         textInit.from({el: '#h-pagi-progress', p: {x: [-165, 0]}, d: 600, e: 'Power4InOut'})
 
@@ -369,17 +369,10 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         textInit.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
         console.log(Transition.arrPagiProgNo)
 
-        //textInit.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [0, 1]}, d: 1200, delay: 400, e: 'Power4InOut'})
-
-        // textInit.from({el: '#gloss-overlay', p: {x: [-100, 0]}, d: 1200, e: 'Power4InOut'})
-
         textInit.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, 1], y:[-60, 0]}, d: 1200, delay: 400, e: 'Power4InOut'})
 
-
-
-        // textInit.from({el: "#h-img-0-b", p: {opacity: [0, 1], x:[4, 0]}, d: 1200, delay: 150, e: 'Power4InOut'})
     
-        textInit.play({cb: setTimeout(Transition.enable_scroll, 3000)})
+        textInit.play({cb: setTimeout(Transition.enable_scroll, 3500)})
     
         };
     

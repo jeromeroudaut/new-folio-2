@@ -617,7 +617,7 @@ $grid-width: 114rem;
         /* background: #a5ded5; */
         /* background: #071113; */
         /* background: #0000c1; */
-        background: #000;
+        background: #fff;
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
         /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
@@ -1288,7 +1288,7 @@ $grid-width: 114rem;
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid rgba(1, 38, 70, 1);
+    border: 2px solid #fff;
     -webkit-transform: translate3d(0, 100%, 0);
             transform: translate3d(0, 100%, 0);
 
@@ -1300,7 +1300,7 @@ $grid-width: 114rem;
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: rgba(1, 38, 70, 1);
+    background: #fff;
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }
@@ -4832,11 +4832,11 @@ a:hover {
 }
   
   #h-client-1 {
-  color: #ff5454;
+  color: #57599f;
 }
   
   #h-client-2 {
-  color: #40a171;
+  color: #e3e897;
 }
   
   #h-client-3 {
@@ -4880,7 +4880,7 @@ a:hover {
   
   #h-txt-title-wrap {
   position: absolute;
-  bottom: calc(12px + -4.1vw);
+  bottom: calc(12px + -3.1vw);
   left: 32.55vw;  
   width: 41.66vw;
   font-family: FuturaStd-ExtraBold;
