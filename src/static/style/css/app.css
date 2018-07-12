@@ -5359,7 +5359,7 @@ a:hover {
   height: 100%;
   top: 0px;
   z-index: -1;
-  opacity: 1;
+  opacity: .9;
   -webkit-transform: translateX(-41.7%) rotate(-90deg);
           transform: translateX(-41.7%) rotate(-90deg);
 
@@ -5369,7 +5369,6 @@ a:hover {
   -webkit-transform: translate3d(-60%, 0, 0);
           transform: translate3d(-60%, 0, 0);
   opacity: 0; 
-  
   
 }
   
@@ -5430,7 +5429,7 @@ a:hover {
 }
   
   #h-img-3 {
-  /* background-image: linear-gradient(
+  /* background: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
@@ -5438,8 +5437,8 @@ a:hover {
         rgba(179, 74, 119, 0.8)),
         url(../../../../../static/media/img/home/case/img-3.jpg); */
   background-image: url('../../../../../static/media/img/home/case/img-3.jpg');
-  background-color: rgba(25, 25, 25, .5);  
-  background-blend-mode: multiply;
+  background-color: rgba(25, 25, 25, .5);
+  background-blend-mode: color;
   background-position: 75% 25%;
   opacity: 0;
 
