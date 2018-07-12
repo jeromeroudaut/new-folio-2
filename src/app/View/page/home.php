@@ -1,7 +1,7 @@
 
 <header class="header">
-                
                 <div id="glcanvas-wrap" ></div>
+
 
                 <article>
                     <div id="scroll-icon-wrap" class="oh">
@@ -15,8 +15,8 @@
                 </div> -->
 </header>
             
-            <div id="h" class="oh">
-            
+            <div id="h-content" class="oh">
+
                 <div id="h-line-l">
                     <div id="h-line-l-t-wrap" class="oh">
                         <div id="h-line-l-t" class="h-line"></div>
@@ -294,7 +294,7 @@
         <div id="body-mid-line"></div>
         <div id="body-mid"></div>
         <div id="body-right"></div>
-        
+
         <div class="h-resume" class="oh">
         <!-- <div class="bg-video"> -->
               <video class="h-resume__content" autoplay muted loop>
@@ -513,6 +513,7 @@
                 </div>
             </section>
         </div>
+
         <div id="h-xp-btn-wrap" class="oh"><a id="h-xp-btn" class="tbl oh" href="https://www.linkedin.com/in/jennyjohannesson"><span id="h-xp-btn-hover"></span> <span id="h-xp-btn-content">VIEW ON LINKEDIN</span> </a><span id="h-xp-btn-cover"></span></div>
         <section id="h-social" class="oh">
             <div id="h-social-title-wrap" class="oh">

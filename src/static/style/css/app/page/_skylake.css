@@ -30,13 +30,13 @@ html {
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
     url(../../../../../static/media/img/home/case/plants-bw.jpg); */
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       to right bottom,
       rgba(225, 236, 194, 1),
       rgba(225, 236, 194, .8),
       rgba(225, 236, 194, .6),
       rgba(225, 236, 194, 1)),
-  url(../../../../../static/media/img/home/case/plants-bw.jpg);
+  url(../../../../../static/media/img/home/case/plants-bw.jpg); */
   /* background-image: ; */
   /* background-color: #eeccee;   */
   /* background-color: #7fe5ed; */
@@ -3336,7 +3336,7 @@ svg:not(:root) {
   top: calc(13px + 2.9vw);
   left: 9vw;
   width: 76.66vw;
-  font-family: FuturaStdBold;
+  font-family: MarkPro-Black;
   text-transform: uppercase;
   line-height: 120%;
   letter-spacing: 7px;
@@ -3389,7 +3389,8 @@ svg:not(:root) {
   /* color: #a3adb9; */
   /* color: #e8e8e8; */
   /* color: #89898A; */
-  color: #242529;
+  /* color: #242529; */
+  color: #f4f8fd;
   font-size: calc(0.4rem + 0.718vw);
   font-family: georgia, serif;
   transform: translate3d(0, 100%, 0);
@@ -3423,7 +3424,7 @@ svg:not(:root) {
   left: 0;
   /* color: #a3adb9; */
   /* color: #89898A; */
-  color: #fff;
+  color: #f4f8fd;
   line-height: 115%;
   transform: translate3d(0, 100%, 0);
   
@@ -3656,9 +3657,10 @@ svg:not(:root) {
   left: 36%;
   width: 50%;
   height: 3.5px;
-  background: #f4f8fd;
+  background: rgba(244, 248, 253, .6);
   border-radius: 5px;
 }
+
 .progress{
   height: 3.5px;
   /* background: red; */

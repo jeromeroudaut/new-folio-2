@@ -12,9 +12,9 @@
 
 .loader-line {
   height: 5px;
-  /* background: -webkit-linear-gradient( 45deg, #0278d8, #ed0200, #ff096c, #ff1f44, #d50082 ); */
+  background: -webkit-linear-gradient( 45deg, rgba(255, 189, 143, 0.8), rgba(357, 100, 78, 0.8), rgba(235, 87, 113, 0.8), rgba(179, 74, 119, 0.8));
   /* background: url('../../../../../static/media/img/loader_bar.jpg'); */
-  background: #e1ecc2;
+  /* background: #e1ecc2; */
   transform: translate3d(-100%, 0, 0);
   /* transform: translate3d(0%, 0, 0); */
 }

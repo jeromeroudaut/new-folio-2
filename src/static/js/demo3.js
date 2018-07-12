@@ -68,7 +68,7 @@ function init() {
 
   const div = document.getElementById('glcanvas-wrap'); 
   canvas.id     = "glcanvas";
-  canvas.style.zIndex   = 3000;
+  canvas.style.zIndex   = -2;
   canvas.style.position = "absolute";
   //div.appendChild(canvas)
 
@@ -246,7 +246,8 @@ function drawText(){
 	//ctx.fillStyle = 'rgba(15, 17, 14, 1.0 )';
 	// ctx.fillStyle = 'rgba(1, 38, 70, 1.0 )';
 	// ctx.fillStyle = 'rgba(26, 26, 26, 1.0 )';
-	ctx.fillStyle = 'rgba(0, 0, 193, 1.0 )';
+	// ctx.fillStyle = 'rgba(0, 0, 193, 1.0 )';
+	ctx.fillStyle = 'rgba(90, 64, 126, 1.0 )';
 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
 	ctx.textBaseline = 'top';
 	ctx.fillStyle = 'rgba(255, 255, 255, 1.0 )'; //text color

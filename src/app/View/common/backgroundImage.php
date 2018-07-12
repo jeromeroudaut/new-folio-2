@@ -1,6 +1,7 @@
 
 <div class="h-back-wrap">
-                <div id="h-back-0" class="h-back-wrap-0"></div>
+
+                <!-- <div id="h-back-0" class="h-back-wrap-0"></div>
             
             </div>
             <div class="h-back-wrap">
@@ -14,7 +15,7 @@
             <div class="h-back-wrap">
                 <div id="h-back-3" class="h-back-wrap-3"></div>
                 
-            </div>
+            </div> -->
 </div>
 
 <div id="section-6">

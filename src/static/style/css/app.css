@@ -165,7 +165,7 @@ $grid-width: 114rem;
     height: 50vh;
     width: 100vw;
     /* background: #1a1c1e; */
-    background: #0f110e;
+    background: #1a1a1a;
     -webkit-transform: translate3d(0,0%,0);
             transform: translate3d(0,0%,0);
     opacity: 1;
@@ -179,7 +179,7 @@ $grid-width: 114rem;
     height: 50vh;
     width: 100vw;
     /* background: #1a1c1e; */
-    background: #0f110e;
+    background: #1a1a1a;
     -webkit-transform: translate3d(0,0%,0);
             transform: translate3d(0,0%,0);
     opacity: 1;
@@ -616,8 +616,8 @@ $grid-width: 114rem;
         height: 2.5px;
         /* background: #a5ded5; */
         /* background: #fff; */
-        background: #0000c1;
-        /* background: #fff; */
+        /* background: #0000c1; */
+        background: #1a1a1a;
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
         /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
@@ -915,9 +915,9 @@ $grid-width: 114rem;
   
   .loader-line {
   height: 5px;
-  /* background: -webkit-linear-gradient( 45deg, #0278d8, #ed0200, #ff096c, #ff1f44, #d50082 ); */
+  background: -webkit-linear-gradient( 45deg, rgba(255, 189, 143, 0.8), rgba(357, 100, 78, 0.8), rgba(235, 87, 113, 0.8), rgba(179, 74, 119, 0.8));
   /* background: url('../../../../../static/media/img/loader_bar.jpg'); */
-  background: #e1ecc2;
+  /* background: #e1ecc2; */
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
   /* transform: translate3d(0%, 0, 0); */
@@ -1337,21 +1337,13 @@ $grid-width: 114rem;
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
     url(../../../../../static/media/img/home/case/plants-bw.jpg); */
-  background-image: -webkit-gradient(
-      linear,
-      left top, right bottom,
-      from(rgba(225, 236, 194, 1)),
-      color-stop(rgba(225, 236, 194, .8)),
-      color-stop(rgba(225, 236, 194, .6)),
-      to(rgba(225, 236, 194, 1))),
-  url(../../../../../static/media/img/home/case/plants-bw.jpg);
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       to right bottom,
       rgba(225, 236, 194, 1),
       rgba(225, 236, 194, .8),
       rgba(225, 236, 194, .6),
       rgba(225, 236, 194, 1)),
-  url(../../../../../static/media/img/home/case/plants-bw.jpg);
+  url(../../../../../static/media/img/home/case/plants-bw.jpg); */
   /* background-image: ; */
   /* background-color: #eeccee;   */
   /* background-color: #7fe5ed; */
@@ -4919,7 +4911,7 @@ a:hover {
   top: calc(13px + 2.9vw);
   left: 9vw;
   width: 76.66vw;
-  font-family: FuturaStdBold;
+  font-family: MarkPro-Black;
   text-transform: uppercase;
   line-height: 120%;
   letter-spacing: 7px;
@@ -4969,7 +4961,8 @@ a:hover {
   /* color: #a3adb9; */
   /* color: #e8e8e8; */
   /* color: #89898A; */
-  color: #242529;
+  /* color: #242529; */
+  color: #f4f8fd;
   font-size: calc(0.4rem + 0.718vw);
   font-family: georgia, serif;
   -webkit-transform: translate3d(0, 100%, 0);
@@ -5005,7 +4998,7 @@ a:hover {
   left: 0;
   /* color: #a3adb9; */
   /* color: #89898A; */
-  color: #fff;
+  color: #f4f8fd;
   line-height: 115%;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
@@ -5260,7 +5253,7 @@ a:hover {
   left: 36%;
   width: 50%;
   height: 3.5px;
-  background: #f4f8fd;
+  background: rgba(244, 248, 253, .6);
   border-radius: 5px;
 }
   
