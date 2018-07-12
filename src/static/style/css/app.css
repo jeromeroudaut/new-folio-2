@@ -1325,11 +1325,21 @@ $grid-width: 114rem;
   position: relative;
   top: 0;
   left: 0;
-  /* box-shadow: 0 4px 2px -2px rgba(255,255,255,0.2); */
-  /* background-color: #292a2b; */
-  /* background-color: #1b1b1b; */
-  /* background-color: #bdcadb; */
-  /* background-color: #ff9094; */
+  background-image: -webkit-gradient(
+        linear,
+        left top, right bottom,
+        from(rgba(255, 189, 143, 0.8)),
+        color-stop(rgba(357, 100, 78, 0.8)),
+        color-stop(rgba(235, 87, 113, 0.8)),
+        to(rgba(25, 25, 25, 1))),
+    url(../../../../../static/media/img/home/case/plants-bw.jpg);
+  background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 189, 143, 0.8),
+        rgba(357, 100, 78, 0.8),
+        rgba(235, 87, 113, 0.8),
+        rgba(25, 25, 25, 1)),
+    url(../../../../../static/media/img/home/case/plants-bw.jpg);
   /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
@@ -4826,7 +4836,7 @@ a:hover {
   
   #h-client-0 {
   /* color: #9d25a0; */
-  color: #000;
+  color: #57de91;
 
 }
   
@@ -5372,7 +5382,7 @@ a:hover {
 .h-img-wrap-2,
 .h-img-wrap-3 {
   background-size: cover;
-  background-position: 75% 25%;
+  background-position: 50% 50%;
   height: 100vh;
   width: 100vw;
   
@@ -5387,8 +5397,9 @@ a:hover {
         rgba(179, 74, 119, 0.8)),
         url(../../../../../static/media/img/home/case/img-0.jpg); */
   background-image: url('../../../../../static/media/img/home/case/img-0.jpg');
-  background-color: #e1ecc2; 
+  background-color: rgba(25, 25, 25, .5); 
   background-blend-mode: multiply;
+  background-position: center bottom;
   opacity: 0;
 }
   
@@ -5401,7 +5412,7 @@ a:hover {
         rgba(179, 74, 119, 0.8)),
         url(../../../../../static/media/img/home/case/img-1.jpg); */
   background-image: url('../../../../../static/media/img/home/case/img-1.jpg');
-  background-color: #7EAC9D; 
+  background-color: rgba(25, 25, 25, .5); 
   background-blend-mode: multiply;
   opacity: 0;
 
@@ -5416,7 +5427,7 @@ a:hover {
         rgba(179, 74, 119, 0.8)),
         url(../../../../../static/media/img/home/case/img-2.jpg); */
   background-image: url('../../../../../static/media/img/home/case/img-2.jpg');
-  background-color: #5A8A8A; 
+  background-color: rgba(25, 25, 25, .5);  
   background-blend-mode: multiply;
   opacity: 0;
 
@@ -5431,8 +5442,9 @@ a:hover {
         rgba(179, 74, 119, 0.8)),
         url(../../../../../static/media/img/home/case/img-3.jpg); */
   background-image: url('../../../../../static/media/img/home/case/img-3.jpg');
-  background-color: #416873; 
+  background-color: rgba(25, 25, 25, .5);  
   background-blend-mode: multiply;
+  background-position: 75% 25%;
   opacity: 0;
 
 }
