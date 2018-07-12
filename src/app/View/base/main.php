@@ -56,6 +56,14 @@
             font-family: "FuturaStdBold";
             src: url("./static/media/sou/FuturaStdBold.otf");
         }
+        @font-face {
+            font-family: "MarkPro-Black";
+            src: url("./static/media/sou/MarkPro-Black.otf");
+        }
+        @font-face {
+            font-family: "CircularStd-Bold";
+            src: url("./static/media/sou/CircularStd-Bold.otf");
+        }
         </style>
         <!-- <link rel="preload" href="./static/style/css/app.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="path/to/mystylesheet.css"></noscript> -->

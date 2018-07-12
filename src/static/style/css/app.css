@@ -613,11 +613,11 @@ $grid-width: 114rem;
       .menu__icon::before,
       .menu__icon::after {
         width: 3rem;
-        height: 1px;
+        height: 2.5px;
         /* background: #a5ded5; */
-        /* background: #071113; */
-        /* background: #0000c1; */
-        background: #fff;
+        /* background: #fff; */
+        background: #0000c1;
+        /* background: #fff; */
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
         /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
@@ -1330,21 +1330,28 @@ $grid-width: 114rem;
   /* background-color: #1b1b1b; */
   /* background-color: #bdcadb; */
   /* background-color: #ff9094; */
-  background-image: -webkit-gradient(
-        linear,
-        left top, right bottom,
-        from(rgba(255, 189, 143, 0.8)),
-        color-stop(rgba(357, 100, 78, 0.8)),
-        color-stop(rgba(235, 87, 113, 0.8)),
-        to(rgba(179, 74, 119, 0.8))),
-    url(../../../../../static/media/img/home/case/plants-bw.jpg);
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-    url(../../../../../static/media/img/home/case/plants-bw.jpg);
+    url(../../../../../static/media/img/home/case/plants-bw.jpg); */
+  background-image: -webkit-gradient(
+      linear,
+      left top, right bottom,
+      from(rgba(225, 236, 194, 1)),
+      color-stop(rgba(225, 236, 194, .8)),
+      color-stop(rgba(225, 236, 194, .6)),
+      to(rgba(225, 236, 194, 1))),
+  url(../../../../../static/media/img/home/case/plants-bw.jpg);
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(225, 236, 194, 1),
+      rgba(225, 236, 194, .8),
+      rgba(225, 236, 194, .6),
+      rgba(225, 236, 194, 1)),
+  url(../../../../../static/media/img/home/case/plants-bw.jpg);
   /* background-image: ; */
   /* background-color: #eeccee;   */
   /* background-color: #7fe5ed; */
@@ -1371,7 +1378,7 @@ $grid-width: 114rem;
   -webkit-transform: translate3d(-200%, 0, 0);
           transform: translate3d(-200%, 0, 0);
   z-index: 0;
-  opacity: .6;
+  opacity: .3;
 }
   
   #body-right {
@@ -1385,7 +1392,7 @@ $grid-width: 114rem;
   -webkit-transform: translate3d(0 ,100%, 0);
           transform: translate3d(0 ,100%, 0);
   z-index: 0;
-  opacity: .6;
+  opacity: .3;
 }
   
   #body-mid-line {
@@ -4883,9 +4890,9 @@ a:hover {
   bottom: calc(12px + -3.1vw);
   left: 32.55vw;  
   width: 41.66vw;
-  font-family: FuturaStd-ExtraBold;
+  font-family: MarkPro-Black;
   text-transform: uppercase;
-  line-height: 120%;
+  line-height: 146%;
   letter-spacing: -1px;
   font-size: calc(1.1rem + 3.74vw);
   /* color: #e8e8e8; */
@@ -4962,8 +4969,9 @@ a:hover {
   /* color: #a3adb9; */
   /* color: #e8e8e8; */
   /* color: #89898A; */
-  color: #fff;
+  color: #242529;
   font-size: calc(0.4rem + 0.718vw);
+  font-family: georgia, serif;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
 
@@ -4987,6 +4995,7 @@ a:hover {
   position: relative;
   margin: 3px 0 0;
   width: 8.33vw;
+  font-family: georgia, serif;
   font-size: calc(0.4rem + 0.4vw);
 }
   
@@ -4997,7 +5006,7 @@ a:hover {
   /* color: #a3adb9; */
   /* color: #89898A; */
   color: #fff;
-  line-height: 150%;
+  line-height: 115%;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
   
@@ -5217,13 +5226,13 @@ a:hover {
   .h-pagi-prog-no-wrap {
   position: absolute;
   z-index: 0;
-  height: 75%;
+  height: 72%;
   width: 100%;
-  top: 15%;
+  top: 10%;
   left: 5%;
   /* text-align: center; */
-  font-family: trump-gothic-pro;
-  font-size: calc(1rem + 4.2vw);
+  font-family: MarkPro-Black;
+  font-size: calc(1rem + 3.2vw);
   /* color: white; */
 
 
@@ -5234,8 +5243,9 @@ a:hover {
   /* background-image: linear-gradient(to left top, #0f2027, #fff, #1f45a7); */
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
-  color: #a5ded5;
+  /* color: #a5ded5; */
   /* color: rgba(0, 0, 193, .6); */
+  color: #344258;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
 }
@@ -5250,7 +5260,7 @@ a:hover {
   left: 36%;
   width: 50%;
   height: 3.5px;
-  background: #636361;
+  background: #f4f8fd;
   border-radius: 5px;
 }
   
@@ -5260,7 +5270,7 @@ a:hover {
   /* background: #6534ff; */
   /* background: rgba(255, 255, 255, .6); */
   /* background: rgba(0, 0, 193, .6); */
-  background: #a5ded5;
+  background: #344258;
   /* background-image: linear-gradient(to right, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
   /* background-image: linear-gradient(to right top, #fff, #203a43); */
   width: 0;
@@ -5376,91 +5386,59 @@ a:hover {
 }
   
   #h-img-0 {
-  background-image: -webkit-gradient(
-        linear,
-        left top, right bottom,
-        from(rgba(255, 189, 143, 0.8)),
-        color-stop(rgba(357, 100, 78, 0.8)),
-        color-stop(rgba(235, 87, 113, 0.8)),
-        to(rgba(179, 74, 119, 0.8))),
-        url(../../../../../static/media/img/home/case/img-0.jpg);
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-        url(../../../../../static/media/img/home/case/img-0.jpg);
-  /* background-image: url('../../../../../static/media/img/home/case/img-0.jpg');
-  background-color: #eeccee; */
-  background-blend-mode: screen;
+        url(../../../../../static/media/img/home/case/img-0.jpg); */
+  background-image: url('../../../../../static/media/img/home/case/img-0.jpg');
+  background-color: #e1ecc2; 
+  background-blend-mode: multiply;
   opacity: 0;
 }
   
   #h-img-1 {
-  background-image: -webkit-gradient(
-        linear,
-        left top, right bottom,
-        from(rgba(255, 189, 143, 0.8)),
-        color-stop(rgba(357, 100, 78, 0.8)),
-        color-stop(rgba(235, 87, 113, 0.8)),
-        to(rgba(179, 74, 119, 0.8))),
-        url(../../../../../static/media/img/home/case/img-1.jpg);
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-        url(../../../../../static/media/img/home/case/img-1.jpg);
-  /* background-image: url('../../../../../static/media/img/home/case/img-1.jpg');
-  background-color: #c2dde5; */
+        url(../../../../../static/media/img/home/case/img-1.jpg); */
+  background-image: url('../../../../../static/media/img/home/case/img-1.jpg');
+  background-color: #7EAC9D; 
   background-blend-mode: multiply;
   opacity: 0;
 
 }
   
   #h-img-2 {
-  background-image: -webkit-gradient(
-        linear,
-        left top, right bottom,
-        from(rgba(255, 189, 143, 0.8)),
-        color-stop(rgba(357, 100, 78, 0.8)),
-        color-stop(rgba(235, 87, 113, 0.8)),
-        to(rgba(179, 74, 119, 0.8))),
-        url(../../../../../static/media/img/home/case/img-2.jpg);
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-        url(../../../../../static/media/img/home/case/img-2.jpg);
-  /* background-image: url('../../../../../static/media/img/home/case/img-2.jpg');
-  background-color: #e3e897; */
+        url(../../../../../static/media/img/home/case/img-2.jpg); */
+  background-image: url('../../../../../static/media/img/home/case/img-2.jpg');
+  background-color: #5A8A8A; 
   background-blend-mode: multiply;
   opacity: 0;
 
 }
   
   #h-img-3 {
-  background-image: -webkit-gradient(
-        linear,
-        left top, right bottom,
-        from(rgba(255, 189, 143, 0.8)),
-        color-stop(rgba(357, 100, 78, 0.8)),
-        color-stop(rgba(235, 87, 113, 0.8)),
-        to(rgba(179, 74, 119, 0.8))),
-        url(../../../../../static/media/img/home/case/img-3.jpg);
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-        url(../../../../../static/media/img/home/case/img-3.jpg);
-  /* background-image: url('../../../../../static/media/img/home/case/img-3.jpg');
-  background-color: #7bc6dc; */
+        url(../../../../../static/media/img/home/case/img-3.jpg); */
+  background-image: url('../../../../../static/media/img/home/case/img-3.jpg');
+  background-color: #416873; 
   background-blend-mode: multiply;
   opacity: 0;
 

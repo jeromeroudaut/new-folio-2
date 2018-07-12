@@ -90,11 +90,11 @@
       &::before,
       &::after {
         width: 3rem;
-        height: 1px;
+        height: 2.5px;
         /* background: #a5ded5; */
-        /* background: #071113; */
-        /* background: #0000c1; */
-        background: #fff;
+        /* background: #fff; */
+        background: #0000c1;
+        /* background: #fff; */
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
         /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;

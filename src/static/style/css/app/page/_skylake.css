@@ -23,13 +23,20 @@ html {
   /* background-color: #1b1b1b; */
   /* background-color: #bdcadb; */
   /* background-color: #ff9094; */
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-    url(../../../../../static/media/img/home/case/plants-bw.jpg);
+    url(../../../../../static/media/img/home/case/plants-bw.jpg); */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(225, 236, 194, 1),
+      rgba(225, 236, 194, .8),
+      rgba(225, 236, 194, .6),
+      rgba(225, 236, 194, 1)),
+  url(../../../../../static/media/img/home/case/plants-bw.jpg);
   /* background-image: ; */
   /* background-color: #eeccee;   */
   /* background-color: #7fe5ed; */
@@ -55,7 +62,7 @@ html {
   background: #f0d9f0;
   transform: translate3d(-200%, 0, 0);
   z-index: 0;
-  opacity: .6;
+  opacity: .3;
 }
 
 #body-right {
@@ -68,7 +75,7 @@ html {
   background: #f0d9f0;
   transform: translate3d(0 ,100%, 0);
   z-index: 0;
-  opacity: .6;
+  opacity: .3;
 }
 
 #body-mid-line {
@@ -3301,9 +3308,9 @@ svg:not(:root) {
   bottom: calc(12px + -3.1vw);
   left: 32.55vw;  
   width: 41.66vw;
-  font-family: FuturaStd-ExtraBold;
+  font-family: MarkPro-Black;
   text-transform: uppercase;
-  line-height: 120%;
+  line-height: 146%;
   letter-spacing: -1px;
   font-size: calc(1.1rem + 3.74vw);
   /* color: #e8e8e8; */
@@ -3382,8 +3389,9 @@ svg:not(:root) {
   /* color: #a3adb9; */
   /* color: #e8e8e8; */
   /* color: #89898A; */
-  color: #fff;
+  color: #242529;
   font-size: calc(0.4rem + 0.718vw);
+  font-family: georgia, serif;
   transform: translate3d(0, 100%, 0);
 
   -webkit-backface-visibility: hidden;
@@ -3405,6 +3413,7 @@ svg:not(:root) {
   position: relative;
   margin: 3px 0 0;
   width: 8.33vw;
+  font-family: georgia, serif;
   font-size: calc(0.4rem + 0.4vw);
 }
 
@@ -3415,7 +3424,7 @@ svg:not(:root) {
   /* color: #a3adb9; */
   /* color: #89898A; */
   color: #fff;
-  line-height: 150%;
+  line-height: 115%;
   transform: translate3d(0, 100%, 0);
   
   -webkit-backface-visibility: hidden;
@@ -3614,13 +3623,13 @@ svg:not(:root) {
 .h-pagi-prog-no-wrap {
   position: absolute;
   z-index: 0;
-  height: 75%;
+  height: 72%;
   width: 100%;
-  top: 15%;
+  top: 10%;
   left: 5%;
   /* text-align: center; */
-  font-family: trump-gothic-pro;
-  font-size: calc(1rem + 4.2vw);
+  font-family: MarkPro-Black;
+  font-size: calc(1rem + 3.2vw);
   /* color: white; */
 
 
@@ -3631,8 +3640,9 @@ svg:not(:root) {
   /* background-image: linear-gradient(to left top, #0f2027, #fff, #1f45a7); */
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
-  color: #a5ded5;
+  /* color: #a5ded5; */
   /* color: rgba(0, 0, 193, .6); */
+  color: #344258;
   transform: translate3d(0, 100%, 0);
 }
 
@@ -3646,7 +3656,7 @@ svg:not(:root) {
   left: 36%;
   width: 50%;
   height: 3.5px;
-  background: #636361;
+  background: #f4f8fd;
   border-radius: 5px;
 }
 .progress{
@@ -3655,7 +3665,7 @@ svg:not(:root) {
   /* background: #6534ff; */
   /* background: rgba(255, 255, 255, .6); */
   /* background: rgba(0, 0, 193, .6); */
-  background: #a5ded5;
+  background: #344258;
   /* background-image: linear-gradient(to right, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
   /* background-image: linear-gradient(to right top, #fff, #203a43); */
   width: 0;
@@ -3770,59 +3780,59 @@ svg:not(:root) {
 
 
 #h-img-0 {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-        url(../../../../../static/media/img/home/case/img-0.jpg);
-  /* background-image: url('../../../../../static/media/img/home/case/img-0.jpg');
-  background-color: #eeccee; */
-  background-blend-mode: screen;
+        url(../../../../../static/media/img/home/case/img-0.jpg); */
+  background-image: url('../../../../../static/media/img/home/case/img-0.jpg');
+  background-color: #e1ecc2; 
+  background-blend-mode: multiply;
   opacity: 0;
 }
 
 #h-img-1 {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-        url(../../../../../static/media/img/home/case/img-1.jpg);
-  /* background-image: url('../../../../../static/media/img/home/case/img-1.jpg');
-  background-color: #c2dde5; */
+        url(../../../../../static/media/img/home/case/img-1.jpg); */
+  background-image: url('../../../../../static/media/img/home/case/img-1.jpg');
+  background-color: #7EAC9D; 
   background-blend-mode: multiply;
   opacity: 0;
 
 }
 
 #h-img-2 {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-        url(../../../../../static/media/img/home/case/img-2.jpg);
-  /* background-image: url('../../../../../static/media/img/home/case/img-2.jpg');
-  background-color: #e3e897; */
+        url(../../../../../static/media/img/home/case/img-2.jpg); */
+  background-image: url('../../../../../static/media/img/home/case/img-2.jpg');
+  background-color: #5A8A8A; 
   background-blend-mode: multiply;
   opacity: 0;
 
 }
 
 #h-img-3 {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(255, 189, 143, 0.8),
         rgba(357, 100, 78, 0.8),
         rgba(235, 87, 113, 0.8),
         rgba(179, 74, 119, 0.8)),
-        url(../../../../../static/media/img/home/case/img-3.jpg);
-  /* background-image: url('../../../../../static/media/img/home/case/img-3.jpg');
-  background-color: #7bc6dc; */
+        url(../../../../../static/media/img/home/case/img-3.jpg); */
+  background-image: url('../../../../../static/media/img/home/case/img-3.jpg');
+  background-color: #416873; 
   background-blend-mode: multiply;
   opacity: 0;
 
