@@ -90,7 +90,7 @@
       &::before,
       &::after {
         width: 3rem;
-        height: 2.5px;
+        height: 1px;
         /* background: #a5ded5; */
         /* background: #fff; */
         /* background: #0000c1; */

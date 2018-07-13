@@ -77,7 +77,6 @@
         <div id="xhr">
             <?= $this->content; ?>
         </div>
-        <?php include ROOT . 'app/View/common/backgroundImage.php'; ?>
         </div>
         <?php include ROOT . 'app/View/common/loader.php'; ?>
         <?php include ROOT . 'app/View/common/svg.php'; ?>
