@@ -295,21 +295,18 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.headerDown.from({el: Transition.arrBotTitle[1], p: {y: [0, 100]}, d: 300, e: 'Power4InOut'})
         Transition.headerDown.from({el: Transition.arrBotTitle[2], p: {y: [0, 100]}, d: 300, e: 'Power4InOut'})
         
-
-        Transition.headerDown.from({el: '#body-mid-line', p: {y: [0, -100], opacity: [1, 0]}, d: 600, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '#body-mid', p: {x: [0, -200]}, d: 600, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '#body-right', p: {x: [0, 100]}, d: 600, e: 'Power4InOut'})
-        
         Transition.pagiReset()
 
         Transition.headerDown.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
 
         Transition.headerDown.from({el: '#h-pagi-progress', p: {x: [0, -165]}, d: 600, e: 'Power4InOut'})
-        
-        Transition.headerDown.from({el: '#gloss-overlay', p: {x: [0, -100]}, d: 300, e: 'Power4InOut'})
 
-        Transition.headerDown.from({el: '.header', p: {y: [-100, 0]}, d: 800, e: 'Power4InOut', delay: 2000})
-        Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 2000})
+        Transition.headerDown.from({el: '#body-mid-line', p: {y: [0, -100], opacity: [1, 0]}, d: 600, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '#body-mid', p: {x: [0, -200]}, d: 600, delay: 800, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '#body-right', p: {x: [0, 100]}, d: 600, e: 'Power4InOut'})
+
+        Transition.headerDown.from({el: '.header', p: {y: [-100, 0]}, d: 800, e: 'Power4InOut', delay: 1500})
+        Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 1500})
         // Transition.headerDown.from({el: '#h-pagi-line', p: {x: [0, -100]}})
 
         Transition.headerDown.play()
@@ -806,11 +803,9 @@ Transition.recognitionDown = function() {
     
             Transition.textOutIn.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}, d: 1200, e: 'Power4InOut'})
 
-        } else if (Transition.currentStep === -1) {
-
-            Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'}) 
-
-
+        } else if (Transition.currentStep <=  0) {
+            Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {y: [0, 100]}, d: 1200, delay: 300, e: 'Power4InOut'})
+            
         } else {
 
             Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 100]}, d: 1200, e: 'Power4InOut'}) 
