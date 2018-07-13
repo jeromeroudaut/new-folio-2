@@ -74,7 +74,7 @@ function init() {
 
 
 	//three init
-	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true} );
+	renderer = new THREE.WebGLRenderer({ antialias: true} );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	renderer.autoClear = false;
@@ -91,13 +91,14 @@ function init() {
 
 	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/back3.png');
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
-	texture.minFilter = THREE.LinearFilter;
+	//texture.minFilter = THREE.LinearFilter;
+	texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
 
 
 	material = new THREE.MeshPhongMaterial( {
-		color: 0x928d97, //change to brighten scene
-		specular: 0x928d97,
+		color: 0xffffff, //change to brighten scene
+		specular: 0xffffff,
 		shininess: 80,
 		map: texture,
 		specularMap: texture, //only shine on white text
@@ -113,18 +114,18 @@ function init() {
 	perturbVerts();
 
 	//normals helper
-	normalsHelper = new THREE.FaceNormalsHelper( plane, 10, 0x00ff00, 1 );
+	normalsHelper = new THREE.FaceNormalsHelper( plane, 10, 0xffffff, 1 );
 	scene.add( normalsHelper );
 	normalsHelper.visible = false;
 
 	//lights
-	scene.add( new THREE.AmbientLight( 0x1a1a1a ) );
+	scene.add( new THREE.AmbientLight( 0xffffff ) );
 
-	var light = new THREE.SpotLight( 0x333333, .5);
+	var light = new THREE.SpotLight( 0x1a1a1a, .5);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0xffffff, .5 );
+	var directionalLight = new THREE.DirectionalLight( 0x1a1a1a, .5 );
 	directionalLight.position.set( 100, 0, 50 );
 	scene.add( directionalLight );
 

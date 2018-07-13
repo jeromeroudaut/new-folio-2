@@ -36,9 +36,9 @@
   }
   
   .tagline {
-    color: #fff;
+    /* color: #fff; */
     text-align: center;
-    font-family: "GinesoBold", sans-serif;
+    font-family: "MarkPro", sans-serif;
     text-transform: uppercase;
     //padding-top: 10em;
     //padding-bottom: 11em;
@@ -66,8 +66,11 @@
     font-size: 9em;
     line-height: 1em;
     font-weight: 100;
-    letter-spacing: 2rem;
+    letter-spacing: 3rem;
     font-family: "GinesoBold", sans-serif;
+    color: transparent;
+    -webkit-text-stroke-color: #f4f8fd;
+    -webkit-text-stroke-width: 2px;
     text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
   
     @include respond(phone) {
