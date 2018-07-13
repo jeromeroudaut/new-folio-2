@@ -359,7 +359,7 @@
     width: 100%;
     min-height: 100vh;
     /* background-color: transparent; */
-    z-index: 110;
+    z-index: 5000;
     pointer-events: none;
   }
   .wrapper {

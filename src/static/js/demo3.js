@@ -108,7 +108,7 @@ function init() {
 	// texture = new THREE.Texture(canvas);
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
-	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants.jpg');
+	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/back3.png');
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 	texture.minFilter = THREE.LinearFilter;
 
@@ -137,9 +137,9 @@ function init() {
 	normalsHelper.visible = false;
 
 	//lights
-	scene.add( new THREE.AmbientLight( 0x333333 ) );
+	scene.add( new THREE.AmbientLight( 0x000000 ) );
 
-	var light = new THREE.SpotLight( 0xffffff, 0.4);
+	var light = new THREE.SpotLight( 0x000000, 0.4);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
@@ -320,7 +320,7 @@ function animate() {
 	// stats.update();
 	// controls.update();
 
-	noisePos += guiParams.rippleSpeed/10000;
+	noisePos += guiParams.rippleSpeed/5000;
 	normalsHelper.update();
 	//renderer.clear();
 	//renderer.render( backgroundScene, backgroundCamera );

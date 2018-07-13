@@ -1,6 +1,6 @@
 
 <header class="header">
-                <div id="glcanvas-wrap" ></div>
+
 
 
                 <article>
@@ -10,13 +10,14 @@
                         </div>
                     </div>
                 </article>
+
+
                 <!-- <div id="h">
                     <a id="h-link" href="/about">ABOUT</a>
                 </div> -->
 </header>
             
             <div id="h-content" class="oh">
-
                 <div id="h-line-l">
                     <div id="h-line-l-t-wrap" class="oh">
                         <div id="h-line-l-t" class="h-line"></div>
@@ -304,7 +305,7 @@
               </video>
         <!-- </div> -->
         <div class="page-content">
-                    <div class='header-container'>
+                    <!-- <div class='header-container'>
                         <header class='header-icons'>
                             <div class="devicons-list-container">
                                 <div class="devicons-list">
@@ -361,8 +362,8 @@
                             </div>
                             
                         </header>
-                    </div>
-                </div>
+                    </div> -->
+        </div>
             <section id="h-reco">
                 <div class="oh">
                     <h2 id="h-reco-title">Recognition</h2>
@@ -512,6 +513,8 @@
                     </div>
                 </div>
             </section>
+            <div id="glcanvas-wrap" ></div>
+
         </div>
 
         <div id="h-xp-btn-wrap" class="oh"><a id="h-xp-btn" class="tbl oh" href="https://www.linkedin.com/in/jennyjohannesson"><span id="h-xp-btn-hover"></span> <span id="h-xp-btn-content">VIEW ON LINKEDIN</span> </a><span id="h-xp-btn-cover"></span></div>
