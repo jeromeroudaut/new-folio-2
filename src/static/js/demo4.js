@@ -66,8 +66,8 @@ function init() {
   canvas.height = CANVAS_H;
   ctx = canvas.getContext('2d');
 
-  const div = document.getElementById('glcanvas-wrap'); 
-  canvas.id     = "glcanvas";
+  const div = document.getElementById('hcanvas-wrap'); 
+  canvas.id     = "hcanvas";
   canvas.style.zIndex   = -2;
   canvas.style.position = "absolute";
   //div.appendChild(canvas)
@@ -89,7 +89,7 @@ function init() {
 	// texture = new THREE.Texture(canvas);
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
-	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/back3.png');
+	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants.jpg');
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 	texture.minFilter = THREE.LinearFilter;
 
@@ -118,13 +118,13 @@ function init() {
 	normalsHelper.visible = false;
 
 	//lights
-	scene.add( new THREE.AmbientLight( 0x1a1a1a ) );
+	scene.add( new THREE.AmbientLight( 0x000000 ) );
 
-	var light = new THREE.SpotLight( 0x333333, .5);
+	var light = new THREE.SpotLight( 0x000000, 0.4);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0xffffff, .5 );
+	var directionalLight = new THREE.DirectionalLight( 0xdddddd, 1 );
 	directionalLight.position.set( 100, 0, 50 );
 	scene.add( directionalLight );
 
@@ -156,31 +156,7 @@ function init() {
 	setInterval(drawText,1000);
 
 	animate();
-
-	// document.addEventListener('mousemove', onMouseMove, false);
-
 }
-// const mouse = { x: 0, y: 0, nX: 0, nY: 0 }
-// const Window = { w: window.innerWidth, h: window.innerHeight }
-
-// function onMouseMove ( event ) {
-// 	event.preventDefault()
-// 	mouseX = event.clientX - window.innerWidth / 2;
-// 	mouseY = event.clientY - window.innerHeight / 2;
-//     mouseX  = event.clientX || mouseX 
-//     mouseY = event.clientY || mouseY
-//     mouse.nX = ( mouseX  / Window.w ) * 2 - 1
-//     mouse.nY = ( mouseY / Window.h ) * 2 + 1
-// }
-
-// function onMouseMove(event) {
-//     mouseX = event.clientX - window.innerWidth / 2;
-//     mouseY = event.clientY - window.innerHeight / 2;
-//     camera.position.x += (mouseX - camera.position.x) * 0.005;
-// 	camera.position.y += (mouseY - camera.position.y) * 0.005;
-//     //set up camera position
-//     camera.lookAt(scene.position);
-// };
 
 function perturbVerts(){
 

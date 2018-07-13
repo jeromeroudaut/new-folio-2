@@ -1,6 +1,8 @@
 
 <header class="header">
 
+                <!-- <div id="hcanvas-wrap" ></div> -->
+
 
 
                 <article>

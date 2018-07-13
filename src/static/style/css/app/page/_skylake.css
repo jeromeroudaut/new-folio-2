@@ -3321,8 +3321,10 @@ svg:not(:root) {
   /* color: #1e1e20; */
   /* color: #222222; */
   /* color: #000; */
-  color: #1a1a1a;
-  
+  /* color: #1a1a1a; */
+  color: transparent;
+  -webkit-text-stroke-color: #f4f8fd;
+  -webkit-text-stroke-width: 2px;
 }
 
 .h-txt-title {

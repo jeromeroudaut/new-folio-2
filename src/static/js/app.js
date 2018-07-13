@@ -10903,7 +10903,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         textInit.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
         console.log(Transition.arrPagiProgNo);
 
-        textInit.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, 1], y: [-60, 0] }, d: 1200, delay: 400, e: 'Power4InOut' });
+        textInit.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, .5], y: [-60, 0] }, d: 1200, delay: 400, e: 'Power4InOut' });
 
         textInit.play({ cb: setTimeout(Transition.enable_scroll, 3500) });
     };
@@ -11192,7 +11192,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         }
 
         if (Transition.currentStep < 4) {
-            Transition.textInOut.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [1, 0], y: [0, -60] }, d: 1200, e: 'Power4InOut' });
+            Transition.textInOut.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [.5, 0], y: [0, -60] }, d: 1200, e: 'Power4InOut' });
         }
 
         // if (Transition.currentStep < 7) {
@@ -11235,7 +11235,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
                 }
 
                 if (Transition.currentStep < 4) {
-                    Transition.textIn2.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, 1], y: [-60, 0] }, d: 1200, e: 'Power4InOut' });
+                    Transition.textIn2.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, .5], y: [-60, 0] }, d: 1200, e: 'Power4InOut' });
                 }
 
                 // if (Transition.currentStep < 7) {
@@ -11294,7 +11294,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         }
 
         if (Transition.currentStep < 4) {
-            Transition.textOutIn.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [1, 0], y: [0, -60] }, d: 1200, e: 'Power4InOut' });
+            Transition.textOutIn.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [.5, 0], y: [0, -60] }, d: 1200, e: 'Power4InOut' });
         }
 
         // if (Transition.currentStep < 7 && Transition.currentStep < -1) {
@@ -11342,7 +11342,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
                 }
 
                 if (Transition.currentStep < 4 && Transition.currentStep > -1) {
-                    Transition.textOut2.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, 1], y: [-60, 0] }, d: 1200, e: 'Power4InOut' });
+                    Transition.textOut2.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, .5], y: [-60, 0] }, d: 1200, e: 'Power4InOut' });
                 }
 
                 // if (Transition.currentStep < 7 && Transition.currentStep > -1) {

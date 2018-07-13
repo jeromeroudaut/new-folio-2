@@ -64,7 +64,7 @@ a {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-image: url('../../../../../static/media/img/home/case/plants.jpg');
+  /* background-image: url('../../../../../static/media/img/home/case/plants.jpg'); */
   /* background-color: #eeccee;   */
   /* background-color: #7fe5ed; */
   /* background-color: #2c2c2c; */
@@ -76,6 +76,15 @@ a {
   /* background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  Chrome 10-25, Safari 5.1-6 */
   /* background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
+
+#hcanvas-wrap {
+  /* position: fixed; */
+  /* position: absolute 0;  */
+  /* text-rendering: optimizeLegibility; */
+  transform: translate3d(0%, 0, 0);
+  /* /* width: 100vw; */
+  height: 100vh;
 }
 
 #glcanvas-wrap {
