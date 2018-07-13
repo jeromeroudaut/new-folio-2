@@ -64,6 +64,10 @@
             font-family: "MarkPro";
             src: url("./static/media/sou/MarkPro.otf");
         }
+        @font-face {
+            font-family: "AirCorpsJNL";
+            src: url("./static/media/sou/AirCorpsJNL.otf");
+        }
         </style>
         <!-- <link rel="preload" href="./static/style/css/app.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="path/to/mystylesheet.css"></noscript> -->

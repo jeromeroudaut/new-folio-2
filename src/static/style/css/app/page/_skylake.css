@@ -68,7 +68,7 @@ html {
   /* border-right: 1px solid gray; */
   background: #fff8fd;
   transform: translate3d(-200%, 0, 0);
-  opacity: .05;
+  opacity: .2;
 }
 
 #body-right {
@@ -80,7 +80,7 @@ html {
   width: 33.33333vw;
   background: #fff8fd;
   transform: translate3d(0 ,100%, 0);
-  opacity: .05;
+  opacity: .2;
 }
 
 #body-mid-line {

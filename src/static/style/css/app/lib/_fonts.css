@@ -38,7 +38,7 @@
   .tagline {
     /* color: #fff; */
     text-align: center;
-    font-family: "MarkPro", sans-serif;
+    font-family: "AirCorpsJNL", sans-serif;
     text-transform: uppercase;
     //padding-top: 10em;
     //padding-bottom: 11em;
@@ -46,9 +46,9 @@
   }
   
   .main-headline-r1 {
-    color: #f95759;
+    color: #1a1a1a;
     border-bottom: 3px dotted rgba(255, 255, 255, 0.3);
-    font-size: 3.2em;
+    font-size: 5.2em;
     font-weight: 800;
     line-height: 1.6em;
     letter-spacing: 0.5em;
@@ -63,11 +63,11 @@
   
   .main-headline-r2 {
     margin: 0;
-    font-size: 9em;
+    font-size: 15em;
     line-height: 1em;
     font-weight: 100;
     letter-spacing: 3rem;
-    font-family: "GinesoBold", sans-serif;
+    font-family: "AirCorpsJNL", sans-serif;
     color: transparent;
     -webkit-text-stroke-color: #f4f8fd;
     -webkit-text-stroke-width: 2px;
