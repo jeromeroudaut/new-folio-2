@@ -80,7 +80,7 @@ function init() {
 	renderer.autoClear = false;
 	//renderer.setClearColor( 0x6534ff ); 
 
-	//image loader
+	// image loader
 	// var loader = new THREE.TextureLoader();
 	// loader.load( '../../static/media/img/home/case/plants.jpg', function( texture ) {
 	// 	backgroundMesh = new THREE.Mesh(
@@ -105,7 +105,10 @@ function init() {
 	scene = new THREE.Scene();
 	//scene.background = new THREE.Color( 0x26222e );
 
-	texture = new THREE.Texture(canvas);
+	// texture = new THREE.Texture(canvas);
+	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
+
+	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants.jpg');
 	texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
 
