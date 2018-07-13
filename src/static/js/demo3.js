@@ -109,7 +109,9 @@ function init() {
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
 	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants.jpg');
-	texture.minFilter = texture.magFilter = THREE.LinearFilter;
+	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
+	texture.minFilter = THREE.LinearFilter;
+
 
 
 	material = new THREE.MeshPhongMaterial( {
@@ -232,25 +234,25 @@ function drawText(){
 	//wipe
   	//ctx.fillStyle =  'rgba(0, 0, 0, 1)';
 	//ctx.fillStyle =  'rgba(72, 72, 72, 1)';
-	//var lingrad = ctx.createLinearGradient(0, 0, 0, 750);
-	// lingrad.addColorStop(0, '#ff3000');
-	// lingrad.addColorStop(0.25, '#ed0200');
-	// lingrad.addColorStop(0.50, '#ff096c');
-	// lingrad.addColorStop(0.75, '#ff1f44');
-	// lingrad.addColorStop(1, '#d50082');
+	var lingrad = ctx.createLinearGradient(0, 0, 0, 750);
+	lingrad.addColorStop(0, '#ff3000');
+	lingrad.addColorStop(0.25, '#ed0200');
+	lingrad.addColorStop(0.50, '#ff096c');
+	lingrad.addColorStop(0.75, '#ff1f44');
+	lingrad.addColorStop(1, '#d50082');
 	// lingrad.addColorStop(0, '#000851');  
 	// lingrad.addColorStop(0.25, '#0000c1');
 	// lingrad.addColorStop(0.50, '#0000c1');
 	// lingrad.addColorStop(0.75, '#0000c1');
 	// lingrad.addColorStop(1, '#0000c1');
-	// ctx.fillStyle = lingrad;
+	ctx.fillStyle = lingrad;
 	//ctx.fillStyle = 'rgba(101, 52, 255, 1.0 )';
 	//ctx.fillStyle = 'rgba(32, 32, 32, 1.0 )';
 	//ctx.fillStyle = 'rgba(15, 17, 14, 1.0 )';
 	// ctx.fillStyle = 'rgba(1, 38, 70, 1.0 )';
 	// ctx.fillStyle = 'rgba(26, 26, 26, 1.0 )';
 	// ctx.fillStyle = 'rgba(0, 0, 193, 1.0 )';
-	ctx.fillStyle = 'rgba(25, 25, 25, 1.0 )';
+	//ctx.fillStyle = 'rgba(25, 25, 25, 1.0 )';
 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
 	ctx.textBaseline = 'top';
 	ctx.fillStyle = 'rgba(255, 255, 255, 1.0 )'; //text color
@@ -309,16 +311,16 @@ function animate() {
 	displayTime += 0.01;
 
 	//tilt plane
-	plane.rotation.x = Math.cos(displayTime/2) * 0.4 * guiParams.tiltAmount;
-	plane.rotation.y  = Math.sin(displayTime/2) * 0.2 * guiParams.tiltAmount;
-	plane.rotation.z  = Math.sin(displayTime/2 + 0.6) * 0.15 * guiParams.tiltAmount;
+	// plane.rotation.x = Math.cos(displayTime/2) * 0.4 * guiParams.tiltAmount;
+	// plane.rotation.y  = Math.sin(displayTime/2) * 0.2 * guiParams.tiltAmount;
+	// plane.rotation.z  = Math.sin(displayTime/2 + 0.6) * 0.15 * guiParams.tiltAmount;
 
 	perturbVerts();
 
-	stats.update();
-	controls.update();
+	// stats.update();
+	// controls.update();
 
-	noisePos += guiParams.rippleSpeed/1000;
+	noisePos += guiParams.rippleSpeed/10000;
 	normalsHelper.update();
 	//renderer.clear();
 	//renderer.render( backgroundScene, backgroundCamera );
