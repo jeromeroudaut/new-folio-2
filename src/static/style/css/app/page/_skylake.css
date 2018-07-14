@@ -40,9 +40,9 @@ html {
   height: 100vh;
   width: 33.33333vw;
   /* border-right: 1px solid gray; */
-  background: linear-gradient(to bottom,rgba(54, 60, 68, 1),rgba(98, 98, 98, 1));
+  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(98, 98, 98, 1));
   transform: translate3d(-200%, 0, 0);
-  opacity: .9;
+  opacity: .8;
 }
 
 #body-right {
@@ -52,9 +52,9 @@ html {
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: linear-gradient(to bottom,rgba(54, 60, 68, 1),rgba(98, 98, 98, 1));
+  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(98, 98, 98, 1));
   transform: translate3d(0 ,100%, 0);
-  opacity: .9;
+  opacity: .8;
 }
 
 #body-mid-line {
@@ -3293,7 +3293,7 @@ svg:not(:root) {
   font-size: calc(1.1rem + 3.74vw);
   color: transparent;
   -webkit-text-stroke-color: #e1ecc1;
-  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-width: 2px;
 }
 
 .h-txt-title {
@@ -3357,7 +3357,7 @@ svg:not(:root) {
 .h-txt-desc-txt {
   /* position: absolute; */
   line-height: 180%;
-  color: #fff;
+  color: #f4f8fd;
   font-size: calc(0.4rem + 0.718vw);
   font-family: Georgia, serif;
   transform: translate3d(0, 100%, 0);
@@ -3368,7 +3368,7 @@ svg:not(:root) {
 
 .h-bottom-title {
   font-family: trump-gothic-pro;
-  color: #fff;
+  color: #f4f8fd;
   letter-spacing: 1.6px;
   font-size: calc(0.4rem + 0.5vw);
   transform: translate3d(0, 100%, 0);
@@ -3386,7 +3386,7 @@ svg:not(:root) {
   position: absolute;
   top: 0;
   left: 0;
-  color: #fff;
+  color: #f4f8fd;
   line-height: 122%;
   transform: translate3d(0, 100%, 0);
   

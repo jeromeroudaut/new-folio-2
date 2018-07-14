@@ -860,18 +860,9 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   opacity: 0;
   /* background: transparent; */
   /* background: #363c44; */
-  /* background: linear-gradient(to right bottom,rgba(54, 60, 68, 0.7),rgba(98, 98, 98, 0.7)); */
-  background-image: -webkit-gradient(
-        linear,
-        left top, right bottom,
-        from(rgba(70, 69, 69, 1)),
-        color-stop(rgba(187, 254, 240, 0.85)),
-        color-stop(rgba(144, 165, 186, 1)),
-        color-stop(rgba(199, 246, 194, 1)),
-        color-stop(rgba(144, 165, 186, 1)),
-        to(rgba(70, 69, 69, 1))),
-    url(../../../../../static/media/img/home/case/plants-jn.jpg);
-  background-image: linear-gradient(
+  background: -webkit-gradient(linear,left top, right bottom,from(rgba(54, 60, 68, 0.7)),to(rgba(98, 98, 98, 0.7)));
+  background: linear-gradient(to right bottom,rgba(54, 60, 68, 0.7),rgba(98, 98, 98, 0.7));
+  /* background-image: linear-gradient(
         to right bottom,
         rgba(70, 69, 69, 1),
         rgba(187, 254, 240, 0.85),
@@ -879,8 +870,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
         rgba(199, 246, 194, 1),
         rgba(144, 165, 186, 1),
         rgba(70, 69, 69, 1)),
-    url(../../../../../static/media/img/home/case/plants-jn.jpg);
-    background-blend-mode: screen;
+    url(../../../../../static/media/img/home/case/plants-jn.jpg); */
+    /* background-blend-mode: screen; */
 }#hcanvas-wrap {
   /* position: fixed; */
   /* position: absolute 0;  */
@@ -1086,11 +1077,11 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   height: 100vh;
   width: 33.33333vw;
   /* border-right: 1px solid gray; */
-  background: -webkit-gradient(linear,left top, left bottom,from(rgba(54, 60, 68, 1)),to(rgba(98, 98, 98, 1)));
-  background: linear-gradient(to bottom,rgba(54, 60, 68, 1),rgba(98, 98, 98, 1));
+  background: -webkit-gradient(linear,left top, left bottom,from(rgba(36, 36, 36, 1)),to(rgba(98, 98, 98, 1)));
+  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(98, 98, 98, 1));
   -webkit-transform: translate3d(-200%, 0, 0);
           transform: translate3d(-200%, 0, 0);
-  opacity: .9;
+  opacity: .8;
 }#body-right {
   position: absolute;
   z-index: 1000;
@@ -1098,11 +1089,11 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: -webkit-gradient(linear,left top, left bottom,from(rgba(54, 60, 68, 1)),to(rgba(98, 98, 98, 1)));
-  background: linear-gradient(to bottom,rgba(54, 60, 68, 1),rgba(98, 98, 98, 1));
+  background: -webkit-gradient(linear,left top, left bottom,from(rgba(36, 36, 36, 1)),to(rgba(98, 98, 98, 1)));
+  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(98, 98, 98, 1));
   -webkit-transform: translate3d(0 ,100%, 0);
           transform: translate3d(0 ,100%, 0);
-  opacity: .9;
+  opacity: .8;
 }#body-mid-line {
   position: absolute;
   top: 0;
@@ -3600,7 +3591,7 @@ a:hover {
   font-size: calc(1.1rem + 3.74vw);
   color: transparent;
   -webkit-text-stroke-color: #e1ecc1;
-  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-width: 2px;
 }.h-txt-title {
   position: absolute;
   top: 15px;
@@ -3647,7 +3638,7 @@ a:hover {
 }.h-txt-desc-txt {
   /* position: absolute; */
   line-height: 180%;
-  color: #fff;
+  color: #f4f8fd;
   font-size: calc(0.4rem + 0.718vw);
   font-family: Georgia, serif;
   -webkit-transform: translate3d(0, 100%, 0);
@@ -3657,7 +3648,7 @@ a:hover {
   -webkit-perspective: 1000;
 }.h-bottom-title {
   font-family: trump-gothic-pro;
-  color: #fff;
+  color: #f4f8fd;
   letter-spacing: 1.6px;
   font-size: calc(0.4rem + 0.5vw);
   -webkit-transform: translate3d(0, 100%, 0);
@@ -3672,7 +3663,7 @@ a:hover {
   position: absolute;
   top: 0;
   left: 0;
-  color: #fff;
+  color: #f4f8fd;
   line-height: 122%;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
