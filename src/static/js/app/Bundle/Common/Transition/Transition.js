@@ -213,7 +213,7 @@ Transition.scrollInit()
 
         } 
 
-        if (Transition.currentStep <= -1) {
+        if (Transition.currentStep < 0) {
 
             Transition.headerDown()
             return Transition.currentStep = -1

@@ -90,7 +90,7 @@ a {
   width: 100vw;
   opacity: 0;
   /* background: transparent; */
-  background: rgba(15, 17, 14, 0.8);
+  background: rgba(15, 17, 14, 0.7);
 }
 
 #hcanvas-wrap {
@@ -270,7 +270,7 @@ canvas {
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #0f100e;
+    border: 2px solid #e1ecc1;
     transform: translate3d(0, 100%, 0);
 
   }
@@ -281,7 +281,7 @@ canvas {
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #0f100e;
+    background: #e1ecc1;
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }

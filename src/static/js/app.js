@@ -10745,7 +10745,7 @@ Transition.prev = debounce(function () {
     console.log('currentStep: ' + Transition.currentStep);
     console.log('nextStep: ' + Transition.nextStep);
 
-    if (Transition.currentStep <= -1) {
+    if (Transition.currentStep < 0) {
 
         Transition.headerDown();
         return Transition.currentStep = -1;

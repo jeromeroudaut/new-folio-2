@@ -40,9 +40,9 @@ html {
   height: 100vh;
   width: 33.33333vw;
   /* border-right: 1px solid gray; */
-  background: rgba(36, 36, 36, 0.8);
+  background: rgba(15, 17, 14, 1);
   transform: translate3d(-200%, 0, 0);
-  opacity: .4;
+  opacity: .8;
 }
 
 #body-right {
@@ -52,9 +52,9 @@ html {
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: rgba(36, 36, 36, 0.8);
+  background: rgba(15, 17, 14, 1);
   transform: translate3d(0 ,100%, 0);
-  opacity: .4;
+  opacity: .8;
 }
 
 #body-mid-line {
@@ -3292,7 +3292,7 @@ svg:not(:root) {
   letter-spacing: -1px;
   font-size: calc(1.1rem + 3.74vw);
   color: transparent;
-  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-color: #e1ecc1;
   -webkit-text-stroke-width: 1.5px;
 }
 
@@ -3357,7 +3357,7 @@ svg:not(:root) {
 .h-txt-desc-txt {
   /* position: absolute; */
   line-height: 180%;
-  color: #0f100e;
+  color: #fff;
   font-size: calc(0.4rem + 0.718vw);
   font-family: Georgia, serif;
   transform: translate3d(0, 100%, 0);
@@ -3386,7 +3386,7 @@ svg:not(:root) {
   position: absolute;
   top: 0;
   left: 0;
-  color: #0f110e;
+  color: #fff;
   line-height: 122%;
   transform: translate3d(0, 100%, 0);
   
