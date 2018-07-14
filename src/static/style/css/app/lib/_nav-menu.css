@@ -94,7 +94,7 @@
         /* background: #a5ded5; */
         /* background: #fff; */
         /* background: #0000c1; */
-        background: #0f110e;
+        background: #0000c1;
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
         /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
@@ -264,9 +264,10 @@
     font-size: 42px;
     font-family: "MarkPro-Black", sans-serif;
     text-transform: uppercase;
-    color: transparent;
+    color: #f4f8fd;
+    /* color: transparent;
     -webkit-text-stroke-color: #f4f8fd;
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-width: 2px; */
   }
   .nav-link {
     display: inline-block;

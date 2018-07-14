@@ -11140,10 +11140,10 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         if (Transition.currentStep > 3) {
             Transition.pagiBottomMarkerWrap.style.transform = "translate3d(0,0,0)";
             Transition.pagiBottomMarkerWrap.style.transform = "rotate(-90deg)";
-            Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "#fff";
+            Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "#0f100e";
             Transition.arrPagiTopNo[Transition.currentStep + 1].style.transition = "color 200ms";
-            Transition.pagiBottomMarker.style.color = "#fff";
-            Transition.pagiLine.style.background = "#fff";
+            Transition.pagiBottomMarker.style.color = "#0f100e";
+            Transition.pagiLine.style.background = "#0f100e";
             Transition.pagiBottomMarker.style.transition = "color 200ms";
         }
     };
@@ -12216,7 +12216,7 @@ var intro = function intro() {
   tl.from({ el: '#sail-top', p: { y: [0, -100] }, d: 1500, e: 'Power4InOut' });
   tl.from({ el: '#sail-bot', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
   //tl.from({el: '#h-back-0', p: {opacity: [0, 1]}, d: 300, e: 'ExpoOut'})
-  tl.from({ el: '.header', p: { scale: [1.2, 1] }, d: 1200, delay: 900, e: 'Power4InOut' });
+  tl.from({ el: '.header', p: { scale: [1.2, 1], opacity: [0, 1] }, d: 1200, delay: 900, e: 'Power4InOut' });
   //tl.from({el: '#glcanvas-wrap', p: {opacity: [0, 1]}, d: 900, e: 'ExpoOut'})
 
   tl.from({ el: '.tagline', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 1200 });

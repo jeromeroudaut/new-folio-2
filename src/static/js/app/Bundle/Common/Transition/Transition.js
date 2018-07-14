@@ -645,10 +645,10 @@ Transition.recognitionDown = function() {
         if (Transition.currentStep > 3) {
             Transition.pagiBottomMarkerWrap.style.transform = "translate3d(0,0,0)"
             Transition.pagiBottomMarkerWrap.style.transform = "rotate(-90deg)"
-            Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "#fff";
+            Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "#0f100e";
             Transition.arrPagiTopNo[Transition.currentStep + 1].style.transition = "color 200ms";
-            Transition.pagiBottomMarker.style.color = "#fff";
-            Transition.pagiLine.style.background = "#fff";
+            Transition.pagiBottomMarker.style.color = "#0f100e";
+            Transition.pagiLine.style.background = "#0f100e";
             Transition.pagiBottomMarker.style.transition = "color 200ms";
             
         }

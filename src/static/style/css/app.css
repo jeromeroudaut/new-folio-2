@@ -102,7 +102,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     height: 50vh;
     width: 100vw;
     /* background: #1a1c1e; */
-    background: #1a1a1a;
+    background: #0f110e;
     -webkit-transform: translate3d(0,0%,0);
             transform: translate3d(0,0%,0);
     opacity: 1;
@@ -114,7 +114,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     height: 50vh;
     width: 100vw;
     /* background: #1a1c1e; */
-    background: #1a1a1a;
+    background: #0f110e;
     -webkit-transform: translate3d(0,0%,0);
             transform: translate3d(0,0%,0);
     opacity: 1;
@@ -151,7 +151,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     padding-bottom: 11em; */
     text-rendering: optimizeLegibility;
   }.main-headline-r1 {
-    color: #0f110e;
+    color: #0000c1;
     /* color: transparent;
     -webkit-text-stroke-color: #f4f8fd;
     -webkit-text-stroke-width: 1.5px; */
@@ -159,7 +159,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     font-size: 5.2em;
     font-weight: 800;
     line-height: 1.6em;
-    letter-spacing: 0.405em;
+    letter-spacing: 0.385em;
     display: inline-block;
     /* text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15); */
   
@@ -175,8 +175,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     letter-spacing: 2.075rem;
     font-family: "MarkPro-Black", sans-serif;
     color: transparent;
-    -webkit-text-stroke-color: #0f110e;
-    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #0000c1;
+    -webkit-text-stroke-width: 2px;
     /* text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.05); */
   
     @include respond(phone) {
@@ -484,7 +484,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
         /* background: #a5ded5; */
         /* background: #fff; */
         /* background: #0000c1; */
-        background: #0f110e;
+        background: #0000c1;
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
         /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
@@ -634,9 +634,10 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     font-size: 42px;
     font-family: "MarkPro-Black", sans-serif;
     text-transform: uppercase;
-    color: transparent;
+    color: #f4f8fd;
+    /* color: transparent;
     -webkit-text-stroke-color: #f4f8fd;
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-width: 2px; */
   }.nav-link {
     display: inline-block;
     color: inherit;
@@ -834,6 +835,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   left: 0;
   height: 100vh;
   width: 100vw;
+  opacity: 0;
   background: transparent;
   /* background-image: linear-gradient(
         to right bottom,
@@ -1005,7 +1007,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #0f110e;
+    border: 2px solid #0000c1;
     -webkit-transform: translate3d(0, 100%, 0);
             transform: translate3d(0, 100%, 0);
 
@@ -1015,7 +1017,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #0f110e;
+    background: #0000c1;
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }html {
@@ -1052,10 +1054,10 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   height: 100vh;
   width: 33.33333vw;
   /* border-right: 1px solid gray; */
-  background: #0f110e;
+  background: #242424;
   -webkit-transform: translate3d(-200%, 0, 0);
           transform: translate3d(-200%, 0, 0);
-  opacity: .25;
+  opacity: .4;
 }#body-right {
   position: absolute;
   z-index: 1000;
@@ -1063,10 +1065,10 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: #0f110e;
+  background: #242424;
   -webkit-transform: translate3d(0 ,100%, 0);
           transform: translate3d(0 ,100%, 0);
-  opacity: .25;
+  opacity: .4;
 }#body-mid-line {
   position: absolute;
   top: 0;
@@ -3517,14 +3519,14 @@ a:hover {
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
 }#h-client-0 {
-  color: #7bc6dc;
+  color: #bec9ce;
 
 }#h-client-1 {
-  color: #ff103d;
+  color: #4f9b8e;
 }#h-client-2 {
-  color: #e1ecc2;
+  color: #a8b1b5;
 }#h-client-3 {
-  color: #f5f5f5;
+  color: #ff6c2f;
 }#h-txt {
   text-align: left;
   z-index: 0;
@@ -3589,10 +3591,8 @@ a:hover {
   line-height: 120%;
   letter-spacing: 7px;
   font-size: calc(1.1rem + 6.74vw);
-  /* color: #fff; */
-  /* color: #e8e8e8; */
-  /* color: #1e1e20; */
-  color: #222222;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
   z-index: 1;
 }.h-section-title {
   position: absolute;
@@ -3602,13 +3602,14 @@ a:hover {
           transform: translate3d(0, 100%, 0);
 
 }#h-section-0 {
-  color: #f5f5f5;
+  -webkit-text-stroke-color: #0f110e;
+
 }#h-section-1 {
-  color: #e1ecc2;
+  -webkit-text-stroke-color:  #4f9b8e;
 }#h-section-2 {
-  color: #bbfef0;
+  -webkit-text-stroke-color:  #d22446;
 }#h-section-3 {
-  color: #7bc6dc;
+  -webkit-text-stroke-color:  #f5f5f5;
 }.h-text-desc-txt-wrap {
   position: absolute;
   top: calc(2px - -3.45vw);
@@ -3619,7 +3620,7 @@ a:hover {
   line-height: 180%;
   color: #0f100e;
   font-size: calc(0.4rem + 0.718vw);
-  font-family: MarkPro;
+  font-family: Georgia, serif;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
 

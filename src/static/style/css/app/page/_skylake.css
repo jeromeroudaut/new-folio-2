@@ -40,9 +40,9 @@ html {
   height: 100vh;
   width: 33.33333vw;
   /* border-right: 1px solid gray; */
-  background: #0f110e;
+  background: #242424;
   transform: translate3d(-200%, 0, 0);
-  opacity: .25;
+  opacity: .4;
 }
 
 #body-right {
@@ -52,9 +52,9 @@ html {
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: #0f110e;
+  background: #242424;
   transform: translate3d(0 ,100%, 0);
-  opacity: .25;
+  opacity: .4;
 }
 
 #body-mid-line {
@@ -3232,20 +3232,20 @@ svg:not(:root) {
 }
 
 #h-client-0 {
-  color: #7bc6dc;
+  color: #bec9ce;
 
 }
 
 #h-client-1 {
-  color: #ff103d;
+  color: #4f9b8e;
 }
 
 #h-client-2 {
-  color: #e1ecc2;
+  color: #a8b1b5;
 }
 
 #h-client-3 {
-  color: #f5f5f5;
+  color: #ff6c2f;
 }
 
 #h-txt {
@@ -3321,10 +3321,8 @@ svg:not(:root) {
   line-height: 120%;
   letter-spacing: 7px;
   font-size: calc(1.1rem + 6.74vw);
-  /* color: #fff; */
-  /* color: #e8e8e8; */
-  /* color: #1e1e20; */
-  color: #222222;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
   z-index: 1;
 }
 
@@ -3337,19 +3335,20 @@ svg:not(:root) {
 }
 
 #h-section-0 {
-  color: #f5f5f5;
+  -webkit-text-stroke-color: #0f110e;
+
 }
 
 #h-section-1 {
-  color: #e1ecc2;
+  -webkit-text-stroke-color:  #4f9b8e;
 }
 
 #h-section-2 {
-  color: #bbfef0;
+  -webkit-text-stroke-color:  #d22446;
 }
 
 #h-section-3 {
-  color: #7bc6dc;
+  -webkit-text-stroke-color:  #f5f5f5;
 }
 
 
@@ -3365,7 +3364,7 @@ svg:not(:root) {
   line-height: 180%;
   color: #0f100e;
   font-size: calc(0.4rem + 0.718vw);
-  font-family: MarkPro;
+  font-family: Georgia, serif;
   transform: translate3d(0, 100%, 0);
 
   -webkit-backface-visibility: hidden;
