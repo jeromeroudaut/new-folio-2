@@ -6,8 +6,8 @@
     left: 0;
     height: 50vh;
     width: 100vw;
-    /* background: #1a1c1e; */
-    background: #0f110e;
+    /* background: #0f110e; */
+    background: #242424;
     transform: translate3d(0,0%,0);
     opacity: 1;
 }
@@ -18,8 +18,8 @@
     left: 0;
     height: 50vh;
     width: 100vw;
-    /* background: #1a1c1e; */
-    background: #0f110e;
+    /* background: #0f110e; */
+    background: #242424;
     transform: translate3d(0,0%,0);
     opacity: 1;
 }

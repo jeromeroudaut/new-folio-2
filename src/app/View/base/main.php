@@ -68,6 +68,10 @@
             font-family: "AirCorpsJNL";
             src: url("./static/media/sou/AirCorpsJNL.otf");
         }
+        @font-face {
+            font-family: "GinesoMedium";
+            src: url("./static/media/sou/GinesoMedium.otf");
+        }
         </style>
         <!-- <link rel="preload" href="./static/style/css/app.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="path/to/mystylesheet.css"></noscript> -->

@@ -40,7 +40,7 @@ html {
   height: 100vh;
   width: 33.33333vw;
   /* border-right: 1px solid gray; */
-  background: #242424;
+  background: rgba(36, 36, 36, 0.8);
   transform: translate3d(-200%, 0, 0);
   opacity: .4;
 }
@@ -52,7 +52,7 @@ html {
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: #242424;
+  background: rgba(36, 36, 36, 0.8);
   transform: translate3d(0 ,100%, 0);
   opacity: .4;
 }
@@ -3291,14 +3291,9 @@ svg:not(:root) {
   line-height: 146%;
   letter-spacing: -1px;
   font-size: calc(1.1rem + 3.74vw);
-  /* color: #e8e8e8; */
-  /* color: #1e1e20; */
-  /* color: #222222; */
-  /* color: #000; */
-  /* color: #1a1a1a; */
   color: transparent;
-  -webkit-text-stroke-color: #f4f8fd;
-  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-width: 1.5px;
 }
 
 .h-txt-title {
@@ -3373,10 +3368,7 @@ svg:not(:root) {
 
 .h-bottom-title {
   font-family: trump-gothic-pro;
-  /* color: #181829; */
-  /* color: #e8e8e8; */
-  /* color: #1e1e20; */
-  color: #f4f8fd;
+  color: #fff;
   letter-spacing: 1.6px;
   font-size: calc(0.4rem + 0.5vw);
   transform: translate3d(0, 100%, 0);
@@ -3384,9 +3376,9 @@ svg:not(:root) {
 
 .h-bottom-value-wrap {
   position: relative;
-  margin: 3px 0 0;
+  margin: 3px -1px 0;
   width: 8.33vw;
-  font-family: MarkPro;
+  font-family: Georgia, serif;
   font-size: calc(0.4rem + 0.4vw);
 }
 
@@ -3596,8 +3588,8 @@ svg:not(:root) {
   z-index: 0;
   height: 72%;
   width: 100%;
-  top: 10%;
-  left: 5%;
+  top: 11%;
+  left: 6%;
   /* text-align: center; */
   font-family: MarkPro-Black;
   font-size: calc(1rem + 3.2vw);
@@ -3614,7 +3606,10 @@ svg:not(:root) {
   /* color: #a5ded5; */
   /* color: rgba(0, 0, 193, .6); */
   /* color: #344258; */
-  color: #e1ecc2;
+  /* color: #e1ecc2; */
+  color: transparent;
+  -webkit-text-stroke-color: #e1ecc2; 
+  -webkit-text-stroke-width: 1.8px;
   transform: translate3d(0, 100%, 0);
 }
 

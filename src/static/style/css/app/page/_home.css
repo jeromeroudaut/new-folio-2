@@ -65,7 +65,8 @@ a {
   height: 100vh;
   width: 100vw;
   opacity: 0;
-  background: transparent;
+  /* background: transparent; */
+  background: rgba(36, 36, 36, 0.3);
   /* background-image: linear-gradient(
         to right bottom,
         rgba(70, 69, 69, 1),
@@ -257,7 +258,7 @@ canvas {
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #0000c1;
+    border: 2px solid #0f100e;
     transform: translate3d(0, 100%, 0);
 
   }
@@ -268,7 +269,7 @@ canvas {
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #0000c1;
+    background: #0f100e;
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }
