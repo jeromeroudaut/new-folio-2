@@ -152,8 +152,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     text-rendering: optimizeLegibility;
   }.main-headline-r1 {
     /* color: #e1ecc2; */
-    color: #f4f8fd;
-    /* -webkit-text-stroke-color: #0000c1;
+    color: ##f4f8fd;
+    /* -webkit-text-stroke-color: #f4f8fd;
     -webkit-text-stroke-width: 1.9px; */
     /* border-bottom: 3px dotted rgba(255, 255, 255, 0.3); */
     font-size: 5.2em;
@@ -175,7 +175,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     letter-spacing: 2.075rem;
     font-family: "MarkPro-Black", sans-serif;
     color: #f4f8fd;
-    /* -webkit-text-stroke-color: #0000c1; 
+    /* -webkit-text-stroke-color: #0f100e; 
     -webkit-text-stroke-width: 1.9px; */
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.05);
   
@@ -1077,8 +1077,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   height: 100vh;
   width: 33.33333vw;
   /* border-right: 1px solid gray; */
-  background: -webkit-gradient(linear,left top, left bottom,from(rgba(36, 36, 36, 1)),to(rgba(98, 98, 98, 1)));
-  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(98, 98, 98, 1));
+  background: -webkit-gradient(linear,left top, left bottom,from(rgba(36, 36, 36, 1)),to(rgba(193, 225, 231, .9)));
+  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
   -webkit-transform: translate3d(-200%, 0, 0);
           transform: translate3d(-200%, 0, 0);
   opacity: .8;
@@ -1089,8 +1089,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: -webkit-gradient(linear,left top, left bottom,from(rgba(36, 36, 36, 1)),to(rgba(98, 98, 98, 1)));
-  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(98, 98, 98, 1));
+  background: -webkit-gradient(linear,left top, left bottom,from(rgba(36, 36, 36, 1)),to(rgba(193, 225, 231, .9)));
+  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
   -webkit-transform: translate3d(0 ,100%, 0);
           transform: translate3d(0 ,100%, 0);
   opacity: .8;
@@ -3648,7 +3648,7 @@ a:hover {
   -webkit-perspective: 1000;
 }.h-bottom-title {
   font-family: trump-gothic-pro;
-  color: #f4f8fd;
+  color: #fff;
   letter-spacing: 1.6px;
   font-size: calc(0.4rem + 0.5vw);
   -webkit-transform: translate3d(0, 100%, 0);
