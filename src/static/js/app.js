@@ -10811,6 +10811,11 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         Transition.headerDown = new skylake.Timeline();
         var isObj4 = skylake.Is.object(Transition.headerDown);
 
+        Transition.headerDown.from({ el: '#intro', p: { opacity: [0, 1] }, d: 1200, delay: 900, e: 'Power4InOut' });
+        Transition.headerDown.from({ el: '.tagline', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 1200 });
+        Transition.headerDown.from({ el: '.menu__icon', p: { opacity: [0, 1] }, d: 1500, e: 'ExpoOut', delay: 200 });
+        Transition.headerDown.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 1200 });
+
         Transition.headerDown.from({ el: Transition.arrBotTitle[0], p: { y: [0, 100] }, d: 300, e: 'Power4InOut' });
         Transition.headerDown.from({ el: Transition.arrBotTitle[1], p: { y: [0, 100] }, d: 300, e: 'Power4InOut' });
         Transition.headerDown.from({ el: Transition.arrBotTitle[2], p: { y: [0, 100] }, d: 300, e: 'Power4InOut' });
@@ -10870,6 +10875,11 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         var textInit = new skylake.Timeline();
         var isObj5 = skylake.Is.object(textInit);
+
+        textInit.from({ el: '#intro', p: { opacity: [1, 0] }, d: 1200, delay: 900, e: 'Power4InOut' });
+        textInit.from({ el: '.tagline', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut', delay: 1200 });
+        textInit.from({ el: '.menu__icon', p: { opacity: [1, 0] }, d: 1500, e: 'ExpoOut', delay: 200 });
+        textInit.from({ el: '.scroll-icon', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut', delay: 1200 });
 
         textInit.from({ el: Transition.arrBotTitle[0], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
         textInit.from({ el: Transition.arrBotTitle[1], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
@@ -12217,8 +12227,7 @@ var intro = function intro() {
   tl.from({ el: '#sail-bot', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
   //tl.from({el: '#h-back-0', p: {opacity: [0, 1]}, d: 300, e: 'ExpoOut'})
   tl.from({ el: '.header', p: { scale: [1.2, 1], opacity: [0, 1] }, d: 1200, delay: 900, e: 'Power4InOut' });
-  //tl.from({el: '#glcanvas-wrap', p: {opacity: [0, 1]}, d: 900, e: 'ExpoOut'})
-
+  tl.from({ el: '#intro', p: { opacity: [0, 1] }, d: 1200, delay: 900, e: 'Power4InOut' });
   tl.from({ el: '.tagline', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 1200 });
   tl.from({ el: '.menu__icon', p: { opacity: [0, 1] }, d: 1500, e: 'ExpoOut', delay: 200 });
   // tl.from({el: '.burger-line-hover', p: {x: [105, 0]}, d: 1000, e: 'ExpoOut', delay: 500})

@@ -5,25 +5,29 @@
 
 
 
-                <article>
-                <div id="tagline-wrap" class="oh">
-                        <div class="tagline">
-                            <h1 class="main-headline-r2">John Milner</h1>
-                            <h1 class="main-headline-r1">Front-End Web Developer</h1>
-                        </div>
-                    </div>
-                    <div id="scroll-icon-wrap" class="oh">
-                        <div class="scroll-icon">
-                            <div></div>
-                        </div>
-                    </div>
-                </article>
+                
 
 
                 <!-- <div id="h">
                     <a id="h-link" href="/about">ABOUT</a>
                 </div> -->
 </header>
+
+            <div id="intro">
+                        <article>
+                            <div id="tagline-wrap" class="oh">
+                                    <div class="tagline">
+                                        <h1 class="main-headline-r2">John Milner</h1>
+                                        <h1 class="main-headline-r1">Front-End Web Developer</h1>
+                                    </div>
+                                </div>
+                                <div id="scroll-icon-wrap" class="oh">
+                                    <div class="scroll-icon">
+                                        <div></div>
+                                    </div>
+                                </div>
+                        </article>
+            </div>
             
             <div id="h-content" class="oh">
                 <div id="h-line-l">

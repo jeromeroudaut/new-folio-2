@@ -19,8 +19,7 @@ const intro = function() {
   tl.from({el: '#sail-bot', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut'})
   //tl.from({el: '#h-back-0', p: {opacity: [0, 1]}, d: 300, e: 'ExpoOut'})
   tl.from({el: '.header', p: {scale: [1.2, 1], opacity: [0, 1]}, d: 1200, delay: 900, e: 'Power4InOut'})
-  //tl.from({el: '#glcanvas-wrap', p: {opacity: [0, 1]}, d: 900, e: 'ExpoOut'})
-
+  tl.from({el: '#intro', p: {opacity: [0, 1]}, d: 1200, delay: 900, e: 'Power4InOut'})
   tl.from({el: '.tagline', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 1200})
   tl.from({el: '.menu__icon', p: {opacity: [0, 1]}, d: 1500, e: 'ExpoOut', delay: 200})
   // tl.from({el: '.burger-line-hover', p: {x: [105, 0]}, d: 1000, e: 'ExpoOut', delay: 500})

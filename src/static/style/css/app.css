@@ -836,8 +836,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   height: 100vh;
   width: 100vw;
   opacity: 0;
-  /* background: transparent; */
-  background: rgba(36, 36, 36, 0.3);
+  background: transparent;
+  /* background: rgba(36, 36, 36, 0.3); */
   /* background-image: linear-gradient(
         to right bottom,
         rgba(70, 69, 69, 1),
@@ -850,6 +850,16 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     background-blend-mode: screen; */
 
 
+}#intro {
+  z-index: 3000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0;
+  /* background: transparent; */
+  background: rgba(36, 36, 36, 0.3);
 }#hcanvas-wrap {
   /* position: fixed; */
   /* position: absolute 0;  */

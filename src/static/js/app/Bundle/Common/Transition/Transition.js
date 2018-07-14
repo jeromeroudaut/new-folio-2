@@ -291,6 +291,11 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const isObj4 = S.Is.object(Transition.headerDown)
         const t = -1
 
+        Transition.headerDown.from({el: '#intro', p: {opacity: [0, 1]}, d: 1200, delay: 900, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '.tagline', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 1200})
+        Transition.headerDown.from({el: '.menu__icon', p: {opacity: [0, 1]}, d: 1500, e: 'ExpoOut', delay: 200})
+        Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 1200})
+
         Transition.headerDown.from({el: Transition.arrBotTitle[0], p: {y: [0, 100]}, d: 300, e: 'Power4InOut'})
         Transition.headerDown.from({el: Transition.arrBotTitle[1], p: {y: [0, 100]}, d: 300, e: 'Power4InOut'})
         Transition.headerDown.from({el: Transition.arrBotTitle[2], p: {y: [0, 100]}, d: 300, e: 'Power4InOut'})
@@ -353,6 +358,10 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const textInit = new S.Timeline()
         const isObj5 = S.Is.object(textInit)
     
+        textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, delay: 900, e: 'Power4InOut'})
+        textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 1200})
+        textInit.from({el: '.menu__icon', p: {opacity: [1, 0]}, d: 1500, e: 'ExpoOut', delay: 200})
+        textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 1200})
     
         textInit.from({el: Transition.arrBotTitle[0], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
