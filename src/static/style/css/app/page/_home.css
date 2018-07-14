@@ -91,7 +91,7 @@ a {
   opacity: 0;
   /* background: transparent; */
   /* background: #363c44; */
-  background: linear-gradient(to right bottom,rgba(54, 60, 68, 0.7),rgba(98, 98, 98, 0.7));
+  background: linear-gradient(to right bottom,rgba(36, 36, 36, .5),rgba(98, 98, 98, .5));
   /* background-image: linear-gradient(
         to right bottom,
         rgba(70, 69, 69, 1),
