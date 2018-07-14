@@ -18,33 +18,7 @@ html {
   position: relative;
   top: 0;
   left: 0;
-  /* background-image: linear-gradient(
-        to right bottom,
-        rgba(255, 189, 143, 0.8),
-        rgba(357, 100, 78, 0.8),
-        rgba(235, 87, 113, 0.8),
-        rgba(25, 25, 25, 1)),
-    url(../../../../../static/media/img/home/case/plants-bw.jpg); */
-  /* background-image: linear-gradient(
-        to right bottom,
-        rgba(255, 189, 143, 0.8),
-        rgba(357, 100, 78, 0.8),
-        rgba(235, 87, 113, 0.8),
-        rgba(179, 74, 119, 0.8)),
-    url(../../../../../static/media/img/home/case/plants-bw.jpg); */
-  /* background-image: linear-gradient(
-      to right bottom,
-      rgba(225, 236, 194, 1),
-      rgba(225, 236, 194, .8),
-      rgba(225, 236, 194, .6),
-      rgba(225, 236, 194, 1)),
-  url(../../../../../static/media/img/home/case/plants-bw.jpg); */
-  /* background-image: ; */
-  /* background-color: #eeccee;   */
-  /* background-color: #7fe5ed; */
-  /* background-color: #2c2c2c; */
-  background-blend-mode: multiply;
-  /* filter: grayscale(20%); */
+  background: #e1ecc2;  
   background-size: cover;
   background-position: center center;
   background: transparent;
@@ -66,9 +40,9 @@ html {
   height: 100vh;
   width: 33.33333vw;
   /* border-right: 1px solid gray; */
-  background: #c2dde5;
+  background: #0f110e;
   transform: translate3d(-200%, 0, 0);
-  opacity: .35;
+  opacity: .25;
 }
 
 #body-right {
@@ -78,9 +52,9 @@ html {
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: #c2dde5;
+  background: #0f110e;
   transform: translate3d(0 ,100%, 0);
-  opacity: .35;
+  opacity: .25;
 }
 
 #body-mid-line {
@@ -3263,7 +3237,7 @@ svg:not(:root) {
 }
 
 #h-client-1 {
-  color: #ff7d43;
+  color: #ff103d;
 }
 
 #h-client-2 {
@@ -3371,7 +3345,7 @@ svg:not(:root) {
 }
 
 #h-section-2 {
-  color: #7bc6dc;
+  color: #bbfef0;
 }
 
 #h-section-3 {
@@ -3389,7 +3363,7 @@ svg:not(:root) {
 .h-txt-desc-txt {
   /* position: absolute; */
   line-height: 180%;
-  color: #242529;
+  color: #0f100e;
   font-size: calc(0.4rem + 0.718vw);
   font-family: MarkPro;
   transform: translate3d(0, 100%, 0);
@@ -3421,7 +3395,7 @@ svg:not(:root) {
   position: absolute;
   top: 0;
   left: 0;
-  color: #242529;
+  color: #0f110e;
   line-height: 122%;
   transform: translate3d(0, 100%, 0);
   
@@ -3612,7 +3586,7 @@ svg:not(:root) {
     height: 18vh;
     width: 26.1vw;
     /* background: rgba(27, 27, 27, 1); */
-    background: #1a1a1a;;
+    background: #1a1a1a;
     border-radius: 2px;
     z-index: 2;
     transform: translate3d(-165%, 0%, 0);
@@ -3756,7 +3730,7 @@ svg:not(:root) {
   height: 100%;
   top: 0px;
   z-index: -1;
-  opacity: .9;
+  opacity: .97;
   transform: translateX(-41.7%) rotate(-90deg);
 
 }

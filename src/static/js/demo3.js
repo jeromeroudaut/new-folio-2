@@ -74,7 +74,7 @@ function init() {
 
 
 	//three init
-	renderer = new THREE.WebGLRenderer({ antialias: true} );
+	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true} );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	renderer.autoClear = false;
@@ -89,7 +89,7 @@ function init() {
 	// texture = new THREE.Texture(canvas);
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
-	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants-o.png');
+	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants-bw3.jpg');
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 	//texture.minFilter = THREE.LinearFilter;
 	texture.minFilter = texture.magFilter = THREE.LinearFilter;
@@ -119,13 +119,13 @@ function init() {
 	normalsHelper.visible = false;
 
 	//lights
-	scene.add( new THREE.AmbientLight( 0xffffff ) );
+	scene.add( new THREE.AmbientLight( 0xdddddd ) );
 
-	var light = new THREE.SpotLight( 0x1a1a1a, .5);
+	var light = new THREE.SpotLight( 0xdddddd, .15);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0x1a1a1a, .5 );
+	var directionalLight = new THREE.DirectionalLight( 0xdddddd, .095 );
 	directionalLight.position.set( 100, 0, 50 );
 	scene.add( directionalLight );
 
@@ -326,7 +326,7 @@ function animate() {
 	// stats.update();
 	// controls.update();
 
-	noisePos += guiParams.rippleSpeed/5000;
+	noisePos += guiParams.rippleSpeed/3000;
 	normalsHelper.update();
 	//renderer.clear();
 	//renderer.render( backgroundScene, backgroundCamera );
