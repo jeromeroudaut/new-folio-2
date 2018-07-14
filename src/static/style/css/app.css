@@ -152,9 +152,9 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     text-rendering: optimizeLegibility;
   }.main-headline-r1 {
     /* color: #e1ecc2; */
-    color: #e1ecc2;
-    /* -webkit-text-stroke-color: #e1ecc1;
-    -webkit-text-stroke-width: 1.9px; */
+    color: transparent;
+    -webkit-text-stroke-color: #0000c1;
+    -webkit-text-stroke-width: 1.9px;
     /* border-bottom: 3px dotted rgba(255, 255, 255, 0.3); */
     font-size: 5.2em;
     font-weight: 800;
@@ -174,9 +174,9 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     font-weight: 100;
     letter-spacing: 2.075rem;
     font-family: "MarkPro-Black", sans-serif;
-    color: #e1ecc2;
-    /* -webkit-text-stroke-color: #e1ecc1; 
-    -webkit-text-stroke-width: 1.9px; */
+    color: transparent;
+    -webkit-text-stroke-color: #0000c1; 
+    -webkit-text-stroke-width: 1.9px;
     /* text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.05); */
   
     @include respond(phone) {
@@ -859,7 +859,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   width: 100vw;
   opacity: 0;
   /* background: transparent; */
-  background: rgba(15, 17, 14, 0.7);
+  background: rgba(15, 17, 14, 0.9);
 }#hcanvas-wrap {
   /* position: fixed; */
   /* position: absolute 0;  */
@@ -3796,11 +3796,11 @@ a:hover {
  }#h-pagi-progress {
     position: absolute;
     bottom: 0;
-    left: 15vw;
-    height: 18vh;
-    width: 26.1vw;
+    left: 5vw;
+    height: 19vh;
+    width: 40.1vw;
     /* background: rgba(27, 27, 27, 1); */
-    background: #1a1a1a;
+    background: transparent;
     border-radius: 2px;
     z-index: 2;
     -webkit-transform: translate3d(-165%, 0%, 0);
@@ -3808,13 +3808,13 @@ a:hover {
  }.h-pagi-prog-no-wrap {
   position: absolute;
   z-index: 0;
-  height: 72%;
+  height: 235%;
   width: 100%;
-  top: 11%;
-  left: 6%;
+  top: -55%;
+  left: 0%;
   /* text-align: center; */
   font-family: MarkPro-Black;
-  font-size: calc(1rem + 3.2vw);
+  font-size: calc(1rem + 26.2vw);
   /* color: white; */
 
 
@@ -3842,6 +3842,7 @@ a:hover {
   height: 3.5px;
   background: rgba(244, 248, 253, .6);
   border-radius: 5px;
+  display: none;
 }.progress{
   height: 3.5px;
   /* background: red; */

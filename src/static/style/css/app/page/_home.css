@@ -90,7 +90,7 @@ a {
   width: 100vw;
   opacity: 0;
   /* background: transparent; */
-  background: rgba(15, 17, 14, 0.7);
+  background: rgba(15, 17, 14, 0.9);
 }
 
 #hcanvas-wrap {
