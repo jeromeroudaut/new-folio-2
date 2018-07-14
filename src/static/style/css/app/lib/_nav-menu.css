@@ -227,7 +227,7 @@
   }
   .nav-header-line {
     display: block;
-    height: 1px;
+    height: .5px;
     width: 100%;
     z-index: -1;
     background-color: #fff;

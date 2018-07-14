@@ -89,7 +89,7 @@ function init() {
 	// texture = new THREE.Texture(canvas);
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
-	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/back3.png');
+	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants-o.png');
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 	//texture.minFilter = THREE.LinearFilter;
 	texture.minFilter = texture.magFilter = THREE.LinearFilter;
