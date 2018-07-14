@@ -310,7 +310,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         Transition.headerDown.from({el: '#intro', p: {opacity: [0, 1]}, d: 800, e: 'Power4InOut'})
         Transition.headerDown.from({el: '.tagline', p: {y: [100, 0]}, d: 800, e: 'Power4InOut', delay: 800})
-        Transition.headerDown.from({el: '.menu__icon', p: {opacity: [0, 1]}, d: 800, e: 'ExpoOut'})
+        // Transition.headerDown.from({el: '.menu__icon', p: {opacity: [0, 1]}, d: 800, e: 'ExpoOut'})
         Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 800, e: 'Power4InOut'})
 
         Transition.headerDown.play()
@@ -359,7 +359,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
     
         textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 1200})
         textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
-        textInit.from({el: '.menu__icon', p: {opacity: [1, 0]}, d: 1500, e: 'ExpoOut', delay: 200})
+        // textInit.from({el: '.menu__icon', p: {opacity: [1, 0]}, d: 1500, e: 'ExpoOut', delay: 200})
         textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 1200})
     
         textInit.from({el: Transition.arrBotTitle[0], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})

@@ -859,9 +859,28 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   width: 100vw;
   opacity: 0;
   /* background: transparent; */
-  background: #363c44; /* Old Browsers */
-  background: -webkit-gradient(linear,left top, right bottom,from(rgba(54, 60, 68, 0.7)),to(rgba(98, 98, 98, 0.7)));
-  background: linear-gradient(to right bottom,rgba(54, 60, 68, 0.7),rgba(98, 98, 98, 0.7));
+  /* background: #363c44; */
+  /* background: linear-gradient(to right bottom,rgba(54, 60, 68, 0.7),rgba(98, 98, 98, 0.7)); */
+  background-image: -webkit-gradient(
+        linear,
+        left top, right bottom,
+        from(rgba(70, 69, 69, 1)),
+        color-stop(rgba(187, 254, 240, 0.85)),
+        color-stop(rgba(144, 165, 186, 1)),
+        color-stop(rgba(199, 246, 194, 1)),
+        color-stop(rgba(144, 165, 186, 1)),
+        to(rgba(70, 69, 69, 1))),
+    url(../../../../../static/media/img/home/case/plants-jn.jpg);
+  background-image: linear-gradient(
+        to right bottom,
+        rgba(70, 69, 69, 1),
+        rgba(187, 254, 240, 0.85),
+        rgba(144, 165, 186, 1),
+        rgba(199, 246, 194, 1),
+        rgba(144, 165, 186, 1),
+        rgba(70, 69, 69, 1)),
+    url(../../../../../static/media/img/home/case/plants-jn.jpg);
+    background-blend-mode: screen;
 }#hcanvas-wrap {
   /* position: fixed; */
   /* position: absolute 0;  */
