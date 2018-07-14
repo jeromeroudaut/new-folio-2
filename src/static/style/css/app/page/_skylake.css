@@ -3292,7 +3292,7 @@ svg:not(:root) {
   letter-spacing: -1px;
   font-size: calc(1.1rem + 3.74vw);
   color: transparent;
-  -webkit-text-stroke-color: #e1ecc1;
+  -webkit-text-stroke-color: #fa8072; 
   -webkit-text-stroke-width: 2px;
 }
 
@@ -3608,7 +3608,7 @@ svg:not(:root) {
   /* color: #344258; */
   /* color: #e1ecc2; */
   color: transparent;
-  -webkit-text-stroke-color: #e1ecc1; 
+  -webkit-text-stroke-color: #fa8072;  
   -webkit-text-stroke-width: 1.8px;
   transform: translate3d(0, 100%, 0);
 }
