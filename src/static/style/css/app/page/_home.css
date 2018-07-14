@@ -90,7 +90,8 @@ a {
   width: 100vw;
   opacity: 0;
   /* background: transparent; */
-  background: rgba(15, 17, 14, 0.9);
+  background: #363c44; /* Old Browsers */
+  background: linear-gradient(to right bottom,rgba(54, 60, 68, 0.7),rgba(98, 98, 98, 0.7));
 }
 
 #hcanvas-wrap {
@@ -270,7 +271,7 @@ canvas {
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #e1ecc1;
+    border: 2px solid #f4f8fd;
     transform: translate3d(0, 100%, 0);
 
   }
@@ -281,7 +282,7 @@ canvas {
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #e1ecc1;
+    background: #f4f8fd;
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }

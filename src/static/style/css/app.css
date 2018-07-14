@@ -152,9 +152,9 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     text-rendering: optimizeLegibility;
   }.main-headline-r1 {
     /* color: #e1ecc2; */
-    color: transparent;
-    -webkit-text-stroke-color: #0000c1;
-    -webkit-text-stroke-width: 1.9px;
+    color: #f4f8fd;
+    /* -webkit-text-stroke-color: #0000c1;
+    -webkit-text-stroke-width: 1.9px; */
     /* border-bottom: 3px dotted rgba(255, 255, 255, 0.3); */
     font-size: 5.2em;
     font-weight: 800;
@@ -174,9 +174,9 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     font-weight: 100;
     letter-spacing: 2.075rem;
     font-family: "MarkPro-Black", sans-serif;
-    color: transparent;
-    -webkit-text-stroke-color: #0000c1; 
-    -webkit-text-stroke-width: 1.9px;
+    color: #f4f8fd;
+    /* -webkit-text-stroke-color: #0000c1; 
+    -webkit-text-stroke-width: 1.9px; */
     /* text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.05); */
   
     @include respond(phone) {
@@ -484,7 +484,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
         /* background: #a5ded5; */
         /* background: #fff; */
         /* background: #0000c1; */
-        background: #e1ecc1;
+        background: #f4f8fd;
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
         /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
@@ -859,7 +859,9 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   width: 100vw;
   opacity: 0;
   /* background: transparent; */
-  background: rgba(15, 17, 14, 0.9);
+  background: #363c44; /* Old Browsers */
+  background: -webkit-gradient(linear,left top, right bottom,from(rgba(54, 60, 68, 0.7)),to(rgba(98, 98, 98, 0.7)));
+  background: linear-gradient(to right bottom,rgba(54, 60, 68, 0.7),rgba(98, 98, 98, 0.7));
 }#hcanvas-wrap {
   /* position: fixed; */
   /* position: absolute 0;  */
@@ -1018,7 +1020,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #e1ecc1;
+    border: 2px solid #f4f8fd;
     -webkit-transform: translate3d(0, 100%, 0);
             transform: translate3d(0, 100%, 0);
 
@@ -1028,7 +1030,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #e1ecc1;
+    background: #f4f8fd;
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }html {
@@ -3576,7 +3578,7 @@ a:hover {
   letter-spacing: -1px;
   font-size: calc(1.1rem + 3.74vw);
   color: transparent;
-  -webkit-text-stroke-color: #e1ecc1;
+  -webkit-text-stroke-color: #f4f8fd;
   -webkit-text-stroke-width: 1.5px;
 }.h-txt-title {
   position: absolute;
@@ -3828,7 +3830,7 @@ a:hover {
   /* color: #344258; */
   /* color: #e1ecc2; */
   color: transparent;
-  -webkit-text-stroke-color: #e1ecc2; 
+  -webkit-text-stroke-color: #f4f8fd; 
   -webkit-text-stroke-width: 1.8px;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
