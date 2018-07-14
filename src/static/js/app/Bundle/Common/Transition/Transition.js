@@ -306,13 +306,12 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.headerDown.from({el: '#body-mid', p: {x: [0, -200]}, d: 600, delay: 800, e: 'Power4InOut'})
         Transition.headerDown.from({el: '#body-right', p: {x: [0, 100]}, d: 600, e: 'Power4InOut'})
 
-        Transition.headerDown.from({el: '.header', p: {y: [-100, 0]}, d: 800, e: 'Power4InOut', delay: 1500})
-        Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 1500})
+        Transition.headerDown.from({el: '.header', p: {y: [-100, 0]}, d: 800, e: 'Power4InOut'})
 
-        Transition.headerDown.from({el: '#intro', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '.tagline', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '.menu__icon', p: {opacity: [0, 1]}, d: 1500, e: 'ExpoOut'})
-        Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '#intro', p: {opacity: [0, 1]}, d: 800, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '.tagline', p: {y: [100, 0]}, d: 800, e: 'Power4InOut', delay: 800})
+        Transition.headerDown.from({el: '.menu__icon', p: {opacity: [0, 1]}, d: 800, e: 'ExpoOut'})
+        Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 800, e: 'Power4InOut'})
 
         Transition.headerDown.play()
 
