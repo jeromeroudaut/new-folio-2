@@ -859,7 +859,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   width: 100vw;
   opacity: 0;
   /* background: transparent; */
-  background: rgba(36, 36, 36, 0.3);
+  background: rgba(36, 36, 36, 0.8);
 }#hcanvas-wrap {
   /* position: fixed; */
   /* position: absolute 0;  */
