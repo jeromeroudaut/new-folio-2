@@ -262,7 +262,7 @@ canvas {
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #e1ecc2;
+    border: 2px solid #f4f8fd;
     transform: translate3d(0, 100%, 0);
 
   }
@@ -273,7 +273,7 @@ canvas {
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #e1ecc2;
+    background: #f4f8fd;
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }

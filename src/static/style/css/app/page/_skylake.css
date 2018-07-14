@@ -66,9 +66,9 @@ html {
   height: 100vh;
   width: 33.33333vw;
   /* border-right: 1px solid gray; */
-  background: #fff8fd;
+  background: #c2dde5;
   transform: translate3d(-200%, 0, 0);
-  opacity: .2;
+  opacity: .35;
 }
 
 #body-right {
@@ -78,15 +78,15 @@ html {
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: #fff8fd;
+  background: #c2dde5;
   transform: translate3d(0 ,100%, 0);
-  opacity: .2;
+  opacity: .35;
 }
 
 #body-mid-line {
   position: absolute;
   top: 0;
-  left: 66.66666vw;
+  left: 68.66666vw;
   height: 100vh;
   width: .5px;
   background: #f4f8fd;
@@ -2251,7 +2251,7 @@ svg:not(:root) {
 #h-pagi-line {
   left: 0;
   right: 0;
-  background: #1a1e1c;
+  background: #f4f8fd;
   z-index: 0;
   transform: translate3d(-110, 0, 0);
   opacity: 0;
@@ -2304,7 +2304,7 @@ svg:not(:root) {
 
 .h-pagi-top-no {
   /* color: #1e1e20; */
-  color: #000;
+  color: #f4f8fd;
   opacity: 1;
 
 }
@@ -2312,7 +2312,7 @@ svg:not(:root) {
 #h-pagi-bottom-marker {
   /* color: rgba(255, 255, 255, .3); */
   /* color: #1e1e20; */
-  color: #000;
+  color: #f4f8fd;
   right: 40px !important;
   bottom: 5vw !important;
   transform: translate3d(0, 100%, 0);
@@ -3389,7 +3389,7 @@ svg:not(:root) {
 .h-txt-desc-txt {
   /* position: absolute; */
   line-height: 180%;
-  color: #f4f8fd;
+  color: #242529;
   font-size: calc(0.4rem + 0.718vw);
   font-family: MarkPro;
   transform: translate3d(0, 100%, 0);
@@ -3403,7 +3403,7 @@ svg:not(:root) {
   /* color: #181829; */
   /* color: #e8e8e8; */
   /* color: #1e1e20; */
-  color: #000;
+  color: #f4f8fd;
   letter-spacing: 1.6px;
   font-size: calc(0.4rem + 0.5vw);
   transform: translate3d(0, 100%, 0);
@@ -3421,7 +3421,7 @@ svg:not(:root) {
   position: absolute;
   top: 0;
   left: 0;
-  color: #f4f8fd;
+  color: #242529;
   line-height: 122%;
   transform: translate3d(0, 100%, 0);
   

@@ -94,7 +94,7 @@
         /* background: #a5ded5; */
         /* background: #fff; */
         /* background: #0000c1; */
-        background: #e1ecc2;
+        background: #f4f8fd;
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
         /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
@@ -168,13 +168,9 @@
     width: 100%;
     height: 100%;
     z-index: 1002;
-    text-align: center;
-    font-size: 42px;
-    font-family: "FuturaStdBold", sans-serif;
-    text-transform: uppercase;
     font-weight: bold;
     opacity: 0;
-    color: #fff;
+    /* color: #fff; */
     pointer-events: none;
     background-color: transparent;
     overflow: hidden;
@@ -236,7 +232,7 @@
     z-index: -1;
     background-color: #fff;
     position: absolute;
-    top: 4px;
+    top: 7px;
     -webkit-transform: scaleX(0.3);
     transform: scaleX(0.3);
   }
@@ -244,8 +240,12 @@
     padding: 0 7px;
     z-index: 1;
     position: relative;
+    font-size: 10px;
+    font-family: "MarkPro-Black", sans-serif;
+    text-transform: uppercase;
+    color: #f4f8fd;
     /* background-color: #4c688b; */
-    background-color: #1a1e1c;
+    background-color: #242529;
 
   }
   .nav-categories {
@@ -260,6 +260,13 @@
     padding: 0;
     position: relative;
     display: block;
+    text-align: center;
+    font-size: 42px;
+    font-family: "MarkPro-Black", sans-serif;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke-color: #f4f8fd;
+    -webkit-text-stroke-width: 2px;
   }
   .nav-link {
     display: inline-block;
@@ -315,7 +322,10 @@
     }
   }
   .nav-sublinks {
-    font-size: 0.45em;
+    font-family: "MarkPro-Black", sans-serif;
+    text-transform: uppercase;
+    color: #f4f8fd;
+    font-size: 0.90em;
     color: #a5ded5;
     padding-top: 30px;
     padding-bottom: 30px;

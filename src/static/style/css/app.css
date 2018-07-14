@@ -620,7 +620,7 @@ $grid-width: 114rem;
         /* background: #a5ded5; */
         /* background: #fff; */
         /* background: #0000c1; */
-        background: #e1ecc2;
+        background: #f4f8fd;
         /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
         /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
@@ -726,13 +726,9 @@ $grid-width: 114rem;
     width: 100%;
     height: 100%;
     z-index: 1002;
-    text-align: center;
-    font-size: 42px;
-    font-family: "FuturaStdBold", sans-serif;
-    text-transform: uppercase;
     font-weight: bold;
     opacity: 0;
-    color: #fff;
+    /* color: #fff; */
     pointer-events: none;
     background-color: transparent;
     overflow: hidden;
@@ -777,7 +773,7 @@ $grid-width: 114rem;
     z-index: -1;
     background-color: #fff;
     position: absolute;
-    top: 4px;
+    top: 7px;
     -webkit-transform: scaleX(0.3);
     transform: scaleX(0.3);
   }
@@ -786,8 +782,12 @@ $grid-width: 114rem;
     padding: 0 7px;
     z-index: 1;
     position: relative;
+    font-size: 10px;
+    font-family: "MarkPro-Black", sans-serif;
+    text-transform: uppercase;
+    color: #f4f8fd;
     /* background-color: #4c688b; */
-    background-color: #1a1e1c;
+    background-color: #242529;
 
   }
   
@@ -804,6 +804,13 @@ $grid-width: 114rem;
     padding: 0;
     position: relative;
     display: block;
+    text-align: center;
+    font-size: 42px;
+    font-family: "MarkPro-Black", sans-serif;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke-color: #f4f8fd;
+    -webkit-text-stroke-width: 2px;
   }
   
   .nav-link {
@@ -846,7 +853,10 @@ $grid-width: 114rem;
   }
   
   .nav-sublinks {
-    font-size: 0.45em;
+    font-family: "MarkPro-Black", sans-serif;
+    text-transform: uppercase;
+    color: #f4f8fd;
+    font-size: 0.90em;
     color: #a5ded5;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -1323,7 +1333,7 @@ $grid-width: 114rem;
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #e1ecc2;
+    border: 2px solid #f4f8fd;
     -webkit-transform: translate3d(0, 100%, 0);
             transform: translate3d(0, 100%, 0);
 
@@ -1335,7 +1345,7 @@ $grid-width: 114rem;
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #e1ecc2;
+    background: #f4f8fd;
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }
@@ -1408,10 +1418,10 @@ $grid-width: 114rem;
   height: 100vh;
   width: 33.33333vw;
   /* border-right: 1px solid gray; */
-  background: #fff8fd;
+  background: #c2dde5;
   -webkit-transform: translate3d(-200%, 0, 0);
           transform: translate3d(-200%, 0, 0);
-  opacity: .2;
+  opacity: .35;
 }
   
   #body-right {
@@ -1421,16 +1431,16 @@ $grid-width: 114rem;
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: #fff8fd;
+  background: #c2dde5;
   -webkit-transform: translate3d(0 ,100%, 0);
           transform: translate3d(0 ,100%, 0);
-  opacity: .2;
+  opacity: .35;
 }
   
   #body-mid-line {
   position: absolute;
   top: 0;
-  left: 66.66666vw;
+  left: 68.66666vw;
   height: 100vh;
   width: .5px;
   background: #f4f8fd;
@@ -3817,7 +3827,7 @@ a:hover {
   #h-pagi-line {
   left: 0;
   right: 0;
-  background: #1a1e1c;
+  background: #f4f8fd;
   z-index: 0;
   -webkit-transform: translate3d(-110, 0, 0);
           transform: translate3d(-110, 0, 0);
@@ -3872,7 +3882,7 @@ a:hover {
   
   .h-pagi-top-no {
   /* color: #1e1e20; */
-  color: #000;
+  color: #f4f8fd;
   opacity: 1;
 
 }
@@ -3880,7 +3890,7 @@ a:hover {
   #h-pagi-bottom-marker {
   /* color: rgba(255, 255, 255, .3); */
   /* color: #1e1e20; */
-  color: #000;
+  color: #f4f8fd;
   right: 40px !important;
   bottom: 5vw !important;
   -webkit-transform: translate3d(0, 100%, 0);
@@ -4999,7 +5009,7 @@ a:hover {
   .h-txt-desc-txt {
   /* position: absolute; */
   line-height: 180%;
-  color: #f4f8fd;
+  color: #242529;
   font-size: calc(0.4rem + 0.718vw);
   font-family: MarkPro;
   -webkit-transform: translate3d(0, 100%, 0);
@@ -5014,7 +5024,7 @@ a:hover {
   /* color: #181829; */
   /* color: #e8e8e8; */
   /* color: #1e1e20; */
-  color: #000;
+  color: #f4f8fd;
   letter-spacing: 1.6px;
   font-size: calc(0.4rem + 0.5vw);
   -webkit-transform: translate3d(0, 100%, 0);
@@ -5033,7 +5043,7 @@ a:hover {
   position: absolute;
   top: 0;
   left: 0;
-  color: #f4f8fd;
+  color: #242529;
   line-height: 122%;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
