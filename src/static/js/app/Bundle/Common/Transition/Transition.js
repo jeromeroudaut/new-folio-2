@@ -685,7 +685,8 @@ Transition.recognitionDown = function() {
         }
         
         
-        Transition.textInOut.from({el: '#h-pagi-line', p: {x: [0, -110]}, d: 1200, e: 'Power4InOut'})   
+        Transition.textInOut.from({el: '#h-pagi-line', p: {x: [0, -110]}, d: 900, e: 'Power4InOut'})   
+        Transition.textInOut.from({el: '#h-pagi-prog', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})   
 
         Transition.textInOut.from({el: Transition.arr[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         Transition.textInOut.from({el: Transition.arrText[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
@@ -696,16 +697,16 @@ Transition.recognitionDown = function() {
         Transition.textInOut.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
 
         Transition.textInOut.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
-            p: {x: [0, -100]}, d: 1200, e: 'Power4InOut'})
+            p: {x: [0, -100]}, d: 900, e: 'Power4InOut'})
 
-        Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
 
         if (Transition.currentStep >= 6) {
 
             Transition.textInOut.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
-                p: {x: [0, 0]}, d: 1200, e: 'Power4InOut'})
+                p: {x: [0, 0]}, d: 900, e: 'Power4InOut'})
     
-            Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}, d: 1200, e: 'Power4InOut'})
+            Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}, d: 900, e: 'Power4InOut'})
 
         }
 
@@ -732,7 +733,8 @@ Transition.recognitionDown = function() {
 
             // if (Transition.currentStep === 4) {
             // Transition.textInOut.from({el: '#h-txt-desc-line', p: {opacity: [0, 0]}, e: 'Power4InOut'}) } else {
-            Transition.textIn2.from({el: '#h-pagi-line', p: {x: [-110 * t, 0]}, d: 1200, e: 'Power4InOut'})
+            Transition.textIn2.from({el: '#h-pagi-line', p: {x: [-110 * t, 0]}, d: 900, e: 'Power4InOut'})
+            Transition.textIn2.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
             // }
 
             Transition.textIn2.from({el: Transition.arr[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
@@ -743,9 +745,9 @@ Transition.recognitionDown = function() {
             Transition.textIn2.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
             Transition.textIn2.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
 
-            Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [100, 0]}, d: 1200, e: 'Power4InOut'})
+            Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [100, 0]}, d: 900, e: 'Power4InOut'})
 
-            Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+            Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
 
             if (Transition.currentStep >= 7) {
 
@@ -790,7 +792,8 @@ Transition.recognitionDown = function() {
         // if (Transition.currentStep === 3) {
         //      Transition.textOutIn.from({el: '#h-txt-desc-line', p: {opacity: [1, 0]}})
         // } else {
-        Transition.textOutIn.from({el: '#h-pagi-line', p: {x: [0, -110 * t]}, d: 1200, e: 'Power4InOut'})
+        Transition.textOutIn.from({el: '#h-pagi-line', p: {x: [0, -110 * t]}, d: 900, e: 'Power4InOut'})
+        Transition.textOutIn.from({el: '#h-pagi-prog', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
         //}
 
         Transition.textOutIn.from({el: Transition.arr[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
@@ -806,19 +809,19 @@ Transition.recognitionDown = function() {
         if (Transition.currentStep === 7) {
 
             Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
-                p: {x: [0, 0]}, d: 1200, e: 'Power4InOut'})
+                p: {x: [0, 0]}, d: 900, e: 'Power4InOut'})
     
-            Transition.textOutIn.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}, d: 1200, e: 'Power4InOut'})
+            Transition.textOutIn.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}, d: 900, e: 'Power4InOut'})
 
         } else if (Transition.currentStep <=  0) {
-            Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {y: [0, 100]}, d: 1200, delay: 300, e: 'Power4InOut'})
+            Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {y: [0, 100]}, d: 900, delay: 300, e: 'Power4InOut'})
             
         } else {
 
-            Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 100]}, d: 1200, e: 'Power4InOut'}) 
+            Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 100]}, d: 900, e: 'Power4InOut'}) 
         
 
-            Transition.textOutIn.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+            Transition.textOutIn.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
         }
 
         if (Transition.currentStep < 4) {
@@ -841,7 +844,9 @@ Transition.recognitionDown = function() {
                 if (Transition.currentStep === -1) {
                     Transition.textOut2.from({el: '#h-pagi-line', p: {x: [-110, -110]}, d: 1200, e: 'Power4InOut'})
                 } else {
-                    Transition.textOut2.from({el: '#h-pagi-line', p: {x: [-110, 0]}, d: 1200, e: 'Power4InOut'})
+                    Transition.textOut2.from({el: '#h-pagi-line', p: {x: [-110, 0]}, d: 900, e: 'Power4InOut'})
+                    Transition.textOut2.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
+
                 }
                 
 
@@ -862,9 +867,9 @@ Transition.recognitionDown = function() {
 
                 } else {
 
-                    Transition.textOut2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [-100, 0]}, d: 1200, e: 'Power4InOut'})
+                    Transition.textOut2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [-100, 0]}, d: 900, e: 'Power4InOut'})
                 
-                    Transition.textOut2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+                    Transition.textOut2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
                 }
 
                 if (Transition.currentStep < 4 && Transition.currentStep > -1) {
