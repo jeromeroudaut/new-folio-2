@@ -2226,7 +2226,7 @@ svg:not(:root) {
   left: 0;
   right: 0;
   background: #f4f8fd;
-  z-index: 0;
+  z-index: -1;
   transform: translate3d(-110, 0, 0);
   opacity: 0;
 }
@@ -2234,7 +2234,8 @@ svg:not(:root) {
 #h-pagi-prog {
   left: 0;
   right: 0;
-  background: #e1ecc2;
+  background: #6534ff;
+  height: 1px;
   width: 0;
   transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
   z-index: 1;

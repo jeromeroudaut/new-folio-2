@@ -653,10 +653,10 @@ Transition.recognitionDown = function() {
         if (Transition.currentStep > 3) {
             Transition.pagiBottomMarkerWrap.style.transform = "translate3d(0,0,0)"
             Transition.pagiBottomMarkerWrap.style.transform = "rotate(-90deg)"
-            Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "#0f100e";
+            Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "#f4f8fd";
             Transition.arrPagiTopNo[Transition.currentStep + 1].style.transition = "color 200ms";
-            Transition.pagiBottomMarker.style.color = "#0f100e";
-            Transition.pagiLine.style.background = "#0f100e";
+            Transition.pagiBottomMarker.style.color = "#f4f8fd";
+            Transition.pagiLine.style.background = "#f4f8fd";
             Transition.pagiBottomMarker.style.transition = "color 200ms";
             
         }
@@ -672,6 +672,10 @@ Transition.recognitionDown = function() {
 
         Transition.next()
 
+        Transition.textInOut = new S.Timeline()
+        const isObj8 = S.Is.object(Transition.textInOut)
+        const t = -1
+
         if (Transition.currentStep <= 5) {
             Transition.updateProgress(Transition.currentStep + 1);
         } else if (Transition.currentStep === 6) {
@@ -680,13 +684,8 @@ Transition.recognitionDown = function() {
             Transition.updateProgress(6)
         }
         
-        Transition.textInOut = new S.Timeline()
-        const isObj8 = S.Is.object(Transition.textInOut)
-        const t = -1
-
         
         Transition.textInOut.from({el: '#h-pagi-line', p: {x: [0, -110]}, d: 1200, e: 'Power4InOut'})   
-        
 
         Transition.textInOut.from({el: Transition.arr[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         Transition.textInOut.from({el: Transition.arrText[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})

@@ -11148,10 +11148,10 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         if (Transition.currentStep > 3) {
             Transition.pagiBottomMarkerWrap.style.transform = "translate3d(0,0,0)";
             Transition.pagiBottomMarkerWrap.style.transform = "rotate(-90deg)";
-            Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "#0f100e";
+            Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "#f4f8fd";
             Transition.arrPagiTopNo[Transition.currentStep + 1].style.transition = "color 200ms";
-            Transition.pagiBottomMarker.style.color = "#0f100e";
-            Transition.pagiLine.style.background = "#0f100e";
+            Transition.pagiBottomMarker.style.color = "#f4f8fd";
+            Transition.pagiLine.style.background = "#f4f8fd";
             Transition.pagiBottomMarker.style.transition = "color 200ms";
         }
     };
@@ -11165,6 +11165,9 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         Transition.next();
 
+        Transition.textInOut = new skylake.Timeline();
+        var isObj8 = skylake.Is.object(Transition.textInOut);
+
         if (Transition.currentStep <= 5) {
             Transition.updateProgress(Transition.currentStep + 1);
         } else if (Transition.currentStep === 6) {
@@ -11172,9 +11175,6 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         } else if (Transition.currentStep >= 7) {
             Transition.updateProgress(6);
         }
-
-        Transition.textInOut = new skylake.Timeline();
-        var isObj8 = skylake.Is.object(Transition.textInOut);
 
         Transition.textInOut.from({ el: '#h-pagi-line', p: { x: [0, -110] }, d: 1200, e: 'Power4InOut' });
 
