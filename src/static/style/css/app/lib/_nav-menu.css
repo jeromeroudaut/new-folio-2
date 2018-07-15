@@ -91,12 +91,7 @@
       &::after {
         width: 3rem;
         height: 1px;
-        /* background: #a5ded5; */
-        /* background: #fff; */
-        /* background: #0000c1; */
         background: #f4f8fd;
-        /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-        /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
       }
   

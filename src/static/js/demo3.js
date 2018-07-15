@@ -90,7 +90,7 @@ function init() {
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
 	// texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants-ov2.jpg');
-	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/water2.jpg');
+	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/water-ov.jpg');
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 	//texture.minFilter = THREE.LinearFilter;
 	texture.minFilter = texture.magFilter = THREE.LinearFilter;
@@ -98,7 +98,7 @@ function init() {
 
 
 	material = new THREE.MeshPhongMaterial( {
-		color: 0xffffff, //change to brighten scene
+		color: 0x868585, //change to brighten scene
 		specular: 0xffffff,
 		shininess: 80,
 		map: texture,
@@ -120,13 +120,13 @@ function init() {
 	normalsHelper.visible = false;
 
 	//lights
-	scene.add( new THREE.AmbientLight( 0xdddddd ) );
+	scene.add( new THREE.AmbientLight( 0xffffff ) );
 
-	var light = new THREE.SpotLight( 0xdddddd, .15);
+	var light = new THREE.SpotLight( 0xdddddd, .05);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0xdddddd, .095 );
+	var directionalLight = new THREE.DirectionalLight( 0xdddddd, .2 );
 	directionalLight.position.set( 100, 0, 50 );
 	scene.add( directionalLight );
 
@@ -150,7 +150,7 @@ function init() {
 	onResize();
 
 	//fade up from black
-  TweenLite.to(material, 2, {opacity:1});
+  TweenLite.to(material, 2, {opacity:.9});
 
   // anim = new S.Merom({el: material, p: {opacity: [0, 1]}, d: 2000, e: 'Power4Out'})
   // anim.play()

@@ -481,12 +481,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
       .menu__icon::after {
         width: 3rem;
         height: 1px;
-        /* background: #a5ded5; */
-        /* background: #fff; */
-        /* background: #0000c1; */
         background: #f4f8fd;
-        /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-        /* background-image: linear-gradient(to right top, #071113, #a5ded5); */
         display: inline-block;
       }.menu__icon::before,
       .menu__icon::after {
@@ -3834,20 +3829,32 @@ a:hover {
 
 
 }.h-pagi-prog-no {
-  /* background: -webkit-linear-gradient(#16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-  /* background-image: linear-gradient(to left top, #0f2027, #fff, #1f45a7); */
-  /* -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-  /* color: #a5ded5; */
-  /* color: rgba(0, 0, 193, .6); */
-  /* color: #344258; */
-  /* color: #e1ecc2; */
   color: transparent;
-  -webkit-text-stroke-color: #fa8072;  
   -webkit-text-stroke-width: 1.8px;
   text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.01);
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
+}#h-pagi-prog-2 {
+  -webkit-text-stroke-color: #bec9ce;  
+
+}#h-pagi-prog-3 {
+  -webkit-text-stroke-color: #4f9b8e;  
+
+}#h-pagi-prog-4 {
+  -webkit-text-stroke-color: #a8b1b5;  
+
+}#h-pagi-prog-5 {
+  -webkit-text-stroke-color: #ff6c2f;  
+
+}#h-pagi-prog-6 {
+  -webkit-text-stroke-color: #0f110e;  
+
+}#h-pagi-prog-7 {
+  -webkit-text-stroke-color: #4f9b8e;  
+
+}#h-pagi-prog-8 {
+  -webkit-text-stroke-color: #d22446;  
+
 }#h-prog-container {
   padding: 30px 30px;
 }.progress-container{
@@ -3861,14 +3868,7 @@ a:hover {
   display: none;
 }.progress{
   height: 3.5px;
-  /* background: red; */
-  /* background: #6534ff; */
-  /* background: rgba(255, 255, 255, .6); */
-  /* background: rgba(0, 0, 193, .6); */
-  /* background: #344258; */
   background: #e1ecc2;
-  /* background-image: linear-gradient(to right, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
-  /* background-image: linear-gradient(to right top, #fff, #203a43); */
   width: 0;
   -webkit-transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -3940,7 +3940,7 @@ a:hover {
   height: 100%;
   top: 0px;
   z-index: -1;
-  opacity: .97;
+  opacity: .7;
   -webkit-transform: translateX(-41.7%) rotate(-90deg);
           transform: translateX(-41.7%) rotate(-90deg);
 
