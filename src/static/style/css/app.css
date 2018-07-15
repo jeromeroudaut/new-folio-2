@@ -152,9 +152,9 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     text-rendering: optimizeLegibility;
   }.main-headline-r1 {
     /* color: #e1ecc2; */
-    color: ##f4f8fd;
-    /* -webkit-text-stroke-color: #f4f8fd;
-    -webkit-text-stroke-width: 1.9px; */
+    color: transparent;
+    -webkit-text-stroke-color: #f4f8fd;
+    -webkit-text-stroke-width: 1.9px;
     /* border-bottom: 3px dotted rgba(255, 255, 255, 0.3); */
     font-size: 5.2em;
     font-weight: 800;
@@ -174,9 +174,9 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     font-weight: 100;
     letter-spacing: 2.075rem;
     font-family: "MarkPro-Black", sans-serif;
-    color: #f4f8fd;
-    /* -webkit-text-stroke-color: #0f100e; 
-    -webkit-text-stroke-width: 1.9px; */
+    color: transparent;
+    -webkit-text-stroke-color: #f4f8fd; 
+    -webkit-text-stroke-width: 1.9px;
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.05);
   
     @include respond(phone) {
@@ -860,8 +860,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   opacity: 0;
   /* background: transparent; */
   /* background: #363c44; */
-  background: -webkit-gradient(linear,left top, right bottom,from(rgba(36, 36, 36, .5)),to(rgba(250, 128, 114, .6)));
-  background: linear-gradient(to right bottom,rgba(36, 36, 36, .5),rgba(250, 128, 114, .6));
+  background: -webkit-gradient(linear,right bottom, left top,from(rgba(36, 36, 36, 1)),to(rgba(193, 225, 231, .9)));
+  background: linear-gradient(to left top,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
   /* background-image: linear-gradient(
         to right bottom,
         rgba(70, 69, 69, 1),
@@ -1073,12 +1073,12 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   position: absolute;
   z-index: 1000;
   top: 0;
-  left: 33.33333vw;
+  left: 0;
   height: 100vh;
-  width: 33.33333vw;
+  width: 66.66666vw;
   /* border-right: 1px solid gray; */
-  background: -webkit-gradient(linear,left top, left bottom,from(rgba(36, 36, 36, 1)),to(rgba(193, 225, 231, .9)));
-  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
+  background: -webkit-gradient(linear,left bottom, left top,from(rgba(36, 36, 36, 1)),to(rgba(193, 225, 231, .9)));
+  background: linear-gradient(to top,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
   -webkit-transform: translate3d(-200%, 0, 0);
           transform: translate3d(-200%, 0, 0);
   opacity: .8;
@@ -1089,8 +1089,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: -webkit-gradient(linear,left top, left bottom,from(rgba(36, 36, 36, 1)),to(rgba(193, 225, 231, .9)));
-  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
+  background: -webkit-gradient(linear,left bottom, left top,from(rgba(36, 36, 36, 1)),to(rgba(193, 225, 231, .9)));
+  background: linear-gradient(to top,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
   -webkit-transform: translate3d(0 ,100%, 0);
           transform: translate3d(0 ,100%, 0);
   opacity: .8;
@@ -3589,9 +3589,9 @@ a:hover {
   line-height: 146%;
   letter-spacing: -1px;
   font-size: calc(1.1rem + 3.74vw);
-  color: transparent;
-  -webkit-text-stroke-color: #fa8072; 
-  -webkit-text-stroke-width: 2px;
+  color: #0f110e;
+  /* -webkit-text-stroke-color: #fa8072; 
+  -webkit-text-stroke-width: 2px; */
 }.h-txt-title {
   position: absolute;
   top: 15px;
@@ -3648,7 +3648,7 @@ a:hover {
   -webkit-perspective: 1000;
 }.h-bottom-title {
   font-family: trump-gothic-pro;
-  color: #fff;
+  color: #0f110e;
   letter-spacing: 1.6px;
   font-size: calc(0.4rem + 0.5vw);
   -webkit-transform: translate3d(0, 100%, 0);

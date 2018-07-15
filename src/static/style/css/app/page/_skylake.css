@@ -36,11 +36,11 @@ html {
   position: absolute;
   z-index: 1000;
   top: 0;
-  left: 33.33333vw;
+  left: 0;
   height: 100vh;
-  width: 33.33333vw;
+  width: 66.66666vw;
   /* border-right: 1px solid gray; */
-  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
+  background: linear-gradient(to top,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
   transform: translate3d(-200%, 0, 0);
   opacity: .8;
 }
@@ -52,7 +52,7 @@ html {
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: linear-gradient(to bottom,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
+  background: linear-gradient(to top,rgba(36, 36, 36, 1),rgba(193, 225, 231, .9));
   transform: translate3d(0 ,100%, 0);
   opacity: .8;
 }
@@ -3291,9 +3291,9 @@ svg:not(:root) {
   line-height: 146%;
   letter-spacing: -1px;
   font-size: calc(1.1rem + 3.74vw);
-  color: transparent;
-  -webkit-text-stroke-color: #fa8072; 
-  -webkit-text-stroke-width: 2px;
+  color: #0f110e;
+  /* -webkit-text-stroke-color: #fa8072; 
+  -webkit-text-stroke-width: 2px; */
 }
 
 .h-txt-title {
@@ -3368,7 +3368,7 @@ svg:not(:root) {
 
 .h-bottom-title {
   font-family: trump-gothic-pro;
-  color: #fff;
+  color: #0f110e;
   letter-spacing: 1.6px;
   font-size: calc(0.4rem + 0.5vw);
   transform: translate3d(0, 100%, 0);
