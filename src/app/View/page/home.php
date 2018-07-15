@@ -65,6 +65,7 @@
                 </div>
                 <div id="h-pagi-line-container">
                     <div id="h-pagi-line-wrap" class="oh">
+                        <div id="h-pagi-prog"></div>
                         <div id="h-pagi-line"></div>
                     </div>
                     <div id="h-pagi-top">

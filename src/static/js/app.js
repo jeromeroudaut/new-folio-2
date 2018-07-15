@@ -10829,7 +10829,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         Transition.headerDown.from({ el: '#intro', p: { opacity: [0, 1] }, d: 800, e: 'Power4InOut' });
         Transition.headerDown.from({ el: '.tagline', p: { y: [100, 0] }, d: 800, e: 'Power4InOut', delay: 800 });
-        Transition.headerDown.from({ el: '.menu__icon', p: { opacity: [0, 1] }, d: 800, e: 'ExpoOut' });
+        // Transition.headerDown.from({el: '.menu__icon', p: {opacity: [0, 1]}, d: 800, e: 'ExpoOut'})
         Transition.headerDown.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 800, e: 'Power4InOut' });
 
         Transition.headerDown.play();
@@ -11158,7 +11158,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
     Transition.updateProgress = function (num1) {
         var percent = Math.ceil(num1 * 100 / 6) + '%';
-        document.getElementById('progress').style.width = percent;
+        document.getElementById('h-pagi-prog').style.width = percent;
     };
 
     Transition.n2 = function () {

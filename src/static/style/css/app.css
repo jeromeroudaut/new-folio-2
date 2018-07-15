@@ -153,7 +153,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   }.main-headline-r1 {
     /* color: #e1ecc2; */
     color: transparent;
-    -webkit-text-stroke-color: #0f110e; 
+    -webkit-text-stroke-color: #f4f8fd;
     -webkit-text-stroke-width: 1.9px;
     /* border-bottom: 3px dotted rgba(255, 255, 255, 0.3); */
     font-size: 5.2em;
@@ -175,7 +175,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     letter-spacing: 2.075rem;
     font-family: "MarkPro-Black", sans-serif;
     color: transparent;
-    -webkit-text-stroke-color: #0f110e; 
+    -webkit-text-stroke-color: #f4f8fd; 
     -webkit-text-stroke-width: 1.9px;
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.05);
   
@@ -480,8 +480,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
       .menu__icon::before,
       .menu__icon::after {
         width: 3rem;
-        height: 1px;
-        background: #0f110e; 
+        height: 1.2px;
+        background: #f4f8fd;
         display: inline-block;
       }.menu__icon::before,
       .menu__icon::after {
@@ -1026,8 +1026,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #0f110e; 
-    -webkit-transform: translate3d(0, 100%, 0); 
+    border: 2px solid #f4f8fd;
+    -webkit-transform: translate3d(0, 100%, 0);
             transform: translate3d(0, 100%, 0);
 
   }.scroll-icon div {
@@ -1036,7 +1036,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #0f110e; 
+    background: #f4f8fd;
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }html {
@@ -1073,8 +1073,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   height: 100vh;
   width: 66.66666vw;
   /* border-right: 1px solid gray; */
-  background: -webkit-gradient(linear,left bottom, left top,from(rgba(255, 255, 255, .2)),to(rgba(250, 128, 114, .9)));
-  background: linear-gradient(to top,rgba(255, 255, 255, .2),rgba(250, 128, 114, .9));
+  background: -webkit-gradient(linear,left top, left bottom,from(rgba(255, 255, 255, .2)),to(rgba(250, 128, 114, .15)));
+  background: linear-gradient(to bottom,rgba(255, 255, 255, .2),rgba(250, 128, 114, .15));
   -webkit-transform: translate3d(-200%, 0, 0);
           transform: translate3d(-200%, 0, 0);
   opacity: .8;
@@ -1085,17 +1085,17 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: -webkit-gradient(linear,left bottom, left top,from(rgba(255, 255, 255, .2)),to(rgba(250, 128, 114, .9)));
-  background: linear-gradient(to top,rgba(255, 255, 255, .2),rgba(250, 128, 114, .9));
+  background: -webkit-gradient(linear,left top, left bottom,from(rgba(255, 255, 255, .2)),to(rgba(250, 128, 114, .15)));
+  background: linear-gradient(to bottom,rgba(255, 255, 255, .2),rgba(250, 128, 114, .15));
   -webkit-transform: translate3d(0 ,100%, 0);
           transform: translate3d(0 ,100%, 0);
   opacity: .8;
 }#body-mid-line {
   position: absolute;
   top: 0;
-  left: 68.66666vw;
+  left: 66.66666vw;
   height: 100vh;
-  width: .5px;
+  width: 1px;
   background: #f4f8fd;
   /* background-image: linear-gradient(to top, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
   -webkit-transform: translate3d(0, -100%, 0);
@@ -2816,11 +2816,37 @@ a:hover {
 }#h-pagi-line {
   left: 0;
   right: 0;
-  background: #0f110e;
+  background: #f4f8fd;
   z-index: 0;
   -webkit-transform: translate3d(-110, 0, 0);
           transform: translate3d(-110, 0, 0);
   opacity: 0;
+}#h-pagi-prog {
+  left: 0;
+  right: 0;
+  background: #e1ecc2;
+  width: 0;
+  -webkit-transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 1;
+  -webkit-transform: translate3d(0, 0%, 0);
+          transform: translate3d(0, 0%, 0);
+  /* opacity: 0; */
+}.progress-container{
+  position: absolute;
+  bottom: 45%;
+  left: 36%;
+  width: 50%;
+  height: 3.5px;
+  background: rgba(244, 248, 253, .6);
+  border-radius: 5px;
+  display: none;
+}.progress{
+  height: 3.5px;
+  background: #e1ecc2;
+  width: 0;
+  -webkit-transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 }#h-pagi-top {
   text-align: center;
 }#h-pagi-top,
@@ -2854,11 +2880,11 @@ a:hover {
           transform: translate3d(0%, 100%, 0);
   line-height: auto;
 }.h-pagi-top-no {
-  color: #0f110e;
+  color: #f4f8fd;
   opacity: 1;
 
 }#h-pagi-bottom-marker {
-  color: #0f110e;
+  color: #f4f8fd;
   right: 40px !important;
   bottom: 5vw !important;
   -webkit-transform: translate3d(0, 100%, 0);
@@ -3582,7 +3608,7 @@ a:hover {
   line-height: 146%;
   letter-spacing: -1px;
   font-size: calc(1.1rem + 3.74vw);
-  color: #242529; 
+  color: #0f110e; 
   /* -webkit-text-stroke-color: #0f110e; 
   -webkit-text-stroke-width: 2px; */
   text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.05);
@@ -3617,10 +3643,10 @@ a:hover {
           transform: translate3d(0, 100%, 0);
 
 }#h-section-0 {
-  -webkit-text-stroke-color: #0f110e;
+  -webkit-text-stroke-color: #f4f8fd;
 
 }#h-section-1 {
-  -webkit-text-stroke-color:  #0000c1;
+  -webkit-text-stroke-color:  #6534ff;
 }#h-section-2 {
   -webkit-text-stroke-color:  #d22446;
 }#h-section-3 {
@@ -3846,31 +3872,16 @@ a:hover {
   -webkit-text-stroke-color: #ff6c2f;  
 
 }#h-pagi-prog-6 {
-  -webkit-text-stroke-color: #0f110e;  
+  -webkit-text-stroke-color: #f4f8fd;  
 
 }#h-pagi-prog-7 {
-  -webkit-text-stroke-color: #0000c1;  
+  -webkit-text-stroke-color: #6534ff;;  
 
 }#h-pagi-prog-8 {
   -webkit-text-stroke-color: #d22446;  
 
 }#h-prog-container {
   padding: 30px 30px;
-}.progress-container{
-  position: absolute;
-  bottom: 45%;
-  left: 36%;
-  width: 50%;
-  height: 3.5px;
-  background: rgba(244, 248, 253, .6);
-  border-radius: 5px;
-  display: none;
-}.progress{
-  height: 3.5px;
-  background: #e1ecc2;
-  width: 0;
-  -webkit-transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 }.h-back-wrap {
   /* position: absolute;
   z-index: -1;

@@ -90,8 +90,8 @@
       &::before,
       &::after {
         width: 3rem;
-        height: 1px;
-        background: #0f110e; 
+        height: 1.2px;
+        background: #f4f8fd;
         display: inline-block;
       }
   

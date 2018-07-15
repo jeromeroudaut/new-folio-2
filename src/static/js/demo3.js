@@ -90,7 +90,7 @@ function init() {
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
 	// texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants-ov2.jpg');
-	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/wall.jpg');
+	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/iceland.jpg');
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 	//texture.minFilter = THREE.LinearFilter;
 	texture.minFilter = texture.magFilter = THREE.LinearFilter;
@@ -122,11 +122,11 @@ function init() {
 	//lights
 	scene.add( new THREE.AmbientLight( 0xffffff ) );
 
-	var light = new THREE.SpotLight( 0xdddddd, .05);
+	var light = new THREE.SpotLight( 0xdddddd, .1);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0xdddddd, .2 );
+	var directionalLight = new THREE.DirectionalLight( 0xdddddd, .4 );
 	directionalLight.position.set( 100, 0, 50 );
 	scene.add( directionalLight );
 
@@ -150,7 +150,7 @@ function init() {
 	onResize();
 
 	//fade up from black
-  TweenLite.to(material, 2, {opacity:.7});
+  TweenLite.to(material, 2, {opacity:1});
 
   // anim = new S.Merom({el: material, p: {opacity: [0, 1]}, d: 2000, e: 'Power4Out'})
   // anim.play()

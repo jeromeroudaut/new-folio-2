@@ -664,7 +664,7 @@ Transition.recognitionDown = function() {
 
     Transition.updateProgress = function(num1) {
         var percent = Math.ceil( num1 * 100 / 6 ) + '%';
-        document.getElementById('progress').style.width = percent;
+        document.getElementById('h-pagi-prog').style.width = percent;
     }
 
     Transition.n2 = function() {
