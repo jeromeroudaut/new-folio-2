@@ -65,8 +65,8 @@
             src: url("./static/media/sou/MarkPro.otf");
         }
         @font-face {
-            font-family: "AirCorpsJNL";
-            src: url("./static/media/sou/AirCorpsJNL.otf");
+            font-family: "circular-book";
+            src: url("./static/media/sou/circular-book.otf");
         }
         @font-face {
             font-family: "GinesoMedium";

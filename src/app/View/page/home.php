@@ -100,7 +100,7 @@
                         </div>
                         <div class="h-pagi-top-no-container">
                             <div class="h-pagi-top-no-wrap oh">
-                                <div class="h-pagi-top-no">01</div>
+                                <div class="h-pagi-top-no">&nbsp;</div>
                             </div>
                             <div class="h-pagi-top-no-wrap oh">
                                 <div class="h-pagi-top-no">02</div>

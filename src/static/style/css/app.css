@@ -606,6 +606,7 @@ $grid-width: 114rem;
     width: 7rem;
     top: 2.7rem;
     right: 4rem;
+    opacity: 0;
   }
   
   /* ICON */
@@ -3791,8 +3792,8 @@ a:hover {
   right: 0%;
   height: 1px;
   text-align: center;
-  font-family: trump-gothic-pro;
-  font-size: calc(1rem + 1.2vw);
+  font-family: MarkPro-Black;
+  font-size: calc(1rem + 0.6vw);
 }
   
   #h-pagi-line-wrap {
@@ -3864,7 +3865,7 @@ a:hover {
 .h-pagi-top-title-container {
   position: absolute;
   bottom: -28px;
-  left: 0;
+  left: -2.5px;
   width: 100%;
   opacity: 1;
 }
@@ -3876,7 +3877,7 @@ a:hover {
   
   .h-pagi-top-no-wrap {
   margin: auto;
-  width: 18px;
+  width: 28px;
   -webkit-transform: rotate(-90deg) !important;
           transform: rotate(-90deg) !important;
   
@@ -3902,13 +3903,19 @@ a:hover {
 }
   
   .h-pagi-top-no {
-  color: #f4f8fd;
+  color: transparent;
+  -webkit-text-stroke-width: 0.4px;
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.01);
+  -webkit-text-stroke-color: #f4f8fd; 
   opacity: 1;
 
 }
   
   #h-pagi-bottom-marker {
-  color: #f4f8fd;
+  color: transparent;
+  -webkit-text-stroke-width: 0.4px;
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.01);
+  -webkit-text-stroke-color: #f4f8fd; 
   right: 40px !important;
   bottom: 5vw !important;
   -webkit-transform: translate3d(0, 100%, 0);
@@ -3925,7 +3932,7 @@ a:hover {
 .h-pagi-bottom-title-container {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -2px;
   width: 100%;
 }
   
@@ -5025,7 +5032,7 @@ a:hover {
   line-height: 180%;
   color: #f4f8fd;
   font-size: calc(0.4rem + 0.718vw);
-  font-family: Georgia, serif;
+  font-family: circular-book;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
 
@@ -5046,7 +5053,7 @@ a:hover {
   position: relative;
   margin: 3px -1px 0;
   width: 8.33vw;
-  font-family: Georgia, serif;
+  font-family: circular-book;
   font-size: calc(0.4rem + 0.4vw);
 }
   

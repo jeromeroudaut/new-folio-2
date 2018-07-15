@@ -30,7 +30,7 @@ Transition.arrTopTitleWrap = S.Geb.class('h-pagi-top-title-wrap')
 Transition.arrBotPagiWrap = S.Geb.class('h-pagi-bottom-no-wrap')
 Transition.arrBotTitleWrap = S.Geb.class('h-pagi-bottom-title-wrap')
 Transition.sectionTitle = S.Geb.class("h-section-title")
-Transition.sectionBck = S.Geb.class("h-xp-col-back")
+// Transition.sectionBck = S.Geb.class("h-xp-col-back")
 
 Transition.pagiBottomMarkerWrap = S.Geb.id('h-pagi-bottom-marker-wrap')
 Transition.pagiLine = S.Geb.id('h-pagi-line')
@@ -276,7 +276,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const isObj3 = S.Is.object(Transition.headerUp)
         
         // Transition.headerUp.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1500, e: 'ExpoOut'})
-        Transition.headerUp.from({el: '.header', p: {y: [0, -100]}, d: 1300, delay: 1000, e: 'ExpoOut'})
+        Transition.headerUp.from({el: '.header', p: {y: [0, -100]}, d: 800, e: 'ExpoOut'})
         Transition.headerUp.play({cb: Transition.titleInit})
 
 
@@ -357,10 +357,9 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const textInit = new S.Timeline()
         const isObj5 = S.Is.object(textInit)
     
-        textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 1200})
+        textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 400})
         textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
-        // textInit.from({el: '.menu__icon', p: {opacity: [1, 0]}, d: 1500, e: 'ExpoOut', delay: 200})
-        textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 1200})
+        textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 400})
     
         textInit.from({el: Transition.arrBotTitle[0], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
@@ -383,6 +382,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         textInit.from({el: '#h-pagi-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2800, e: 'Power4InOut'})
         textInit.from({el: '#h-pagi-progress', p: {x: [-165, 0]}, d: 600, e: 'Power4InOut'})
+        textInit.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 600, e: 'Power4InOut'})
 
         Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
         Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
@@ -427,7 +427,6 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         openExp.from({el: '#body-mid', p: {x: [0, -100]}, d: 1200, e: 'Power4InOut'})
         openExp.from({el: '#body-right', p: {x: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        openExp.from({el: '#section-6', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
 
         openExp.from({el: Transition.arrBotTitle[0], p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
         openExp.from({el: Transition.arrBotTitle[1], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
@@ -447,7 +446,6 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
 
         openExp.from({el: Transition.sectionTitle[0], p: {y: [100, 0]}, d: 1200, delay: 400, e: 'Power4InOut'})
-        openExp.from({el: Transition.sectionBck[0], p: {opacity: [0, .15]}, d: 1200, e: 'Power4InOut'})
         openExp.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1800, delay: 600, e: 'Power4InOut'})
         openExp.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1800, delay: 600, e: 'Power4InOut'})
 
@@ -458,19 +456,15 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
    }
 
     Transition.recognitionUp = function() {
-
+        
         const recUp = new S.Timeline()
         const isObj16 = S.Is.object(recUp)
-
-        recUp.from({el: '#section-7', p: {opacity: [0, 1]}, d: 1200, e: 'Power3In'})
 
         recUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
         recUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 600, delay: 300, e: 'Power4InOut'})
         recUp.from({el: Transition.sectionTitle[0], p: {y: [0, 100]}, d: 1200, delay: 400, e: 'Power4InOut'})
-        recUp.from({el: Transition.sectionBck[0], p: {opacity: [.15, 0]}, d: 1200, e: 'Power4InOut'})
 
         recUp.from({el: Transition.sectionTitle[1], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
-        recUp.from({el: Transition.sectionBck[1], p: {opacity: [0, .15]}, d: 1200, e: 'Power4InOut'})
         recUp.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
         recUp.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
         
@@ -488,16 +482,13 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
     const socUp = new S.Timeline()
     const isObj20 = S.Is.object(socUp)
 
-    socUp.from({el: '#section-8', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
     
     socUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
     socUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 600, delay: 300, e: 'Power4InOut'})
     socUp.from({el: Transition.sectionTitle[1], p: {y: [0, 100]}, d: 1200, delay: 400, e: 'Power4InOut'})
-    socUp.from({el: Transition.sectionBck[1], p: {opacity: [.15, 0]}, d: 1200, e: 'Power4InOut'})
 
 
     socUp.from({el: Transition.sectionTitle[2], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
-    socUp.from({el: Transition.sectionBck[2], p: {opacity: [0, .15]}, d: 1200, e: 'Power4InOut'})
     socUp.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
     socUp.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
     
@@ -521,7 +512,6 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         openExpIn.from({el: Transition.sectionTitle[0], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         openExpIn.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
         openExpIn.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 600, delay: 300, e: 'Power4InOut'})
-        openExpIn.from({el: Transition.sectionBck[0], p: {opacity: [.15, 0]}, d: 1200, delay: 600, e: 'Power4InOut'})
 
         openExpIn.from({el: '#body-mid', p: {x: [-100, 0]}, d: 1200, delay: 600, e: 'Power4InOut'})
         openExpIn.from({el: '#body-right', p: {x: [100, 0]}, d: 1200, e: 'Power4InOut'})
@@ -555,15 +545,11 @@ Transition.recognitionDown = function() {
     // recDown.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 2100, e: 'Power4InOut'})
     // recDown.from({el: Transition.arrBotTitle[2], p: {y: [100, 0]}, d: 2400, e: 'Power4InOut'})
 
-    recDown.from({el: '#section-7', p: {opacity: [1, 0]}, d: 1200, e: 'Power3In'})
-
     recDown.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
     recDown.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 600, delay: 300, e: 'Power4InOut'})
     recDown.from({el: Transition.sectionTitle[1], p: {y: [0, 100]}, d: 1200, delay: 400, e: 'Power4InOut', delay: 1000})
-    recDown.from({el: Transition.sectionBck[1], p: {opacity: [.15, 0]}, d: 1200, e: 'Power4InOut'})
 
     recDown.from({el: Transition.sectionTitle[0], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
-    recDown.from({el: Transition.sectionBck[0], p: {opacity: [0, .15]}, d: 1200, e: 'Power4InOut'})
     recDown.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
     recDown.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
 
@@ -582,16 +568,12 @@ Transition.recognitionDown = function() {
 
         //Transition.hideSocial()
 
-        socDown.from({el: '#section-8', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
-
         
         socDown.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
         socDown.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 600, delay: 300, e: 'Power4InOut'})
         socDown.from({el: Transition.sectionTitle[2], p: {y: [0, 100]}, d: 1200, delay: 400, e: 'Power4InOut', delay: 1000})
-        socDown.from({el: Transition.sectionBck[2], p: {opacity: [.15, 0]}, d: 1200, e: 'Power4InOut'})
         
         socDown.from({el: Transition.sectionTitle[1], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
-        socDown.from({el: Transition.sectionBck[1], p: {opacity: [0, .15]}, d: 1200, e: 'Power4InOut'})
         socDown.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
         socDown.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
         
@@ -685,8 +667,8 @@ Transition.recognitionDown = function() {
         }
         
         
-        Transition.textInOut.from({el: '#h-pagi-line', p: {x: [0, -110]}, d: 900, e: 'Power4InOut'})   
-        Transition.textInOut.from({el: '#h-pagi-prog', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})   
+        // Transition.textInOut.from({el: '#h-pagi-line', p: {x: [0, -110]}, d: 1500, e: 'Power4InOut'})   
+        // Transition.textInOut.from({el: '#h-pagi-prog', p: {opacity: [1, 0]}, d: 1800, e: 'Power4InOut'})   
 
         Transition.textInOut.from({el: Transition.arr[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         Transition.textInOut.from({el: Transition.arrText[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
@@ -733,8 +715,8 @@ Transition.recognitionDown = function() {
 
             // if (Transition.currentStep === 4) {
             // Transition.textInOut.from({el: '#h-txt-desc-line', p: {opacity: [0, 0]}, e: 'Power4InOut'}) } else {
-            Transition.textIn2.from({el: '#h-pagi-line', p: {x: [-110 * t, 0]}, d: 900, e: 'Power4InOut'})
-            Transition.textIn2.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
+            // Transition.textIn2.from({el: '#h-pagi-line', p: {x: [-110 * t, 0]}, d: 1500, e: 'Power4InOut'})
+            // Transition.textIn2.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 1800, e: 'Power4InOut'})
             // }
 
             Transition.textIn2.from({el: Transition.arr[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
@@ -792,8 +774,8 @@ Transition.recognitionDown = function() {
         // if (Transition.currentStep === 3) {
         //      Transition.textOutIn.from({el: '#h-txt-desc-line', p: {opacity: [1, 0]}})
         // } else {
-        Transition.textOutIn.from({el: '#h-pagi-line', p: {x: [0, -110 * t]}, d: 900, e: 'Power4InOut'})
-        Transition.textOutIn.from({el: '#h-pagi-prog', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
+        // Transition.textOutIn.from({el: '#h-pagi-line', p: {x: [0, -110 * t]}, d: 1500, e: 'Power4InOut'})
+        // Transition.textOutIn.from({el: '#h-pagi-prog', p: {opacity: [1, 0]}, d: 1800, e: 'Power4InOut'})
         //}
 
         Transition.textOutIn.from({el: Transition.arr[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
@@ -844,8 +826,8 @@ Transition.recognitionDown = function() {
                 if (Transition.currentStep === -1) {
                     Transition.textOut2.from({el: '#h-pagi-line', p: {x: [-110, -110]}, d: 1200, e: 'Power4InOut'})
                 } else {
-                    Transition.textOut2.from({el: '#h-pagi-line', p: {x: [-110, 0]}, d: 900, e: 'Power4InOut'})
-                    Transition.textOut2.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
+                    // Transition.textOut2.from({el: '#h-pagi-line', p: {x: [-110, 0]}, d: 1500, e: 'Power4InOut'})
+                    // Transition.textOut2.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 1800, e: 'Power4InOut'})
 
                 }
                 
