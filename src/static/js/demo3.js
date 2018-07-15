@@ -89,7 +89,7 @@ function init() {
 	// texture = new THREE.Texture(canvas);
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
-	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants-bw3.jpg');
+	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants-ov2.jpg');
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 	//texture.minFilter = THREE.LinearFilter;
 	texture.minFilter = texture.magFilter = THREE.LinearFilter;
@@ -149,7 +149,7 @@ function init() {
 	onResize();
 
 	//fade up from black
-  TweenLite.to(material, 2, {opacity:.85});
+  TweenLite.to(material, 2, {opacity:1});
 
   // anim = new S.Merom({el: material, p: {opacity: [0, 1]}, d: 2000, e: 'Power4Out'})
   // anim.play()

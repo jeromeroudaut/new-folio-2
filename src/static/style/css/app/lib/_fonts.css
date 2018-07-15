@@ -56,7 +56,7 @@
     line-height: 1.6em;
     letter-spacing: 0.395em;
     display: inline-block;
-    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.05);
   
     @include respond(ipad-port) {
       font-size: 4.2vw;
@@ -74,7 +74,7 @@
     color: transparent;
     -webkit-text-stroke-color: #f4f8fd; 
     -webkit-text-stroke-width: 1.9px;
-    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.05);
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.05);
   
     @include respond(phone) {
       font-size: 6rem;
