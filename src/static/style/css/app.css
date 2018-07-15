@@ -153,7 +153,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   }.main-headline-r1 {
     /* color: #e1ecc2; */
     color: transparent;
-    -webkit-text-stroke-color: #f4f8fd;
+    -webkit-text-stroke-color: #0f110e; 
     -webkit-text-stroke-width: 1.9px;
     /* border-bottom: 3px dotted rgba(255, 255, 255, 0.3); */
     font-size: 5.2em;
@@ -175,7 +175,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     letter-spacing: 2.075rem;
     font-family: "MarkPro-Black", sans-serif;
     color: transparent;
-    -webkit-text-stroke-color: #f4f8fd; 
+    -webkit-text-stroke-color: #0f110e; 
     -webkit-text-stroke-width: 1.9px;
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.05);
   
@@ -481,7 +481,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
       .menu__icon::after {
         width: 3rem;
         height: 1px;
-        background: #f4f8fd;
+        background: #0f110e; 
         display: inline-block;
       }.menu__icon::before,
       .menu__icon::after {
@@ -832,6 +832,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   width: 100vw;
   opacity: 0;
   background: transparent;
+  /* background: linear-gradient(to left top,rgba(255, 255, 255, .2),rgba(250, 128, 114, .9)); */
+
   /* background: rgba(36, 36, 36, 0.3); */
   /* background-image: linear-gradient(
         to right bottom,
@@ -1024,8 +1026,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     width: 16px;
     height: 25px;
     border-radius: 8px;
-    border: 2px solid #f4f8fd;
-    -webkit-transform: translate3d(0, 100%, 0);
+    border: 2px solid #0f110e; 
+    -webkit-transform: translate3d(0, 100%, 0); 
             transform: translate3d(0, 100%, 0);
 
   }.scroll-icon div {
@@ -1034,7 +1036,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     height: 6px;
     margin: 4px 5px;
     border-radius: 2px;
-    background: #f4f8fd;
+    background: #0f110e; 
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
 }html {
@@ -2814,7 +2816,7 @@ a:hover {
 }#h-pagi-line {
   left: 0;
   right: 0;
-  background: #f4f8fd;
+  background: #0f110e;
   z-index: 0;
   -webkit-transform: translate3d(-110, 0, 0);
           transform: translate3d(-110, 0, 0);
@@ -2852,14 +2854,11 @@ a:hover {
           transform: translate3d(0%, 100%, 0);
   line-height: auto;
 }.h-pagi-top-no {
-  /* color: #1e1e20; */
-  color: #f4f8fd;
+  color: #0f110e;
   opacity: 1;
 
 }#h-pagi-bottom-marker {
-  /* color: rgba(255, 255, 255, .3); */
-  /* color: #1e1e20; */
-  color: #f4f8fd;
+  color: #0f110e;
   right: 40px !important;
   bottom: 5vw !important;
   -webkit-transform: translate3d(0, 100%, 0);
@@ -3538,12 +3537,12 @@ a:hover {
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
 }#h-client-0 {
-  color: #bec9ce;
+  color: #fa8270;
 
 }#h-client-1 {
   color: #4f9b8e;
 }#h-client-2 {
-  color: #a8b1b5;
+  color: #e1ecc1;
 }#h-client-3 {
   color: #ff6c2f;
 }#h-txt {
@@ -3621,7 +3620,7 @@ a:hover {
   -webkit-text-stroke-color: #0f110e;
 
 }#h-section-1 {
-  -webkit-text-stroke-color:  #4f9b8e;
+  -webkit-text-stroke-color:  #0000c1;
 }#h-section-2 {
   -webkit-text-stroke-color:  #d22446;
 }#h-section-3 {
@@ -3835,13 +3834,13 @@ a:hover {
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
 }#h-pagi-prog-2 {
-  -webkit-text-stroke-color: #bec9ce;  
+  -webkit-text-stroke-color: #fa8270;  
 
 }#h-pagi-prog-3 {
   -webkit-text-stroke-color: #4f9b8e;  
 
 }#h-pagi-prog-4 {
-  -webkit-text-stroke-color: #a8b1b5;  
+  -webkit-text-stroke-color: #e1ecc1;  
 
 }#h-pagi-prog-5 {
   -webkit-text-stroke-color: #ff6c2f;  
@@ -3850,7 +3849,7 @@ a:hover {
   -webkit-text-stroke-color: #0f110e;  
 
 }#h-pagi-prog-7 {
-  -webkit-text-stroke-color: #4f9b8e;  
+  -webkit-text-stroke-color: #0000c1;  
 
 }#h-pagi-prog-8 {
   -webkit-text-stroke-color: #d22446;  

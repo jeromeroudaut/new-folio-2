@@ -2225,7 +2225,7 @@ svg:not(:root) {
 #h-pagi-line {
   left: 0;
   right: 0;
-  background: #f4f8fd;
+  background: #0f110e;
   z-index: 0;
   transform: translate3d(-110, 0, 0);
   opacity: 0;
@@ -2277,16 +2277,13 @@ svg:not(:root) {
 }
 
 .h-pagi-top-no {
-  /* color: #1e1e20; */
-  color: #f4f8fd;
+  color: #0f110e;
   opacity: 1;
 
 }
 
 #h-pagi-bottom-marker {
-  /* color: rgba(255, 255, 255, .3); */
-  /* color: #1e1e20; */
-  color: #f4f8fd;
+  color: #0f110e;
   right: 40px !important;
   bottom: 5vw !important;
   transform: translate3d(0, 100%, 0);
@@ -3232,7 +3229,7 @@ svg:not(:root) {
 }
 
 #h-client-0 {
-  color: #bec9ce;
+  color: #fa8270;
 
 }
 
@@ -3241,7 +3238,7 @@ svg:not(:root) {
 }
 
 #h-client-2 {
-  color: #a8b1b5;
+  color: #e1ecc1;
 }
 
 #h-client-3 {
@@ -3337,7 +3334,7 @@ svg:not(:root) {
 }
 
 #h-section-1 {
-  -webkit-text-stroke-color:  #4f9b8e;
+  -webkit-text-stroke-color:  #0000c1;
 }
 
 #h-section-2 {
@@ -3608,7 +3605,7 @@ svg:not(:root) {
 }
 
 #h-pagi-prog-2 {
-  -webkit-text-stroke-color: #bec9ce;  
+  -webkit-text-stroke-color: #fa8270;  
 
 }
 
@@ -3618,7 +3615,7 @@ svg:not(:root) {
 }
 
 #h-pagi-prog-4 {
-  -webkit-text-stroke-color: #a8b1b5;  
+  -webkit-text-stroke-color: #e1ecc1;  
 
 }
 
@@ -3633,7 +3630,7 @@ svg:not(:root) {
 }
 
 #h-pagi-prog-7 {
-  -webkit-text-stroke-color: #4f9b8e;  
+  -webkit-text-stroke-color: #0000c1;  
 
 }
 
