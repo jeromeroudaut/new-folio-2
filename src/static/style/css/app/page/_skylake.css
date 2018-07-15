@@ -3394,7 +3394,10 @@ svg:not(:root) {
   line-height: 180%;
   color: #f4f8fd;
   font-size: calc(0.4rem + 0.718vw);
-  font-family: circular-book;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 1px;
   transform: translate3d(0, 100%, 0);
 
   -webkit-backface-visibility: hidden;
@@ -3413,7 +3416,7 @@ svg:not(:root) {
   position: relative;
   margin: 3px -1px 0;
   width: 8.33vw;
-  font-family: circular-book;
+  font-family: 'Open Sans', sans-serif;
   font-size: calc(0.4rem + 0.4vw);
 }
 
@@ -3422,7 +3425,7 @@ svg:not(:root) {
   top: 0;
   left: 0;
   color: #f4f8fd;
-  line-height: 122%;
+  line-height: 127%;
   transform: translate3d(0, 100%, 0);
   
   -webkit-backface-visibility: hidden;
