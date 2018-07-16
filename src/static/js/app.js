@@ -10827,7 +10827,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         Transition.headerDown.from({ el: '.header', p: { y: [-100, 0] }, d: 800, e: 'Power4InOut' });
 
-        Transition.headerDown.from({ el: '#intro', p: { opacity: [0, 1] }, d: 800, e: 'Power4InOut' });
+        Transition.headerDown.from({ el: '#intro', p: { opacity: [0, 1] }, d: 400, delay: 400, e: 'Power4InOut' });
         Transition.headerDown.from({ el: '.tagline', p: { y: [100, 0] }, d: 800, e: 'Power4InOut', delay: 800 });
         // Transition.headerDown.from({el: '.menu__icon', p: {opacity: [0, 1]}, d: 800, e: 'ExpoOut'})
         Transition.headerDown.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 800, e: 'Power4InOut' });
@@ -10874,9 +10874,13 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         var textInit = new skylake.Timeline();
         var isObj5 = skylake.Is.object(textInit);
 
-        textInit.from({ el: '.tagline', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut', delay: 400 });
-        textInit.from({ el: '#intro', p: { opacity: [1, 0] }, d: 1200, e: 'Power4InOut' });
-        textInit.from({ el: '.scroll-icon', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut', delay: 400 });
+        textInit.from({ el: '.tagline', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
+        // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({ el: '.scroll-icon', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
+
+        textInit.from({ el: '#body-mid-line', p: { x: [-100, 0], opacity: [0, .15] }, d: 1200, e: 'Power4InOut' });
+        textInit.from({ el: '#body-mid', p: { x: [-200, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
+        textInit.from({ el: '#body-right', p: { x: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
 
         textInit.from({ el: Transition.arrBotTitle[0], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
         textInit.from({ el: Transition.arrBotTitle[1], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
@@ -10885,12 +10889,6 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         textInit.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [100, 0] }, d: 1800, e: 'Power4InOut' });
         textInit.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [100, 0] }, d: 1800, e: 'Power4InOut' });
         textInit.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 2000, e: 'Power4InOut' });
-
-        textInit.from({ el: '.scroll-icon', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
-
-        textInit.from({ el: '#body-mid-line', p: { x: [-100, 0], opacity: [0, .15] }, d: 1200, e: 'Power4InOut' });
-        textInit.from({ el: '#body-mid', p: { x: [-200, 0] }, d: 1200, e: 'Power4InOut' });
-        textInit.from({ el: '#body-right', p: { x: [100, 0] }, d: 1200, e: 'Power4InOut' });
 
         textInit.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
         console.log('title text');
@@ -10932,6 +10930,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         var isObj27 = skylake.Is.object(openExp);
 
         //////
+        openExp.from({ el: '#intro', p: { opacity: [1, 0] }, d: 300, e: 'Power4InOut' });
 
         openExp.from({ el: '#body-mid', p: { x: [0, -100] }, d: 1200, e: 'Power4InOut' });
         openExp.from({ el: '#body-right', p: { x: [0, 100] }, d: 1200, e: 'Power4InOut' });
@@ -11008,6 +11007,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         var isObj28 = skylake.Is.object(openExpIn);
 
         //////
+        openExpIn.from({ el: '#intro', p: { opacity: [0, 1] }, d: 300, e: 'Power4InOut' });
         openExpIn.from({ el: Transition.sectionTitle[0], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         openExpIn.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
         openExpIn.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });

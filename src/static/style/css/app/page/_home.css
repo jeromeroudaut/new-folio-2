@@ -91,8 +91,9 @@ a {
   height: 100vh;
   width: 100vw;
   opacity: 0;
-  background: transparent;
-  /* background: #363c44; */
+  z-index: 1;
+  /* background: transparent; */
+  background: rgba(26, 27, 41, .4)
   /* background: linear-gradient(to left top,rgba(255, 255, 255, .2),rgba(250, 128, 114, .9)); */
   /* background-image: linear-gradient(
         to right bottom,

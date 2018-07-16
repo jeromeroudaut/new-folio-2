@@ -40,7 +40,7 @@ html {
   height: 100vh;
   width: 66.66666vw;
   /* border-right: 1px solid gray; */
-  background: rgba(36, 37, 41, .5);
+  background: rgba(26, 27, 41, .6);
   /* background: linear-gradient(to bottom,rgba(28, 28, 28, .9),rgba(250, 128, 114, .3)); */
   transform: translate3d(-200%, 0, 0);
   opacity: 1;
@@ -53,7 +53,7 @@ html {
   right: 0;
   height: 100vh;
   width: 33.33333vw;
-  background: rgba(36, 37, 41, .5);
+  background: rgba(26, 27, 41, .6);
   /* background: linear-gradient(to bottom,rgba(28, 28, 28, .9),rgba(250, 128, 114, .3)); */
   transform: translate3d(0 ,100%, 0);
   opacity: 1;
@@ -2236,7 +2236,7 @@ svg:not(:root) {
 #h-pagi-prog {
   left: 0;
   right: 0;
-  background: #e1ecc1;
+  background: #16ffdf; 
   height: 1px;
   width: 0;
   transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -3345,12 +3345,12 @@ svg:not(:root) {
 }
 
 #h-pagi-title-2 {
-  -webkit-text-stroke-color: #fa8270;  
+  -webkit-text-stroke-color: #fc522e;  
 
 }
 
 #h-pagi-title-3 {
-  -webkit-text-stroke-color: #4f9b8e;  
+  -webkit-text-stroke-color: #16ffdf;  
 
 }
 
@@ -3667,12 +3667,12 @@ svg:not(:root) {
 }
 
 #h-pagi-prog-2 {
-  -webkit-text-stroke-color: #fa8270;  
+  -webkit-text-stroke-color: #fc522e;  
 
 }
 
 #h-pagi-prog-3 {
-  -webkit-text-stroke-color: #4f9b8e;  
+  -webkit-text-stroke-color: #16ffdf;   
 
 }
 
