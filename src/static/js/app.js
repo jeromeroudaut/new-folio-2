@@ -10878,9 +10878,9 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
         textInit.from({ el: '.scroll-icon', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
 
-        textInit.from({ el: '#body-mid-line', p: { x: [-100, 0], opacity: [0, .15] }, d: 1200, e: 'Power4InOut' });
         textInit.from({ el: '#body-mid', p: { x: [-200, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
-        textInit.from({ el: '#body-right', p: { x: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
+        textInit.from({ el: '#body-right', p: { x: [100, 0] }, d: 1200, e: 'Power4InOut' });
+        textInit.from({ el: '#body-mid-line', p: { x: [-100, 0], opacity: [0, .15] }, d: 1200, e: 'Power4InOut' });
 
         textInit.from({ el: Transition.arrBotTitle[0], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
         textInit.from({ el: Transition.arrBotTitle[1], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
