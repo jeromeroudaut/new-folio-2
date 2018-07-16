@@ -3642,7 +3642,7 @@ svg:not(:root) {
     border-radius: 2px;
     z-index: 2;
     transform: translate3d(0%, 0%, 0);
-    opacity: 0;
+    /* opacity: 0; */
  }
 
 .h-pagi-prog-no-wrap {
@@ -3655,7 +3655,7 @@ svg:not(:root) {
   /* text-align: center; */
   font-family: MarkPro-Black;
   font-size: calc(1rem + 26.2vw);
-  
+  opacity: 0;
 }
 
 .h-pagi-prog-no-marker {

@@ -3866,7 +3866,7 @@ a:hover {
     z-index: 2;
     -webkit-transform: translate3d(0%, 0%, 0);
             transform: translate3d(0%, 0%, 0);
-    opacity: 0;
+    /* opacity: 0; */
  }.h-pagi-prog-no-wrap {
   position: absolute;
   z-index: 0;
@@ -3877,7 +3877,7 @@ a:hover {
   /* text-align: center; */
   font-family: MarkPro-Black;
   font-size: calc(1rem + 26.2vw);
-  
+  opacity: 0;
 }.h-pagi-prog-no-marker {
   position: absolute;
   z-index: 0;

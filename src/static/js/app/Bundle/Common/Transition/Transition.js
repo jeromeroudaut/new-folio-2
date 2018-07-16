@@ -23,14 +23,17 @@ Transition.arrBotYear = S.Geb.class('h-bottom-value-y')
 
 Transition.arrPagiTopNo = S.Geb.class('h-pagi-top-no')
 Transition.arrPagiBotNo = S.Geb.class('h-pagi-bottom-no')
-Transition.arrPagiProgNo = S.Geb.class('h-pagi-prog-no')
 
 Transition.arrTopPagiWrap = S.Geb.class('h-pagi-top-no-wrap')
 Transition.arrTopTitleWrap = S.Geb.class('h-pagi-top-title-wrap')
 Transition.arrBotPagiWrap = S.Geb.class('h-pagi-bottom-no-wrap')
 Transition.arrBotTitleWrap = S.Geb.class('h-pagi-bottom-title-wrap')
+
+// Transition.arrPagiProgWrap = S.Geb.class('h-pagi-prog-no-wrap')
+Transition.arrPagiProgNo = S.Geb.class('h-pagi-prog-no')
+// Transition.arrPagiProgNoMarker = S.Geb.class('h-pagi-prog-no-marker')
+
 Transition.sectionTitle = S.Geb.class("h-section-title")
-// Transition.sectionBck = S.Geb.class("h-xp-col-back")
 
 Transition.pagiBottomMarkerWrap = S.Geb.id('h-pagi-bottom-marker-wrap')
 Transition.pagiLine = S.Geb.id('h-pagi-line')
@@ -390,7 +393,8 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         textInit.from({el: '#h-pagi-bottom-marker', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
 
-        textInit.from({el: '.h-pagi-prog-no-marker', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: '.h-pagi-prog-no-wrap', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: '.h-pagi-prog-no-marker', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 300})
         textInit.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 300})
 
         console.log(Transition.arrPagiProgNo)
@@ -684,7 +688,11 @@ Transition.recognitionDown = function() {
         Transition.textInOut.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
             p: {x: [0, -100]}, d: 900, e: 'Power4InOut'})
 
-        Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
+        Transition.textInOut.from({el: '.h-pagi-prog-no-wrap', p: {opacity: [1, 0]}, d: 900, e: 'Power4InOut'})
+
+        Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 100, delay: 900})
+
+        
 
         if (Transition.currentStep >= 6) {
 
@@ -730,9 +738,9 @@ Transition.recognitionDown = function() {
             Transition.textIn2.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
             Transition.textIn2.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
 
+
             Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [100, 0]}, d: 900, e: 'Power4InOut'})
 
-            Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
 
             if (Transition.currentStep >= 7) {
 
@@ -743,7 +751,11 @@ Transition.recognitionDown = function() {
 
             if (Transition.currentStep < 4) {
                 Transition.textIn2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, 1], y:[-60, 0]}, d: 1200, e: 'Power4InOut'})
-                } 
+            } 
+
+            Transition.textIn2.from({el: '.h-pagi-prog-no-wrap', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
+            Transition.textIn2.from({el: '.h-pagi-prog-no-marker', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 300})
+            Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 300})
 
             // if (Transition.currentStep < 7) {
             //     Transition.textIn2.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
