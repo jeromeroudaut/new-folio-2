@@ -90,7 +90,7 @@ function init() {
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
 	// texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants-ov2.jpg');
-	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/iceland.jpg');
+	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/clouds.jpg');
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 	//texture.minFilter = THREE.LinearFilter;
 	texture.minFilter = texture.magFilter = THREE.LinearFilter;
@@ -98,7 +98,7 @@ function init() {
 
 
 	material = new THREE.MeshPhongMaterial( {
-		color: 0x868585, //change to brighten scene
+		color: 0xeeeeee, //change to brighten scene
 		specular: 0xffffff,
 		shininess: 80,
 		map: texture,
@@ -122,11 +122,11 @@ function init() {
 	//lights
 	scene.add( new THREE.AmbientLight( 0xffffff ) );
 
-	var light = new THREE.SpotLight( 0xdddddd, .1);
+	var light = new THREE.SpotLight( 0xdddddd, .05);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0xdddddd, .4 );
+	var directionalLight = new THREE.DirectionalLight( 0xdddddd, .05 );
 	directionalLight.position.set( 100, 0, 50 );
 	scene.add( directionalLight );
 
