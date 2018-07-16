@@ -4151,7 +4151,7 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
+  Exit signal: SIGHUP
   Command: sh
   Arguments: -c node build/node/dev/index.js
   Directory: /home/johnio/Dropbox/Websites/Sites-Johnnycat/dev/newfolio.dev
