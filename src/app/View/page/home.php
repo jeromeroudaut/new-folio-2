@@ -198,10 +198,10 @@
                             <div id="h-txt-desc-line"></div>
                         </div>
                         <div id="h-txt-title-wrap" class="oh">
-                            <div class="h-txt-title">Budgety</div>
-                            <div class="h-txt-title">Pig Dice Game</div>
-                            <div class="h-txt-title">Natours Travel Site</div>
-                            <div class="h-txt-title">Face Reco App</div>&nbsp;</div>
+                            <div class="h-txt-title" id="h-pagi-title-2">Budgety</div>
+                            <div class="h-txt-title" id="h-pagi-title-3">Pig Dice Game</div>
+                            <div class="h-txt-title" id="h-pagi-title-4">Natours Travel Site</div>
+                            <div class="h-txt-title" id="h-pagi-title-5">Face Reco App</div>&nbsp;</div>
                         <div class="h-text-desc-txt-wrap oh">
                             <p class="h-txt-desc-txt">Built with React. Bacon ipsum dolor amet tail meatloaf turducken bresaola, picanha ham hock salami pork t-bone pig doner ground round porchetta boudin. Porchetta filet mignon tongue kielbasa ground round shoulder short loin tail turducken ball tip. </p>
                         </div>
