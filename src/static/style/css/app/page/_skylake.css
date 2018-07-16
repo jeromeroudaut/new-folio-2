@@ -3641,7 +3641,8 @@ svg:not(:root) {
     background: transparent;
     border-radius: 2px;
     z-index: 2;
-    transform: translate3d(-165%, 0%, 0);
+    transform: translate3d(0%, 0%, 0);
+    opacity: 0;
  }
 
 .h-pagi-prog-no-wrap {
@@ -3654,16 +3655,34 @@ svg:not(:root) {
   /* text-align: center; */
   font-family: MarkPro-Black;
   font-size: calc(1rem + 26.2vw);
-  /* color: white; */
+  
+}
 
-
+.h-pagi-prog-no-marker {
+  position: absolute;
+  z-index: 0;
+  height: 222%;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  /* text-align: center; */
+  font-family: MarkPro-Black;
+  font-size: calc(1rem + 26.2vw);
+  color: transparent;
+  -webkit-text-stroke-width: 1.8px;
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.01);
+  /* transform: translate3d(0, 100%, 0); */
 }
 
 .h-pagi-prog-no {
+  position: absolute;
+  top: 0%;
+  left: 44%;
   color: transparent;
   -webkit-text-stroke-width: 1.8px;
   text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.01);
   transform: translate3d(0, 100%, 0);
+  /* opacity: 0; */
 }
 
 #h-pagi-prog-2 {
