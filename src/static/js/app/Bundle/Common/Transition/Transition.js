@@ -695,9 +695,16 @@ Transition.recognitionDown = function() {
         Transition.textInOut.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         Transition.textInOut.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
 
+        if (Transition.currentStep > -1 && Transition.currentStep <= 5) {
 
-
-        if (Transition.currentStep >= 6) {
+            Transition.textInOut.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
+                p: {x: [0, -100]}, d: 900, e: 'Power4InOut'})
+    
+            Transition.textInOut.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 800, e: 'Power4InOut'})
+        
+            Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 900, e: 'Power4InOut', delay: 800})
+        
+        } else if (Transition.currentStep >= 6) {
 
             Transition.textInOut.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
                 p: {x: [0, 0]}, d: 900, e: 'Power4InOut'})
@@ -706,15 +713,7 @@ Transition.recognitionDown = function() {
     
             Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}, d: 900, e: 'Power4InOut'})
 
-        } else {
-
-            Transition.textInOut.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
-                p: {x: [0, -100]}, d: 900, e: 'Power4InOut'})
-    
-            Transition.textInOut.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 800, e: 'Power4InOut'})
-        
-            Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 900, e: 'Power4InOut', delay: 800})
-        }
+        } 
 
         if (Transition.currentStep < 4) {
             Transition.textInOut.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [1, 0], y:[0, -60]}, d: 1200, e: 'Power4InOut'})
@@ -743,20 +742,23 @@ Transition.recognitionDown = function() {
             Transition.textIn2.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
             Transition.textIn2.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
 
-
-            if (Transition.currentStep >= 7) {
-
-                Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 0]}})
-
-                Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}})
-
-            } else {
+            if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
 
                 Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [100, 0]}, d: 900, e: 'Power4InOut'})
+
                 Transition.textIn2.from({el: '#h-pagi-progress', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
-                Transition.textIn2.from({el: '.h-pagi-prog-no-marker', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 300})
-                Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 300})
-            }
+
+                Transition.textIn2.from({el: '.h-pagi-prog-no-marker', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+
+                Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+            
+            } else if (Transition.currentStep >= 7) {
+
+                Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 0]}, d: 800, e: 'Power4InOut'})
+
+                Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}, d: 800, e: 'Power4InOut'})
+
+            } 
 
             if (Transition.currentStep < 4) {
                 Transition.textIn2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, 1], y:[-60, 0]}, d: 1200, e: 'Power4InOut'})
