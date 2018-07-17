@@ -69,8 +69,8 @@
             src: url("./static/media/sou/circular-book.otf");
         }
         @font-face {
-            font-family: "GinesoMedium";
-            src: url("./static/media/sou/GinesoMedium.otf");
+            font-family: "AvenirNext-Bold";
+            src: url("./static/media/sou/AvenirNext-Bold.otf");
         }
         </style>
         <!-- <link rel="preload" href="./static/style/css/app.css" as="style" onload="this.onload=null;this.rel='stylesheet'">

@@ -3562,8 +3562,8 @@ a:hover {
 }#h-client-wrap {
   position: absolute;
   width: 30vw;
-  font-family: trump-gothic-pro;
-  font-size: calc(0.7rem + 0.8vw);
+  font-family: AvenirNext-Bold;
+  font-size: calc(0.2rem + 0.8vw);
   z-index: 1;
 }.h-client {
   position: absolute;
@@ -3993,7 +3993,7 @@ a:hover {
   height: 100%;
   top: 0px;
   z-index: -1;
-  opacity: .7;
+  opacity: .5;
   /* transform: translateX(-41.7%) rotate(-90deg); */
 
 }.h-img {
@@ -5551,7 +5551,7 @@ a:hover {
   #h-client-wrap {
     /* top: 57px;
     left: calc(2.1vw + 70px); */
-    top: -44px;
+    top: 35px;
     left: -172px;
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
