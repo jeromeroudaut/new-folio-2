@@ -3808,7 +3808,7 @@ svg:not(:root) {
   top: 0px;
   z-index: -1;
   opacity: .7;
-  transform: translateX(-41.7%) rotate(-90deg);
+  /* transform: translateX(-41.7%) rotate(-90deg); */
 
 }
 

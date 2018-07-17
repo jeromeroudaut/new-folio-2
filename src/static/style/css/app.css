@@ -3994,8 +3994,7 @@ a:hover {
   top: 0px;
   z-index: -1;
   opacity: .7;
-  -webkit-transform: translateX(-41.7%) rotate(-90deg);
-          transform: translateX(-41.7%) rotate(-90deg);
+  /* transform: translateX(-41.7%) rotate(-90deg); */
 
 }.h-img {
   -webkit-transform: translate3d(-60%, 0, 0);
