@@ -11305,12 +11305,11 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         Transition.textOutIn.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         Transition.textOutIn.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
 
-        if (Transition.currentStep <= 0) {
+        if (Transition.currentStep === -1) {
             Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [0, 100] }, d: 900, delay: 300, e: 'Power4InOut' });
-        } else {
-
-            Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 100] }, d: 900, delay: 300, e: 'Power4InOut' });
         }
+
+        Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 100] }, d: 900, delay: 300, e: 'Power4InOut' });
 
         if (Transition.currentStep >= 7) {
 
@@ -11322,7 +11321,9 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
             Transition.textOutIn.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
 
             Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-        } else {
+        }
+
+        if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
 
             Transition.textOutIn.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 800, e: 'Power4InOut' });
 
@@ -11371,7 +11372,9 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
                     Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
 
                     Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-                } else {
+                }
+
+                if (Transition.currentStep > -1 && Transition.currentStep <= 5) {
 
                     Transition.textOut2.from({ el: '#h-pagi-progress', p: { opacity: [0, 1] }, d: 1200, e: 'Power4InOut' });
 
