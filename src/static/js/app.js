@@ -11191,9 +11191,6 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
             Transition.updateProgress(6);
         }
 
-        // Transition.textInOut.from({el: '#h-pagi-line', p: {x: [0, -110]}, d: 1500, e: 'Power4InOut'})   
-        // Transition.textInOut.from({el: '#h-pagi-prog', p: {opacity: [1, 0]}, d: 1800, e: 'Power4InOut'})   
-
         Transition.textInOut.from({ el: Transition.arr[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         Transition.textInOut.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         Transition.textInOut.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
@@ -11201,9 +11198,6 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         Transition.textInOut.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         Transition.textInOut.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         Transition.textInOut.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-
-        //}
-
 
         if (Transition.currentStep >= 6) {
 
@@ -11227,10 +11221,6 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
             Transition.textInOut.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [1, 0], y: [0, -60] }, d: 1200, e: 'Power4InOut' });
         }
 
-        // if (Transition.currentStep < 7) {
-        //     Transition.textInOut.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
-        // }
-
         if (Transition.currentStep <= 6) {
             Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
             Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
@@ -11240,12 +11230,6 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
                 Transition.textIn2 = new skylake.Timeline();
                 var isObj9 = skylake.Is.object(Transition.textIn2);
-
-                // if (Transition.currentStep === 4) {
-                // Transition.textInOut.from({el: '#h-txt-desc-line', p: {opacity: [0, 0]}, e: 'Power4InOut'}) } else {
-                // Transition.textIn2.from({el: '#h-pagi-line', p: {x: [-110 * t, 0]}, d: 1500, e: 'Power4InOut'})
-                // Transition.textIn2.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 1800, e: 'Power4InOut'})
-                // }
 
                 Transition.textIn2.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
                 Transition.textIn2.from({ el: Transition.arrText[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
@@ -11271,10 +11255,6 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
                 if (Transition.currentStep < 4) {
                     Transition.textIn2.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, 1], y: [-60, 0] }, d: 1200, e: 'Power4InOut' });
                 }
-
-                // if (Transition.currentStep < 7) {
-                //     Transition.textIn2.from({el: "#h-back-" + Transition.currentStep, p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
-                // } 
 
                 if (Transition.currentStep <= 6) {
                     Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
@@ -11305,11 +11285,24 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         Transition.textOutIn.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         Transition.textOutIn.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
 
-        if (Transition.currentStep === -1) {
-            Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [0, 100] }, d: 900, delay: 300, e: 'Power4InOut' });
+        if (Transition.currentStep === 0) {
+            Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [0, 100] }, d: 900, e: 'Power4InOut' });
         }
 
-        Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 100] }, d: 900, delay: 300, e: 'Power4InOut' });
+        Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 100] }, d: 900, e: 'Power4InOut' });
+
+        if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
+
+            Transition.textOutIn.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 800, e: 'Power4InOut' });
+
+            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 800, e: 'Power4InOut' });
+
+            Transition.textOutIn.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 100] }, d: 800, e: 'Power4InOut' });
+        }
+
+        if (Transition.currentStep < 4) {
+            Transition.textOutIn.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [1, 0], y: [0, -60] }, d: 1200, e: 'Power4InOut' });
+        }
 
         if (Transition.currentStep >= 7) {
 
@@ -11323,33 +11316,12 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
             Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
         }
 
-        if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
-
-            Transition.textOutIn.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 800, e: 'Power4InOut' });
-
-            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 800, e: 'Power4InOut', delay: 600 });
-
-            Transition.textOutIn.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 100] }, d: 800, e: 'Power4InOut', delay: 800 });
-        }
-
-        if (Transition.currentStep < 4) {
-            Transition.textOutIn.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [1, 0], y: [0, -60] }, d: 1200, e: 'Power4InOut' });
-        }
-
         Transition.textOutIn.play({ cb: function cb() {
 
                 setTimeout(Transition.pagiOut, 300);
 
                 Transition.textOut2 = new skylake.Timeline();
                 var isObj11 = skylake.Is.object(Transition.textOut2);
-
-                if (Transition.currentStep === -1) {
-                    Transition.textOut2.from({ el: '#h-pagi-line', p: { x: [-110, -110] }, d: 1200, e: 'Power4InOut' });
-                } else {
-                    // Transition.textOut2.from({el: '#h-pagi-line', p: {x: [-110, 0]}, d: 1500, e: 'Power4InOut'})
-                    // Transition.textOut2.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 1800, e: 'Power4InOut'})
-
-                }
 
                 Transition.textOut2.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
                 Transition.textOut2.from({ el: Transition.arrText[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
@@ -11361,26 +11333,13 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
                 Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [-100, 0] }, d: 900, e: 'Power4InOut' });
 
-                Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [-100, 0] }, d: 900, e: 'Power4InOut' });
-
-                if (Transition.currentStep >= 6) {
-
-                    Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
-
-                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-
-                    Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-
-                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-                }
-
                 if (Transition.currentStep > -1 && Transition.currentStep <= 5) {
 
                     Transition.textOut2.from({ el: '#h-pagi-progress', p: { opacity: [0, 1] }, d: 1200, e: 'Power4InOut' });
 
-                    Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 300 });
+                    Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
 
-                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { opacity: [0, 1], y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 300 });
+                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
                 }
 
                 if (Transition.currentStep < 4 && Transition.currentStep > -1) {
@@ -11391,6 +11350,17 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
                 if (Transition.currentStep < 4 && Transition.currentStep > -1) {
                     Transition.textOut2.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [0, 1], y: [-60, 0] }, d: 1200, e: 'Power4InOut' });
+                }
+
+                if (Transition.currentStep >= 6) {
+
+                    Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
+
+                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+
+                    Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+
+                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
                 }
 
                 Transition.textOut2.play({ cb: setTimeout(Transition.enable_scroll, 4000) });
