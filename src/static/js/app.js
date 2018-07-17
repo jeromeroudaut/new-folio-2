@@ -10701,7 +10701,11 @@ Transition.enable_scroll = function () {
 Transition.next = debounce(function () {
 
     Transition.disable_scroll();
-    Transition.nextStep = Transition.currentStep + 1;
+    if (Transition.currentStep >= 6) {
+        Transition.nextStep = 7;
+    } else {
+        Transition.nextStep = Transition.currentStep + 1;
+    }
     console.log('scrolling down - nextItem');
     Transition.currentStep = Transition.nextStep;
 
@@ -10728,10 +10732,11 @@ Transition.next = debounce(function () {
 
     }
 
-    if (Transition.currentStep >= 7) {
+    // if (Transition.currentStep >= 7) {
 
-        return Transition.currentStep = 7;
-    }
+    //     return Transition.currentStep = 7
+
+    // } 
 
     return Transition.currentStep;
 }, 250);
@@ -10740,6 +10745,11 @@ Transition.prev = debounce(function () {
 
     Transition.disable_scroll();
     Transition.nextStep = Transition.currentStep - 1;
+    // if (Transition.currentStep === 7) {
+    //     Transition.nextStep = 7
+    // } else {
+    //     Transition.nextStep = Transition.currentStep - 1
+    // }
     //for cirular array
     //Transition.nextStep = (Transition.currentStep + Transition.arr.length - 1) % Transition.arr.length
     console.log('scrolling up - prevItem');
@@ -11316,15 +11326,38 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
             Transition.textOutIn.from({ el: '#h-pagi-progress', p: { opacity: [1, 1] }, d: 800, e: 'Power4InOut' });
 
-            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 900, e: 'Power4InOut' });
-        }
+            Transition.textOutIn.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut', delay: 800 });
 
-        if (Transition.currentStep <= 6) {
+            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 900, e: 'Power4InOut' });
+        } else {
 
             Transition.textOutIn.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 800, e: 'Power4InOut' });
 
-            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 800 });
+            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 800, e: 'Power4InOut', delay: 600 });
+
+            Transition.textOutIn.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 100] }, d: 800, e: 'Power4InOut', delay: 800 });
         }
+
+        // if (Transition.currentStep === 7 || Transition.currentStep === 6) {
+
+        //     Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
+        //         p: {x: [0, 0]}, d: 900, e: 'Power4InOut'})
+
+        //     Transition.textOutIn.from({el: '#h-pagi-progress', p: {opacity: [1, 1]}, d: 800, e: 'Power4InOut'})
+
+        //     Transition.textOutIn.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}, d: 900, e: 'Power4InOut'})
+
+        // } 
+
+        // if (Transition.currentStep <=  6) {
+
+        //     Transition.textOutIn.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 800, e: 'Power4InOut'})
+
+        //     Transition.textOutIn.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 800, e: 'Power4InOut', delay: 600})
+
+        //     Transition.textOutIn.from({el: '.h-pagi-prog-no-marker', p: {y: [0, 100]}, d: 800, e: 'Power4InOut', delay: 800})
+
+        // }
 
         if (Transition.currentStep < 4) {
             Transition.textOutIn.from({ el: "#h-img-" + Transition.currentStep, p: { opacity: [1, 0], y: [0, -60] }, d: 1200, e: 'Power4InOut' });
@@ -11360,29 +11393,52 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
                 Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [-100, 0] }, d: 900, e: 'Power4InOut' });
 
+                // if (Transition.currentStep >= 6) {
+
+                //     Transition.textOut2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 0]}})
+
+                // } else {
+
+                Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [-100, 0] }, d: 900, e: 'Power4InOut' });
+
+                // }
+
+
                 if (Transition.currentStep >= 6) {
 
                     Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] } });
+
+                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] } });
+
+                    Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 1200, e: 'Power4InOut', delay: 300 });
+
+                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { opacity: [0, 1], y: [0, 0] }, d: 1200, e: 'Power4InOut', delay: 300 });
                 } else {
-
-                    Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [-100, 0] }, d: 900, e: 'Power4InOut' });
-                }
-
-                if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
 
                     Transition.textOut2.from({ el: '#h-pagi-progress', p: { opacity: [0, 1] }, d: 1200, e: 'Power4InOut' });
 
                     Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 300 });
 
                     Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { opacity: [0, 1], y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 300 });
-                } else if (Transition.currentStep >= 7) {
-
-                    Transition.textOut2.from({ el: '#h-pagi-progress', p: { opacity: [1, 1] }, d: 1200, e: 'Power4InOut' });
-
-                    Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 100] }, d: 1200, e: 'Power4InOut', delay: 300 });
-
-                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 100] }, d: 1200, e: 'Power4InOut', delay: 300 });
                 }
+
+                // if (Transition.currentStep > -1  && Transition.currentStep <=  5) {
+
+
+                //     Transition.textOut2.from({el: '#h-pagi-progress', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
+
+                //     Transition.textOut2.from({el: '.h-pagi-prog-no-marker', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 300})
+
+                //     Transition.textOut2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {opacity: [0, 1], y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 300})
+
+                // } else if (Transition.currentStep ===  6) {
+
+                //     Transition.textOut2.from({el: '#h-pagi-progress', p: {opacity: [1, 1]}, d: 1200, e: 'Power4InOut'})
+
+                //     Transition.textOut2.from({el: '.h-pagi-prog-no-marker', p: {y: [100, 100]}, d: 1200, e: 'Power4InOut', delay: 300})
+
+                //     Transition.textOut2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 100]}, d: 1200, e: 'Power4InOut', delay: 300})
+                // }
 
                 if (Transition.currentStep < 4 && Transition.currentStep > -1) {
                     Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "";
