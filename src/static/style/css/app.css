@@ -3574,13 +3574,16 @@ a:hover {
           transform: translate3d(0, 100%, 0);
 }#h-client-0 {
   color: #fc522e; 
-
+  left: -33px !important;
 }#h-client-1 {
   color: #16ffdf;
+  left: -33px !important;
 }#h-client-2 {
   color: #e1ecc1;
+  left: 44px !important;
 }#h-client-3 {
   color: #ff6c2f;
+  left: 93px !important;
 }#h-txt {
   text-align: left;
   z-index: 0;
@@ -3694,10 +3697,11 @@ a:hover {
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
 }.h-bottom-title {
-  font-family: trump-gothic-pro;
+  font-family: AvenirNext-Bold, sans-serif;
   color: #f4f8fd;
-  letter-spacing: 1.6px;
-  font-size: calc(0.4rem + 0.5vw);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-size: calc(0.2rem + 0.5vw);
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
 }.h-bottom-value-wrap {
@@ -3722,12 +3726,12 @@ a:hover {
 }#h-agency,
 #h-role {
   position: absolute;
-  top: 4.155vw;
+  top: 4.1vw;
 }#h-agency {
   left: 49.71vw;
 }#h-year {
   position: absolute;
-  top: 4.155vw;
+  top: 4.1vw;
   left: 58.15vw;
 }#h-btn-container {
   position: absolute;
@@ -3993,7 +3997,7 @@ a:hover {
   height: 100%;
   top: 0px;
   z-index: -1;
-  opacity: .5;
+  /* opacity: 0; */
   /* transform: translateX(-41.7%) rotate(-90deg); */
 
 }.h-img {
@@ -5551,7 +5555,7 @@ a:hover {
   #h-client-wrap {
     /* top: 57px;
     left: calc(2.1vw + 70px); */
-    top: 35px;
+    top: 37px;
     left: -172px;
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
