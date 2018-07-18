@@ -871,15 +871,21 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
         rgba(70, 69, 69, 1)),
     url(../../../../../static/media/img/home/case/plants-jn.jpg); */
     /* background-blend-mode: screen; */
-}#hcanvas-wrap {
-  /* position: fixed; */
-  /* position: absolute 0;  */
-  /* text-rendering: optimizeLegibility; */
-  -webkit-transform: translate3d(0%, 0, 0);
-          transform: translate3d(0%, 0, 0);
-  /* /* width: 100vw; */
-  height: 100vh;
-}#glcanvas-wrap {
+}.myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* height: 100%;
+  width: 100%; */
+  z-index: 0;
+  opacity: .5;
+  overflow: hidden;
+}.myVideo__content {
+      height: 100%;
+      width: 100%;
+      -o-object-fit: cover;
+         object-fit: cover;
+  }#glcanvas-wrap {
     /* position: fixed; */
     /* position: absolute 0;  */
     /* text-rendering: optimizeLegibility; */

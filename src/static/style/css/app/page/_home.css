@@ -107,13 +107,21 @@ a {
     /* background-blend-mode: screen; */
 }
 
-#hcanvas-wrap {
-  /* position: fixed; */
-  /* position: absolute 0;  */
-  /* text-rendering: optimizeLegibility; */
-  transform: translate3d(0%, 0, 0);
-  /* /* width: 100vw; */
-  height: 100vh;
+.myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* height: 100%;
+  width: 100%; */
+  z-index: 0;
+  opacity: .5;
+  overflow: hidden;
+
+  &__content {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+  }
 }
 
 #glcanvas-wrap {

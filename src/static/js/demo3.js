@@ -89,12 +89,44 @@ function init() {
 	// texture = new THREE.Texture(canvas);
 	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
-	// texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/plants-ov2.jpg');
-	texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/clouds.jpg');
-	// texture.minFilter = texture.magFilter = THREE.LinearFilter;
-	//texture.minFilter = THREE.LinearFilter;
-	texture.minFilter = texture.magFilter = THREE.LinearFilter;
+	//texture = new THREE.TextureLoader().load( '../../static/media/vid/clouds.mp4');
+	video = document.querySelector( '.myVideo' );
+	texture = new THREE.TextureLoader().load( video );
 
+	// texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/archi.jpg');
+	texture.minFilter = texture.magFilter = THREE.LinearFilter;
+	//texture.minFilter = THREE.LinearFilter;
+
+	///////////
+	// VIDEO //
+	///////////
+	
+	// create the video element
+	// video = document.createElement( 'video' );
+	// // video.id = 'video';
+	// // video.type = ' video/ogg; codecs="theora, vorbis" ';
+	// video.src = "../../static/media/vid/clouds.mp4";
+	// video.load(); // must call after setting/changing source
+	// video.play();
+	
+	// // alternative method -- 
+	// // create DIV in HTML:
+	// // <video id="myVideo" autoplay style="display:none">
+	// //		<source src="videos/sintel.ogv" type='video/ogg; codecs="theora, vorbis"'>
+	// // </video>
+	// // and set JS variable:
+	// // video = document.getElementById( 'myVideo' );
+	
+	// videoImage = document.createElement( 'canvas' );
+	// videoImage.width = 480;
+	// videoImage.height = 204;
+	// videoImageContext = videoImage.getContext( '2d' );
+	// // background color if no video present
+	// videoImageContext.fillStyle = '#000000';
+	// videoImageContext.fillRect( 0, 0, videoImage.width, videoImage.height );
+	// videoTexture = new THREE.Texture( videoImage );
+	// videoTexture.minFilter = THREE.LinearFilter;
+	// videoTexture.magFilter = THREE.LinearFilter;
 
 
 	material = new THREE.MeshPhongMaterial( {

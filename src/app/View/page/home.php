@@ -351,6 +351,11 @@
                     </div>
                 </div>
             </section>
+            <video class="myVideo" autoplay muted loop>
+                <source class="myVideo__content" src="../../../static/media/vid/mtns.mp4" type="video/mp4">
+                <!-- <source src="../../../static/media/vid/clouds.webm" type="video/webm"> -->
+                Your browser is not supported! 
+            </video>
             <div id="glcanvas-wrap" ></div>
 
         </div>
