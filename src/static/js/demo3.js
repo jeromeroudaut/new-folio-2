@@ -59,42 +59,23 @@ function init() {
 
   //init Canvas
   	const canvas = document.createElement('canvas');
-
 	canvas.width  = CANVAS_W;
 	canvas.height = CANVAS_H;
 	ctx = canvas.getContext('2d');
 
 	const div = document.getElementById('glcanvas-wrap'); 
 	canvas.id     = "glcanvas";
-	canvas.style.zIndex   = -2;
+	canvas.style.zIndex   = -1;
 	canvas.style.position = "absolute";
 
 	video = document.getElementById( 'video' );
-				//
-	//image = document.createElement( 'canvas' );
-	//image.width = CANVAS_W;
-	//image.height = CANVAS_H;
-	//imageContext = image.getContext( '2d' );
-	// ctx.fillStyle = '#000000';
-	// ctx.fillRect( 0, 0, CANVAS_W, CANVAS_H );
-	// texture = new THREE.Texture( image );
-//   const canvas = document.createElement('canvas');
-
-//   canvas.width  = CANVAS_W;
-//   canvas.height = CANVAS_H;
-//   ctx = canvas.getContext('2d');
-
-//   const div = document.getElementById('glcanvas-wrap'); 
-//   canvas.id     = "glcanvas";
-//   canvas.style.zIndex   = -2;
-//   canvas.style.position = "absolute";
-  //div.appendChild(canvas)
 
 
 	//three init
 	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true} );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.domElement.style.background = "#0f110e"
 	//renderer.autoClear = false;
 	//renderer.setClearColor( 0xfc522e ); 
 
@@ -107,7 +88,6 @@ function init() {
 	// texture = new THREE.TextureLoader().load( '../../static/media/img/home/case/archi.jpg');
 	texture.minFilter = texture.magFilter = THREE.LinearFilter;
 	
-
 	// var texture = new THREE.VideoTexture( video );
 	// texture.minFilter = THREE.LinearFilter;
 	// texture.magFilter = THREE.LinearFilter;
@@ -115,42 +95,40 @@ function init() {
 
 
 	material = new THREE.MeshPhongMaterial( {
-		color: 0xeeeeee, //change to brighten scene
-		specular: 0xffffff,
-		shininess: 40,
+		color: 0x666666,
+		specular: 0xdddddd,
+		shininess: 20,
 		map: texture,
 		specularMap: texture, //only shine on white text
 		transparent: true,
 		opacity:0,
-		side: THREE.DoubleSide
+		side: THREE.DoubleSide,
 	});
 
-  
 	planeGeometry = new THREE.PlaneGeometry( CANVAS_W, CANVAS_H , MESH_DIMS, MESH_DIMS );
 	plane = new THREE.Mesh( planeGeometry, material );
 	scene.add( plane );
 	perturbVerts();
 
 	//normals helper
-	normalsHelper = new THREE.FaceNormalsHelper( plane, 10, 0xffffff, 1 );
+	normalsHelper = new THREE.FaceNormalsHelper( plane, 10, 0x00ff00, 1 );
 	scene.add( normalsHelper );
 	normalsHelper.visible = false;
 
 	//lights
-	scene.add( new THREE.AmbientLight( 0xffffff ) );
+	scene.add( new THREE.AmbientLight( 0x666666 ) );
 
-	var light = new THREE.SpotLight( 0xdddddd, .15);
+	var light = new THREE.SpotLight( 0xffffff, 0.4);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0xdddddd, .15 );
+	var directionalLight = new THREE.DirectionalLight( 0xdddddd, 1 );
 	directionalLight.position.set( 100, 0, 50 );
 	scene.add( directionalLight );
 
-
 	//controls
-  	controls = new THREE.OrbitControls( camera, renderer.domElement );
-	controls.minDistance = 1000;
+	controls = new THREE.OrbitControls( camera, renderer.domElement );
+	controls.minDistance = 100;
 	controls.maxDistance = 5000;
 
 	stats = new Stats();
@@ -158,7 +136,7 @@ function init() {
 	stats.domElement.style.top = '0px';
 	stats.domElement.style.display = 'none';
 
-  //document.body.appendChild( stats.domElement );
+	//document.body.appendChild( stats.domElement );
 	div.appendChild( renderer.domElement );
 
 	onParamsChange();
@@ -167,16 +145,12 @@ function init() {
 	onResize();
 
 	//fade up from black
-  TweenLite.to(material, 2, {opacity:.75});
-
-  // anim = new S.Merom({el: material, p: {opacity: [0, 1]}, d: 2000, e: 'Power4Out'})
-  // anim.play()
+	TweenLite.to(material, 2, {opacity:1});
 	//drawText();
 	//setInterval(drawText,1000);
 
 	animate();
 
-	// document.addEventListener('mousemove', onMouseMove, false);
 
 }
 
