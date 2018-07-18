@@ -412,7 +412,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         console.log(Transition.arrPagiProgNo)
 
-        textInit.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, delay: 400, e: 'Power4InOut'})
+        // textInit.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, delay: 400, e: 'Power4InOut'})
 
     
         textInit.play({cb: setTimeout(Transition.enable_scroll, 4000)})
@@ -695,9 +695,9 @@ Transition.recognitionDown = function() {
         Transition.textInOut.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         Transition.textInOut.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
 
-        if (Transition.currentStep < 4) {
-            Transition.textInOut.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
-        }
+        // if (Transition.currentStep < 4) {
+        //     Transition.textInOut.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
+        // }
 
         if (Transition.currentStep > -1 && Transition.currentStep <= 5) {
 
@@ -742,9 +742,9 @@ Transition.recognitionDown = function() {
             Transition.textIn2.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
             Transition.textIn2.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
 
-            if (Transition.currentStep < 4) {
-                Transition.textIn2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, e: 'Power4InOut'})
-            } 
+            // if (Transition.currentStep < 4) {
+            //     Transition.textIn2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, e: 'Power4InOut'})
+            // } 
 
             if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
 
@@ -808,9 +808,9 @@ Transition.recognitionDown = function() {
         
         Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 100]}, d: 900, e: 'Power4InOut'})
 
-        if (Transition.currentStep < 4) {
-            Transition.textOutIn.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
-        }
+        // if (Transition.currentStep < 4) {
+        //     Transition.textOutIn.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
+        // }
 
         if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
 
@@ -856,9 +856,9 @@ Transition.recognitionDown = function() {
 
                 Transition.textOut2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [-100, 0]}, d: 900, e: 'Power4InOut'})
 
-                if (Transition.currentStep < 4 && Transition.currentStep > -1) {
-                    Transition.textOut2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, e: 'Power4InOut'})
-                }
+                // if (Transition.currentStep < 4 && Transition.currentStep > -1) {
+                //     Transition.textOut2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, e: 'Power4InOut'})
+                // }
 
                 if (Transition.currentStep > -1 && Transition.currentStep <= 5) {
     

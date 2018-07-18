@@ -885,16 +885,20 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
       width: 100%;
       -o-object-fit: cover;
          object-fit: cover;
-  }#glcanvas-wrap {
-    /* position: fixed; */
-    /* position: absolute 0;  */
+  }/* .glcanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
+} */#glcanvas-wrap {
     -webkit-transform: translate3d(0%, 0, 0);
             transform: translate3d(0%, 0, 0);
-    /* /* width: 100vw; */
-    height: 100vh;
+    
 }canvas {
   width: 100vw;
-  height: 95vh;
+  height: 100vh;
   margin-bottom: -3px;
 
 }.page-content {

@@ -92,11 +92,11 @@ function init() {
 
 
 	//three init
-	renderer = new THREE.WebGLRenderer({ antialias: true} );
+	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true} );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	//renderer.autoClear = false;
-	//renderer.setClearColor( 0x6534ff ); 
+	//renderer.setClearColor( 0xfc522e ); 
 
 	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
 	camera.position.z = 700;
@@ -117,7 +117,7 @@ function init() {
 	material = new THREE.MeshPhongMaterial( {
 		color: 0xeeeeee, //change to brighten scene
 		specular: 0xffffff,
-		shininess: 80,
+		shininess: 40,
 		map: texture,
 		specularMap: texture, //only shine on white text
 		transparent: true,
@@ -139,11 +139,11 @@ function init() {
 	//lights
 	scene.add( new THREE.AmbientLight( 0xffffff ) );
 
-	var light = new THREE.SpotLight( 0xdddddd, .05);
+	var light = new THREE.SpotLight( 0xdddddd, .15);
 	light.position.set( 0, 0, 2000 );
 	scene.add( light );
 
-	var directionalLight = new THREE.DirectionalLight( 0xdddddd, .05 );
+	var directionalLight = new THREE.DirectionalLight( 0xdddddd, .15 );
 	directionalLight.position.set( 100, 0, 50 );
 	scene.add( directionalLight );
 
@@ -167,12 +167,12 @@ function init() {
 	onResize();
 
 	//fade up from black
-  TweenLite.to(material, 2, {opacity:1});
+  TweenLite.to(material, 2, {opacity:.75});
 
   // anim = new S.Merom({el: material, p: {opacity: [0, 1]}, d: 2000, e: 'Power4Out'})
   // anim.play()
-	// drawText();
-	// setInterval(drawText,1000);
+	//drawText();
+	//setInterval(drawText,1000);
 
 	animate();
 
@@ -236,31 +236,12 @@ function onParamsChange() {
 // 	var rightColumnX = 980;
 
 // 	//wipe
-//   	//ctx.fillStyle =  'rgba(0, 0, 0, 1)';
-// 	//ctx.fillStyle =  'rgba(72, 72, 72, 1)';
-// 	var lingrad = ctx.createLinearGradient(0, 0, 0, 750);
-// 	lingrad.addColorStop(0, '#ff3000');
-// 	lingrad.addColorStop(0.25, '#ed0200');
-// 	lingrad.addColorStop(0.50, '#ff096c');
-// 	lingrad.addColorStop(0.75, '#ff1f44');
-// 	lingrad.addColorStop(1, '#d50082');
-// 	// lingrad.addColorStop(0, '#000851');  
-// 	// lingrad.addColorStop(0.25, '#0000c1');
-// 	// lingrad.addColorStop(0.50, '#0000c1');
-// 	// lingrad.addColorStop(0.75, '#0000c1');
-// 	// lingrad.addColorStop(1, '#0000c1');
-// 	ctx.fillStyle = lingrad;
-// 	//ctx.fillStyle = 'rgba(101, 52, 255, 1.0 )';
-// 	//ctx.fillStyle = 'rgba(32, 32, 32, 1.0 )';
-// 	//ctx.fillStyle = 'rgba(15, 17, 14, 1.0 )';
-// 	// ctx.fillStyle = 'rgba(1, 38, 70, 1.0 )';
-// 	// ctx.fillStyle = 'rgba(26, 26, 26, 1.0 )';
-// 	// ctx.fillStyle = 'rgba(0, 0, 193, 1.0 )';
-// 	//ctx.fillStyle = 'rgba(25, 25, 25, 1.0 )';
-// 	ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
-// 	ctx.textBaseline = 'top';
-// 	ctx.fillStyle = 'rgba(255, 255, 255, 1.0 )'; //text color
-// 	var topOffset = 280;
+// 	//ctx.fillStyle =  'rgba(0, 0, 0, 1)';
+// 	//ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
+	
+// 	// ctx.textBaseline = 'top';
+// 	// ctx.fillStyle = 'rgba(200, 200, 200, 1.0 )'; //text color
+// 	var topOffset = 80;
 
 // 	//date
 // 	// if (guiParams.showDate){
@@ -297,7 +278,7 @@ function onParamsChange() {
 
 // 	}
 
-// 	texture.needsUpdate = true;
+// 	// texture.needsUpdate = true;
 
 
 // }
@@ -315,19 +296,19 @@ function animate() {
 	displayTime += 0.01;
 
 	//tilt plane
-	// plane.rotation.x = Math.cos(displayTime/2) * 0.4 * guiParams.tiltAmount;
-	// plane.rotation.y  = Math.sin(displayTime/2) * 0.2 * guiParams.tiltAmount;
-	// plane.rotation.z  = Math.sin(displayTime/2 + 0.6) * 0.15 * guiParams.tiltAmount;
+	plane.rotation.x = Math.cos(displayTime/2) * 0.4 * guiParams.tiltAmount;
+	plane.rotation.y  = Math.sin(displayTime/2) * 0.2 * guiParams.tiltAmount;
+	plane.rotation.z  = Math.sin(displayTime/2 + 0.6) * 0.15 * guiParams.tiltAmount;
 
 	perturbVerts();
 
 	// stats.update();
 	// controls.update();
 
-	noisePos += guiParams.rippleSpeed/3000;
+	noisePos += guiParams.rippleSpeed/5000;
 	normalsHelper.update();
 	if ( video.readyState === video.HAVE_ENOUGH_DATA ) {
-		ctx.drawImage( video, 0, 0 );
+		ctx.drawImage( video, 100, 0 );
 		if ( texture ) texture.needsUpdate = true;
 	}
 	//renderer.clear();

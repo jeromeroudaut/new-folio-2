@@ -356,7 +356,7 @@
                 <source src="../../../static/media/vid/clouds.webm" type="video/webm">
                 Your browser is not supported! 
             </video>
-            <div id="glcanvas-wrap" ></div>
+            <div class="glcanvas" id="glcanvas-wrap" ></div>
 
         </div>
 

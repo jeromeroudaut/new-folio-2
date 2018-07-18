@@ -123,18 +123,23 @@ a {
       object-fit: cover;
   }
 }
+/* .glcanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
+} */
 
 #glcanvas-wrap {
-    /* position: fixed; */
-    /* position: absolute 0;  */
     transform: translate3d(0%, 0, 0);
-    /* /* width: 100vw; */
-    height: 100vh;
+    
 }
 
 canvas {
   width: 100vw;
-  height: 95vh;
+  height: 100vh;
   margin-bottom: -3px;
 
 }
