@@ -63,12 +63,13 @@ function init() {
 	canvas.height = CANVAS_H;
 	ctx = canvas.getContext('2d');
 
-	const div = document.getElementById('glcanvas-wrap'); 
+	const div = document.getElementById('glcanvas'); 
 	canvas.id     = "glcanvas";
 	canvas.style.zIndex   = -1;
 	canvas.style.position = "absolute";
 
-	//video = document.getElementById( 'video' );
+	video = document.getElementById( 'video' );
+
 
 
 	//three init
@@ -280,10 +281,10 @@ function animate() {
 
 	noisePos += guiParams.rippleSpeed/5000;
 	normalsHelper.update();
-	// if ( video.readyState === video.HAVE_ENOUGH_DATA ) {
-	// 	ctx.drawImage( video, 100, 0 );
-	// 	if ( texture ) texture.needsUpdate = true;
-	// }
+	if ( video.readyState === video.HAVE_ENOUGH_DATA ) {
+		ctx.drawImage( video, 100, 0 );
+		if ( texture ) texture.needsUpdate = true;
+	}
 	//renderer.clear();
 	//renderer.render( backgroundScene, backgroundCamera );
 	renderer.render( scene, camera );
@@ -566,7 +567,7 @@ init();
 	function initSeriously() {
 		var key;
 		seriously = new Seriously();
-		target = seriously.target(canvas);
+		target = seriously.target('#glcanvas');
 
 		for (key in transitions) {
 			if (transitions.hasOwnProperty(key)) {
@@ -578,8 +579,8 @@ init();
 			var video = obj.element,
 				reformat = seriously.transform('reformat');
 
-			reformat.width = canvas.width;
-			reformat.height = canvas.height;
+			reformat.width = CANVAS_W;
+			reformat.height = CANVAS_H;
 			reformat.source = video;
 			reformat.mode = 'cover';
 
@@ -684,7 +685,7 @@ init();
 		}
 
 		initSeriously();
-		resize();
+		//resize();
 		seriously.go(draw);
 		switchVideo(0);
 		play();
@@ -698,7 +699,7 @@ init();
 			maxDim,
 			size = 'hd';
 
-		vid = document.createElement('video');
+		//vid = document.createElement('video');
 
 		/*
 		Make our best guess about the appropriate video size
@@ -717,8 +718,8 @@ init();
 		}
 
 		for (i = 0; i < formats.length; i++) {
-			type = '../../static/media/video/' + formats[i];
-			if (vid.canPlayType && vid.canPlayType(type)) {
+			type = 'video/' + formats[i];
+			if (video.canPlayType && video.canPlayType(type)) {
 				format = formats[i];
 				break;
 			}
@@ -735,7 +736,7 @@ init();
 				button;
 
 			video.type = type;
-			video.src = '../../static/media/video/' + source + '-' + size + '.' + format;
+			video.src = 'video/' + source + '-' + size + '.' + format;
 			video.crossOrigin = 'anonymous';
 			video.preload = 'auto';
 			video.id = 'video' + index;
@@ -753,8 +754,7 @@ init();
 			}, false);
 			video.load();
 
-			var xhr = document.querySelector('#xhr')
-			xhr.appendChild(video);
+			
 
 			// button = document.createElement('span');
 			// button.style.backgroundImage = 'url(images/' + source + '.jpg)';
@@ -782,34 +782,34 @@ init();
 	// 	}
 	// }
 
-	resize = debounce(function () {
-		var width = Math.min(videoWidth, window.innerWidth),
-			height = Math.min(videoHeight, window.innerHeight);
+	// resize = debounce(function () {
+	// 	var width = Math.min(videoWidth, window.innerWidth),
+	// 		height = Math.min(videoHeight, window.innerHeight);
 
-		if (width / height < 16 / 9) {
-			height = width * 9 / 16;
-		}
+	// 	if (width / height < 16 / 9) {
+	// 		height = width * 9 / 16;
+	// 	}
 
-		canvas.style.width = width + 'px';
-		canvas.style.height = height + 'px';
+	// 	canvas.style.width = width + 'px';
+	// 	canvas.style.height = height + 'px';
 
-		/*
-		If it's a big enough screen and we have a retina display, let's take advantage.
-		We assume that the GPU will be able to handle it
-		*/
-		if (window.screen.width * window.devicePixelRatio > videoWidth) {
-			width *= window.devicePixelRatio;
-			height *= window.devicePixelRatio;
-		}
+	// 	/*
+	// 	If it's a big enough screen and we have a retina display, let's take advantage.
+	// 	We assume that the GPU will be able to handle it
+	// 	*/
+	// 	if (window.screen.width * window.devicePixelRatio > videoWidth) {
+	// 		width *= window.devicePixelRatio;
+	// 		height *= window.devicePixelRatio;
+	// 	}
 
-		canvas.width = width;
-		canvas.height = height;
+	// 	canvas.width = width;
+	// 	canvas.height = height;
 
-		videos.forEach(function (obj) {
-			obj.reformat.width = width;
-			obj.reformat.height = height;
-		});
-	}, 30, true);
+	// 	videos.forEach(function (obj) {
+	// 		obj.reformat.width = width;
+	// 		obj.reformat.height = height;
+	// 	});
+	// }, 30, true);
 
 	transition = transitions[activeTransition];
 	loadVideos();
