@@ -144,6 +144,16 @@ canvas {
 
 }
 
+video {
+  display: none;
+  /*
+  position: absolute;
+  width: 30%;
+  bottom: 0;
+  left: 0;
+  */
+}
+
 .page-content {
     position: relative;
     height: 100%;

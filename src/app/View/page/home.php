@@ -351,12 +351,12 @@
                     </div>
                 </div>
             </section>
-            <video class="myVideo" id="video" autoplay muted loop crossOrigin="anonymous" webkit-playsinline style="display:none">
+            <!-- <video class="myVideo" id="video" autoplay muted loop crossOrigin="anonymous" webkit-playsinline style="display:none">
                 <source class="myVideo__content" src="../../../static/media/vid/mtns.mp4" type="video/mp4">
                 <source src="../../../static/media/vid/clouds.webm" type="video/webm">
                 Your browser is not supported! 
-            </video>
-            <div class="glcanvas" id="glcanvas-wrap" ></div>
+            </video> -->
+            <div class="glcanvas" id="glcanvas-wrap" width="1280" height="720"></div>
 
         </div>
 

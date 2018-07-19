@@ -99,6 +99,13 @@
         <script src="static/js/TweenLite.min.js"></script>
         <script src="static/js/stats.min.js"></script>
         <script src="static/js/ImprovedNoise.js"></script>
+        <script type="text/javascript" src="static/js/lib/Seriously.js/seriously.js"></script>
+		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.directionblur.js"></script>
+		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.blend.js"></script>
+		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.tvglitch.js"></script>
+		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.linear-transfer.js"></script>
+		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.blur.js"></script>
+		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.exposure.js"></script>
         <script type="text/javascript" src="static/js/demo3.js"></script>
         <!-- <script type="text/javascript" src="static/js/demo4.js"></script> -->
         <script type="text/javascript" src="static/js/app.js"></script>
