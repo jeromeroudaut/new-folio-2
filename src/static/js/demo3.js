@@ -151,7 +151,6 @@ function init() {
 
 	animate();
 
-
 }
 
 
@@ -718,7 +717,7 @@ init();
 		}
 
 		for (i = 0; i < formats.length; i++) {
-			type = '../../static/media/vid/' + formats[i];
+			type = '../../static/media/video/' + formats[i];
 			if (vid.canPlayType && vid.canPlayType(type)) {
 				format = formats[i];
 				break;
@@ -736,7 +735,7 @@ init();
 				button;
 
 			video.type = type;
-			video.src = '../../static/media/vid/' + source + '-' + size + '.' + format;
+			video.src = '../../static/media/video/' + source + '-' + size + '.' + format;
 			video.crossOrigin = 'anonymous';
 			video.preload = 'auto';
 			video.id = 'video' + index;
@@ -754,7 +753,8 @@ init();
 			}, false);
 			video.load();
 
-			document.body.appendChild(video);
+			var xhr = document.querySelector('#xhr')
+			xhr.appendChild(video);
 
 			// button = document.createElement('span');
 			// button.style.backgroundImage = 'url(images/' + source + '.jpg)';

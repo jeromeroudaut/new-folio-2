@@ -901,15 +901,14 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   height: 100vh;
   margin-bottom: -3px;
 
-}video {
+}/* video {
   display: none;
   /*
   position: absolute;
   width: 30%;
   bottom: 0;
   left: 0;
-  */
-}.page-content {
+  *//* }  */.page-content {
     position: relative;
     height: 100%;
     min-height: 100vh;

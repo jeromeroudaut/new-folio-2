@@ -144,7 +144,7 @@ canvas {
 
 }
 
-video {
+/* video {
   display: none;
   /*
   position: absolute;
@@ -152,7 +152,7 @@ video {
   bottom: 0;
   left: 0;
   */
-}
+/* }  */
 
 .page-content {
     position: relative;
