@@ -447,7 +447,7 @@ init();
 			},
 			flash: {
 				title: 'Flash',
-				duration: 500,
+				duration: 1500,
 				linear: null,
 				blur: null,
 				select: null,
@@ -466,21 +466,21 @@ init();
 				start: function (fromNode, toNode) {
 					this.blend.bottom = fromNode;
 					this.blend.top = toNode;
-					this.blend.opacity = 0;
+					this.blend.opacity = .5;
 
 					return this.blur;
 				},
 				draw: function (amount) {
-					this.blend.opacity = min(1, max(0, 1 - 8 * (0.5 - amount)));
+					this.blend.opacity = min(1, max(0, 1 - 8 * (1.5 - amount)));
 
 					amount = 1 - 2 * abs(amount - 0.5);
 					this.blur.amount = 0.8 * amount;
-					this.exposure.exposure = 6 * amount;
+					this.exposure.exposure = .02 * amount;
 				}
 			},
 			channel: {
 				title: 'Channel Change',
-				duration: 1500,
+				duration: 1800,
 				volume: false,
 				tvProps: {
 					distortion: [0.02, 0.2],

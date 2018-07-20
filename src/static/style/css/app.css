@@ -3578,11 +3578,11 @@ a:hover {
 }#h-client-wrap {
   position: absolute;
   width: 30vw;
-  font-family: AvenirNext-Bold;
+  font-family: Flama;
   /* font-size: calc(0.2rem + 0.8vw); */
   font-size: 12px;
-  letter-spacing: 2px;
-  line-height: 22px;
+  letter-spacing: 0.24px;
+  line-height: 19.2px;
   z-index: 1;
 }.h-client {
   position: absolute;
@@ -3716,7 +3716,7 @@ a:hover {
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
 }.h-bottom-title {
-  font-family: AvenirNext-Bold, sans-serif;
+  font-family: Flama, sans-serif;
   color: #f4f8fd;
   letter-spacing: 0.8px;
   text-transform: uppercase;
