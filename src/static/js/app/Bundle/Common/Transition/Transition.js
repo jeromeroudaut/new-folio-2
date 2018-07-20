@@ -45,9 +45,9 @@ const isObj = S.Is.object(Transition.intro)
 //Transition.intro.from({el: '#sail', p: {y: [100, -100]}, d: 5000, delay: 6000, e: 'Power4InOut'})
 // Transition.intro.from({el: '.header', p: {scaleX: [1.1, 1]}, scaleY: [1.1, 1], d: 5000, e: 'Power4InOut', delay: 7000})
 
-Transition.outro = new S.Timeline()
-const isObj2 = S.Is.object(Transition.outro)
-Transition.outro.from({el: '#sail', p: {y: [100, -100]}, d: 5000, e: 'Power4InOut'})
+// Transition.outro = new S.Timeline()
+// const isObj2 = S.Is.object(Transition.outro)
+// Transition.outro.from({el: '#sail', p: {y: [100, -100]}, d: 5000, e: 'Power4InOut'})
 
 Transition.scrollInit()
 }
@@ -288,7 +288,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const isObj3 = S.Is.object(Transition.headerUp)
         
         // Transition.headerUp.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1500, e: 'ExpoOut'})
-        Transition.headerUp.from({el: '.header', p: {y: [0, -100]}, d: 800, e: 'ExpoOut'})
+        Transition.headerUp.from({el: '.header', p: {y: [0, -100]}, d: 400, e: 'ExpoOut'})
         Transition.headerUp.play({cb: Transition.titleInit})
 
 
@@ -325,7 +325,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         // Transition.headerDown.from({el: '.menu__icon', p: {opacity: [0, 1]}, d: 800, e: 'ExpoOut'})
         Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 800, e: 'Power4InOut'})
 
-        Transition.headerDown.play({cb: setTimeout(Transition.enable_scroll, 4000)})
+        Transition.headerDown.play({cb: setTimeout(Transition.enable_scroll, 3000)})
 
     };
 
@@ -374,48 +374,48 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const textInit = new S.Timeline()
         const isObj5 = S.Is.object(textInit)
     
-        textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut'})
-        textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut', delay: 800})
+        textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 800})
         // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
 
     
-        textInit.from({el: '#body-mid', p: {x: [-200, 0]}, d: 1200, e: 'Power4InOut', delay: 1000})
-        textInit.from({el: '#body-right', p: {x: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        textInit.from({el: '#body-mid-line', p: {x: [-100, 0], opacity: [0, .15]}, d: 1200, e: 'Power4InOut', delay: 400})
+        textInit.from({el: '#body-mid', p: {x: [-200, 0]}, d: 900, e: 'Power4InOut', delay: 1000})
+        textInit.from({el: '#body-right', p: {x: [100, 0]}, d: 900, e: 'Power4InOut'})
+        textInit.from({el: '#body-mid-line', p: {x: [-100, 0], opacity: [0, .15]}, d: 900, e: 'Power4InOut', delay: 400})
 
-        textInit.from({el: Transition.arrBotTitle[0], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        textInit.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
-        textInit.from({el: Transition.arrBotTitle[2], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrBotTitle[0], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrBotTitle[2], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
     
-        textInit.from({el: Transition.arrBotRole[Transition.currentStep], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
-        textInit.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
-        textInit.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [100, 0]}, d: 2000, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrBotRole[Transition.currentStep], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [100, 0]}, d: 1700, e: 'Power4InOut'})
 
-        textInit.from({el: Transition.arr[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: Transition.arr[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
         console.log('title text')
-        textInit.from({el: Transition.arrText[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        textInit.from({el: Transition.arrTitle[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrText[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrTitle[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
 
-        textInit.from({el: '#h-pagi-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2800, e: 'Power4InOut'})
-        textInit.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 600, e: 'Power4InOut'})
+        textInit.from({el: '#h-pagi-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2500, e: 'Power4InOut'})
+        textInit.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 300, e: 'Power4InOut'})
 
         Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
         Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
 
-        textInit.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {y: [-100, 0]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {y: [-100, 0]}, d: 900, e: 'Power4InOut'})
 
-        textInit.from({el: '#h-pagi-bottom-marker', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: '#h-pagi-bottom-marker', p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
 
-        textInit.from({el: '#h-pagi-progress', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
-        textInit.from({el: '.h-pagi-prog-no-marker', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 300})
-        textInit.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 300})
+        textInit.from({el: '#h-pagi-progress', p: {opacity: [0, 1]}, d: 900, e: 'Power4InOut'})
+        textInit.from({el: '.h-pagi-prog-no-marker', p: {y: [100, 0]}, d: 900, e: 'Power4InOut', delay: 300})
+        textInit.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut', delay: 300})
 
         console.log(Transition.arrPagiProgNo)
 
         // textInit.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, delay: 400, e: 'Power4InOut'})
 
     
-        textInit.play({cb: setTimeout(Transition.enable_scroll, 4000)})
+        textInit.play({cb: setTimeout(Transition.enable_scroll, 3000)})
     
         };
     
@@ -424,14 +424,22 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
     
 
     Transition.pagiOut = function() {
-            
-        for (var n = 7; n > Transition.currentStep + 1; n--) {
+        
+        var timer
+
+        if(timer) {
+			window.clearTimeout(timer);
+		  }
+		  timer = window.setTimeout(function() {
+		   // actual code here. Your call back function.
+           for (var n = 7; n > Transition.currentStep + 1; n--) {
             Transition.arrTopPagiWrap[Transition.currentStep + 2].style.height = ""
             Transition.arrTopTitleWrap[Transition.currentStep + 2].style.height = ""
             
             }
-            
-            console.log('hello from pagiOut')
+		  console.log( "Pagi-Out Firing!" );
+		  }, 100);
+        
     }
 
 
@@ -726,7 +734,7 @@ Transition.recognitionDown = function() {
         }
 
  
-        Transition.textInOut.play({ cb: function() {
+        Transition.textInOut.play({ cbDelay: 300, cb: function() {
 
         
             Transition.textIn2 = new S.Timeline()
@@ -773,7 +781,7 @@ Transition.recognitionDown = function() {
         
             Transition.pagiColor()
 
-            Transition.textIn2.play({cb: setTimeout(Transition.enable_scroll, 4000)})
+            Transition.textIn2.play({cb: setTimeout(Transition.enable_scroll, 3000)})
 
             }
         })
@@ -838,7 +846,7 @@ Transition.recognitionDown = function() {
         } 
 
         
-        Transition.textOutIn.play({cb: function() {
+        Transition.textOutIn.play({cbDelay: 300, cb: function() {
 
                 setTimeout(Transition.pagiOut, 300)
                 
@@ -889,7 +897,7 @@ Transition.recognitionDown = function() {
                 } 
                 
                 
-                Transition.textOut2.play({cb: setTimeout(Transition.enable_scroll, 4000)})
+                Transition.textOut2.play({cb: setTimeout(Transition.enable_scroll, 3000)})
         
         }})
 

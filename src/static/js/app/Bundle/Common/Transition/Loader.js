@@ -45,7 +45,7 @@ Loader.pr = new S.Timeline()
 const isObj = S.Is.object(Loader.pr)
 const t = -1
 
-Loader.pr.from({el: ".loader-line", p: { x: [-100, -100 * t] }, d: 6000, e: "Power4InOut", delay: 900});
+Loader.pr.from({el: ".loader-line", p: { x: [-100, -100 * t] }, d: 6000, e: "Power4InOut", delay: 450});
 
 Loader.run = function() {
 

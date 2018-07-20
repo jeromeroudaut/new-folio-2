@@ -3579,7 +3579,10 @@ a:hover {
   position: absolute;
   width: 30vw;
   font-family: AvenirNext-Bold;
-  font-size: calc(0.2rem + 0.8vw);
+  /* font-size: calc(0.2rem + 0.8vw); */
+  font-size: 12px;
+  letter-spacing: 2px;
+  line-height: 22px;
   z-index: 1;
 }.h-client {
   position: absolute;

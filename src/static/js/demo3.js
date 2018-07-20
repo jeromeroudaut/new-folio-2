@@ -547,7 +547,7 @@ init();
 		
 			return currentStep
 			
-		}, 1000, true);
+		}, 250, true);
 		
 		prev  = debounce(function () {
 
@@ -567,7 +567,7 @@ init();
 		
 			return currentStep
 			
-		}, 1000, true);
+		}, 250, true);
 
 	function initSeriously() {
 		var key;
