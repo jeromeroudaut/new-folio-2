@@ -366,7 +366,12 @@ init();
 		videoSources = [
 			'1',
 			'2',
-			'3'
+			'3',
+			'4',
+			'5',
+			'6',
+			'7',
+			'8'
 		],
 		videos = [],
 
@@ -528,7 +533,7 @@ init();
 		next  = debounce(function () {
  
 			//Transition.disable_scroll() 
-			if (currentStep >= 2) {
+			if (currentStep >= 8) {
 				nextStep = currentStep
 			} else {
 				nextStep = currentStep + 1
