@@ -384,13 +384,13 @@ init();
 		//state
 		selectedIndex = -1,
 		transition,
-		activeTransition = 'flash',
+		activeTransition = 'channel',
 		transitionStart = 0,
 		previousVideo,
 		nextVideo,
 		playing = false,
 		nextStep = 0,
-		currentStep = -1,
+		currentStep = 0,
 
 		canvas = document.getElementById('canvas'),
 		// controls = document.getElementById('controls'),
@@ -475,7 +475,7 @@ init();
 			},
 			channel: {
 				title: 'Channel Change',
-				duration: 300,
+				duration: 1500,
 				volume: false,
 				tvProps: {
 					distortion: [0.02, 0.2],
