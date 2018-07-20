@@ -446,21 +446,6 @@ var createClass = function () {
   };
 }();
 
-var defineProperty = function (obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-};
-
 var inherits = function (subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
@@ -11085,7 +11070,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         recDown.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
         recDown.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
-        recDown.from(defineProperty({ el: Transition.sectionTitle[1], p: { y: [0, 100] }, d: 1200, delay: 400, e: 'Power4InOut' }, "delay", 1000));
+        recDown.from({ el: Transition.sectionTitle[1], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 1000 });
 
         recDown.from({ el: Transition.sectionTitle[0], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
         recDown.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
@@ -11108,7 +11093,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         socDown.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
         socDown.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
-        socDown.from(defineProperty({ el: Transition.sectionTitle[2], p: { y: [0, 100] }, d: 1200, delay: 400, e: 'Power4InOut' }, "delay", 1000));
+        socDown.from({ el: Transition.sectionTitle[2], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 1000 });
 
         socDown.from({ el: Transition.sectionTitle[1], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
         socDown.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
@@ -11186,7 +11171,17 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
     Transition.n2 = function () {
 
-        Transition.next();
+        var timer;
+
+        if (timer) {
+            window.clearTimeout(timer);
+        }
+        timer = window.setTimeout(function () {
+            // actual code here. Your call back function.
+            Transition.next();
+
+            console.log("Firing!");
+        }, 250);
 
         Transition.textInOut = new skylake.Timeline();
         var isObj8 = skylake.Is.object(Transition.textInOut);
@@ -11281,7 +11276,17 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
     Transition.p2 = function () {
 
-        Transition.prev();
+        var timer;
+
+        if (timer) {
+            window.clearTimeout(timer);
+        }
+        timer = window.setTimeout(function () {
+            // actual code here. Your call back function.
+            Transition.prev();
+
+            console.log("Firing!");
+        }, 250);
 
         Transition.updateProgress(Transition.currentStep - 1);
 

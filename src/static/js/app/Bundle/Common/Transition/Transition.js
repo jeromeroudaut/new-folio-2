@@ -575,7 +575,7 @@ Transition.recognitionDown = function() {
 
     recDown.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
     recDown.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 600, delay: 300, e: 'Power4InOut'})
-    recDown.from({el: Transition.sectionTitle[1], p: {y: [0, 100]}, d: 1200, delay: 400, e: 'Power4InOut', delay: 1000})
+    recDown.from({el: Transition.sectionTitle[1], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 1000})
 
     recDown.from({el: Transition.sectionTitle[0], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
     recDown.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
@@ -599,7 +599,7 @@ Transition.recognitionDown = function() {
         
         socDown.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
         socDown.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 600, delay: 300, e: 'Power4InOut'})
-        socDown.from({el: Transition.sectionTitle[2], p: {y: [0, 100]}, d: 1200, delay: 400, e: 'Power4InOut', delay: 1000})
+        socDown.from({el: Transition.sectionTitle[2], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 1000})
         
         socDown.from({el: Transition.sectionTitle[1], p: {y: [100, 0]}, d: 1200,  e: 'Power4InOut', delay: 1000})
         socDown.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
@@ -679,8 +679,17 @@ Transition.recognitionDown = function() {
 
     Transition.n2 = function() {
 
-
+        var timer
+        
+        if(timer) {
+            window.clearTimeout(timer);
+        }
+        timer = window.setTimeout(function() {
+           // actual code here. Your call back function.
         Transition.next()
+
+          console.log( "Firing!" );
+        }, 250);
 
         Transition.textInOut = new S.Timeline()
         const isObj8 = S.Is.object(Transition.textInOut)
@@ -790,7 +799,17 @@ Transition.recognitionDown = function() {
 
     Transition.p2 = function() {
 
+        var timer
+        
+        if(timer) {
+            window.clearTimeout(timer);
+        }
+        timer = window.setTimeout(function() {
+           // actual code here. Your call back function.
         Transition.prev()
+
+        console.log( "Firing!" );
+        }, 250);
 
         Transition.updateProgress(Transition.currentStep - 1);
 

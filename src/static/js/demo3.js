@@ -410,74 +410,74 @@ init();
 		- draw - runs every frame of the transition
 		*/
 		transitions = {
-			whip: {
-				title: 'Whip Pan',
-				duration: 250,
-				transformFrom: null,
-				transformTo: null,
-				blur: null,
-				init: function () {
-					var blur = seriously.effect('directionblur'),
-						blend = seriously.effect('blend'),
-						transformFrom = seriously.transform('2d'),
-						transformTo = seriously.transform('2d');
+			// whip: {
+			// 	title: 'Whip Pan',
+			// 	duration: 250,
+			// 	transformFrom: null,
+			// 	transformTo: null,
+			// 	blur: null,
+			// 	init: function () {
+			// 		var blur = seriously.effect('directionblur'),
+			// 			blend = seriously.effect('blend'),
+			// 			transformFrom = seriously.transform('2d'),
+			// 			transformTo = seriously.transform('2d');
 
-					blend.bottom = transformFrom;
-					blend.top = transformTo;
-					blur.source = blend;
+			// 		blend.bottom = transformFrom;
+			// 		blend.top = transformTo;
+			// 		blur.source = blend;
 
-					this.transformFrom = transformFrom;
-					this.transformTo = transformTo;
-					this.blur = blur;
-				},
-				start: function (fromNode, toNode) {
-					//todo: alternate direction of whip-pan
-					this.transformFrom.source = fromNode;
-					this.transformTo.source = toNode;
+			// 		this.transformFrom = transformFrom;
+			// 		this.transformTo = transformTo;
+			// 		this.blur = blur;
+			// 	},
+			// 	start: function (fromNode, toNode) {
+			// 		//todo: alternate direction of whip-pan
+			// 		this.transformFrom.source = fromNode;
+			// 		this.transformTo.source = toNode;
 
-					return this.blur;
-				},
-				draw: function (amount) {
-					//this.blur.amount = 1 - 2 * abs(amount - 0.5);
-					amount = easeInOut(amount);
-					this.transformFrom.translateX = this.transformFrom.width * amount;
-					this.transformTo.translateX = -this.transformTo.width * (1 - amount);
-					this.blur.amount = min(1, 1.2 * (1 - 2 * abs(amount - 0.5)) + 0.2);
-				}
-			},
-			flash: {
-				title: 'Flash',
-				duration: 1500,
-				linear: null,
-				blur: null,
-				select: null,
-				init: function () {
-					var blur = seriously.effect('blur'),
-						exposure = seriously.effect('exposure'),
-						blend = seriously.effect('blend');
+			// 		return this.blur;
+			// 	},
+			// 	draw: function (amount) {
+			// 		//this.blur.amount = 1 - 2 * abs(amount - 0.5);
+			// 		amount = easeInOut(amount);
+			// 		this.transformFrom.translateX = this.transformFrom.width * amount;
+			// 		this.transformTo.translateX = -this.transformTo.width * (1 - amount);
+			// 		this.blur.amount = min(1, 1.2 * (1 - 2 * abs(amount - 0.5)) + 0.2);
+			// 	}
+			// },
+			// flash: {
+			// 	title: 'Flash',
+			// 	duration: 1500,
+			// 	linear: null,
+			// 	blur: null,
+			// 	select: null,
+			// 	init: function () {
+			// 		var blur = seriously.effect('blur'),
+			// 			exposure = seriously.effect('exposure'),
+			// 			blend = seriously.effect('blend');
 
-					blur.source = exposure;
-					exposure.source = blend;
+			// 		blur.source = exposure;
+			// 		exposure.source = blend;
 
-					this.blur = blur;
-					this.exposure = exposure;
-					this.blend = blend;
-				},
-				start: function (fromNode, toNode) {
-					this.blend.bottom = fromNode;
-					this.blend.top = toNode;
-					this.blend.opacity = .5;
+			// 		this.blur = blur;
+			// 		this.exposure = exposure;
+			// 		this.blend = blend;
+			// 	},
+			// 	start: function (fromNode, toNode) {
+			// 		this.blend.bottom = fromNode;
+			// 		this.blend.top = toNode;
+			// 		this.blend.opacity = .5;
 
-					return this.blur;
-				},
-				draw: function (amount) {
-					this.blend.opacity = min(1, max(0, 1 - 8 * (1.5 - amount)));
+			// 		return this.blur;
+			// 	},
+			// 	draw: function (amount) {
+			// 		this.blend.opacity = min(1, max(0, 1 - 8 * (1.5 - amount)));
 
-					amount = 1 - 2 * abs(amount - 0.5);
-					this.blur.amount = 0.8 * amount;
-					this.exposure.exposure = .02 * amount;
-				}
-			},
+			// 		amount = 1 - 2 * abs(amount - 0.5);
+			// 		this.blur.amount = 0.8 * amount;
+			// 		this.exposure.exposure = .02 * amount;
+			// 	}
+			// },
 			channel: {
 				title: 'Channel Change',
 				duration: 1800,

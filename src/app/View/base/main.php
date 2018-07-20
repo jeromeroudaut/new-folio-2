@@ -103,17 +103,9 @@
         <script src="static/js/TweenLite.min.js"></script>
         <script src="static/js/stats.min.js"></script>
         <script src="static/js/ImprovedNoise.js"></script>
-        <script type="text/javascript" src="static/js/lib/Seriously.js/seriously.js"></script>
-        <script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.directionblur.js"></script>
-        <script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.simplex.js"></script>
-        <script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.displacement.js"></script>
-		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.blend.js"></script>
-		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.tvglitch.js"></script>
-		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.linear-transfer.js"></script>
-		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.blur.js"></script>
-		<script type="text/javascript" src="static/js/lib/Seriously.js/effects/seriously.exposure.js"></script>
+        <script type="text/javascript" src="static/js/lib/seriously/seriously.js"></script>
+		<script type="text/javascript" src="static/js/lib/seriously/effects/seriously.tvglitch.js"></script>
         <script type="text/javascript" src="static/js/demo3.js"></script>
-        <!-- <script type="text/javascript" src="static/js/demo4.js"></script> -->
         <script type="text/javascript" src="static/js/app.js"></script>
         <!-- Google Analytics -->
         <!-- <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'XX-XXXXXXXX-X', 'auto');ga('send', 'pageview');</script> -->
