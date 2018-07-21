@@ -11371,6 +11371,8 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         var textInit = new skylake.Timeline();
         var isObj5 = skylake.Is.object(textInit);
 
+        switchVideo(Transition.currentStep + 1);
+
         textInit.from({ el: '.scroll-icon', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         textInit.from({ el: '.tagline', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 800 });
         // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
