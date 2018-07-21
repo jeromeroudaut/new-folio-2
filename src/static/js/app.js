@@ -12352,7 +12352,7 @@ canvas.width = CANVAS_W;
 canvas.height = CANVAS_H;
 ctx = canvas.getContext('2d');
 
-var div = document$1.getElementById('glcanvas');
+//const div = document.getElementById('glcanvas'); 
 canvas.id = "glcanvas";
 canvas.style.zIndex = -1;
 canvas.style.position = "absolute";
@@ -12827,7 +12827,7 @@ window.addEventListener('resize', resize);
 window.addEventListener('wheel', function (e) {
 	if (e.deltaY > 0) {
 		console.log('scrolling down');
-		document$1.getElementById('status').innerHTML = 'scrolling down';
+		//document.getElementById('status').innerHTML = 'scrolling down';
 		if (timer) {
 			window.clearTimeout(timer);
 		}
@@ -12840,7 +12840,7 @@ window.addEventListener('wheel', function (e) {
 	}
 	if (e.deltaY < 0) {
 		console.log('scrolling up');
-		document$1.getElementById('status').innerHTML = 'scrolling up';
+		//document.getElementById('status').innerHTML = 'scrolling up';
 		if (timer) {
 			window.clearTimeout(timer);
 		}

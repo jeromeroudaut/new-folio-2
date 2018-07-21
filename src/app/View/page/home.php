@@ -30,7 +30,7 @@
             </div>
             
             <div id="h-content" class="oh">
-                <div id="h-line-l">
+                <!-- <div id="h-line-l">
                     <div id="h-line-l-t-wrap" class="oh">
                         <div id="h-line-l-t" class="h-line"></div>
                     </div>
@@ -62,7 +62,7 @@
                     <div id="h-line-b-r-wrap" class="oh">
                         <div id="h-line-b-r" class="h-line"></div>
                     </div>
-                </div>
+                </div> -->
                 <div id="h-pagi-line-container">
                     <div id="h-pagi-line-wrap" class="oh">
                         <div id="h-pagi-prog"></div>
@@ -135,7 +135,7 @@
                         </div>
                     </div>
                     <div id="h-pagi-bottom">
-                        <div class="h-pagi-bottom-title-container">
+                        <!-- <div class="h-pagi-bottom-title-container">
                             <div class="h-pagi-bottom-title-wrap oh">
                                 <div class="h-pagi-bottom-title">FACEBOOK</div>
                             </div>
@@ -157,7 +157,7 @@
                             <div class="h-pagi-bottom-title-wrap oh">
                                 <div class="h-pagi-bottom-title">SOCIAL</div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="h-pagi-bottom-no-container">
                             <div id="h-pagi-bottom-marker-wrap" class="oh">
                                 <div id="h-pagi-bottom-marker">08</div>
@@ -183,7 +183,7 @@
                             <div id="h-pagi-bottom-extension">&nbsp;</div>
                         </div>
                     </div>
-                    <div id="h-pagi-social-wrap" class="oh"><a id="h-pagi-social" href="/"><span id="h-pagi-social-over">BACK TO TOP</span> <span id="h-pagi-social-under">BACK TO TOP</span> </a>&nbsp;</div>
+                    <!-- <div id="h-pagi-social-wrap" class="oh"><a id="h-pagi-social" href="/"><span id="h-pagi-social-over">BACK TO TOP</span> <span id="h-pagi-social-under">BACK TO TOP</span> </a>&nbsp;</div> -->
                 </div>
                 
             <div id="h-case">
@@ -256,7 +256,7 @@
                     <div id="h-btn-cover-3" class="h-btn-cover"></div>
                 </div>
             </div>
-            <div id="gloss-overlay"></div>
+            <!-- <div id="gloss-overlay"></div> -->
             
             <div class="h-img-wrap">
                 <div id="h-img-0" class="h-img-wrap-0"></div>
@@ -351,7 +351,7 @@
                     </div>
                 </div>
             </section>
-            <div id="status"></div>
+            <!-- <div id="status"></div> -->
             <video class="myVideo" id="video" autoplay muted loop crossOrigin="anonymous" webkit-playsinline style="display:none">
                 <!-- <source class="myVideo__content" src="../../../static/media/video/1-hd.mp4" type="video/mp4">
                 <!-- <source src="../../../static/media/vid/clouds.webm" type="video/webm"> -->

@@ -3593,16 +3593,16 @@ a:hover {
           transform: translate3d(0, 100%, 0);
 }#h-client-0 {
   color: #fc522e; 
-  left: -33px !important;
+  left: 25px !important;
 }#h-client-1 {
   color: #16ffdf;
-  left: -33px !important;
+  left: 25px !important;
 }#h-client-2 {
   color: #e1ecc1;
-  left: 44px !important;
+  left: 93px !important;
 }#h-client-3 {
   color: #ff6c2f;
-  left: 93px !important;
+  left: 134px !important;
 }#h-txt {
   text-align: left;
   z-index: 0;

@@ -59,7 +59,7 @@ import S from 'skylake'
 		canvas.height = CANVAS_H;
 		ctx = canvas.getContext('2d');
 	
-		const div = document.getElementById('glcanvas'); 
+		//const div = document.getElementById('glcanvas'); 
 		canvas.id     = "glcanvas";
 		canvas.style.zIndex   = -1;
 		canvas.style.position = "absolute";
@@ -562,7 +562,7 @@ import S from 'skylake'
 	window.addEventListener('wheel', function(e) {
 		if (e.deltaY > 0) {
 			console.log('scrolling down');
-			document.getElementById('status').innerHTML = 'scrolling down';
+			//document.getElementById('status').innerHTML = 'scrolling down';
 			if(timer) {
 			  window.clearTimeout(timer);
 			}
@@ -576,7 +576,7 @@ import S from 'skylake'
 		}
 		if (e.deltaY < 0) {
 		  console.log('scrolling up');
-		  document.getElementById('status').innerHTML = 'scrolling up';
+		  //document.getElementById('status').innerHTML = 'scrolling up';
 		  if(timer) {
 			window.clearTimeout(timer);
 		  }
