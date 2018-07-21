@@ -58,7 +58,6 @@ a {
 
 .header {
   z-index: 3000;
-  transform: scale(1.2);
   position: absolute;
   top: 0;
   left: 0;
@@ -66,20 +65,6 @@ a {
   width: 100vw;
   opacity: 0;
   background: transparent;
-  /* background: linear-gradient(to left top,rgba(255, 255, 255, .2),rgba(250, 128, 114, .9)); */
-
-  /* background: rgba(36, 36, 36, 0.3); */
-  /* background-image: linear-gradient(
-        to right bottom,
-        rgba(70, 69, 69, 1),
-        rgba(187, 254, 240, 0.85),
-        rgba(144, 165, 186, 1),
-        rgba(199, 246, 194, 1),
-        rgba(144, 165, 186, 1),
-        rgba(70, 69, 69, 1)),
-    url(../../../../../static/media/img/home/case/plants-jn.jpg);
-    background-blend-mode: screen; */
-
 
 }
 
@@ -92,19 +77,8 @@ a {
   width: 100vw;
   opacity: 0;
   z-index: 1;
-  /* background: transparent; */
   background: rgba(26, 27, 41, .4)
-  /* background: linear-gradient(to left top,rgba(255, 255, 255, .2),rgba(250, 128, 114, .9)); */
-  /* background-image: linear-gradient(
-        to right bottom,
-        rgba(70, 69, 69, 1),
-        rgba(187, 254, 240, 0.85),
-        rgba(144, 165, 186, 1),
-        rgba(199, 246, 194, 1),
-        rgba(144, 165, 186, 1),
-        rgba(70, 69, 69, 1)),
-    url(../../../../../static/media/img/home/case/plants-jn.jpg); */
-    /* background-blend-mode: screen; */
+
 }
 
 .myVideo {

@@ -101,8 +101,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     left: 0;
     height: 50vh;
     width: 100vw;
-    /* background: #0f110e; */
-    background: rgba(26, 27, 41, 1);
+    background: #0f110e;
     -webkit-transform: translate3d(0,0%,0);
             transform: translate3d(0,0%,0);
     opacity: 1;
@@ -113,9 +112,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     left: 0;
     height: 50vh;
     width: 100vw;
-    /* background: #0f110e; */
-    background: rgba(26, 27, 41, 1);;
-    -webkit-transform: translate3d(0,0%,0);;
+    background: #0f110e;
+    -webkit-transform: translate3d(0,0%,0);
             transform: translate3d(0,0%,0);
     opacity: 1;
 }@font-face {
@@ -825,8 +823,6 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   text-decoration: none;
 }.header {
   z-index: 3000;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
   position: absolute;
   top: 0;
   left: 0;
@@ -834,20 +830,6 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   width: 100vw;
   opacity: 0;
   background: transparent;
-  /* background: linear-gradient(to left top,rgba(255, 255, 255, .2),rgba(250, 128, 114, .9)); */
-
-  /* background: rgba(36, 36, 36, 0.3); */
-  /* background-image: linear-gradient(
-        to right bottom,
-        rgba(70, 69, 69, 1),
-        rgba(187, 254, 240, 0.85),
-        rgba(144, 165, 186, 1),
-        rgba(199, 246, 194, 1),
-        rgba(144, 165, 186, 1),
-        rgba(70, 69, 69, 1)),
-    url(../../../../../static/media/img/home/case/plants-jn.jpg);
-    background-blend-mode: screen; */
-
 
 }#intro {
   z-index: 3000;
@@ -858,19 +840,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   width: 100vw;
   opacity: 0;
   z-index: 1;
-  /* background: transparent; */
   background: rgba(26, 27, 41, .4)
-  /* background: linear-gradient(to left top,rgba(255, 255, 255, .2),rgba(250, 128, 114, .9)); */
-  /* background-image: linear-gradient(
-        to right bottom,
-        rgba(70, 69, 69, 1),
-        rgba(187, 254, 240, 0.85),
-        rgba(144, 165, 186, 1),
-        rgba(199, 246, 194, 1),
-        rgba(144, 165, 186, 1),
-        rgba(70, 69, 69, 1)),
-    url(../../../../../static/media/img/home/case/plants-jn.jpg); */
-    /* background-blend-mode: screen; */
+
 }.myVideo {
   position: absolute;
   top: 0;

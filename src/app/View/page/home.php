@@ -1,17 +1,10 @@
 
-<header class="header">
+            <header class="header">
 
-                <!-- <div id="hcanvas-wrap" ></div> -->
-
-
-
-                
-
-
-                <!-- <div id="h">
-                    <a id="h-link" href="/about">ABOUT</a>
-                </div> -->
-</header>
+                            <!-- <div id="h">
+                                <a id="h-link" href="/about">ABOUT</a>
+                            </div> -->
+            </header>
 
             <div id="intro">
                         <article>
@@ -30,39 +23,7 @@
             </div>
             
             <div id="h-content" class="oh">
-                <!-- <div id="h-line-l">
-                    <div id="h-line-l-t-wrap" class="oh">
-                        <div id="h-line-l-t" class="h-line"></div>
-                    </div>
-                    <div id="h-line-l-b-wrap" class="oh">
-                        <div id="h-line-l-b" class="h-line"></div>
-                    </div>
-                </div>
-                <div id="h-line-r">
-                    <div id="h-line-r-t-wrap" class="oh">
-                        <div id="h-line-r-t" class="h-line"></div>
-                    </div>
-                    <div id="h-line-r-b-wrap" class="oh">
-                        <div id="h-line-r-b" class="h-line"></div>
-                    </div>
-                </div>
-                <div id="h-line-t">
-                    <div id="h-line-t-l-wrap" class="oh">
-                        <div id="h-line-t-l-l" class="h-line"></div>
-                        <div id="h-line-t-l-r" class="h-line"></div>
-                    </div>
-                    <div id="h-line-t-r-wrap" class="oh">
-                        <div id="h-line-t-r" class="h-line"></div>
-                    </div>
-                </div>
-                <div id="h-line-b" class="oh">
-                    <div id="h-line-b-l-wrap" class="oh">
-                        <div id="h-line-b-l" class="h-line"></div>
-                    </div>
-                    <div id="h-line-b-r-wrap" class="oh">
-                        <div id="h-line-b-r" class="h-line"></div>
-                    </div>
-                </div> -->
+
                 <div id="h-pagi-line-container">
                     <div id="h-pagi-line-wrap" class="oh">
                         <div id="h-pagi-prog"></div>
@@ -135,29 +96,6 @@
                         </div>
                     </div>
                     <div id="h-pagi-bottom">
-                        <!-- <div class="h-pagi-bottom-title-container">
-                            <div class="h-pagi-bottom-title-wrap oh">
-                                <div class="h-pagi-bottom-title">FACEBOOK</div>
-                            </div>
-                            <div class="h-pagi-bottom-title-wrap oh">
-                                <div class="h-pagi-bottom-title">KLM</div>
-                            </div>
-                            <div class="h-pagi-bottom-title-wrap oh">
-                                <div class="h-pagi-bottom-title">ADIDAS</div>
-                            </div>
-                            <div class="h-pagi-bottom-title-wrap oh">
-                                <div class="h-pagi-bottom-title">MCDONALDS</div>
-                            </div>
-                            <div class="h-pagi-bottom-title-wrap oh">
-                                <div class="h-pagi-bottom-title">RECOGNITION</div>
-                            </div>
-                            <div class="h-pagi-bottom-title-wrap oh">
-                                <div class="h-pagi-bottom-title">EXPERIENCE</div>
-                            </div>
-                            <div class="h-pagi-bottom-title-wrap oh">
-                                <div class="h-pagi-bottom-title">SOCIAL</div>
-                            </div>
-                        </div> -->
                         <div class="h-pagi-bottom-no-container">
                             <div id="h-pagi-bottom-marker-wrap" class="oh">
                                 <div id="h-pagi-bottom-marker">08</div>
@@ -183,7 +121,6 @@
                             <div id="h-pagi-bottom-extension">&nbsp;</div>
                         </div>
                     </div>
-                    <!-- <div id="h-pagi-social-wrap" class="oh"><a id="h-pagi-social" href="/"><span id="h-pagi-social-over">BACK TO TOP</span> <span id="h-pagi-social-under">BACK TO TOP</span> </a>&nbsp;</div> -->
                 </div>
                 
             <div id="h-case">
@@ -255,9 +192,7 @@
                     <div id="h-btn-cover-2" class="h-btn-cover"></div>
                     <div id="h-btn-cover-3" class="h-btn-cover"></div>
                 </div>
-            </div>
-            <!-- <div id="gloss-overlay"></div> -->
-            
+            </div>            
             <div class="h-img-wrap">
                 <div id="h-img-0" class="h-img-wrap-0"></div>
             
@@ -353,13 +288,8 @@
             </section>
             <!-- <div id="status"></div> -->
             <video class="myVideo" id="video" autoplay muted loop crossOrigin="anonymous" webkit-playsinline style="display:none">
-                <!-- <source class="myVideo__content" src="../../../static/media/video/1-hd.mp4" type="video/mp4">
-                <!-- <source src="../../../static/media/vid/clouds.webm" type="video/webm"> -->
-                <!-- <!-- Your browser is not supported!  -->
             </video>
             <canvas id="glcanvas" width="1280" height="720"></canvas>
 
         </div>
 
-        <div id="h-xp-btn-wrap" class="oh"><a id="h-xp-btn" class="tbl oh" href="https://www.linkedin.com/in/jennyjohannesson"><span id="h-xp-btn-hover"></span> <span id="h-xp-btn-content">VIEW ON LINKEDIN</span> </a><span id="h-xp-btn-cover"></span>
-        </div>
