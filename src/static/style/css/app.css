@@ -1120,13 +1120,13 @@ a:hover {
 }#svg {
 }.icon {
   position: absolute;
-  bottom: 0vh;
-  right: 7vh;
+  bottom: -7vh;
+  right: 4.2vw;
   width: 24px;
   z-index: 6000;
   fill: #f4f8fd;
-  -webkit-transform: translate3d(0, 0%, 0);
-          transform: translate3d(0, 0%, 0);
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
 
 }/* .icon {
   background-size: 90px;
