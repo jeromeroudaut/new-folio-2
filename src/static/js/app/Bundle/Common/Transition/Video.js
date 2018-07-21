@@ -559,38 +559,38 @@ import S from 'skylake'
 	// canvas.addEventListener('mouseWheel', Transition.headerScroll);
 	// bigbutton.addEventListener('mouseWheel', Transition.headerScroll);
 
-	window.addEventListener('wheel', function(e) {
-		if (e.deltaY > 0) {
-			console.log('scrolling down');
-			//document.getElementById('status').innerHTML = 'scrolling down';
-			if(timer) {
-			  window.clearTimeout(timer);
-			}
-			timer = window.setTimeout(function() {
-			 // actual code here. Your call back function.
-			next();
-			console.log( "Firing!" );
-			}, 100);
-			switchVideo(currentStep + 1);
+	// window.addEventListener('wheel', function(e) {
+	// 	if (e.deltaY > 0) {
+	// 		console.log('scrolling down');
+	// 		//document.getElementById('status').innerHTML = 'scrolling down';
+	// 		if(timer) {
+	// 		  window.clearTimeout(timer);
+	// 		}
+	// 		timer = window.setTimeout(function() {
+	// 		 // actual code here. Your call back function.
+	// 		next();
+	// 		console.log( "Firing!" );
+	// 		}, 100);
+	// 		switchVideo(currentStep + 1);
 
-		}
-		if (e.deltaY < 0) {
-		  console.log('scrolling up');
-		  //document.getElementById('status').innerHTML = 'scrolling up';
-		  if(timer) {
-			window.clearTimeout(timer);
-		  }
-		  timer = window.setTimeout(function() {
-		   // actual code here. Your call back function.
-		  prev();
-		  console.log( "Firing!" );
-		  }, 100);
+	// 	}
+	// 	if (e.deltaY < 0) {
+	// 	  console.log('scrolling up');
+	// 	  //document.getElementById('status').innerHTML = 'scrolling up';
+	// 	  if(timer) {
+	// 		window.clearTimeout(timer);
+	// 	  }
+	// 	  timer = window.setTimeout(function() {
+	// 	   // actual code here. Your call back function.
+	// 	  prev();
+	// 	  console.log( "Firing!" );
+	// 	  }, 100);
 		  
-		  switchVideo(currentStep - 1);
+	// 	  switchVideo(currentStep - 1);
 
-		}
+	// 	}
 		
-	  });
+	//   });
 
 
 	/*
@@ -613,4 +613,4 @@ import S from 'skylake'
 	
     // }(this));
     
-    export default Video
+    export { switchVideo, start }

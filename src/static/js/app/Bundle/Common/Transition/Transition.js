@@ -2,7 +2,9 @@
 
 import S from 'skylake'
 import jQuery from "jquery"
-
+import { switchVideo } from "./Video.js"
+// import * as vidGL from './Video.js';
+// console.log(vidGL)
 
 const Transition = {}
 
@@ -48,6 +50,7 @@ const isObj = S.Is.object(Transition.intro)
 // Transition.outro = new S.Timeline()
 // const isObj2 = S.Is.object(Transition.outro)
 // Transition.outro.from({el: '#sail', p: {y: [100, -100]}, d: 5000, e: 'Power4InOut'})
+
 
 Transition.scrollInit()
 }
@@ -683,7 +686,7 @@ Transition.recognitionDown = function() {
         timer = window.setTimeout(function() {
            // actual code here. Your call back function.
         Transition.next()
-
+        switchVideo(Transition.currentStep)
           console.log( "Firing!" );
         }, 250);
 
@@ -803,6 +806,7 @@ Transition.recognitionDown = function() {
         timer = window.setTimeout(function() {
            // actual code here. Your call back function.
         Transition.prev()
+        switchVideo(Transition.currentStep)
 
         console.log( "Firing!" );
         }, 250);
