@@ -77,8 +77,6 @@
             src: url("./static/media/sou/Flama.otf");
         }
         </style>
-        <!-- <link rel="preload" href="./static/style/css/app.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="path/to/mystylesheet.css"></noscript> -->
     </head>
     <body>
     <div class="container" id="home">

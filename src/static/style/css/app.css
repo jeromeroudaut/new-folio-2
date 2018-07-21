@@ -1062,9 +1062,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   left: 0;
   height: 100vh;
   width: 66.66666vw;
-  /* border-right: 1px solid gray; */
   background: rgba(26, 27, 41, .6);
-  /* background: linear-gradient(to bottom,rgba(28, 28, 28, .9),rgba(250, 128, 114, .3)); */
   -webkit-transform: translate3d(-200%, 0, 0);
           transform: translate3d(-200%, 0, 0);
   opacity: 1;
@@ -1076,7 +1074,6 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   height: 100vh;
   width: 33.33333vw;
   background: rgba(26, 27, 41, .6);
-  /* background: linear-gradient(to bottom,rgba(28, 28, 28, .9),rgba(250, 128, 114, .3)); */
   -webkit-transform: translate3d(0 ,100%, 0);
           transform: translate3d(0 ,100%, 0);
   opacity: 1;
@@ -1087,36 +1084,11 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   height: 100vh;
   width: 2px;
   background: #f4f8fd;
-  /* background-image: linear-gradient(to top, #16ffdf, #00e0ff, #00baff, #008aff, #6534ff); */
   -webkit-transform: translate3d(0, -100%, 0);
           transform: translate3d(0, -100%, 0);
   z-index: 0;
   opacity: 0;
-}#section-6, #section-7, #section-8 {
-  position: absolute;
-  top: 0;
-  left: 33.33333vw;  
-  height: 100vh;
-  width: 100vw;
-  z-index: -1;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-align: center;
-  -webkit-box-align: center;
-          align-items: center;
-  -ms-flex-pack: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  /* background-size: cover;
-  background-position: 50%; */
-  opacity: 0;
-  /* transform: translate3d(0, 0, 0); */
-  /* transform: scale(1.2); 
-  transition: all 0.8s cubic-bezier(0.37, 0.045, 0.105, 0.8); */
-}/* #section-6:hover, #section-7:hover, #section-8:hover {
-  transform: scale(1); 
-} */main {
+}main {
   position: relative;
 }section {
   position: relative;
@@ -1145,6 +1117,17 @@ a:hover {
 
 }/* Hide the overflow in IE. */svg:not(:root) {
   overflow: hidden;
+}#svg {
+}.icon {
+  position: absolute;
+  bottom: 0vh;
+  right: 7vh;
+  width: 24px;
+  z-index: 6000;
+  fill: #f4f8fd;
+  -webkit-transform: translate3d(0, 0%, 0);
+          transform: translate3d(0, 0%, 0);
+
 }/* .icon {
   background-size: 90px;
   width: 21.5px;

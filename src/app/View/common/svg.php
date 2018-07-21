@@ -11,10 +11,12 @@
         <circle cx="386.5" cy="117.4" r="30.2"/>
     </symbol>
 </svg>
-<!--
 
-<svg>
+
+<svg class="icon">
     <use xlink:href="#svg-twitter"></use>
 </svg>
+<svg class="icon">
+    <use xlink:href="#svg-instagram"></use>
+</svg>
 
--->

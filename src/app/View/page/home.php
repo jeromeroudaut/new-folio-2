@@ -32,25 +32,25 @@
                     <div id="h-pagi-top">
                         <div class="h-pagi-top-title-container">
                             <div class="h-pagi-top-title-wrap oh">
-                                <div class="h-pagi-top-title">ABOUT ME</div>
+                                <div class="h-pagi-top-title">&nbsp;</div>
                             </div>
                             <div class="h-pagi-top-title-wrap oh">
-                                <div class="h-pagi-top-title">FACEBOOK</div>
+                                <div class="h-pagi-top-title">&nbsp;</div>
                             </div>
                             <div class="h-pagi-top-title-wrap oh">
-                                <div class="h-pagi-top-title">KLM</div>
+                                <div class="h-pagi-top-title">&nbsp;</div>
                             </div>
                             <div class="h-pagi-top-title-wrap oh">
-                                <div class="h-pagi-top-title">ADIDAS</div>
+                                <div class="h-pagi-top-title">&nbsp;</div>
                             </div>
                             <div class="h-pagi-top-title-wrap oh">
-                                <div class="h-pagi-top-title">MCDONALDS</div>
+                                <div class="h-pagi-top-title">&nbsp;</div>
                             </div>
                             <div class="h-pagi-top-title-wrap oh">
-                                <div class="h-pagi-top-title">RECOGNITION</div>
+                                <div class="h-pagi-top-title">&nbsp;</div>
                             </div>
                             <div class="h-pagi-top-title-wrap oh">
-                                <div class="h-pagi-top-title">EXPERIENCE</div>
+                                <div class="h-pagi-top-title">&nbsp;</div>
                             </div>
                             <div class="h-pagi-top-title-wrap oh">
                                 <div class="h-pagi-top-title">&nbsp;</div>
@@ -185,15 +185,18 @@
                 </div>
                 <div id="h-btn-container" class="oh">
                     <div id="h-btn-wrap" class="oh">
-                        <div id="h-btn-hover"></div><a id="h-btn-0" class="h-btn" href="/facebook">VIEW CASE</a> <a id="h-btn-1" class="h-btn" href="/klm">VIEW CASE</a> <a id="h-btn-2" class="h-btn" href="/adidas">VIEW CASE</a> <a id="h-btn-3" class="h-btn" href="/mcdonalds">VIEW CASE</a>
-                        <div
-                            id="h-btn-cover-0" class="h-btn-cover"></div>
-                    <div id="h-btn-cover-1" class="h-btn-cover"></div>
-                    <div id="h-btn-cover-2" class="h-btn-cover"></div>
-                    <div id="h-btn-cover-3" class="h-btn-cover"></div>
+                        <div id="h-btn-hover"></div>
+                        <a id="h-btn-0" class="h-btn" href="/facebook">VIEW CASE</a> 
+                        <a id="h-btn-1" class="h-btn" href="/klm">VIEW CASE</a> 
+                        <a id="h-btn-2" class="h-btn" href="/adidas">VIEW CASE</a> 
+                        <a id="h-btn-3" class="h-btn" href="/mcdonalds">VIEW CASE</a>
+                        <div id="h-btn-cover-0" class="h-btn-cover"></div>
+                        <div id="h-btn-cover-1" class="h-btn-cover"></div>
+                        <div id="h-btn-cover-2" class="h-btn-cover"></div>
+                        <div id="h-btn-cover-3" class="h-btn-cover"></div>
                 </div>
             </div>            
-            <div class="h-img-wrap">
+            <!-- <div class="h-img-wrap">
                 <div id="h-img-0" class="h-img-wrap-0"></div>
             
             </div>
@@ -208,12 +211,12 @@
             <div class="h-img-wrap">
                 <div id="h-img-3" class="h-img-wrap-3"></div>
                 
-            </div>
+            </div> -->
             </div>
             <div id="h-pagi-progress">
-                <div id="h-prog-container">
+                <!-- <div id="h-prog-container">
                     <div class="progress-container"><div id="progress" class="progress"></div></div>
-                </div>
+                </div> -->
                 <div class="h-pagi-prog-no-wrap oh">
                     <!-- <div class="h-pagi-prog-no-wrap oh">
                         <div class="h-pagi-prog-no">01</div>
