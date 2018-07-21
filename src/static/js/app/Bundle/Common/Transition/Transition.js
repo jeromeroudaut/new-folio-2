@@ -149,6 +149,8 @@ Transition.scrollInit()
         Transition.disable_scroll() 
         if (Transition.currentStep >= 6) {
             Transition.nextStep = 7
+        } else if (Transition.currentStep === -1) {
+            Transition.nextStep = 0
         } else {
             Transition.nextStep = Transition.currentStep + 1
         }
@@ -200,7 +202,7 @@ Transition.scrollInit()
 
         Transition.disable_scroll()
         if (Transition.currentStep <= -1) {
-            Transition.nextStep = 0
+            return Transition.nextStep = 0
         } else {
             Transition.nextStep = Transition.currentStep - 1
         }
@@ -372,7 +374,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const textInit = new S.Timeline()
         const isObj5 = S.Is.object(textInit)
     
-        switchVideo(Transition.currentStep)
+        switchVideo(1)
 
         textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 800})
