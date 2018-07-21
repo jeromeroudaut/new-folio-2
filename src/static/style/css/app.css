@@ -819,7 +819,7 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   font-weight: 300;
   color: #FFF;
 }a {
-  color: #CCC;
+  color: #f4f8fd;
   text-decoration: none;
 }.header {
   z-index: 3000;
@@ -1117,16 +1117,28 @@ a:hover {
 
 }/* Hide the overflow in IE. */svg:not(:root) {
   overflow: hidden;
-}#svg {
-}.icon {
+}.icon-wrap {
   position: absolute;
-  bottom: -7vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  bottom: -5vh;
   right: 4.2vw;
-  width: 24px;
   z-index: 6000;
   fill: #f4f8fd;
   -webkit-transform: translate3d(0, 100%, 0);
           transform: translate3d(0, 100%, 0);
+}a:visited {
+  fill: #f4f8fd;
+}.icon-insta {
+  margin-right: 20px;
+  width: 24px;
+  
+}.icon-twitter {
+  width: 24px;
 
 }/* .icon {
   background-size: 90px;

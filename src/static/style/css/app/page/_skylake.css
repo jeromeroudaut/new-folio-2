@@ -113,17 +113,30 @@ svg:not(:root) {
   overflow: hidden;
 }
 
-#svg {
-}
 
-.icon {
+.icon-wrap {
   position: absolute;
-  bottom: -7vh;
+  display: flex;
+  justify-content: space-between;
+  bottom: -5vh;
   right: 4.2vw;
-  width: 24px;
   z-index: 6000;
   fill: #f4f8fd;
   transform: translate3d(0, 100%, 0);
+}
+
+a:visited {
+  fill: #f4f8fd;
+}
+
+.icon-insta {
+  margin-right: 20px;
+  width: 24px;
+  
+}
+
+.icon-twitter {
+  width: 24px;
 
 }
 

@@ -309,7 +309,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.headerDown.from({el: Transition.arrBotTitle[1], p: {y: [0, 100]}, d: 300, e: 'Power4InOut'})
         Transition.headerDown.from({el: Transition.arrBotTitle[2], p: {y: [0, 100]}, d: 300, e: 'Power4InOut'})
         
-        Transition.headerDown.from({el: '.icon ', p: {y: [0, 100]}, d: 800, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '.icon-wrap', p: {y: [0, 100]}, d: 800, e: 'Power4InOut'})
 
         //Transition.headerDown.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 800, e: 'Power4InOut'})
         //Transition.headerDown.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
@@ -400,7 +400,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         textInit.from({el: '#h-pagi-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2500, e: 'Power4InOut'})
         textInit.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 300, e: 'Power4InOut'})
-        textInit.from({el: '.icon ', p: {y: [100, 0]}, d: 600, e: 'Power4InOut'})
+        textInit.from({el: '.icon-wrap', p: {y: [100, 0]}, d: 600, e: 'Power4InOut'})
 
         Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
         Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";

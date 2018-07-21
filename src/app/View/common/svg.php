@@ -12,11 +12,16 @@
     </symbol>
 </svg>
 
-
-<svg class="icon">
-    <use xlink:href="#svg-twitter"></use>
-</svg>
-<svg class="icon">
-    <use xlink:href="#svg-instagram"></use>
-</svg>
+<div class="icon-wrap">
+    <a href="https://instagram.com/johnmilnerstudio" target="_blank">
+        <svg class="icon-insta">
+            <use xlink:href="#svg-instagram"></use>
+        </svg>
+    </a>
+    <a href="https://twitter.com/_johnio" target="_blank">
+        <svg class="icon-twitter">
+            <use xlink:href="#svg-twitter"></use>
+        </svg>
+    </a>
+</div>
 
