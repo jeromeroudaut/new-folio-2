@@ -689,7 +689,7 @@ Transition.recognitionDown = function() {
            // actual code here. Your call back function.
         Transition.next()
         //switchVideo(Transition.currentStep)
-        this.toggleDistortionIn(1, this.changeImage.bind(this))
+        Jello.toggleDistortionIn(1, Jello.changeImage)
           console.log( "Firing!" );
         }, 250);
 
@@ -810,7 +810,7 @@ Transition.recognitionDown = function() {
            // actual code here. Your call back function.
         Transition.prev()
         //switchVideo(Transition.currentStep)
-        toggleDistortionIn(1, this.changeImage.bind(this))
+        Jello.toggleDistortionIn(1, Jello.changeImage)
 
         console.log( "Firing!" );
         }, 250);

@@ -871,8 +871,8 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
   position: absolute;
   top: 0;
   left: 0;
-  color: #000;
-  z-index: 0;
+  color: transparent;
+  z-index: -1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

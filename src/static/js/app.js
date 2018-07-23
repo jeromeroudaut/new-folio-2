@@ -842,22 +842,21 @@ Jello.distortionLevel = function (amt) {
 
 // scroll events
 
-Jello.initScroll = function () {
-  var _this2 = this;
+// Jello.initScroll = function() {
+//   window.addEventListener('wheel', (e) => {
+//     if (e.deltaY > 0) {
+//     Jello.toggleDistortionIn(1, Jello.changeImage.bind(this))
+//     // Jello.changeImage()
+//     console.log('scrolling down')
+//     }
+//     if (e.deltaY < 0) {
+//     Jello.toggleDistortionIn(1, Jello.changeImage.bind(this))
+//     // Jello.changeImage()
+//     console.log('scrolling up')
+//     }
+//   })
 
-  window.addEventListener('wheel', function (e) {
-    if (e.deltaY > 0) {
-      Jello.toggleDistortionIn(1, Jello.changeImage.bind(_this2));
-      // Jello.changeImage()
-      console.log('scrolling down');
-    }
-    if (e.deltaY < 0) {
-      Jello.toggleDistortionIn(1, Jello.changeImage.bind(_this2));
-      // Jello.changeImage()
-      console.log('scrolling up');
-    }
-  });
-};
+//}
 // click events
 //   eventListener() {
 //     const changeImageBtn = document.getElementsByClassName('js-change-image')[0];
@@ -967,7 +966,7 @@ Jello.initialize = function () {
   Jello.createFilters();
   Jello.animateFilters();
   //Jello.eventListener();
-  Jello.initScroll();
+  //Jello.initScroll();
 
   Jello.renderer.view.setAttribute('class', 'jello-canvas');
   Jello.canvasHolder.appendChild(Jello.renderer.view);
@@ -1561,7 +1560,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
             // actual code here. Your call back function.
             Transition.next();
             //switchVideo(Transition.currentStep)
-            this.toggleDistortionIn(1, this.changeImage.bind(this));
+            Jello.toggleDistortionIn(1, Jello.changeImage);
             console.log("Firing!");
         }, 250);
 
@@ -1667,7 +1666,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
             // actual code here. Your call back function.
             Transition.prev();
             //switchVideo(Transition.currentStep)
-            toggleDistortionIn(1, this.changeImage.bind(this));
+            Jello.toggleDistortionIn(1, Jello.changeImage);
 
             console.log("Firing!");
         }, 250);

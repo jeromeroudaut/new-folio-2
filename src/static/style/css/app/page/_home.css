@@ -115,8 +115,8 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  color: #000;
-  z-index: 0;
+  color: transparent;
+  z-index: -1;
   display: flex;
   justify-content: center;
   text-rendering: optimizeLegibility;

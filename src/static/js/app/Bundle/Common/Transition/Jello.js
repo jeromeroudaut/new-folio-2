@@ -167,21 +167,21 @@ import S from 'skylake'
 
   // scroll events
 
-  Jello.initScroll = function() {
-    window.addEventListener('wheel', (e) => {
-      if (e.deltaY > 0) {
-      Jello.toggleDistortionIn(1, Jello.changeImage.bind(this))
-      // Jello.changeImage()
-      console.log('scrolling down')
-      }
-      if (e.deltaY < 0) {
-      Jello.toggleDistortionIn(1, Jello.changeImage.bind(this))
-      // Jello.changeImage()
-      console.log('scrolling up')
-      }
-    })
+  // Jello.initScroll = function() {
+  //   window.addEventListener('wheel', (e) => {
+  //     if (e.deltaY > 0) {
+  //     Jello.toggleDistortionIn(1, Jello.changeImage.bind(this))
+  //     // Jello.changeImage()
+  //     console.log('scrolling down')
+  //     }
+  //     if (e.deltaY < 0) {
+  //     Jello.toggleDistortionIn(1, Jello.changeImage.bind(this))
+  //     // Jello.changeImage()
+  //     console.log('scrolling up')
+  //     }
+  //   })
 
-  }
+  //}
   // click events
 //   eventListener() {
 //     const changeImageBtn = document.getElementsByClassName('js-change-image')[0];
@@ -304,7 +304,7 @@ import S from 'skylake'
     Jello.createFilters();
     Jello.animateFilters();
     //Jello.eventListener();
-    Jello.initScroll();
+    //Jello.initScroll();
 
     Jello.renderer.view.setAttribute('class', 'jello-canvas');
     Jello.canvasHolder.appendChild(Jello.renderer.view);
