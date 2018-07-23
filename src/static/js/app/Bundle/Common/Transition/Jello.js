@@ -32,8 +32,6 @@ import S from 'skylake'
     Jello.mapCounter = 0;
     Jello.mapArray = [];
     //Jello.raf = Jello.animateFilters.bind(Jello.raf);
-    // Jello.raf = this.animateFilters.bind(this);
-    //Jello.cycleImage = Jello.changeImage.bind(this)
 
     Jello.isDistorted = false; // begin transition with no distortion
     Jello.isTransitioning = false;
@@ -271,7 +269,7 @@ import S from 'skylake'
 
     Jello.defaults = {
       transition: 0,
-      speed: 0.5,
+      speed: 0.4,
       dispScale: 200,
       dispX: true,
       dispY: true,
