@@ -9,7 +9,7 @@
   </script>
   <body>
     <div id="jello-container" class="jello-container">
-      <div class="jello-controls__wrapper">
+      <!-- <div class="jello-controls__wrapper">
         <div id="status"></div>
         <div class="jello-controls__cta">
           <a href="#" class="jello-controls__cta--button js-change-image">
@@ -26,7 +26,7 @@
             <span class="jello-controls__cta--text">Toggle Distortion</span>
           </a>
         </div>
-      </div>
+      </div> -->
     </div>
     <script type="text/javascript" src="assets/scripts/vendor/pixi.min.js"></script>
     <script type="text/javascript" src="assets/scripts/vendor/TweenLite.min.js"></script>

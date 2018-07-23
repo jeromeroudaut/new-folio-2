@@ -289,10 +289,11 @@
                     </div>
                 </div>
             </section>
+            <div id="jello-container" class="jello-container">
             <!-- <div id="status"></div> -->
-            <video class="myVideo" id="video" autoplay muted loop crossOrigin="anonymous" webkit-playsinline style="display:none">
+            <!-- <video class="myVideo" id="video" autoplay muted loop crossOrigin="anonymous" webkit-playsinline style="display:none">
             </video>
-            <canvas id="glcanvas" width="1280" height="720"></canvas>
+            <canvas id="glcanvas" width="1280" height="720"></canvas> -->
 
         </div>
 
