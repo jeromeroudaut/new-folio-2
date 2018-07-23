@@ -56,7 +56,7 @@ class HomeController extends Listeners {
         // Transition.callback()
         //Transition.disable_scroll()
         Transition.open()
-        Jello.prototype.initialize()
+        Jello.initialize()
         console.log('Transition.outro from HomeController')
         Listeners.prototype.add({cb:
             Loader.run({cb: this.intro()})

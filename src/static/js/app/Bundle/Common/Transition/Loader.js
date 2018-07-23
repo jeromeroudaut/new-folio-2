@@ -25,7 +25,7 @@ const intro = function() {
   tl.from({el: '.menu', p: {opacity: [0, 1]}, d: 1500, e: 'ExpoOut'})
   tl.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 600})
   // start()
-  Jello.prototype.toggleDistortionIn(1, Jello.prototype.changeImage)
+  Jello.toggleDistortionIn(1, Jello.changeImage)
 
   tl.play()
 }
