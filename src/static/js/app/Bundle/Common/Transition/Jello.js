@@ -31,7 +31,7 @@ import S from 'skylake'
     Jello.currentMap = {};
     Jello.mapCounter = 0;
     Jello.mapArray = [];
-    //sJello.raf = Jello.animateFilters.bind(Jello.raf);
+    //Jello.raf = Jello.animateFilters.bind(Jello.raf);
     // Jello.raf = this.animateFilters.bind(this);
     //Jello.cycleImage = Jello.changeImage.bind(this)
 
@@ -40,6 +40,17 @@ import S from 'skylake'
 
 
   // }
+
+  window.requestAnimationFrame = (function() {
+    return window.requestAnimationFrame ||
+           window.webkitRequestAnimationFrame ||
+           window.mozRequestAnimationFrame ||
+           window.oRequestAnimationFrame ||
+           window.msRequestAnimationFrame ||
+           function(/* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
+             return window.setTimeout(callback, 1000/60);
+           };
+  })();
 
   // define animations and call Jello.raf
   Jello.animateFilters = function() {
@@ -55,7 +66,7 @@ import S from 'skylake'
 
     Jello.renderer.render(Jello.stage);
 
-    //window.requestAnimationFrame(Jello.raf);
+    window.requestAnimationFrame(Jello.animateFilters);
   }
 
   // canvas built to fill width of window
@@ -248,7 +259,7 @@ import S from 'skylake'
 // ============ TEAR DOWN =============== //
 
   Jello.tearDown = function() {
-    //window.cancelAnimationFrame(Jello.raf);
+    window.cancelAnimationFrame(Jello.animateFilters);
     Jello.settings = {};
     Jello.bgArray = [];
     Jello.bgSpriteArray = [];
