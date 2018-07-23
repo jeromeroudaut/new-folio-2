@@ -676,6 +676,1175 @@ EventDelegation.destAbout = function () {
     });
 };
 
+//export default class Jello {
+
+var Jello = function () {
+
+  // class Jello {
+  // Cached variables that can be used and changed in all the functions in the class
+  function Jello() {
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    classCallCheck(this, Jello);
+
+    this.defaults = {};
+    this.options = options;
+    this.canvasHolder = document.getElementById('jello-container');
+    this.imgWidth = 1920;
+    this.imgHeight = 960;
+    this.imgRatio = this.imgHeight / this.imgWidth;
+    this.winWidth = window.innerWidth;
+    this.bgArray = [];
+    this.bgSpriteArray = [];
+    this.renderer = PIXI.autoDetectRenderer(this.winWidth, this.winWidth * this.imgRatio);
+    this.stage = new PIXI.Container();
+    this.imgContainer = new PIXI.Container();
+    this.imageCounter = 0;
+    this.displacementSprite = PIXI.Sprite.fromImage('static/media/img/distortion/clouds.jpg');
+    this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
+    this.currentMap = {};
+    this.mapCounter = 0;
+    this.mapArray = [];
+    this.raf = this.animateFilters.bind(this);
+    //this.cycleImage = this.changeImage.bind(this)
+
+    this.isDistorted = false; // begin transition with no distortion
+    this.isTransitioning = false;
+
+    this.initialize();
+  }
+
+  createClass(Jello, [{
+    key: 'initialize',
+    value: function initialize() {
+      console.log('Jello initialized');
+
+      this.defaults = {
+        transition: 0,
+        speed: 0.5,
+        dispScale: 200,
+        dispX: true,
+        dispY: true,
+        count: 0
+      };
+
+      this.update();
+
+      // An array of images for background (.jpg)
+      // They'll transition in the order listed below
+      this.bgArray.push('image-1', 'image-2', 'image-3', 'image-4');
+
+      // An array of displacement maps
+      // They'll transition in the order below with the included settings
+      this.mapArray.push({
+        image: 'dmap-clouds-01.jpg',
+        speed: 0.5,
+        scale: 200
+      }, {
+        image: 'dmap-glass-01.jpg',
+        speed: 0.3,
+        scale: 200
+      });
+
+      this.backgroundFill();
+      this.buildStage();
+      this.createBackgrounds();
+      this.createFilters();
+      this.animateFilters();
+      this.eventListener();
+      this.initScroll();
+
+      this.renderer.view.setAttribute('class', 'jello-canvas');
+      this.canvasHolder.appendChild(this.renderer.view);
+    }
+
+    // define animations and call this.raf
+
+  }, {
+    key: 'animateFilters',
+    value: function animateFilters() {
+      this.displacementFilter.scale.x = this.settings.dispX ? this.settings.transition * this.settings.dispScale : 0;
+      this.displacementFilter.scale.y = this.settings.dispY ? this.settings.transition * (this.settings.dispScale + 10) : 0;
+
+      this.displacementSprite.x = Math.sin(this.settings.count * 0.15) * 200;
+      this.displacementSprite.y = Math.cos(this.settings.count * 0.13) * 200;
+
+      this.displacementSprite.rotation = this.settings.count * 0.06;
+
+      this.settings.count += 0.05 * this.settings.speed;
+
+      this.renderer.render(this.stage);
+
+      window.requestAnimationFrame(this.raf);
+    }
+
+    // canvas built to fill width of window
+
+  }, {
+    key: 'backgroundFill',
+    value: function backgroundFill() {
+      this.renderer.view.setAttribute('style', 'height:auto;width:100%;');
+    }
+
+    // main container for animation
+
+  }, {
+    key: 'buildStage',
+    value: function buildStage() {
+      this.imgContainer.position.x = this.imgWidth / 2;
+      this.imgContainer.position.y = this.imgHeight / 2;
+
+      this.stage.scale.x = this.stage.scale.y = this.winWidth / this.imgWidth;
+      this.stage.interactive = true;
+      this.stage.addChild(this.imgContainer);
+    }
+
+    // cycle through this.bgArray and change images with crossfade
+
+  }, {
+    key: 'changeImage',
+    value: function changeImage() {
+      var _this = this;
+
+      if (this.imageCounter < this.bgArray.length - 1) {
+        this.imageCounter++;
+      } else {
+        this.imageCounter = 0;
+      }
+
+      this.bgSpriteArray.map(function (sprite, i, callback) {
+
+        if (i == _this.imageCounter) {
+          TweenLite.to(sprite, 2, { alpha: 1, ease: Power2.easeInOut, onComplete: _this.toggleDistortionOut, onCompleteScope: _this });
+        } else {
+          TweenLite.to(sprite, 2, { alpha: 0, ease: Power2.easeInOut });
+        }
+      });
+    }
+
+    // cycle through this.mapArray and change displacement maps
+
+  }, {
+    key: 'changeMap',
+    value: function changeMap() {
+      if (this.mapCounter < this.mapArray.length - 1) {
+        this.mapCounter++;
+      } else {
+        this.mapCounter = 0;
+      }
+
+      this.currentMap = this.mapArray[this.mapCounter];
+      console.log(this.currentMap);
+      this.displacementSprite = PIXI.Sprite.fromImage('/static/media/img/distortion/' + this.currentMap.image);
+      this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
+      this.createFilters();
+    }
+
+    // preload all backgrounds for quick transitions
+
+  }, {
+    key: 'createBackgrounds',
+    value: function createBackgrounds() {
+      var _this2 = this;
+
+      this.bgArray.map(function (image) {
+        var bg = PIXI.Sprite.fromImage('/static/media/img/bg/' + image + '.jpg');
+        // create a video texture from a path
+        //var bg = PIXI.Texture.fromVideo(`/assets/images/bg/${image}.mp4`);
+
+        // create a new Sprite using the video texture (yes it's that easy)
+        // var videoSprite = new PIXI.Sprite(bg);
+
+        // // Stetch the fullscreen
+        // // videoSprite.width = app.screen.width;
+        // // videoSprite.height = app.screen.height;
+        // videoSprite.autoPlay = true;
+        // videoSprite.loop = true; 
+        // // Set image anchor to the center of the image
+        // videoSprite.anchor.x = 0.5;
+        // videoSprite.anchor.y = 0.5;      
+        bg.anchor.x = 0.5;
+        bg.anchor.y = 0.5;
+
+        // this.imgContainer.addChild(videoSprite);
+        // this.bgSpriteArray.push(videoSprite);
+
+        _this2.imgContainer.addChild(bg);
+        _this2.bgSpriteArray.push(bg);
+
+        // set first image alpha to 1, all else to 0
+        bg.alpha = _this2.bgSpriteArray.length === 1 ? 1 : 0;
+      });
+    }
+
+    // distortion filters added to stage
+
+  }, {
+    key: 'createFilters',
+    value: function createFilters() {
+      this.stage.addChild(this.displacementSprite);
+
+      this.displacementFilter.scale.x = this.displacementFilter.scale.y = this.winWidth / this.imgWidth;
+
+      this.imgContainer.filters = [this.displacementFilter];
+    }
+
+    // function changes the distortion level to a specific amount
+
+  }, {
+    key: 'distortionLevel',
+    value: function distortionLevel(amt) {
+      var _this3 = this;
+
+      if (!this.isTransitioning) {
+        this.isTransitioning = true;
+        TweenLite.to(this.settings, 1, {
+          transition: amt,
+          speed: this.currentMap.speed,
+          dispScale: this.currentMap.scale,
+          ease: Power2.easeInOut,
+          onComplete: function onComplete() {
+            _this3.isTransitioning = false;
+          }
+        });
+      }
+    }
+
+    // scroll events
+
+  }, {
+    key: 'initScroll',
+    value: function initScroll() {
+      var _this4 = this;
+
+      window.addEventListener('wheel', function (e) {
+        if (e.deltaY > 0) {
+          _this4.toggleDistortionIn(1, _this4.changeImage.bind(_this4));
+          // this.changeImage()
+          console.log('scrolling down');
+        }
+        if (e.deltaY < 0) {
+          _this4.toggleDistortionIn(1, _this4.changeImage.bind(_this4));
+          // this.changeImage()
+          console.log('scrolling up');
+        }
+      });
+    }
+    // click events
+    //   eventListener() {
+    //     const changeImageBtn = document.getElementsByClassName('js-change-image')[0];
+    //     const changeDistortionBtn = document.getElementsByClassName('js-change-distortion')[0];
+    //     const toggleDistorionBtn = document.getElementsByClassName('js-toggle-distortion')[0];
+
+    //     changeImageBtn.onclick = () => {
+    //       this.changeImage();
+    //     }
+
+    //     changeDistortionBtn.onclick = () => {
+    //       this.changeMap();
+    //     }
+
+    //     toggleDistorionBtn.onclick = () => {
+    //       this.toggleDistortion();
+    //     }
+
+    // }
+
+
+    // turn the distortion on and off using the options.transistion variable
+    // toggleDistortion(dis, callback) {
+    //   if(!this.isDistorted) {
+    //     this.distortionLevel(dis);
+    //     this.isDistorted = true;
+    //   } else {
+    //     this.distortionLevel(dis);
+    //     this.isDistorted = false;
+    //   }
+    //   if(typeof callback == "function") 
+    //   callback();
+    // }
+
+  }, {
+    key: 'toggleDistortionIn',
+    value: function toggleDistortionIn(dis, callback) {
+      //if(!this.isDistorted) {
+      if (!dis) {
+        this.distortionLevel(1);
+      }
+      this.distortionLevel(dis);
+      this.isDistorted = true;
+      console.log('distortion in');
+
+      if (typeof callback == "function") callback();
+      //} 
+    }
+  }, {
+    key: 'toggleDistortionOut',
+    value: function toggleDistortionOut(dis, callback) {
+      //if(this.isDistorted) {
+      if (!dis) {
+        this.distortionLevel(0);
+      }
+      this.distortionLevel(dis);
+      this.isDistorted = false;
+      console.log('distortion out');
+      if (typeof callback == "function") callback();
+      //} 
+    }
+
+    // Object.assign overwrites defaults with options to create settings
+
+  }, {
+    key: 'update',
+    value: function update() {
+      this.settings = Object.assign({}, this.defaults, this.options);
+    }
+
+    // ============ TEAR DOWN =============== //
+
+  }, {
+    key: 'tearDown',
+    value: function tearDown() {
+      window.cancelAnimationFrame(this.raf);
+      this.settings = {};
+      this.bgArray = [];
+      this.bgSpriteArray = [];
+    }
+  }]);
+  return Jello;
+}();
+
+/* eslint-disable */
+
+var Transition = {};
+
+Transition.headerVisible = !0;
+Transition.currentStep = 0;
+Transition.nextStep = 0;
+
+Transition.open = function () {
+
+    Transition.arr = skylake.Geb.class("h-txt-title");
+    Transition.arrTitle = skylake.Geb.class("h-client");
+    Transition.arrText = skylake.Geb.class("h-txt-desc-txt");
+    Transition.arrBotTitle = skylake.Geb.class("h-bottom-title");
+    Transition.arrBotRole = skylake.Geb.class("h-bottom-value-r");
+    Transition.arrBotAgency = skylake.Geb.class("h-bottom-value-a");
+    Transition.arrBotYear = skylake.Geb.class('h-bottom-value-y');
+
+    Transition.arrPagiTopNo = skylake.Geb.class('h-pagi-top-no');
+    Transition.arrPagiBotNo = skylake.Geb.class('h-pagi-bottom-no');
+
+    Transition.arrTopPagiWrap = skylake.Geb.class('h-pagi-top-no-wrap');
+    Transition.arrTopTitleWrap = skylake.Geb.class('h-pagi-top-title-wrap');
+    Transition.arrBotPagiWrap = skylake.Geb.class('h-pagi-bottom-no-wrap');
+    Transition.arrBotTitleWrap = skylake.Geb.class('h-pagi-bottom-title-wrap');
+
+    // Transition.arrPagiProgWrap = S.Geb.class('h-pagi-prog-no-wrap')
+    Transition.arrPagiProgNo = skylake.Geb.class('h-pagi-prog-no');
+    // Transition.arrPagiProgNoMarker = S.Geb.class('h-pagi-prog-no-marker')
+
+    Transition.sectionTitle = skylake.Geb.class("h-section-title");
+
+    Transition.pagiBottomMarkerWrap = skylake.Geb.id('h-pagi-bottom-marker-wrap');
+    Transition.pagiLine = skylake.Geb.id('h-pagi-line');
+    Transition.pagiBottomMarker = skylake.Geb.id('h-pagi-bottom-marker');
+    Transition.pagiSocialWrap = skylake.Geb.id("h-pagi-social-wrap");
+
+    Transition.intro = new skylake.Timeline();
+    var isObj = skylake.Is.object(Transition.intro);
+    //Transition.intro.from({el: '#sail', p: {y: [100, -100]}, d: 5000, delay: 6000, e: 'Power4InOut'})
+    // Transition.intro.from({el: '.header', p: {scaleX: [1.1, 1]}, scaleY: [1.1, 1], d: 5000, e: 'Power4InOut', delay: 7000})
+
+    // Transition.outro = new S.Timeline()
+    // const isObj2 = S.Is.object(Transition.outro)
+    // Transition.outro.from({el: '#sail', p: {y: [100, -100]}, d: 5000, e: 'Power4InOut'})
+
+
+    Transition.scrollInit();
+};
+
+var debounce = function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+        var context = this,
+            args = arguments;
+        var later = function later() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+var keys = [37, 38, 39, 40];
+
+Transition.preventDefault = function (e) {
+    e = e || window.event;
+    if (e.preventDefault) e.preventDefault();
+    e.returnValue = false;
+};
+
+Transition.keydown = function (e) {
+    for (var i = keys.length; i--;) {
+        if (e.keyCode === keys[i]) {
+            Transition.preventDefault(e);
+            return;
+        }
+    }
+};
+
+Transition.wheel = function (e) {
+    Transition.preventDefault(e);
+};
+
+Transition.disable_scroll = function () {
+    var body = skylake.Dom.body;
+    skylake.Listen(body, 'remove', 'mouseWheel', Transition.headerScroll);
+};
+
+Transition.enable_scroll = function () {
+    var body = skylake.Dom.body;
+    skylake.Listen(body, 'add', 'mouseWheel', Transition.headerScroll);
+};
+
+Transition.next = debounce(function () {
+
+    Transition.disable_scroll();
+    if (Transition.currentStep >= 6) {
+        Transition.nextStep = 7;
+    } else if (Transition.currentStep === -1) {
+        Transition.nextStep = 0;
+    } else {
+        Transition.nextStep = Transition.currentStep + 1;
+    }
+    console.log('scrolling down - nextItem');
+    Transition.currentStep = Transition.nextStep;
+
+    console.log('currentStep: ' + Transition.currentStep);
+    console.log('nextStep: ' + Transition.nextStep);
+
+    if (Transition.currentStep === 4) {
+
+        console.log('index 4 experienceUp');
+        Transition.experienceUp();
+    }
+
+    if (Transition.currentStep === 5) {
+
+        console.log('index 5 recognitionUp');
+        Transition.recognitionUp();
+    }
+
+    if (Transition.currentStep === 6) {
+
+        console.log('index 6 socialUp');
+        Transition.socialUp();
+        //Transition.pagiFadeOut()
+
+    }
+
+    // if (Transition.currentStep >= 7) {
+
+    //     return Transition.currentStep = 7
+
+    // } 
+
+    return Transition.currentStep;
+}, 250);
+
+Transition.prev = debounce(function () {
+
+    Transition.disable_scroll();
+    if (Transition.currentStep <= -1) {
+        return Transition.nextStep = 0;
+    } else {
+        Transition.nextStep = Transition.currentStep - 1;
+    }
+    //for cirular array
+    //Transition.nextStep = (Transition.currentStep + Transition.arr.length - 1) % Transition.arr.length
+    console.log('scrolling up - prevItem');
+    Transition.currentStep = Transition.nextStep;
+
+    console.log('currentStep: ' + Transition.currentStep);
+    console.log('nextStep: ' + Transition.nextStep);
+
+    if (Transition.currentStep < 0) {
+
+        Transition.headerDown();
+        Transition.pagiReset();
+
+        //return Transition.currentStep = -1
+    }
+
+    if (Transition.currentStep === 3) {
+
+        console.log('index 3 experienceDown');
+        //Transition.recognitionDown()
+        Transition.experienceDown();
+    }
+
+    if (Transition.currentStep === 4) {
+
+        console.log('index 4 recognitionDown');
+        Transition.recognitionDown();
+    }
+
+    if (Transition.currentStep === 5) {
+
+        console.log('index 5 socialDown recognitionUp');
+        Transition.socialDown();
+
+        //Transition.socialDown()
+    }
+
+    return Transition.currentStep;
+}, 250);
+
+Transition.headerScroll = function (currentScrollY, delta, event) {
+
+    var delta = null,
+        event = window.event;
+
+    function offset(el) {
+        var rect = el.getBoundingClientRect(),
+            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    }
+
+    // example use
+    var div = document.querySelector('.header');
+    var divOffset = offset(div);
+    console.log(divOffset.top);
+
+    Transition.headerUp = function () {
+
+        Transition.disable_scroll();
+        Transition.headerUp = new skylake.Timeline();
+        var isObj3 = skylake.Is.object(Transition.headerUp);
+
+        Transition.headerUp.from({ el: '.header', p: { y: [0, -100] }, d: 400, e: 'ExpoOut' });
+        Transition.headerUp.play({ cb: Transition.titleInit });
+    };
+
+    Transition.headerDown = function () {
+
+        Transition.disable_scroll();
+        Transition.headerDown = new skylake.Timeline();
+        var isObj4 = skylake.Is.object(Transition.headerDown);
+
+        Transition.headerDown.from({ el: Transition.arrBotTitle[0], p: { y: [0, 100] }, d: 300, e: 'Power4InOut' });
+        Transition.headerDown.from({ el: Transition.arrBotTitle[1], p: { y: [0, 100] }, d: 300, e: 'Power4InOut' });
+        Transition.headerDown.from({ el: Transition.arrBotTitle[2], p: { y: [0, 100] }, d: 300, e: 'Power4InOut' });
+
+        Transition.headerDown.from({ el: '.icon-wrap', p: { y: [0, 100] }, d: 800, e: 'Power4InOut' });
+
+        //Transition.headerDown.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 800, e: 'Power4InOut'})
+        //Transition.headerDown.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
+
+        Transition.headerDown.from({ el: '#body-mid-line', p: { y: [0, -100], opacity: [.15, 0] }, d: 600, e: 'Power4InOut' });
+        Transition.headerDown.from({ el: '#body-mid', p: { x: [0, -200] }, d: 600, delay: 800, e: 'Power4InOut' });
+        Transition.headerDown.from({ el: '#body-right', p: { x: [0, 100] }, d: 600, e: 'Power4InOut' });
+
+        Transition.headerDown.from({ el: '.header', p: { y: [-100, 0] }, d: 800, e: 'Power4InOut' });
+
+        Transition.headerDown.from({ el: '#intro', p: { opacity: [0, 1] }, d: 400, delay: 400, e: 'Power4InOut' });
+        Transition.headerDown.from({ el: '.tagline', p: { y: [100, 0] }, d: 800, e: 'Power4InOut', delay: 800 });
+
+        Transition.headerDown.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 800, e: 'Power4InOut' });
+
+        Transition.headerDown.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
+    };
+
+    Transition.pagiReset = function () {
+
+        var pagiReset = new skylake.Timeline();
+        var isObj23 = skylake.Is.object(pagiReset);
+
+        pagiReset.from({ el: '#h-pagi-line', p: { x: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        pagiReset.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        pagiReset.from({ el: '#h-pagi-bottom-marker', p: { y: [0, -100] }, d: 1200, e: 'Power4InOut' });
+
+        // pagiReset.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
+        // pagiReset.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 300})
+        // pagiReset.from({el: '.h-pagi-prog-no-marker', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 300})
+
+
+        pagiReset.play();
+    };
+
+    // Transition.imgResetIn = function() {
+
+    //     const imgResetIn = new S.Timeline()
+    //     const isObj24 = S.Is.object(imgResetIn)
+
+    //     //imgResetIn.from({el: "#h-img-0-b", p: {opacity: [0, 1], x:[4, 0]}, d: 600, delay: 2000, e: 'Power4InOut'})
+    //     imgResetIn.play()
+    // }
+
+    // Transition.reset = function() {
+
+    //     const elReset = new S.Timeline()
+    //     const isObj15 = S.Is.object(elReset)
+
+
+    //     elReset.play({delay: 800})
+
+
+    //    }
+
+    Transition.titleInit = function () {
+
+        Transition.currentStep = 0;
+
+        var textInit = new skylake.Timeline();
+        var isObj5 = skylake.Is.object(textInit);
+
+        Jello.toggleDistortionIn(1, Jello.changeImage);
+
+        textInit.from({ el: '.scroll-icon', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        textInit.from({ el: '.tagline', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 800 });
+        // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
+
+
+        textInit.from({ el: '#body-mid', p: { x: [-200, 0] }, d: 900, e: 'Power4InOut', delay: 1000 });
+        textInit.from({ el: '#body-right', p: { x: [100, 0] }, d: 900, e: 'Power4InOut' });
+        textInit.from({ el: '#body-mid-line', p: { x: [-100, 0], opacity: [0, .15] }, d: 900, e: 'Power4InOut', delay: 400 });
+
+        textInit.from({ el: Transition.arrBotTitle[0], p: { y: [100, 0] }, d: 900, e: 'Power4InOut' });
+        textInit.from({ el: Transition.arrBotTitle[1], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+        textInit.from({ el: Transition.arrBotTitle[2], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
+
+        textInit.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
+        textInit.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
+        textInit.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 1700, e: 'Power4InOut' });
+
+        textInit.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 900, e: 'Power4InOut' });
+        console.log('title text');
+        textInit.from({ el: Transition.arrText[Transition.currentStep], p: { y: [100, 0] }, d: 900, e: 'Power4InOut' });
+        textInit.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [100, 0] }, d: 900, e: 'Power4InOut' });
+
+        textInit.from({ el: '#h-pagi-line', p: { x: [-110, 0], opacity: [0, 1] }, d: 2500, e: 'Power4InOut' });
+        textInit.from({ el: '#h-pagi-prog', p: { opacity: [0, 1] }, d: 300, e: 'Power4InOut' });
+        textInit.from({ el: '.icon-wrap', p: { y: [100, 0] }, d: 600, e: 'Power4InOut' });
+
+        Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
+        Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
+
+        textInit.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [-100, 0] }, d: 900, e: 'Power4InOut' });
+
+        textInit.from({ el: '#h-pagi-bottom-marker', p: { y: [100, 0] }, d: 900, e: 'Power4InOut' });
+
+        textInit.from({ el: '#h-pagi-progress', p: { opacity: [0, 1] }, d: 900, e: 'Power4InOut' });
+        textInit.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 900, e: 'Power4InOut', delay: 300 });
+        textInit.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 900, e: 'Power4InOut', delay: 300 });
+
+        console.log(Transition.arrPagiProgNo);
+
+        // textInit.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, delay: 400, e: 'Power4InOut'})
+
+
+        textInit.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
+    };
+
+    Transition.pagiOut = function () {
+
+        var timer;
+
+        if (timer) {
+            window.clearTimeout(timer);
+        }
+        timer = window.setTimeout(function () {
+            // actual code here. Your call back function.
+            for (var n = 7; n > Transition.currentStep + 1; n--) {
+                Transition.arrTopPagiWrap[Transition.currentStep + 2].style.height = "";
+                Transition.arrTopTitleWrap[Transition.currentStep + 2].style.height = "";
+            }
+            console.log("Pagi-Out Firing!");
+        }, 100);
+    };
+
+    Transition.experienceUp = function () {
+
+        var openExp = new skylake.Timeline();
+        var isObj27 = skylake.Is.object(openExp);
+
+        //////
+        openExp.from({ el: '#intro', p: { opacity: [1, 0] }, d: 300, e: 'Power4InOut' });
+
+        openExp.from({ el: '#body-mid', p: { x: [0, -100] }, d: 1200, e: 'Power4InOut' });
+        openExp.from({ el: '#body-right', p: { x: [0, 100] }, d: 1200, e: 'Power4InOut' });
+
+        openExp.from({ el: Transition.arrBotTitle[0], p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
+        openExp.from({ el: Transition.arrBotTitle[1], p: { y: [0, 100] }, d: 900, e: 'Power4InOut' });
+        openExp.from({ el: Transition.arrBotTitle[2], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+
+        openExp.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        openExp.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        openExp.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [0, 100] }, d: 1400, e: 'Power4InOut' });
+
+        openExp.from({ el: Transition.arr[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        console.log('title text');
+        openExp.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1000, e: 'Power4InOut' });
+        openExp.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [0, 100] }, d: 1000, e: 'Power4InOut' });
+        openExp.from({ el: '#body-mid-line', p: { opacity: [.15, 0] }, d: 1200, e: 'Power4InOut', delay: 400 });
+
+        openExp.from({ el: Transition.sectionTitle[0], p: { y: [100, 0] }, d: 1200, delay: 400, e: 'Power4InOut' });
+
+        openExp.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1800, delay: 600, e: 'Power4InOut' });
+        openExp.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1800, delay: 600, e: 'Power4InOut' });
+
+        openExp.play();
+        //////
+    };
+
+    Transition.recognitionUp = function () {
+
+        var recUp = new skylake.Timeline();
+        var isObj16 = skylake.Is.object(recUp);
+
+        recUp.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
+        recUp.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
+        recUp.from({ el: Transition.sectionTitle[0], p: { y: [0, 100] }, d: 1200, delay: 400, e: 'Power4InOut' });
+
+        recUp.from({ el: Transition.sectionTitle[1], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
+        recUp.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
+        recUp.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
+
+        // recUp.from({el: '#h-reco-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
+        // recUp.from({el: '.h-reco-txt-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        // recUp.from({el: '.h-reco-txt-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 100})
+
+        recUp.play();
+    };
+
+    Transition.socialUp = function () {
+
+        var socUp = new skylake.Timeline();
+        var isObj20 = skylake.Is.object(socUp);
+
+        socUp.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
+        socUp.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
+        socUp.from({ el: Transition.sectionTitle[1], p: { y: [0, 100] }, d: 1200, delay: 400, e: 'Power4InOut' });
+
+        socUp.from({ el: Transition.sectionTitle[2], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
+        socUp.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
+        socUp.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
+
+        // socUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        // socUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+
+        // socUp.from({el: '#h-social', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        // socUp.from({el: '#h-social-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        // socUp.from({el: '.cf', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+
+        socUp.play();
+    };
+
+    Transition.experienceDown = function () {
+
+        var openExpIn = new skylake.Timeline();
+        var isObj28 = skylake.Is.object(openExpIn);
+
+        //////
+        openExpIn.from({ el: '#intro', p: { opacity: [0, 1] }, d: 300, e: 'Power4InOut' });
+        openExpIn.from({ el: Transition.sectionTitle[0], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        openExpIn.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
+        openExpIn.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
+
+        openExpIn.from({ el: '#body-mid', p: { x: [-100, 0] }, d: 1200, delay: 600, e: 'Power4InOut' });
+        openExpIn.from({ el: '#body-right', p: { x: [100, 0] }, d: 1200, e: 'Power4InOut' });
+
+        openExpIn.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+        openExpIn.from({ el: Transition.arrText[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+        openExpIn.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+
+        openExpIn.from({ el: Transition.arrBotTitle[0], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+        openExpIn.from({ el: Transition.arrBotTitle[1], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
+        openExpIn.from({ el: Transition.arrBotTitle[2], p: { y: [100, 0] }, d: 1800, e: 'Power4InOut' });
+
+        openExpIn.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [100, 0] }, d: 1800, e: 'Power4InOut' });
+        openExpIn.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [100, 0] }, d: 1800, e: 'Power4InOut' });
+        openExpIn.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 2000, e: 'Power4InOut' });
+
+        openExpIn.from({ el: '#body-mid-line', p: { opacity: [0, .15] }, d: 1200, delay: 600, e: 'Power4InOut' });
+
+        openExpIn.play();
+        //////
+    };
+
+    Transition.recognitionDown = function () {
+
+        var recDown = new skylake.Timeline();
+        var isObj17 = skylake.Is.object(recDown);
+
+        // recDown.from({el: Transition.arrBotTitle[0], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
+        // recDown.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 2100, e: 'Power4InOut'})
+        // recDown.from({el: Transition.arrBotTitle[2], p: {y: [100, 0]}, d: 2400, e: 'Power4InOut'})
+
+        recDown.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
+        recDown.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
+        recDown.from({ el: Transition.sectionTitle[1], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 1000 });
+
+        recDown.from({ el: Transition.sectionTitle[0], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
+        recDown.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
+        recDown.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
+
+        // recDown.from({el: '#h-reco-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        // recDown.from({el: '.h-reco-txt-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        // recDown.from({el: '.h-reco-txt-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+
+        recDown.play();
+    };
+
+    Transition.socialDown = function () {
+
+        var socDown = new skylake.Timeline();
+        var isObj21 = skylake.Is.object(socDown);
+
+        //Transition.hideSocial()
+
+
+        socDown.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
+        socDown.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
+        socDown.from({ el: Transition.sectionTitle[2], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 1000 });
+
+        socDown.from({ el: Transition.sectionTitle[1], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
+        socDown.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
+        socDown.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
+
+        // socDown.from({el: '#h-social', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        // socDown.from({el: '#h-social-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        // socDown.from({el: '.cf', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+
+        // socDown.from({el: '.h-xp-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        // socDown.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        // socDown.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+
+        //socDown.play({cb: Transition.pagiFadeIn, cbDelay: 600})
+        socDown.play();
+    };
+
+    Transition.pagiFadeOut = function () {
+
+        var pagiFadeOut = new skylake.Timeline();
+        var isObj24 = skylake.Is.object(pagiFadeOut);
+
+        pagiFadeOut.from({ el: '#h-pagi-line', p: { x: [0, -102] }, d: 800, e: 'Power4InOut' });
+        pagiFadeOut.from({ el: '#h-pagi-bottom-marker', p: { y: [0, 100] }, d: 800, e: 'Power4InOut' });
+        pagiFadeOut.play({ cb: Transition.socialUp });
+        console.log('hello from pagiFadeOut');
+    };
+
+    Transition.pagiFadeIn = function () {
+
+        var pagiFadeIn = new skylake.Timeline();
+        var isObj25 = skylake.Is.object(pagiFadeIn);
+
+        pagiFadeIn.from({ el: '#h-pagi-line', p: { x: [-102, 0] }, d: 800, e: 'Power4InOut' });
+        pagiFadeIn.from({ el: '#h-pagi-bottom-marker', p: { y: [100, 0] }, d: 800, e: 'Power4InOut' });
+        pagiFadeIn.play();
+        console.log('hello from pagiFadeIn');
+    };
+
+    Transition.showSocial = function () {
+        var showSocial = new skylake.Timeline();
+        var isObj26 = skylake.Is.object(showSocial);
+
+        Transition.pagiSocialWrap.style.zIndex = 4;
+        showSocial.from({ el: '#h-pagi-social', p: { y: [100, 0] }, d: 1400, delay: 300, e: 'Power4InOut' });
+        showSocial.play();
+    };
+
+    Transition.hideSocial = function () {
+        var hideSocial = new skylake.Timeline();
+        var isObj26 = skylake.Is.object(hideSocial);
+
+        Transition.pagiSocialWrap.style.zIndex = -1;
+        hideSocial.from({ el: '#h-pagi-social', p: { y: [0, 100] }, d: 500, e: 'Power4In' });
+        hideSocial.play();
+    };
+
+    Transition.pagiColor = function () {
+
+        if (Transition.currentStep > 3) {
+            Transition.pagiBottomMarkerWrap.style.transform = "translate3d(0,0,0)";
+            Transition.pagiBottomMarkerWrap.style.transform = "rotate(-90deg)";
+            Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "#f4f8fd";
+            Transition.arrPagiTopNo[Transition.currentStep + 1].style.transition = "color 200ms";
+            Transition.pagiBottomMarker.style.color = "#f4f8fd";
+            Transition.pagiLine.style.background = "#f4f8fd";
+            Transition.pagiBottomMarker.style.transition = "color 200ms";
+        }
+    };
+
+    Transition.updateProgress = function (num1) {
+        var percent = Math.ceil(num1 * 100 / 6) + '%';
+        document.getElementById('h-pagi-prog').style.width = percent;
+    };
+
+    Transition.n2 = function () {
+
+        var timer;
+
+        if (timer) {
+            window.clearTimeout(timer);
+        }
+        timer = window.setTimeout(function () {
+            // actual code here. Your call back function.
+            Transition.next();
+            //switchVideo(Transition.currentStep)
+            this.toggleDistortionIn(1, this.changeImage.bind(this));
+            console.log("Firing!");
+        }, 250);
+
+        Transition.textInOut = new skylake.Timeline();
+        var isObj8 = skylake.Is.object(Transition.textInOut);
+
+        if (Transition.currentStep <= 5) {
+            Transition.updateProgress(Transition.currentStep + 1);
+        } else if (Transition.currentStep === 6) {
+            Transition.updateProgress(Transition.currentStep);
+        } else if (Transition.currentStep >= 7) {
+            Transition.updateProgress(6);
+        }
+
+        Transition.textInOut.from({ el: Transition.arr[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        Transition.textInOut.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        Transition.textInOut.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+
+        Transition.textInOut.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        Transition.textInOut.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        Transition.textInOut.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+
+        // if (Transition.currentStep < 4) {
+        //     Transition.textInOut.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
+        // }
+
+        if (Transition.currentStep > -1 && Transition.currentStep <= 5) {
+
+            Transition.textInOut.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
+                p: { x: [0, -100] }, d: 900, e: 'Power4InOut' });
+
+            Transition.textInOut.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 800, e: 'Power4InOut' });
+
+            Transition.textInOut.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 800 });
+        } else if (Transition.currentStep >= 6) {
+
+            Transition.textInOut.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
+                p: { x: [0, 0] }, d: 900, e: 'Power4InOut' });
+
+            Transition.textInOut.from({ el: '#h-pagi-progress', p: { opacity: [1, 1] }, d: 800, e: 'Power4InOut' });
+
+            Transition.textInOut.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 900, e: 'Power4InOut' });
+        }
+
+        if (Transition.currentStep <= 6) {
+            Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
+            Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
+        }
+
+        Transition.textInOut.play({ cbDelay: 300, cb: function cb() {
+
+                Transition.textIn2 = new skylake.Timeline();
+                var isObj9 = skylake.Is.object(Transition.textIn2);
+
+                Transition.textIn2.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+                Transition.textIn2.from({ el: Transition.arrText[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+                Transition.textIn2.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+
+                Transition.textIn2.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+                Transition.textIn2.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+                Transition.textIn2.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+
+                // if (Transition.currentStep < 4) {
+                //     Transition.textIn2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, e: 'Power4InOut'})
+                // } 
+
+                if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
+
+                    Transition.textIn2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [100, 0] }, d: 900, e: 'Power4InOut' });
+
+                    Transition.textIn2.from({ el: '#h-pagi-progress', p: { opacity: [0, 1] }, d: 1200, e: 'Power4InOut' });
+
+                    Transition.textIn2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+
+                    Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 150 });
+                } else if (Transition.currentStep >= 7) {
+
+                    Transition.textIn2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
+
+                    Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+                }
+
+                if (Transition.currentStep <= 6) {
+                    Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
+                    Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
+                }
+
+                Transition.pagiColor();
+
+                Transition.textIn2.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
+            }
+        });
+    };
+
+    Transition.p2 = function () {
+
+        var timer;
+
+        if (timer) {
+            window.clearTimeout(timer);
+        }
+        timer = window.setTimeout(function () {
+            // actual code here. Your call back function.
+            Transition.prev();
+            //switchVideo(Transition.currentStep)
+            toggleDistortionIn(1, this.changeImage.bind(this));
+
+            console.log("Firing!");
+        }, 250);
+
+        Transition.updateProgress(Transition.currentStep - 1);
+
+        Transition.textOutIn = new skylake.Timeline();
+        var isObj10 = skylake.Is.object(Transition.textOutIn);
+
+        Transition.textOutIn.from({ el: Transition.arr[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        Transition.textOutIn.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        Transition.textOutIn.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+
+        Transition.textOutIn.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        Transition.textOutIn.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+        Transition.textOutIn.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
+
+        if (Transition.currentStep === 0) {
+            Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [0, 100] }, d: 900, e: 'Power4InOut' });
+        }
+
+        Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 100] }, d: 900, e: 'Power4InOut' });
+
+        // if (Transition.currentStep < 4) {
+        //     Transition.textOutIn.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
+        // }
+
+        if (Transition.currentStep >= -1 && Transition.currentStep <= 6) {
+
+            Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
+                p: { x: [0, 100] }, d: 900, e: 'Power4InOut' });
+
+            Transition.textOutIn.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 800, e: 'Power4InOut' });
+
+            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 800 });
+        }
+
+        if (Transition.currentStep >= 7) {
+
+            Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
+                p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
+
+            Transition.textOutIn.from({ el: '#h-pagi-progress', p: { opacity: [1, 1] }, d: 800, e: 'Power4InOut' });
+
+            Transition.textOutIn.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+
+            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+        }
+
+        Transition.textOutIn.play({ cbDelay: 300, cb: function cb() {
+
+                setTimeout(Transition.pagiOut, 300);
+
+                Transition.textOut2 = new skylake.Timeline();
+                var isObj11 = skylake.Is.object(Transition.textOut2);
+
+                Transition.textOut2.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+                Transition.textOut2.from({ el: Transition.arrText[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+                Transition.textOut2.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+
+                Transition.textOut2.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+                Transition.textOut2.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+                Transition.textOut2.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+
+                Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [-100, 0] }, d: 900, e: 'Power4InOut' });
+
+                // if (Transition.currentStep < 4 && Transition.currentStep > -1) {
+                //     Transition.textOut2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, e: 'Power4InOut'})
+                // }
+
+                if (Transition.currentStep >= 0 && Transition.currentStep <= 5) {
+
+                    Transition.textOut2.from({ el: '#h-pagi-progress', p: { opacity: [0, 1] }, d: 1200, e: 'Power4InOut' });
+
+                    Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
+
+                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 150 });
+                }
+
+                if (Transition.currentStep < 4 && Transition.currentStep > -1) {
+                    Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "";
+                    Transition.pagiBottomMarker.style.color = "";
+                    Transition.pagiLine.style.background = "";
+                }
+
+                if (Transition.currentStep >= 6) {
+
+                    Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
+
+                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+
+                    Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+
+                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+                }
+
+                Transition.textOut2.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
+            } });
+    };
+
+    if (!event) {
+        // if the event is not provided, we get it from the window object
+        event = window.event;
+    }
+    if (event.wheelDelta) {
+        // will work in most cases
+        delta = event.wheelDelta / 60;
+    } else if (event.detail) {
+        // fallback for Firefox
+        delta = -event.detail / 2;
+    }
+    if (delta !== null) {
+
+        if (delta < 0 && divOffset.top === 0) {
+
+            Transition.headerUp();
+        } else if (delta > 0 && divOffset.top < -600) {
+
+            Transition.p2();
+        } else if (delta < 0 && divOffset.top < -600) {
+
+            Transition.n2();
+        }
+    }
+};
+
+Transition.scrollInit = function () {
+    var body = skylake.Dom.body;
+    //S.BindMaker(this, ['Transition.headerScroll'])
+    //S.scroll = new S.Scroll(Transition.headerScroll)
+    skylake.Listen(body, 'add', 'mouseWheel', Transition.headerScroll);
+
+    // this.scroll.on()
+    // this.scroll.off()
+    console.log('hello from scroll init');
+};
+
+console.log('transition.js');
+
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
@@ -10585,1179 +11754,10 @@ EventDelegation.destAbout = function () {
 	return jQuery;
 });
 
-// export default class Jello {
-
-
-var Jello = function () {
-  // Cached variables that can be used and changed in all the functions in the class
-  function Jello() {
-    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    classCallCheck(this, Jello);
-
-    this.defaults = {};
-    this.options = options;
-    this.canvasHolder = document.getElementById('jello-container');
-    this.imgWidth = 1920;
-    this.imgHeight = 960;
-    this.imgRatio = this.imgHeight / this.imgWidth;
-    this.winWidth = window.innerWidth;
-    this.bgArray = [];
-    this.bgSpriteArray = [];
-    this.renderer = PIXI.autoDetectRenderer(this.winWidth, this.winWidth * this.imgRatio);
-    this.stage = new PIXI.Container();
-    this.imgContainer = new PIXI.Container();
-    this.imageCounter = 0;
-    this.displacementSprite = PIXI.Sprite.fromImage('static/media/img/distortion/clouds.jpg');
-    this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
-    this.currentMap = {};
-    this.mapCounter = 0;
-    this.mapArray = [];
-    this.raf = this.animateFilters.bind(this);
-    //this.cycleImage = this.changeImage.bind(this)
-
-    this.isDistorted = false; // begin transition with no distortion
-    this.isTransitioning = false;
-
-    this.initialize();
-  }
-
-  createClass(Jello, [{
-    key: 'initialize',
-    value: function initialize() {
-      console.log('Jello initialized');
-
-      this.defaults = {
-        transition: 0,
-        speed: 0.5,
-        dispScale: 200,
-        dispX: true,
-        dispY: true,
-        count: 0
-      };
-
-      this.update();
-
-      // An array of images for background (.jpg)
-      // They'll transition in the order listed below
-      this.bgArray.push('image-1', 'image-2', 'image-3', 'image-4');
-
-      // An array of displacement maps
-      // They'll transition in the order below with the included settings
-      this.mapArray.push({
-        image: 'dmap-clouds-01.jpg',
-        speed: 0.5,
-        scale: 200
-      }, {
-        image: 'dmap-glass-01.jpg',
-        speed: 0.3,
-        scale: 200
-      });
-
-      this.backgroundFill();
-      this.buildStage();
-      this.createBackgrounds();
-      this.createFilters();
-      this.animateFilters();
-      this.eventListener();
-      this.initScroll();
-
-      this.renderer.view.setAttribute('class', 'jello-canvas');
-      this.canvasHolder.appendChild(this.renderer.view);
-    }
-
-    // define animations and call this.raf
-
-  }, {
-    key: 'animateFilters',
-    value: function animateFilters() {
-      this.displacementFilter.scale.x = this.settings.dispX ? this.settings.transition * this.settings.dispScale : 0;
-      this.displacementFilter.scale.y = this.settings.dispY ? this.settings.transition * (this.settings.dispScale + 10) : 0;
-
-      this.displacementSprite.x = Math.sin(this.settings.count * 0.15) * 200;
-      this.displacementSprite.y = Math.cos(this.settings.count * 0.13) * 200;
-
-      this.displacementSprite.rotation = this.settings.count * 0.06;
-
-      this.settings.count += 0.05 * this.settings.speed;
-
-      this.renderer.render(this.stage);
-
-      window.requestAnimationFrame(this.raf);
-    }
-
-    // canvas built to fill width of window
-
-  }, {
-    key: 'backgroundFill',
-    value: function backgroundFill() {
-      this.renderer.view.setAttribute('style', 'height:auto;width:100%;');
-    }
-
-    // main container for animation
-
-  }, {
-    key: 'buildStage',
-    value: function buildStage() {
-      this.imgContainer.position.x = this.imgWidth / 2;
-      this.imgContainer.position.y = this.imgHeight / 2;
-
-      this.stage.scale.x = this.stage.scale.y = this.winWidth / this.imgWidth;
-      this.stage.interactive = true;
-      this.stage.addChild(this.imgContainer);
-    }
-
-    // cycle through this.bgArray and change images with crossfade
-
-  }, {
-    key: 'changeImage',
-    value: function changeImage() {
-      var _this = this;
-
-      if (this.imageCounter < this.bgArray.length - 1) {
-        this.imageCounter++;
-      } else {
-        this.imageCounter = 0;
-      }
-
-      this.bgSpriteArray.map(function (sprite, i, callback) {
-
-        if (i == _this.imageCounter) {
-          TweenLite.to(sprite, 2, { alpha: 1, ease: Power2.easeInOut, onComplete: _this.toggleDistortionOut, onCompleteScope: _this });
-        } else {
-          TweenLite.to(sprite, 2, { alpha: 0, ease: Power2.easeInOut });
-        }
-      });
-    }
-
-    // cycle through this.mapArray and change displacement maps
-
-  }, {
-    key: 'changeMap',
-    value: function changeMap() {
-      if (this.mapCounter < this.mapArray.length - 1) {
-        this.mapCounter++;
-      } else {
-        this.mapCounter = 0;
-      }
-
-      this.currentMap = this.mapArray[this.mapCounter];
-      console.log(this.currentMap);
-      this.displacementSprite = PIXI.Sprite.fromImage('/static/media/img/distortion/' + this.currentMap.image);
-      this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
-      this.createFilters();
-    }
-
-    // preload all backgrounds for quick transitions
-
-  }, {
-    key: 'createBackgrounds',
-    value: function createBackgrounds() {
-      var _this2 = this;
-
-      this.bgArray.map(function (image) {
-        var bg = PIXI.Sprite.fromImage('/static/media/img/bg/' + image + '.jpg');
-        // create a video texture from a path
-        //var bg = PIXI.Texture.fromVideo(`/assets/images/bg/${image}.mp4`);
-
-        // create a new Sprite using the video texture (yes it's that easy)
-        // var videoSprite = new PIXI.Sprite(bg);
-
-        // // Stetch the fullscreen
-        // // videoSprite.width = app.screen.width;
-        // // videoSprite.height = app.screen.height;
-        // videoSprite.autoPlay = true;
-        // videoSprite.loop = true; 
-        // // Set image anchor to the center of the image
-        // videoSprite.anchor.x = 0.5;
-        // videoSprite.anchor.y = 0.5;      
-        bg.anchor.x = 0.5;
-        bg.anchor.y = 0.5;
-
-        // this.imgContainer.addChild(videoSprite);
-        // this.bgSpriteArray.push(videoSprite);
-
-        _this2.imgContainer.addChild(bg);
-        _this2.bgSpriteArray.push(bg);
-
-        // set first image alpha to 1, all else to 0
-        bg.alpha = _this2.bgSpriteArray.length === 1 ? 1 : 0;
-      });
-    }
-
-    // distortion filters added to stage
-
-  }, {
-    key: 'createFilters',
-    value: function createFilters() {
-      this.stage.addChild(this.displacementSprite);
-
-      this.displacementFilter.scale.x = this.displacementFilter.scale.y = this.winWidth / this.imgWidth;
-
-      this.imgContainer.filters = [this.displacementFilter];
-    }
-
-    // function changes the distortion level to a specific amount
-
-  }, {
-    key: 'distortionLevel',
-    value: function distortionLevel(amt) {
-      var _this3 = this;
-
-      if (!this.isTransitioning) {
-        this.isTransitioning = true;
-        TweenLite.to(this.settings, 1, {
-          transition: amt,
-          speed: this.currentMap.speed,
-          dispScale: this.currentMap.scale,
-          ease: Power2.easeInOut,
-          onComplete: function onComplete() {
-            _this3.isTransitioning = false;
-          }
-        });
-      }
-    }
-
-    // scroll events
-
-  }, {
-    key: 'initScroll',
-    value: function initScroll() {
-      var _this4 = this;
-
-      window.addEventListener('wheel', function (e) {
-        if (e.deltaY > 0) {
-          _this4.toggleDistortionIn(1, _this4.changeImage.bind(_this4));
-          // this.changeImage()
-          console.log('scrolling down');
-        }
-        if (e.deltaY < 0) {
-          _this4.toggleDistortionIn(1, _this4.changeImage.bind(_this4));
-          // this.changeImage()
-          console.log('scrolling up');
-        }
-      });
-    }
-    // click events
-    //   eventListener() {
-    //     const changeImageBtn = document.getElementsByClassName('js-change-image')[0];
-    //     const changeDistortionBtn = document.getElementsByClassName('js-change-distortion')[0];
-    //     const toggleDistorionBtn = document.getElementsByClassName('js-toggle-distortion')[0];
-
-    //     changeImageBtn.onclick = () => {
-    //       this.changeImage();
-    //     }
-
-    //     changeDistortionBtn.onclick = () => {
-    //       this.changeMap();
-    //     }
-
-    //     toggleDistorionBtn.onclick = () => {
-    //       this.toggleDistortion();
-    //     }
-
-    // }
-
-
-    // turn the distortion on and off using the options.transistion variable
-    // toggleDistortion(dis, callback) {
-    //   if(!this.isDistorted) {
-    //     this.distortionLevel(dis);
-    //     this.isDistorted = true;
-    //   } else {
-    //     this.distortionLevel(dis);
-    //     this.isDistorted = false;
-    //   }
-    //   if(typeof callback == "function") 
-    //   callback();
-    // }
-
-  }, {
-    key: 'toggleDistortionIn',
-    value: function toggleDistortionIn(dis, callback) {
-      //if(!this.isDistorted) {
-      if (!dis) {
-        this.distortionLevel(1);
-      }
-      this.distortionLevel(dis);
-      this.isDistorted = true;
-      console.log('distortion in');
-
-      if (typeof callback == "function") callback();
-      //} 
-    }
-  }, {
-    key: 'toggleDistortionOut',
-    value: function toggleDistortionOut(dis, callback) {
-      //if(this.isDistorted) {
-      if (!dis) {
-        this.distortionLevel(0);
-      }
-      this.distortionLevel(dis);
-      this.isDistorted = false;
-      console.log('distortion out');
-      if (typeof callback == "function") callback();
-      //} 
-    }
-
-    // Object.assign overwrites defaults with options to create settings
-
-  }, {
-    key: 'update',
-    value: function update() {
-      this.settings = Object.assign({}, this.defaults, this.options);
-    }
-
-    // ============ TEAR DOWN =============== //
-
-  }, {
-    key: 'tearDown',
-    value: function tearDown() {
-      window.cancelAnimationFrame(this.raf);
-      this.settings = {};
-      this.bgArray = [];
-      this.bgSpriteArray = [];
-    }
-  }]);
-  return Jello;
-}();
-
-/* eslint-disable */
-// import * as vidGL from './Video.js';
-// console.log(vidGL)
-
-var Transition = {};
-
-Transition.headerVisible = !0;
-Transition.currentStep = 0;
-Transition.nextStep = 0;
-
-Transition.open = function () {
-
-    Transition.arr = skylake.Geb.class("h-txt-title");
-    Transition.arrTitle = skylake.Geb.class("h-client");
-    Transition.arrText = skylake.Geb.class("h-txt-desc-txt");
-    Transition.arrBotTitle = skylake.Geb.class("h-bottom-title");
-    Transition.arrBotRole = skylake.Geb.class("h-bottom-value-r");
-    Transition.arrBotAgency = skylake.Geb.class("h-bottom-value-a");
-    Transition.arrBotYear = skylake.Geb.class('h-bottom-value-y');
-
-    Transition.arrPagiTopNo = skylake.Geb.class('h-pagi-top-no');
-    Transition.arrPagiBotNo = skylake.Geb.class('h-pagi-bottom-no');
-
-    Transition.arrTopPagiWrap = skylake.Geb.class('h-pagi-top-no-wrap');
-    Transition.arrTopTitleWrap = skylake.Geb.class('h-pagi-top-title-wrap');
-    Transition.arrBotPagiWrap = skylake.Geb.class('h-pagi-bottom-no-wrap');
-    Transition.arrBotTitleWrap = skylake.Geb.class('h-pagi-bottom-title-wrap');
-
-    // Transition.arrPagiProgWrap = S.Geb.class('h-pagi-prog-no-wrap')
-    Transition.arrPagiProgNo = skylake.Geb.class('h-pagi-prog-no');
-    // Transition.arrPagiProgNoMarker = S.Geb.class('h-pagi-prog-no-marker')
-
-    Transition.sectionTitle = skylake.Geb.class("h-section-title");
-
-    Transition.pagiBottomMarkerWrap = skylake.Geb.id('h-pagi-bottom-marker-wrap');
-    Transition.pagiLine = skylake.Geb.id('h-pagi-line');
-    Transition.pagiBottomMarker = skylake.Geb.id('h-pagi-bottom-marker');
-    Transition.pagiSocialWrap = skylake.Geb.id("h-pagi-social-wrap");
-
-    Transition.intro = new skylake.Timeline();
-    var isObj = skylake.Is.object(Transition.intro);
-    //Transition.intro.from({el: '#sail', p: {y: [100, -100]}, d: 5000, delay: 6000, e: 'Power4InOut'})
-    // Transition.intro.from({el: '.header', p: {scaleX: [1.1, 1]}, scaleY: [1.1, 1], d: 5000, e: 'Power4InOut', delay: 7000})
-
-    // Transition.outro = new S.Timeline()
-    // const isObj2 = S.Is.object(Transition.outro)
-    // Transition.outro.from({el: '#sail', p: {y: [100, -100]}, d: 5000, e: 'Power4InOut'})
-
-
-    Transition.scrollInit();
-};
-
-var debounce = function debounce(func, wait, immediate) {
-    var timeout;
-    return function () {
-        var context = this,
-            args = arguments;
-        var later = function later() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
-};
-
-// left: 37, up: 38, right: 39, down: 40,
-// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-var keys = [37, 38, 39, 40];
-
-Transition.preventDefault = function (e) {
-    e = e || window.event;
-    if (e.preventDefault) e.preventDefault();
-    e.returnValue = false;
-};
-
-Transition.keydown = function (e) {
-    for (var i = keys.length; i--;) {
-        if (e.keyCode === keys[i]) {
-            Transition.preventDefault(e);
-            return;
-        }
-    }
-};
-
-Transition.wheel = function (e) {
-    Transition.preventDefault(e);
-};
-
-Transition.disable_scroll = function () {
-    var body = skylake.Dom.body;
-    skylake.Listen(body, 'remove', 'mouseWheel', Transition.headerScroll);
-};
-
-Transition.enable_scroll = function () {
-    var body = skylake.Dom.body;
-    skylake.Listen(body, 'add', 'mouseWheel', Transition.headerScroll);
-};
-
-Transition.next = debounce(function () {
-
-    Transition.disable_scroll();
-    if (Transition.currentStep >= 6) {
-        Transition.nextStep = 7;
-    } else if (Transition.currentStep === -1) {
-        Transition.nextStep = 0;
-    } else {
-        Transition.nextStep = Transition.currentStep + 1;
-    }
-    console.log('scrolling down - nextItem');
-    Transition.currentStep = Transition.nextStep;
-
-    console.log('currentStep: ' + Transition.currentStep);
-    console.log('nextStep: ' + Transition.nextStep);
-
-    if (Transition.currentStep === 4) {
-
-        console.log('index 4 experienceUp');
-        Transition.experienceUp();
-    }
-
-    if (Transition.currentStep === 5) {
-
-        console.log('index 5 recognitionUp');
-        Transition.recognitionUp();
-    }
-
-    if (Transition.currentStep === 6) {
-
-        console.log('index 6 socialUp');
-        Transition.socialUp();
-        //Transition.pagiFadeOut()
-
-    }
-
-    // if (Transition.currentStep >= 7) {
-
-    //     return Transition.currentStep = 7
-
-    // } 
-
-    return Transition.currentStep;
-}, 250);
-
-Transition.prev = debounce(function () {
-
-    Transition.disable_scroll();
-    if (Transition.currentStep <= -1) {
-        return Transition.nextStep = 0;
-    } else {
-        Transition.nextStep = Transition.currentStep - 1;
-    }
-    //for cirular array
-    //Transition.nextStep = (Transition.currentStep + Transition.arr.length - 1) % Transition.arr.length
-    console.log('scrolling up - prevItem');
-    Transition.currentStep = Transition.nextStep;
-
-    console.log('currentStep: ' + Transition.currentStep);
-    console.log('nextStep: ' + Transition.nextStep);
-
-    if (Transition.currentStep < 0) {
-
-        Transition.headerDown();
-        Transition.pagiReset();
-
-        //return Transition.currentStep = -1
-    }
-
-    if (Transition.currentStep === 3) {
-
-        console.log('index 3 experienceDown');
-        //Transition.recognitionDown()
-        Transition.experienceDown();
-    }
-
-    if (Transition.currentStep === 4) {
-
-        console.log('index 4 recognitionDown');
-        Transition.recognitionDown();
-    }
-
-    if (Transition.currentStep === 5) {
-
-        console.log('index 5 socialDown recognitionUp');
-        Transition.socialDown();
-
-        //Transition.socialDown()
-    }
-
-    return Transition.currentStep;
-}, 250);
-
-Transition.headerScroll = function (currentScrollY, delta, event) {
-
-    var delta = null,
-        event = window.event;
-
-    function offset(el) {
-        var rect = el.getBoundingClientRect(),
-            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
-    }
-
-    // example use
-    var div = document.querySelector('.header');
-    var divOffset = offset(div);
-    console.log(divOffset.top);
-
-    Transition.headerUp = function () {
-
-        Transition.disable_scroll();
-        Transition.headerUp = new skylake.Timeline();
-        var isObj3 = skylake.Is.object(Transition.headerUp);
-
-        Transition.headerUp.from({ el: '.header', p: { y: [0, -100] }, d: 400, e: 'ExpoOut' });
-        Transition.headerUp.play({ cb: Transition.titleInit });
-    };
-
-    Transition.headerDown = function () {
-
-        Transition.disable_scroll();
-        Transition.headerDown = new skylake.Timeline();
-        var isObj4 = skylake.Is.object(Transition.headerDown);
-
-        Transition.headerDown.from({ el: Transition.arrBotTitle[0], p: { y: [0, 100] }, d: 300, e: 'Power4InOut' });
-        Transition.headerDown.from({ el: Transition.arrBotTitle[1], p: { y: [0, 100] }, d: 300, e: 'Power4InOut' });
-        Transition.headerDown.from({ el: Transition.arrBotTitle[2], p: { y: [0, 100] }, d: 300, e: 'Power4InOut' });
-
-        Transition.headerDown.from({ el: '.icon-wrap', p: { y: [0, 100] }, d: 800, e: 'Power4InOut' });
-
-        //Transition.headerDown.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 800, e: 'Power4InOut'})
-        //Transition.headerDown.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
-
-        Transition.headerDown.from({ el: '#body-mid-line', p: { y: [0, -100], opacity: [.15, 0] }, d: 600, e: 'Power4InOut' });
-        Transition.headerDown.from({ el: '#body-mid', p: { x: [0, -200] }, d: 600, delay: 800, e: 'Power4InOut' });
-        Transition.headerDown.from({ el: '#body-right', p: { x: [0, 100] }, d: 600, e: 'Power4InOut' });
-
-        Transition.headerDown.from({ el: '.header', p: { y: [-100, 0] }, d: 800, e: 'Power4InOut' });
-
-        Transition.headerDown.from({ el: '#intro', p: { opacity: [0, 1] }, d: 400, delay: 400, e: 'Power4InOut' });
-        Transition.headerDown.from({ el: '.tagline', p: { y: [100, 0] }, d: 800, e: 'Power4InOut', delay: 800 });
-
-        Transition.headerDown.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 800, e: 'Power4InOut' });
-
-        Transition.headerDown.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
-    };
-
-    Transition.pagiReset = function () {
-
-        var pagiReset = new skylake.Timeline();
-        var isObj23 = skylake.Is.object(pagiReset);
-
-        pagiReset.from({ el: '#h-pagi-line', p: { x: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        pagiReset.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        pagiReset.from({ el: '#h-pagi-bottom-marker', p: { y: [0, -100] }, d: 1200, e: 'Power4InOut' });
-
-        // pagiReset.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
-        // pagiReset.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 300})
-        // pagiReset.from({el: '.h-pagi-prog-no-marker', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 300})
-
-
-        pagiReset.play();
-    };
-
-    // Transition.imgResetIn = function() {
-
-    //     const imgResetIn = new S.Timeline()
-    //     const isObj24 = S.Is.object(imgResetIn)
-
-    //     //imgResetIn.from({el: "#h-img-0-b", p: {opacity: [0, 1], x:[4, 0]}, d: 600, delay: 2000, e: 'Power4InOut'})
-    //     imgResetIn.play()
-    // }
-
-    // Transition.reset = function() {
-
-    //     const elReset = new S.Timeline()
-    //     const isObj15 = S.Is.object(elReset)
-
-
-    //     elReset.play({delay: 800})
-
-
-    //    }
-
-    Transition.titleInit = function () {
-
-        Transition.currentStep = 0;
-
-        var textInit = new skylake.Timeline();
-        var isObj5 = skylake.Is.object(textInit);
-
-        toggleDistortionIn(1, this.changeImage.bind(this));
-
-        textInit.from({ el: '.scroll-icon', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        textInit.from({ el: '.tagline', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 800 });
-        // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
-
-
-        textInit.from({ el: '#body-mid', p: { x: [-200, 0] }, d: 900, e: 'Power4InOut', delay: 1000 });
-        textInit.from({ el: '#body-right', p: { x: [100, 0] }, d: 900, e: 'Power4InOut' });
-        textInit.from({ el: '#body-mid-line', p: { x: [-100, 0], opacity: [0, .15] }, d: 900, e: 'Power4InOut', delay: 400 });
-
-        textInit.from({ el: Transition.arrBotTitle[0], p: { y: [100, 0] }, d: 900, e: 'Power4InOut' });
-        textInit.from({ el: Transition.arrBotTitle[1], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-        textInit.from({ el: Transition.arrBotTitle[2], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
-
-        textInit.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
-        textInit.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
-        textInit.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 1700, e: 'Power4InOut' });
-
-        textInit.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 900, e: 'Power4InOut' });
-        console.log('title text');
-        textInit.from({ el: Transition.arrText[Transition.currentStep], p: { y: [100, 0] }, d: 900, e: 'Power4InOut' });
-        textInit.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [100, 0] }, d: 900, e: 'Power4InOut' });
-
-        textInit.from({ el: '#h-pagi-line', p: { x: [-110, 0], opacity: [0, 1] }, d: 2500, e: 'Power4InOut' });
-        textInit.from({ el: '#h-pagi-prog', p: { opacity: [0, 1] }, d: 300, e: 'Power4InOut' });
-        textInit.from({ el: '.icon-wrap', p: { y: [100, 0] }, d: 600, e: 'Power4InOut' });
-
-        Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
-        Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
-
-        textInit.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [-100, 0] }, d: 900, e: 'Power4InOut' });
-
-        textInit.from({ el: '#h-pagi-bottom-marker', p: { y: [100, 0] }, d: 900, e: 'Power4InOut' });
-
-        textInit.from({ el: '#h-pagi-progress', p: { opacity: [0, 1] }, d: 900, e: 'Power4InOut' });
-        textInit.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 900, e: 'Power4InOut', delay: 300 });
-        textInit.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 900, e: 'Power4InOut', delay: 300 });
-
-        console.log(Transition.arrPagiProgNo);
-
-        // textInit.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, delay: 400, e: 'Power4InOut'})
-
-
-        textInit.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
-    };
-
-    Transition.pagiOut = function () {
-
-        var timer;
-
-        if (timer) {
-            window.clearTimeout(timer);
-        }
-        timer = window.setTimeout(function () {
-            // actual code here. Your call back function.
-            for (var n = 7; n > Transition.currentStep + 1; n--) {
-                Transition.arrTopPagiWrap[Transition.currentStep + 2].style.height = "";
-                Transition.arrTopTitleWrap[Transition.currentStep + 2].style.height = "";
-            }
-            console.log("Pagi-Out Firing!");
-        }, 100);
-    };
-
-    Transition.experienceUp = function () {
-
-        var openExp = new skylake.Timeline();
-        var isObj27 = skylake.Is.object(openExp);
-
-        //////
-        openExp.from({ el: '#intro', p: { opacity: [1, 0] }, d: 300, e: 'Power4InOut' });
-
-        openExp.from({ el: '#body-mid', p: { x: [0, -100] }, d: 1200, e: 'Power4InOut' });
-        openExp.from({ el: '#body-right', p: { x: [0, 100] }, d: 1200, e: 'Power4InOut' });
-
-        openExp.from({ el: Transition.arrBotTitle[0], p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
-        openExp.from({ el: Transition.arrBotTitle[1], p: { y: [0, 100] }, d: 900, e: 'Power4InOut' });
-        openExp.from({ el: Transition.arrBotTitle[2], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-
-        openExp.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        openExp.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        openExp.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [0, 100] }, d: 1400, e: 'Power4InOut' });
-
-        openExp.from({ el: Transition.arr[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        console.log('title text');
-        openExp.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1000, e: 'Power4InOut' });
-        openExp.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [0, 100] }, d: 1000, e: 'Power4InOut' });
-        openExp.from({ el: '#body-mid-line', p: { opacity: [.15, 0] }, d: 1200, e: 'Power4InOut', delay: 400 });
-
-        openExp.from({ el: Transition.sectionTitle[0], p: { y: [100, 0] }, d: 1200, delay: 400, e: 'Power4InOut' });
-
-        openExp.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1800, delay: 600, e: 'Power4InOut' });
-        openExp.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1800, delay: 600, e: 'Power4InOut' });
-
-        openExp.play();
-        //////
-    };
-
-    Transition.recognitionUp = function () {
-
-        var recUp = new skylake.Timeline();
-        var isObj16 = skylake.Is.object(recUp);
-
-        recUp.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
-        recUp.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
-        recUp.from({ el: Transition.sectionTitle[0], p: { y: [0, 100] }, d: 1200, delay: 400, e: 'Power4InOut' });
-
-        recUp.from({ el: Transition.sectionTitle[1], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
-        recUp.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
-        recUp.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
-
-        // recUp.from({el: '#h-reco-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 600})
-        // recUp.from({el: '.h-reco-txt-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        // recUp.from({el: '.h-reco-txt-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 100})
-
-        recUp.play();
-    };
-
-    Transition.socialUp = function () {
-
-        var socUp = new skylake.Timeline();
-        var isObj20 = skylake.Is.object(socUp);
-
-        socUp.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
-        socUp.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
-        socUp.from({ el: Transition.sectionTitle[1], p: { y: [0, 100] }, d: 1200, delay: 400, e: 'Power4InOut' });
-
-        socUp.from({ el: Transition.sectionTitle[2], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
-        socUp.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
-        socUp.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
-
-        // socUp.from({el: '#h-xp-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        // socUp.from({el: '#h-xp-txt', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-
-        // socUp.from({el: '#h-social', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        // socUp.from({el: '#h-social-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        // socUp.from({el: '.cf', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-
-        socUp.play();
-    };
-
-    Transition.experienceDown = function () {
-
-        var openExpIn = new skylake.Timeline();
-        var isObj28 = skylake.Is.object(openExpIn);
-
-        //////
-        openExpIn.from({ el: '#intro', p: { opacity: [0, 1] }, d: 300, e: 'Power4InOut' });
-        openExpIn.from({ el: Transition.sectionTitle[0], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        openExpIn.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
-        openExpIn.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
-
-        openExpIn.from({ el: '#body-mid', p: { x: [-100, 0] }, d: 1200, delay: 600, e: 'Power4InOut' });
-        openExpIn.from({ el: '#body-right', p: { x: [100, 0] }, d: 1200, e: 'Power4InOut' });
-
-        openExpIn.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-        openExpIn.from({ el: Transition.arrText[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-        openExpIn.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-
-        openExpIn.from({ el: Transition.arrBotTitle[0], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-        openExpIn.from({ el: Transition.arrBotTitle[1], p: { y: [100, 0] }, d: 1500, e: 'Power4InOut' });
-        openExpIn.from({ el: Transition.arrBotTitle[2], p: { y: [100, 0] }, d: 1800, e: 'Power4InOut' });
-
-        openExpIn.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [100, 0] }, d: 1800, e: 'Power4InOut' });
-        openExpIn.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [100, 0] }, d: 1800, e: 'Power4InOut' });
-        openExpIn.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 2000, e: 'Power4InOut' });
-
-        openExpIn.from({ el: '#body-mid-line', p: { opacity: [0, .15] }, d: 1200, delay: 600, e: 'Power4InOut' });
-
-        openExpIn.play();
-        //////
-    };
-
-    Transition.recognitionDown = function () {
-
-        var recDown = new skylake.Timeline();
-        var isObj17 = skylake.Is.object(recDown);
-
-        // recDown.from({el: Transition.arrBotTitle[0], p: {y: [100, 0]}, d: 1800, e: 'Power4InOut'})
-        // recDown.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 2100, e: 'Power4InOut'})
-        // recDown.from({el: Transition.arrBotTitle[2], p: {y: [100, 0]}, d: 2400, e: 'Power4InOut'})
-
-        recDown.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
-        recDown.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
-        recDown.from({ el: Transition.sectionTitle[1], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 1000 });
-
-        recDown.from({ el: Transition.sectionTitle[0], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
-        recDown.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
-        recDown.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
-
-        // recDown.from({el: '#h-reco-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        // recDown.from({el: '.h-reco-txt-list', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        // recDown.from({el: '.h-reco-txt-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-
-        recDown.play();
-    };
-
-    Transition.socialDown = function () {
-
-        var socDown = new skylake.Timeline();
-        var isObj21 = skylake.Is.object(socDown);
-
-        //Transition.hideSocial()
-
-
-        socDown.from({ el: '#h-xp-txt', p: { y: [0, 100] }, d: 600, e: 'Power4InOut' });
-        socDown.from({ el: '#h-xp-list', p: { y: [0, 100] }, d: 600, delay: 300, e: 'Power4InOut' });
-        socDown.from({ el: Transition.sectionTitle[2], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 1000 });
-
-        socDown.from({ el: Transition.sectionTitle[1], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 1000 });
-        socDown.from({ el: '#h-xp-list', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
-        socDown.from({ el: '#h-xp-txt', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 600 });
-
-        // socDown.from({el: '#h-social', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        // socDown.from({el: '#h-social-title', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-        // socDown.from({el: '.cf', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
-
-        // socDown.from({el: '.h-xp-title', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        // socDown.from({el: '#h-xp-list', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-        // socDown.from({el: '#h-xp-txt', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
-
-        //socDown.play({cb: Transition.pagiFadeIn, cbDelay: 600})
-        socDown.play();
-    };
-
-    Transition.pagiFadeOut = function () {
-
-        var pagiFadeOut = new skylake.Timeline();
-        var isObj24 = skylake.Is.object(pagiFadeOut);
-
-        pagiFadeOut.from({ el: '#h-pagi-line', p: { x: [0, -102] }, d: 800, e: 'Power4InOut' });
-        pagiFadeOut.from({ el: '#h-pagi-bottom-marker', p: { y: [0, 100] }, d: 800, e: 'Power4InOut' });
-        pagiFadeOut.play({ cb: Transition.socialUp });
-        console.log('hello from pagiFadeOut');
-    };
-
-    Transition.pagiFadeIn = function () {
-
-        var pagiFadeIn = new skylake.Timeline();
-        var isObj25 = skylake.Is.object(pagiFadeIn);
-
-        pagiFadeIn.from({ el: '#h-pagi-line', p: { x: [-102, 0] }, d: 800, e: 'Power4InOut' });
-        pagiFadeIn.from({ el: '#h-pagi-bottom-marker', p: { y: [100, 0] }, d: 800, e: 'Power4InOut' });
-        pagiFadeIn.play();
-        console.log('hello from pagiFadeIn');
-    };
-
-    Transition.showSocial = function () {
-        var showSocial = new skylake.Timeline();
-        var isObj26 = skylake.Is.object(showSocial);
-
-        Transition.pagiSocialWrap.style.zIndex = 4;
-        showSocial.from({ el: '#h-pagi-social', p: { y: [100, 0] }, d: 1400, delay: 300, e: 'Power4InOut' });
-        showSocial.play();
-    };
-
-    Transition.hideSocial = function () {
-        var hideSocial = new skylake.Timeline();
-        var isObj26 = skylake.Is.object(hideSocial);
-
-        Transition.pagiSocialWrap.style.zIndex = -1;
-        hideSocial.from({ el: '#h-pagi-social', p: { y: [0, 100] }, d: 500, e: 'Power4In' });
-        hideSocial.play();
-    };
-
-    Transition.pagiColor = function () {
-
-        if (Transition.currentStep > 3) {
-            Transition.pagiBottomMarkerWrap.style.transform = "translate3d(0,0,0)";
-            Transition.pagiBottomMarkerWrap.style.transform = "rotate(-90deg)";
-            Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "#f4f8fd";
-            Transition.arrPagiTopNo[Transition.currentStep + 1].style.transition = "color 200ms";
-            Transition.pagiBottomMarker.style.color = "#f4f8fd";
-            Transition.pagiLine.style.background = "#f4f8fd";
-            Transition.pagiBottomMarker.style.transition = "color 200ms";
-        }
-    };
-
-    Transition.updateProgress = function (num1) {
-        var percent = Math.ceil(num1 * 100 / 6) + '%';
-        document.getElementById('h-pagi-prog').style.width = percent;
-    };
-
-    Transition.n2 = function () {
-
-        var timer;
-
-        if (timer) {
-            window.clearTimeout(timer);
-        }
-        timer = window.setTimeout(function () {
-            // actual code here. Your call back function.
-            Transition.next();
-            //switchVideo(Transition.currentStep)
-            this.toggleDistortionIn(1, this.changeImage.bind(this));
-            console.log("Firing!");
-        }, 250);
-
-        Transition.textInOut = new skylake.Timeline();
-        var isObj8 = skylake.Is.object(Transition.textInOut);
-
-        if (Transition.currentStep <= 5) {
-            Transition.updateProgress(Transition.currentStep + 1);
-        } else if (Transition.currentStep === 6) {
-            Transition.updateProgress(Transition.currentStep);
-        } else if (Transition.currentStep >= 7) {
-            Transition.updateProgress(6);
-        }
-
-        Transition.textInOut.from({ el: Transition.arr[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        Transition.textInOut.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        Transition.textInOut.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-
-        Transition.textInOut.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        Transition.textInOut.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        Transition.textInOut.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-
-        // if (Transition.currentStep < 4) {
-        //     Transition.textInOut.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
-        // }
-
-        if (Transition.currentStep > -1 && Transition.currentStep <= 5) {
-
-            Transition.textInOut.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
-                p: { x: [0, -100] }, d: 900, e: 'Power4InOut' });
-
-            Transition.textInOut.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 800, e: 'Power4InOut' });
-
-            Transition.textInOut.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 800 });
-        } else if (Transition.currentStep >= 6) {
-
-            Transition.textInOut.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
-                p: { x: [0, 0] }, d: 900, e: 'Power4InOut' });
-
-            Transition.textInOut.from({ el: '#h-pagi-progress', p: { opacity: [1, 1] }, d: 800, e: 'Power4InOut' });
-
-            Transition.textInOut.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 900, e: 'Power4InOut' });
-        }
-
-        if (Transition.currentStep <= 6) {
-            Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
-            Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
-        }
-
-        Transition.textInOut.play({ cbDelay: 300, cb: function cb() {
-
-                Transition.textIn2 = new skylake.Timeline();
-                var isObj9 = skylake.Is.object(Transition.textIn2);
-
-                Transition.textIn2.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-                Transition.textIn2.from({ el: Transition.arrText[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-                Transition.textIn2.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-
-                Transition.textIn2.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-                Transition.textIn2.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-                Transition.textIn2.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-
-                // if (Transition.currentStep < 4) {
-                //     Transition.textIn2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, e: 'Power4InOut'})
-                // } 
-
-                if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
-
-                    Transition.textIn2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [100, 0] }, d: 900, e: 'Power4InOut' });
-
-                    Transition.textIn2.from({ el: '#h-pagi-progress', p: { opacity: [0, 1] }, d: 1200, e: 'Power4InOut' });
-
-                    Transition.textIn2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-
-                    Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 150 });
-                } else if (Transition.currentStep >= 7) {
-
-                    Transition.textIn2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
-
-                    Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-                }
-
-                if (Transition.currentStep <= 6) {
-                    Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
-                    Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
-                }
-
-                Transition.pagiColor();
-
-                Transition.textIn2.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
-            }
-        });
-    };
-
-    Transition.p2 = function () {
-
-        var timer;
-
-        if (timer) {
-            window.clearTimeout(timer);
-        }
-        timer = window.setTimeout(function () {
-            // actual code here. Your call back function.
-            Transition.prev();
-            //switchVideo(Transition.currentStep)
-            toggleDistortionIn(1, this.changeImage.bind(this));
-
-            console.log("Firing!");
-        }, 250);
-
-        Transition.updateProgress(Transition.currentStep - 1);
-
-        Transition.textOutIn = new skylake.Timeline();
-        var isObj10 = skylake.Is.object(Transition.textOutIn);
-
-        Transition.textOutIn.from({ el: Transition.arr[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        Transition.textOutIn.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        Transition.textOutIn.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-
-        Transition.textOutIn.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        Transition.textOutIn.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-        Transition.textOutIn.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
-
-        if (Transition.currentStep === 0) {
-            Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [0, 100] }, d: 900, e: 'Power4InOut' });
-        }
-
-        Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 100] }, d: 900, e: 'Power4InOut' });
-
-        // if (Transition.currentStep < 4) {
-        //     Transition.textOutIn.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
-        // }
-
-        if (Transition.currentStep >= -1 && Transition.currentStep <= 6) {
-
-            Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
-                p: { x: [0, 100] }, d: 900, e: 'Power4InOut' });
-
-            Transition.textOutIn.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 800, e: 'Power4InOut' });
-
-            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 800 });
-        }
-
-        if (Transition.currentStep >= 7) {
-
-            Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
-                p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
-
-            Transition.textOutIn.from({ el: '#h-pagi-progress', p: { opacity: [1, 1] }, d: 800, e: 'Power4InOut' });
-
-            Transition.textOutIn.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-
-            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-        }
-
-        Transition.textOutIn.play({ cbDelay: 300, cb: function cb() {
-
-                setTimeout(Transition.pagiOut, 300);
-
-                Transition.textOut2 = new skylake.Timeline();
-                var isObj11 = skylake.Is.object(Transition.textOut2);
-
-                Transition.textOut2.from({ el: Transition.arr[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-                Transition.textOut2.from({ el: Transition.arrText[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-                Transition.textOut2.from({ el: Transition.arrTitle[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-
-                Transition.textOut2.from({ el: Transition.arrBotRole[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-                Transition.textOut2.from({ el: Transition.arrBotAgency[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-                Transition.textOut2.from({ el: Transition.arrBotYear[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-
-                Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [-100, 0] }, d: 900, e: 'Power4InOut' });
-
-                // if (Transition.currentStep < 4 && Transition.currentStep > -1) {
-                //     Transition.textOut2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, e: 'Power4InOut'})
-                // }
-
-                if (Transition.currentStep >= 0 && Transition.currentStep <= 5) {
-
-                    Transition.textOut2.from({ el: '#h-pagi-progress', p: { opacity: [0, 1] }, d: 1200, e: 'Power4InOut' });
-
-                    Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
-
-                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 150 });
-                }
-
-                if (Transition.currentStep < 4 && Transition.currentStep > -1) {
-                    Transition.arrPagiTopNo[Transition.currentStep + 1].style.color = "";
-                    Transition.pagiBottomMarker.style.color = "";
-                    Transition.pagiLine.style.background = "";
-                }
-
-                if (Transition.currentStep >= 6) {
-
-                    Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
-
-                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-
-                    Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-
-                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
-                }
-
-                Transition.textOut2.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
-            } });
-    };
-
-    if (!event) {
-        // if the event is not provided, we get it from the window object
-        event = window.event;
-    }
-    if (event.wheelDelta) {
-        // will work in most cases
-        delta = event.wheelDelta / 60;
-    } else if (event.detail) {
-        // fallback for Firefox
-        delta = -event.detail / 2;
-    }
-    if (delta !== null) {
-
-        if (delta < 0 && divOffset.top === 0) {
-
-            Transition.headerUp();
-        } else if (delta > 0 && divOffset.top < -600) {
-
-            Transition.p2();
-        } else if (delta < 0 && divOffset.top < -600) {
-
-            Transition.n2();
-        }
-    }
-};
-
-Transition.scrollInit = function () {
-    var body = skylake.Dom.body;
-    //S.BindMaker(this, ['Transition.headerScroll'])
-    //S.scroll = new S.Scroll(Transition.headerScroll)
-    skylake.Listen(body, 'add', 'mouseWheel', Transition.headerScroll);
-
-    // this.scroll.on()
-    // this.scroll.off()
-    console.log('hello from scroll init');
-};
-
-console.log('transition.js');
-
 /* 
 Menu Overlay 
 */
+
 var ShapeOverlays = function () {
   function ShapeOverlays(elm) {
     classCallCheck(this, ShapeOverlays);
@@ -12564,7 +12564,6 @@ var Router = function () {
 }();
 
 /* eslint-disable */
-// import { switchVideo, start } from "./Video.js"
 
 var Loader = {};
 
@@ -12588,7 +12587,7 @@ var intro = function intro() {
   tl.from({ el: '.menu', p: { opacity: [0, 1] }, d: 1500, e: 'ExpoOut' });
   tl.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 600 });
   // start()
-
+  Jello.prototype.toggleDistortionIn(1, Jello.prototype.changeImage);
 
   tl.play();
 };
@@ -12697,6 +12696,7 @@ var HomeController = function (_Listeners) {
             // Transition.callback()
             //Transition.disable_scroll()
             Transition.open();
+            Jello.prototype.initialize();
             console.log('Transition.outro from HomeController');
             Listeners.prototype.add({ cb: Loader.run({ cb: this.intro() })
             });

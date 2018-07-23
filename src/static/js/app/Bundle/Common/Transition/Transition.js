@@ -1,10 +1,8 @@
 /* eslint-disable */
 
 import S from 'skylake'
-import jQuery from "jquery"
-import { toggleDistortionIn, toggleDistortionOut, changeImage } from "./Jello.js"
-// import * as vidGL from './Video.js';
-// console.log(vidGL)
+import Jello from "./Jello.js"
+
 
 const Transition = {}
 
@@ -374,7 +372,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const textInit = new S.Timeline()
         const isObj5 = S.Is.object(textInit)
     
-        toggleDistortionIn(1, this.changeImage.bind(this))
+        Jello.toggleDistortionIn(1, Jello.changeImage)
 
         textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 800})

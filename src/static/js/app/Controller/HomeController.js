@@ -2,7 +2,7 @@
 
 import Loader from '../../app/Bundle/Common/Transition/Loader.js'
 import Transition from '../../app/Bundle/Common/Transition/Transition.js'
-// import Video from '../../app/Bundle/Common/Transition/Video.js'
+import Jello from '../../app/Bundle/Common/Transition/Jello.js'
 import Xhr from '../../Engine/Xhr.js'
 import EventDelegation from '../../Engine/EventDelegation.js'
 import Listeners from '../../Engine/Listeners.js'
@@ -56,6 +56,7 @@ class HomeController extends Listeners {
         // Transition.callback()
         //Transition.disable_scroll()
         Transition.open()
+        Jello.prototype.initialize()
         console.log('Transition.outro from HomeController')
         Listeners.prototype.add({cb:
             Loader.run({cb: this.intro()})
