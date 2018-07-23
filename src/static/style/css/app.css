@@ -867,6 +867,21 @@ $grid-width: 114rem;//$grid-width: 100%;/* CSS Normalize */*,
     -webkit-transform: translate3d(0%, 0, 0);
             transform: translate3d(0%, 0, 0);
     
+}.jello-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #000;
+  z-index: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-rendering: optimizeLegibility;
+  height: 100vh;
+  width: 100vw;
 }canvas {
   width: 100vw;
   height: 100vh;

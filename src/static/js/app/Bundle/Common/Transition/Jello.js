@@ -1,5 +1,7 @@
-export default class Jello {
+// export default class Jello {
 
+
+  class Jello {
   // Cached variables that can be used and changed in all the functions in the class
   constructor(options = {}) {
     this.defaults = {};
@@ -296,11 +298,14 @@ export default class Jello {
   }
 
   
-
 }
 
-function unloadScrollBars() {
-  document.documentElement.style.overflow = 'hidden';  // firefox, chrome
-  document.body.scroll = "no"; // ie only
-  }
-  unloadScrollBars()
+export { toggleDistortionIn, toggleDistortionOut, changeImage }
+
+// }
+
+// function unloadScrollBars() {
+//   document.documentElement.style.overflow = 'hidden';  // firefox, chrome
+//   document.body.scroll = "no"; // ie only
+//   }
+//   unloadScrollBars()

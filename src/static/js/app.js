@@ -10585,488 +10585,341 @@ EventDelegation.destAbout = function () {
 	return jQuery;
 });
 
-/* eslint-disable */
-
-var document$1 = window.document,
-    Seriously = window.Seriously;
-
-//init Canvas
-var CANVAS_W = 1600;
-var CANVAS_H = 900;
-var video, ctx;
-var canvas = document$1.createElement('canvas');
-canvas.width = CANVAS_W;
-canvas.height = CANVAS_H;
-ctx = canvas.getContext('2d');
-
-//const div = document.getElementById('glcanvas'); 
-canvas.id = "glcanvas";
-canvas.style.zIndex = -1;
-canvas.style.position = "absolute";
-
-video = document$1.getElementById('video');
-
-var min = Math.min,
-    max = Math.max,
-    formats = ['mp4', 'webm'],
-    videoSources = ['1', '2', '3', '4', '5', '6', '7', '8'],
-    videos = [],
-    seriously,
-    target,
-    resize,
-    //state
-selectedIndex = -1,
-    transition,
-    activeTransition = 'channel',
-    transitionStart = 0,
-    previousVideo,
-    nextVideo,
-    playing = false,
-    // canvas = document.getElementById('canvas'),
-// controls = document.getElementById('controls'),
-// bigbutton = document.getElementById('bigbutton'),
-// infobutton = document.getElementById('infobutton'),
-// info = document.getElementById('info'),
-
-/*
-Each transition has its own callback functions:
-- init - set up the required effect nodes
-- start - attach the effect nodes to the video sources being transitioned
-- draw - runs every frame of the transition
-*/
-transitions = {
-	// whip: {
-	// 	title: 'Whip Pan',
-	// 	duration: 250,
-	// 	transformFrom: null,
-	// 	transformTo: null,
-	// 	blur: null,
-	// 	init: function () {
-	// 		var blur = seriously.effect('directionblur'),
-	// 			blend = seriously.effect('blend'),
-	// 			transformFrom = seriously.transform('2d'),
-	// 			transformTo = seriously.transform('2d');
-
-	// 		blend.bottom = transformFrom;
-	// 		blend.top = transformTo;
-	// 		blur.source = blend;
-
-	// 		this.transformFrom = transformFrom;
-	// 		this.transformTo = transformTo;
-	// 		this.blur = blur;
-	// 	},
-	// 	start: function (fromNode, toNode) {
-	// 		//todo: alternate direction of whip-pan
-	// 		this.transformFrom.source = fromNode;
-	// 		this.transformTo.source = toNode;
-
-	// 		return this.blur;
-	// 	},
-	// 	draw: function (amount) {
-	// 		//this.blur.amount = 1 - 2 * abs(amount - 0.5);
-	// 		amount = easeInOut(amount);
-	// 		this.transformFrom.translateX = this.transformFrom.width * amount;
-	// 		this.transformTo.translateX = -this.transformTo.width * (1 - amount);
-	// 		this.blur.amount = min(1, 1.2 * (1 - 2 * abs(amount - 0.5)) + 0.2);
-	// 	}
-	// },
-	// flash: {
-	// 	title: 'Flash',
-	// 	duration: 1500,
-	// 	linear: null,
-	// 	blur: null,
-	// 	select: null,
-	// 	init: function () {
-	// 		var blur = seriously.effect('blur'),
-	// 			exposure = seriously.effect('exposure'),
-	// 			blend = seriously.effect('blend');
-
-	// 		blur.source = exposure;
-	// 		exposure.source = blend;
-
-	// 		this.blur = blur;
-	// 		this.exposure = exposure;
-	// 		this.blend = blend;
-	// 	},
-	// 	start: function (fromNode, toNode) {
-	// 		this.blend.bottom = fromNode;
-	// 		this.blend.top = toNode;
-	// 		this.blend.opacity = .5;
-
-	// 		return this.blur;
-	// 	},
-	// 	draw: function (amount) {
-	// 		this.blend.opacity = min(1, max(0, 1 - 8 * (1.5 - amount)));
-
-	// 		amount = 1 - 2 * abs(amount - 0.5);
-	// 		this.blur.amount = 0.8 * amount;
-	// 		this.exposure.exposure = .02 * amount;
-	// 	}
-	// },
-	channel: {
-		title: 'Channel Change',
-		duration: 1800,
-		volume: false,
-		tvProps: {
-			distortion: [0.02, 0.2],
-			lineSync: [0.03, 0.2],
-			verticalSync: [0, 1],
-			bars: [0.4, 0.6]
-		},
-		tvglitch: null,
-		init: function init() {
-			var tvglitch = seriously.effect('tvglitch');
-
-			tvglitch.distortion = 0.02;
-			tvglitch.verticalSync = 0;
-			tvglitch.scanlines = 0.22;
-			tvglitch.lineSync = 0.03;
-			tvglitch.frameSharpness = 10.67;
-			tvglitch.frameLimit = 0.3644;
-			tvglitch.bars = 0.4;
-
-			this.tvglitch = tvglitch;
-		},
-		start: function start(fromNode, toNode) {
-			this.tvglitch.source = toNode;
-			return this.tvglitch;
-		},
-		draw: function draw(amount) {
-			var factor = 0,
-			    key,
-			    prop,
-			    tvProps = this.tvProps,
-			    tvglitch = this.tvglitch;
-
-			factor = 1 - amount;
-			factor = max(factor, 0);
-			factor = min(factor, 1);
-			factor = Math.pow(factor, 2);
-
-			for (key in tvProps) {
-				if (tvProps.hasOwnProperty(key)) {
-					prop = tvProps[key];
-					tvglitch[key] = prop[0] + factor * (prop[1] - prop[0]);
-				}
-			}
-
-			tvglitch.time = Date.now();
-		}
-	}
-};
-
-function initSeriously() {
-	var key;
-	seriously = new Seriously();
-	target = seriously.target('#glcanvas');
-
-	for (key in transitions) {
-		if (transitions.hasOwnProperty(key)) {
-			transitions[key].init();
-		}
-	}
-
-	videos.forEach(function (obj) {
-		var video = obj.element,
-		    reformat = seriously.transform('reformat');
-
-		reformat.width = CANVAS_W;
-		reformat.height = CANVAS_H;
-		reformat.source = video;
-		reformat.mode = 'cover';
-
-		obj.reformat = reformat;
-	});
-}
-
-// function updateButtonState() {
-// 	bigbutton.className = playing ? 'playing' : 'paused';
-// }
-
-function play() {
-	if (nextVideo) {
-		nextVideo.play();
-		playing = !nextVideo.paused;
-	}
-	// updateButtonState();
-}
-
-function pause() {
-	var i;
-	playing = false;
-	for (i = 0; i < videos.length; i++) {
-		videos[i].element.pause();
-	}
-	updateButtonState();
-}
-
-function togglePlay() {
-	if (playing) {
-		pause();
-	} else {
-		play();
-	}
-}
-
-function switchVideo(index) {
-	if (!seriously || selectedIndex === index || index >= videos.length) {
-		//no change, nothing to do here
-		return;
-	}
-
-	if (selectedIndex >= 0) {
-		transitionStart = Date.now();
-		previousVideo = videos[selectedIndex].element;
-		target.source = transition.start(videos[selectedIndex].reformat, videos[index].reformat);
-	} else {
-		target.source = videos[index].reformat;
-	}
-
-	selectedIndex = index;
-	nextVideo = videos[selectedIndex].element;
-	if (playing) {
-		nextVideo.play();
-	}
-}
-
-/*
-Runs repeatedly as long as the web page is visible, approximately every 16 milliseconds.
-Only does work while the transition is running, handles timing of the animation
-and volume cross-fade.
-*/
-function draw() {
-	var progress;
-	if (transitionStart) {
-		progress = max(Date.now() - transitionStart, 0) / transition.duration;
-
-		if (progress >= 1) {
-			transitionStart = 0;
-			target.source = videos[selectedIndex].reformat;
-			if (previousVideo) {
-				previousVideo.pause();
-			}
-		} else {
-			if (transition.volume !== false) {
-				if (previousVideo) {
-					previousVideo.volume = min(1, max(0, 1 - progress));
-				}
-				nextVideo.volume = min(1, max(0, progress));
-			} else {
-				previousVideo.volume = 0;
-				nextVideo.volume = 1;
-			}
-
-			transition.draw(progress);
-		}
-	}
-}
-
-function start() {
-	var i;
-
-	if (seriously) {
-		return;
-	}
-
-	for (i = 0; i < videos.length; i++) {
-		if (!videos[i].element.readyState) {
-			return;
-		}
-	}
-
-	initSeriously();
-	//resize();
-	seriously.go(draw);
-	switchVideo(0);
-	play();
-}
-
-function loadVideos() {
-	var i,
-	    format,
-	    type,
-	    maxDim,
-	    size = 'hd';
-
-	//vid = document.createElement('video');
-
-	/*
- Make our best guess about the appropriate video size
- */
-	maxDim = Math.max(screen.width, screen.height);
-	if (window.matchMedia('handheld').matches || maxDim < 1280) {
-		if (maxDim * (window.devicePixelRatio || 1) < 960) {
-			size = 'small';
-		} else {
-			size = 'mid';
-		}
-	}
-
-	for (i = 0; i < formats.length; i++) {
-		type = 'video/' + formats[i];
-		if (video.canPlayType && video.canPlayType(type)) {
-			format = formats[i];
-			break;
-		}
-	}
-
-	if (!format) {
-		//todo: display some kind of error
-		console.log('Unable to play any video types');
-		return;
-	}
-
-	videoSources.forEach(function (source, index) {
-		var video = document$1.createElement('video');
-
-		video.type = type;
-		video.src = 'video/' + source + '-' + size + '.' + format;
-		video.crossOrigin = 'anonymous';
-		video.preload = 'auto';
-		video.id = 'video' + index;
-		video.loop = true;
-		video.controls = false; //for debugging
-
-		/*
-  Start every video at a random time. They all have a similar bumper at the
-  beginning, so the transitions don't make for an effective demo if the videos
-  all look the same.
-  */
-		video.addEventListener('loadedmetadata', function () {
-			video.currentTime = Math.random() * video.duration;
-			start();
-		}, false);
-		video.load();
-
-		// button = document.createElement('span');
-		// button.style.backgroundImage = 'url(images/' + source + '.jpg)';
-		// button.addEventListener('click', switchVideo.bind(null, index), false);
-		// controls.appendChild(button);
-
-		videos.push({
-			element: video,
-			reformat: null
-		});
-	});
-
-	// updateButtonState();
-}
-
-/*
-Pause the video when this browser tab is in the background or minimized.
-Resume when it comes back in focus, but only if the user didn't pause manually.
-*/
-// function visibilityChange() {
-// 	if (document.hidden || document.mozHidden || document.msHidden || document.webkitHidden) {
-// 		videos[selectedIndex].element.pause();
-// 	} else if (playing) {
-// 		videos[selectedIndex].element.play();
-// 	}
-// }
-
-// resize = debounce(function () {
-// 	var width = Math.min(videoWidth, window.innerWidth),
-// 		height = Math.min(videoHeight, window.innerHeight);
-
-// 	if (width / height < 16 / 9) {
-// 		height = width * 9 / 16;
-// 	}
-
-// 	canvas.style.width = width + 'px';
-// 	canvas.style.height = height + 'px';
-
-// 	/*
-// 	If it's a big enough screen and we have a retina display, let's take advantage.
-// 	We assume that the GPU will be able to handle it
-// 	*/
-// 	if (window.screen.width * window.devicePixelRatio > videoWidth) {
-// 		width *= window.devicePixelRatio;
-// 		height *= window.devicePixelRatio;
-// 	}
-
-// 	canvas.width = width;
-// 	canvas.height = height;
-
-// 	videos.forEach(function (obj) {
-// 		obj.reformat.width = width;
-// 		obj.reformat.height = height;
-// 	});
-// }, 30, true);
-
-transition = transitions[activeTransition];
-loadVideos();
-
-// Object.keys(transitions).forEach(function (t) {
-// 	var button = document.getElementById(t);
-// 	transitions[t].button = button;
-
-// 	button.addEventListener('click', function () {
-// 		transitions[activeTransition].button.className = '';
-// 		activeTransition = t;
-// 		transition = transitions[activeTransition];
-// 		button.className = 'active';
-// 	});
-// });
-//document.getElementById(activeTransition).className = 'active';
-
-// document.addEventListener('visibilitychange', visibilityChange);
-// document.addEventListener('mozvisibilitychange', visibilityChange);
-// document.addEventListener('msvisibilitychange', visibilityChange);
-// document.addEventListener('webkitvisibilitychange', visibilityChange);
-
-window.addEventListener('orientationchange', resize);
-window.addEventListener('resize', resize);
-
-// canvas.addEventListener('click', togglePlay);
-// bigbutton.addEventListener('click', togglePlay);
-
-// var body = document.querySelector('body');
-// body.addEventListener('mouseWheel', Transition.headerScroll);
-// canvas.addEventListener('mouseWheel', Transition.headerScroll);
-// bigbutton.addEventListener('mouseWheel', Transition.headerScroll);
-
-// window.addEventListener('wheel', function(e) {
-// 	if (e.deltaY > 0) {
-// 		console.log('scrolling down');
-// 		//document.getElementById('status').innerHTML = 'scrolling down';
-// 		if(timer) {
-// 		  window.clearTimeout(timer);
-// 		}
-// 		timer = window.setTimeout(function() {
-// 		 // actual code here. Your call back function.
-// 		next();
-// 		console.log( "Firing!" );
-// 		}, 100);
-// 		switchVideo(currentStep + 1);
-
-// 	}
-// 	if (e.deltaY < 0) {
-// 	  console.log('scrolling up');
-// 	  //document.getElementById('status').innerHTML = 'scrolling up';
-// 	  if(timer) {
-// 		window.clearTimeout(timer);
-// 	  }
-// 	  timer = window.setTimeout(function() {
-// 	   // actual code here. Your call back function.
-// 	  prev();
-// 	  console.log( "Firing!" );
-// 	  }, 100);
-
-// 	  switchVideo(currentStep - 1);
-
-// 	}
-
-//   });
-
-
-/*
-User can press the space bar to toggle pause/play
-*/
-window.addEventListener('keyup', function (evt) {
-	if (evt.which === 32) {
-		togglePlay();
-	}
-}, true);
+// export default class Jello {
+
+
+var Jello = function () {
+  // Cached variables that can be used and changed in all the functions in the class
+  function Jello() {
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    classCallCheck(this, Jello);
+
+    this.defaults = {};
+    this.options = options;
+    this.canvasHolder = document.getElementById('jello-container');
+    this.imgWidth = 1920;
+    this.imgHeight = 960;
+    this.imgRatio = this.imgHeight / this.imgWidth;
+    this.winWidth = window.innerWidth;
+    this.bgArray = [];
+    this.bgSpriteArray = [];
+    this.renderer = PIXI.autoDetectRenderer(this.winWidth, this.winWidth * this.imgRatio);
+    this.stage = new PIXI.Container();
+    this.imgContainer = new PIXI.Container();
+    this.imageCounter = 0;
+    this.displacementSprite = PIXI.Sprite.fromImage('static/media/img/distortion/clouds.jpg');
+    this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
+    this.currentMap = {};
+    this.mapCounter = 0;
+    this.mapArray = [];
+    this.raf = this.animateFilters.bind(this);
+    //this.cycleImage = this.changeImage.bind(this)
+
+    this.isDistorted = false; // begin transition with no distortion
+    this.isTransitioning = false;
+
+    this.initialize();
+  }
+
+  createClass(Jello, [{
+    key: 'initialize',
+    value: function initialize() {
+      console.log('Jello initialized');
+
+      this.defaults = {
+        transition: 0,
+        speed: 0.5,
+        dispScale: 200,
+        dispX: true,
+        dispY: true,
+        count: 0
+      };
+
+      this.update();
+
+      // An array of images for background (.jpg)
+      // They'll transition in the order listed below
+      this.bgArray.push('image-1', 'image-2', 'image-3', 'image-4');
+
+      // An array of displacement maps
+      // They'll transition in the order below with the included settings
+      this.mapArray.push({
+        image: 'dmap-clouds-01.jpg',
+        speed: 0.5,
+        scale: 200
+      }, {
+        image: 'dmap-glass-01.jpg',
+        speed: 0.3,
+        scale: 200
+      });
+
+      this.backgroundFill();
+      this.buildStage();
+      this.createBackgrounds();
+      this.createFilters();
+      this.animateFilters();
+      this.eventListener();
+      this.initScroll();
+
+      this.renderer.view.setAttribute('class', 'jello-canvas');
+      this.canvasHolder.appendChild(this.renderer.view);
+    }
+
+    // define animations and call this.raf
+
+  }, {
+    key: 'animateFilters',
+    value: function animateFilters() {
+      this.displacementFilter.scale.x = this.settings.dispX ? this.settings.transition * this.settings.dispScale : 0;
+      this.displacementFilter.scale.y = this.settings.dispY ? this.settings.transition * (this.settings.dispScale + 10) : 0;
+
+      this.displacementSprite.x = Math.sin(this.settings.count * 0.15) * 200;
+      this.displacementSprite.y = Math.cos(this.settings.count * 0.13) * 200;
+
+      this.displacementSprite.rotation = this.settings.count * 0.06;
+
+      this.settings.count += 0.05 * this.settings.speed;
+
+      this.renderer.render(this.stage);
+
+      window.requestAnimationFrame(this.raf);
+    }
+
+    // canvas built to fill width of window
+
+  }, {
+    key: 'backgroundFill',
+    value: function backgroundFill() {
+      this.renderer.view.setAttribute('style', 'height:auto;width:100%;');
+    }
+
+    // main container for animation
+
+  }, {
+    key: 'buildStage',
+    value: function buildStage() {
+      this.imgContainer.position.x = this.imgWidth / 2;
+      this.imgContainer.position.y = this.imgHeight / 2;
+
+      this.stage.scale.x = this.stage.scale.y = this.winWidth / this.imgWidth;
+      this.stage.interactive = true;
+      this.stage.addChild(this.imgContainer);
+    }
+
+    // cycle through this.bgArray and change images with crossfade
+
+  }, {
+    key: 'changeImage',
+    value: function changeImage() {
+      var _this = this;
+
+      if (this.imageCounter < this.bgArray.length - 1) {
+        this.imageCounter++;
+      } else {
+        this.imageCounter = 0;
+      }
+
+      this.bgSpriteArray.map(function (sprite, i, callback) {
+
+        if (i == _this.imageCounter) {
+          TweenLite.to(sprite, 2, { alpha: 1, ease: Power2.easeInOut, onComplete: _this.toggleDistortionOut, onCompleteScope: _this });
+        } else {
+          TweenLite.to(sprite, 2, { alpha: 0, ease: Power2.easeInOut });
+        }
+      });
+    }
+
+    // cycle through this.mapArray and change displacement maps
+
+  }, {
+    key: 'changeMap',
+    value: function changeMap() {
+      if (this.mapCounter < this.mapArray.length - 1) {
+        this.mapCounter++;
+      } else {
+        this.mapCounter = 0;
+      }
+
+      this.currentMap = this.mapArray[this.mapCounter];
+      console.log(this.currentMap);
+      this.displacementSprite = PIXI.Sprite.fromImage('/static/media/img/distortion/' + this.currentMap.image);
+      this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
+      this.createFilters();
+    }
+
+    // preload all backgrounds for quick transitions
+
+  }, {
+    key: 'createBackgrounds',
+    value: function createBackgrounds() {
+      var _this2 = this;
+
+      this.bgArray.map(function (image) {
+        var bg = PIXI.Sprite.fromImage('/static/media/img/bg/' + image + '.jpg');
+        // create a video texture from a path
+        //var bg = PIXI.Texture.fromVideo(`/assets/images/bg/${image}.mp4`);
+
+        // create a new Sprite using the video texture (yes it's that easy)
+        // var videoSprite = new PIXI.Sprite(bg);
+
+        // // Stetch the fullscreen
+        // // videoSprite.width = app.screen.width;
+        // // videoSprite.height = app.screen.height;
+        // videoSprite.autoPlay = true;
+        // videoSprite.loop = true; 
+        // // Set image anchor to the center of the image
+        // videoSprite.anchor.x = 0.5;
+        // videoSprite.anchor.y = 0.5;      
+        bg.anchor.x = 0.5;
+        bg.anchor.y = 0.5;
+
+        // this.imgContainer.addChild(videoSprite);
+        // this.bgSpriteArray.push(videoSprite);
+
+        _this2.imgContainer.addChild(bg);
+        _this2.bgSpriteArray.push(bg);
+
+        // set first image alpha to 1, all else to 0
+        bg.alpha = _this2.bgSpriteArray.length === 1 ? 1 : 0;
+      });
+    }
+
+    // distortion filters added to stage
+
+  }, {
+    key: 'createFilters',
+    value: function createFilters() {
+      this.stage.addChild(this.displacementSprite);
+
+      this.displacementFilter.scale.x = this.displacementFilter.scale.y = this.winWidth / this.imgWidth;
+
+      this.imgContainer.filters = [this.displacementFilter];
+    }
+
+    // function changes the distortion level to a specific amount
+
+  }, {
+    key: 'distortionLevel',
+    value: function distortionLevel(amt) {
+      var _this3 = this;
+
+      if (!this.isTransitioning) {
+        this.isTransitioning = true;
+        TweenLite.to(this.settings, 1, {
+          transition: amt,
+          speed: this.currentMap.speed,
+          dispScale: this.currentMap.scale,
+          ease: Power2.easeInOut,
+          onComplete: function onComplete() {
+            _this3.isTransitioning = false;
+          }
+        });
+      }
+    }
+
+    // scroll events
+
+  }, {
+    key: 'initScroll',
+    value: function initScroll() {
+      var _this4 = this;
+
+      window.addEventListener('wheel', function (e) {
+        if (e.deltaY > 0) {
+          _this4.toggleDistortionIn(1, _this4.changeImage.bind(_this4));
+          // this.changeImage()
+          console.log('scrolling down');
+        }
+        if (e.deltaY < 0) {
+          _this4.toggleDistortionIn(1, _this4.changeImage.bind(_this4));
+          // this.changeImage()
+          console.log('scrolling up');
+        }
+      });
+    }
+    // click events
+    //   eventListener() {
+    //     const changeImageBtn = document.getElementsByClassName('js-change-image')[0];
+    //     const changeDistortionBtn = document.getElementsByClassName('js-change-distortion')[0];
+    //     const toggleDistorionBtn = document.getElementsByClassName('js-toggle-distortion')[0];
+
+    //     changeImageBtn.onclick = () => {
+    //       this.changeImage();
+    //     }
+
+    //     changeDistortionBtn.onclick = () => {
+    //       this.changeMap();
+    //     }
+
+    //     toggleDistorionBtn.onclick = () => {
+    //       this.toggleDistortion();
+    //     }
+
+    // }
+
+
+    // turn the distortion on and off using the options.transistion variable
+    // toggleDistortion(dis, callback) {
+    //   if(!this.isDistorted) {
+    //     this.distortionLevel(dis);
+    //     this.isDistorted = true;
+    //   } else {
+    //     this.distortionLevel(dis);
+    //     this.isDistorted = false;
+    //   }
+    //   if(typeof callback == "function") 
+    //   callback();
+    // }
+
+  }, {
+    key: 'toggleDistortionIn',
+    value: function toggleDistortionIn(dis, callback) {
+      //if(!this.isDistorted) {
+      if (!dis) {
+        this.distortionLevel(1);
+      }
+      this.distortionLevel(dis);
+      this.isDistorted = true;
+      console.log('distortion in');
+
+      if (typeof callback == "function") callback();
+      //} 
+    }
+  }, {
+    key: 'toggleDistortionOut',
+    value: function toggleDistortionOut(dis, callback) {
+      //if(this.isDistorted) {
+      if (!dis) {
+        this.distortionLevel(0);
+      }
+      this.distortionLevel(dis);
+      this.isDistorted = false;
+      console.log('distortion out');
+      if (typeof callback == "function") callback();
+      //} 
+    }
+
+    // Object.assign overwrites defaults with options to create settings
+
+  }, {
+    key: 'update',
+    value: function update() {
+      this.settings = Object.assign({}, this.defaults, this.options);
+    }
+
+    // ============ TEAR DOWN =============== //
+
+  }, {
+    key: 'tearDown',
+    value: function tearDown() {
+      window.cancelAnimationFrame(this.raf);
+      this.settings = {};
+      this.bgArray = [];
+      this.bgSpriteArray = [];
+    }
+  }]);
+  return Jello;
+}();
 
 /* eslint-disable */
 // import * as vidGL from './Video.js';
@@ -11120,7 +10973,7 @@ Transition.open = function () {
     Transition.scrollInit();
 };
 
-var debounce$1 = function debounce(func, wait, immediate) {
+var debounce = function debounce(func, wait, immediate) {
     var timeout;
     return function () {
         var context = this,
@@ -11169,7 +11022,7 @@ Transition.enable_scroll = function () {
     skylake.Listen(body, 'add', 'mouseWheel', Transition.headerScroll);
 };
 
-Transition.next = debounce$1(function () {
+Transition.next = debounce(function () {
 
     Transition.disable_scroll();
     if (Transition.currentStep >= 6) {
@@ -11214,7 +11067,7 @@ Transition.next = debounce$1(function () {
     return Transition.currentStep;
 }, 250);
 
-Transition.prev = debounce$1(function () {
+Transition.prev = debounce(function () {
 
     Transition.disable_scroll();
     if (Transition.currentStep <= -1) {
@@ -11362,7 +11215,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         var textInit = new skylake.Timeline();
         var isObj5 = skylake.Is.object(textInit);
 
-        switchVideo(1);
+        toggleDistortionIn(1, this.changeImage.bind(this));
 
         textInit.from({ el: '.scroll-icon', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         textInit.from({ el: '.tagline', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 800 });
@@ -11655,7 +11508,8 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         timer = window.setTimeout(function () {
             // actual code here. Your call back function.
             Transition.next();
-            switchVideo(Transition.currentStep);
+            //switchVideo(Transition.currentStep)
+            this.toggleDistortionIn(1, this.changeImage.bind(this));
             console.log("Firing!");
         }, 250);
 
@@ -11760,7 +11614,8 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         timer = window.setTimeout(function () {
             // actual code here. Your call back function.
             Transition.prev();
-            switchVideo(Transition.currentStep);
+            //switchVideo(Transition.currentStep)
+            toggleDistortionIn(1, this.changeImage.bind(this));
 
             console.log("Firing!");
         }, 250);
@@ -12709,6 +12564,7 @@ var Router = function () {
 }();
 
 /* eslint-disable */
+// import { switchVideo, start } from "./Video.js"
 
 var Loader = {};
 
@@ -12731,7 +12587,8 @@ var intro = function intro() {
 
   tl.from({ el: '.menu', p: { opacity: [0, 1] }, d: 1500, e: 'ExpoOut' });
   tl.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 600 });
-  start();
+  // start()
+
 
   tl.play();
 };

@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import S from 'skylake'
-import { switchVideo, start } from "./Video.js"
+// import { switchVideo, start } from "./Video.js"
 
 const Loader = {}
 
@@ -24,7 +24,7 @@ const intro = function() {
 
   tl.from({el: '.menu', p: {opacity: [0, 1]}, d: 1500, e: 'ExpoOut'})
   tl.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 600})
-  start()
+  // start()
 
 
   tl.play()
