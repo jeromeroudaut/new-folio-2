@@ -2,7 +2,7 @@
 
 import S from 'skylake'
 import jQuery from "jquery"
-import { switchVideo } from "./Video.js"
+import { toggleDistortionIn, toggleDistortionOut, changeImage } from "./Jello.js"
 // import * as vidGL from './Video.js';
 // console.log(vidGL)
 
@@ -374,7 +374,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const textInit = new S.Timeline()
         const isObj5 = S.Is.object(textInit)
     
-        switchVideo(1)
+        toggleDistortionIn(1, this.changeImage.bind(this))
 
         textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 800})
@@ -690,7 +690,8 @@ Transition.recognitionDown = function() {
         timer = window.setTimeout(function() {
            // actual code here. Your call back function.
         Transition.next()
-        switchVideo(Transition.currentStep)
+        //switchVideo(Transition.currentStep)
+        this.toggleDistortionIn(1, this.changeImage.bind(this))
           console.log( "Firing!" );
         }, 250);
 
@@ -810,7 +811,8 @@ Transition.recognitionDown = function() {
         timer = window.setTimeout(function() {
            // actual code here. Your call back function.
         Transition.prev()
-        switchVideo(Transition.currentStep)
+        //switchVideo(Transition.currentStep)
+        toggleDistortionIn(1, this.changeImage.bind(this))
 
         console.log( "Firing!" );
         }, 250);

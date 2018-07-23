@@ -15,7 +15,7 @@ export default class Jello {
     this.stage = new PIXI.Container();
     this.imgContainer = new PIXI.Container();
     this.imageCounter = 0;
-    this.displacementSprite = PIXI.Sprite.fromImage('/assets/images/distortion/clouds.jpg');
+    this.displacementSprite = PIXI.Sprite.fromImage('static/media/img/distortion/clouds.jpg');
     this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
     this.currentMap = {};
     this.mapCounter = 0;
@@ -139,7 +139,7 @@ export default class Jello {
 
     this.currentMap = this.mapArray[this.mapCounter];
     console.log(this.currentMap)
-    this.displacementSprite = PIXI.Sprite.fromImage(`/assets/images/distortion/${this.currentMap.image}`);
+    this.displacementSprite = PIXI.Sprite.fromImage(`/static/media/img/distortion/${this.currentMap.image}`);
     this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
     this.createFilters();
   }
@@ -147,7 +147,7 @@ export default class Jello {
   // preload all backgrounds for quick transitions
   createBackgrounds() {
     this.bgArray.map((image) => {
-      const bg = PIXI.Sprite.fromImage(`/assets/images/bg/${image}.jpg`);
+      const bg = PIXI.Sprite.fromImage(`/static/media/img/bg/${image}.jpg`);
       // create a video texture from a path
       //var bg = PIXI.Texture.fromVideo(`/assets/images/bg/${image}.mp4`);
 
@@ -221,24 +221,24 @@ export default class Jello {
 
   }
   // click events
-  eventListener() {
-    const changeImageBtn = document.getElementsByClassName('js-change-image')[0];
-    const changeDistortionBtn = document.getElementsByClassName('js-change-distortion')[0];
-    const toggleDistorionBtn = document.getElementsByClassName('js-toggle-distortion')[0];
+//   eventListener() {
+//     const changeImageBtn = document.getElementsByClassName('js-change-image')[0];
+//     const changeDistortionBtn = document.getElementsByClassName('js-change-distortion')[0];
+//     const toggleDistorionBtn = document.getElementsByClassName('js-toggle-distortion')[0];
 
-    changeImageBtn.onclick = () => {
-      this.changeImage();
-    }
+//     changeImageBtn.onclick = () => {
+//       this.changeImage();
+//     }
 
-    changeDistortionBtn.onclick = () => {
-      this.changeMap();
-    }
+//     changeDistortionBtn.onclick = () => {
+//       this.changeMap();
+//     }
 
-    toggleDistorionBtn.onclick = () => {
-      this.toggleDistortion();
-    }
+//     toggleDistorionBtn.onclick = () => {
+//       this.toggleDistortion();
+//     }
   
-}
+// }
 
 
   // turn the distortion on and off using the options.transistion variable
