@@ -262,7 +262,90 @@ Transition.scrollInit()
         return Transition.currentStep
         
     }, 250);
+
+    Jello.changeImageInit = function() {
+        // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+        //   Jello.imageCounter++;
+        // } else {
+        //   Jello.imageCounter = 0;
+        // }
+
+        Transition.currentStep = 0;
     
+        Jello.bgSpriteArray.map((sprite, i, callback) => {
+    
+          if(i === Transition.currentStep) {
+            TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
+          } else {
+            TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
+          }
+        });
+      }
+    
+    Jello.changeImageNxt = function() {
+        // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+        //   Jello.imageCounter++;
+        // } else {
+        //   Jello.imageCounter = 0;
+        // }
+
+        Transition.next()
+    
+        Jello.bgSpriteArray.map((sprite, i, callback) => {
+    
+          if(i === Transition.currentStep) {
+            TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
+          } else {
+            TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
+          }
+        });
+      }
+
+      Jello.changeImagePrv = function() {
+        // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+        //   Jello.imageCounter++;
+        // } else {
+        //   Jello.imageCounter = 0;
+        // }
+
+        Transition.prev()
+    
+        Jello.bgSpriteArray.map((sprite, i, callback) => {
+    
+          if(i === Transition.currentStep) {
+            TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
+          } else {
+            TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
+          }
+        });
+      }
+
+      Jello.toggleDistortionIn = function(dis, callback) {
+        //if(!Jello.isDistorted) {
+          if (!dis) {
+            Jello.distortionLevel(1);
+          }
+          Jello.distortionLevel(dis);
+          Jello.isDistorted = true;
+          console.log('distortion in')
+    
+          if(typeof callback == "function") 
+          callback();
+        //} 
+      }
+    
+      Jello.toggleDistortionOut = function(dis, callback) {
+        //if(Jello.isDistorted) {
+          if (!dis) {
+            Jello.distortionLevel(0);
+          }
+          Jello.distortionLevel(dis);
+          Jello.isDistorted = false;
+          console.log('distortion out')
+          if(typeof callback == "function") 
+          callback();
+        //} 
+      }
 
 Transition.headerScroll = (currentScrollY, delta, event) => {
 
@@ -372,7 +455,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const textInit = new S.Timeline()
         const isObj5 = S.Is.object(textInit)
     
-        Jello.toggleDistortionIn(1, Jello.changeImage)
+        Jello.toggleDistortionIn(1, Jello.changeImageNxt)
 
         textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 800})
@@ -689,7 +772,7 @@ Transition.recognitionDown = function() {
            // actual code here. Your call back function.
         Transition.next()
         //switchVideo(Transition.currentStep)
-        Jello.toggleDistortionIn(1, Jello.changeImage)
+        Jello.toggleDistortionIn(1, Jello.changeImageNxt)
           console.log( "Firing!" );
         }, 250);
 
@@ -810,7 +893,7 @@ Transition.recognitionDown = function() {
            // actual code here. Your call back function.
         Transition.prev()
         //switchVideo(Transition.currentStep)
-        Jello.toggleDistortionIn(1, Jello.changeImage)
+        Jello.toggleDistortionIn(1, Jello.changeImagePrv)
 
         console.log( "Firing!" );
         }, 250);

@@ -83,22 +83,22 @@ import S from 'skylake'
   }
 
   // cycle through Jello.bgArray and change images with crossfade
-  Jello.changeImage = function() {
-    if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-      Jello.imageCounter++;
-    } else {
-      Jello.imageCounter = 0;
-    }
+  // Jello.changeImage = function() {
+  //   if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+  //     Jello.imageCounter++;
+  //   } else {
+  //     Jello.imageCounter = 0;
+  //   }
 
-    Jello.bgSpriteArray.map((sprite, i, callback) => {
+  //   Jello.bgSpriteArray.map((sprite, i, callback) => {
 
-      if(i == Jello.imageCounter) {
-        TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
-      } else {
-        TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
-      }
-    });
-  }
+  //     if(i == Jello.imageCounter) {
+  //       TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
+  //     } else {
+  //       TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
+  //     }
+  //   });
+  // }
 
   // cycle through Jello.mapArray and change displacement maps
   Jello.changeMap = function() {
@@ -143,7 +143,7 @@ import S from 'skylake'
       Jello.bgSpriteArray.push(bg);
 
       // set first image alpha to 1, all else to 0
-      bg.alpha = Jello.bgSpriteArray.length === 1 ? 1 : 0;
+      bg.alpha = Jello.bgSpriteArray.length === 0 ? 1 : 0;
     });
   }
 
@@ -225,32 +225,32 @@ import S from 'skylake'
   //   callback();
   // }
 
-  Jello.toggleDistortionIn = function(dis, callback) {
-    //if(!Jello.isDistorted) {
-      if (!dis) {
-        Jello.distortionLevel(1);
-      }
-      Jello.distortionLevel(dis);
-      Jello.isDistorted = true;
-      console.log('distortion in')
+  // Jello.toggleDistortionIn = function(dis, callback) {
+  //   //if(!Jello.isDistorted) {
+  //     if (!dis) {
+  //       Jello.distortionLevel(1);
+  //     }
+  //     Jello.distortionLevel(dis);
+  //     Jello.isDistorted = true;
+  //     console.log('distortion in')
 
-      if(typeof callback == "function") 
-      callback();
-    //} 
-  }
+  //     if(typeof callback == "function") 
+  //     callback();
+  //   //} 
+  // }
 
-  Jello.toggleDistortionOut = function(dis, callback) {
-    //if(Jello.isDistorted) {
-      if (!dis) {
-        Jello.distortionLevel(0);
-      }
-      Jello.distortionLevel(dis);
-      Jello.isDistorted = false;
-      console.log('distortion out')
-      if(typeof callback == "function") 
-      callback();
-    //} 
-  }
+  // Jello.toggleDistortionOut = function(dis, callback) {
+  //   //if(Jello.isDistorted) {
+  //     if (!dis) {
+  //       Jello.distortionLevel(0);
+  //     }
+  //     Jello.distortionLevel(dis);
+  //     Jello.isDistorted = false;
+  //     console.log('distortion out')
+  //     if(typeof callback == "function") 
+  //     callback();
+  //   //} 
+  // }
 
   
 
