@@ -268,12 +268,10 @@ Transition.scrollInit()
         // } else {
         //   Jello.imageCounter = 0;
         // }
-
-        const init = 0
     
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
-          if(i === init) {
+          if(i === Jello.imageCounter) {
             TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
           } else {
             TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
@@ -281,17 +279,18 @@ Transition.scrollInit()
         });
       }
     
-    Jello.changeImageNxt = function() {
-        if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-          Jello.imageCounter++;
-        } else {
-          Jello.imageCounter = 0;
-        }
+    Jello.changeImageNxt = function(currenti) {
+        // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+        //   Jello.imageCounter++;
+        // } else {
+        //   Jello.imageCounter = 0;
+        // }
 
+        // Jello.imageCounter = currenti
     
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
-          if(i === Jello.imageCounter) {
+          if(i === currenti) {
             TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
           } else {
             TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
@@ -447,11 +446,11 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
     Transition.titleInit = function() {
   
         Transition.currentStep = 0
-        
+
         const textInit = new S.Timeline()
         const isObj5 = S.Is.object(textInit)
     
-        Jello.toggleDistortionIn(1, Jello.changeImageNxt)
+        Jello.toggleDistortionIn(1, Jello.changeImageNxt(1))
 
         textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 800})
@@ -770,7 +769,7 @@ Transition.recognitionDown = function() {
         // timer = window.setTimeout(function() {
            // actual code here. Your call back function.
         //switchVideo(Transition.currentStep)
-        Jello.toggleDistortionIn(1, Jello.changeImageNxt())
+        Jello.toggleDistortionIn(1, Jello.changeImageNxt(Transition.currentStep))
         //   console.log( "Firing!" );
         // }, 250);
 

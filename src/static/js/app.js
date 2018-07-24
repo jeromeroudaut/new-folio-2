@@ -951,7 +951,7 @@ Jello.initialize = function () {
 
   // An array of images for background (.jpg)
   // They'll transition in the order listed below
-  Jello.bgArray.push('image-1', 'image-2', 'image-3', 'image-4');
+  Jello.bgArray.push('image-1', 'image-2', 'image-3', 'image-4', 'image-5', 'image-6', 'image-7', 'image-8');
 
   // An array of displacement maps
   // They'll transition in the order below with the included settings
@@ -1180,11 +1180,9 @@ Jello.changeImageInit = function () {
     //   Jello.imageCounter = 0;
     // }
 
-    var init = 0;
-
     Jello.bgSpriteArray.map(function (sprite, i, callback) {
 
-        if (i === init) {
+        if (i === Jello.imageCounter) {
             TweenLite.to(sprite, 2, { alpha: 1, ease: Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: _this });
         } else {
             TweenLite.to(sprite, 2, { alpha: 0, ease: Power2.easeInOut });
@@ -1192,18 +1190,20 @@ Jello.changeImageInit = function () {
     });
 };
 
-Jello.changeImageNxt = function () {
+Jello.changeImageNxt = function (currenti) {
     var _this2 = this;
 
-    if (Jello.imageCounter < Jello.bgArray.length - 1) {
-        Jello.imageCounter++;
-    } else {
-        Jello.imageCounter = 0;
-    }
+    // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+    //   Jello.imageCounter++;
+    // } else {
+    //   Jello.imageCounter = 0;
+    // }
+
+    // Jello.imageCounter = currenti
 
     Jello.bgSpriteArray.map(function (sprite, i, callback) {
 
-        if (i === Jello.imageCounter) {
+        if (i === currenti) {
             TweenLite.to(sprite, 2, { alpha: 1, ease: Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: _this2 });
         } else {
             TweenLite.to(sprite, 2, { alpha: 0, ease: Power2.easeInOut });
@@ -1355,7 +1355,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         var textInit = new skylake.Timeline();
         var isObj5 = skylake.Is.object(textInit);
 
-        Jello.toggleDistortionIn(1, Jello.changeImageNxt);
+        Jello.toggleDistortionIn(1, Jello.changeImageNxt(1));
 
         textInit.from({ el: '.scroll-icon', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         textInit.from({ el: '.tagline', p: { y: [0, 100] }, d: 1200, e: 'Power4InOut', delay: 800 });
@@ -1650,7 +1650,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         // timer = window.setTimeout(function() {
         // actual code here. Your call back function.
         //switchVideo(Transition.currentStep)
-        Jello.toggleDistortionIn(1, Jello.changeImageNxt());
+        Jello.toggleDistortionIn(1, Jello.changeImageNxt(Transition.currentStep));
         //   console.log( "Firing!" );
         // }, 250);
 
