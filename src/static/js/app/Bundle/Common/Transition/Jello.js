@@ -143,7 +143,7 @@ import S from 'skylake'
       Jello.bgSpriteArray.push(bg);
 
       // set first image alpha to 1, all else to 0
-      bg.alpha = Jello.bgSpriteArray.length === 0 ? 1 : 0;
+      bg.alpha = Jello.bgSpriteArray.length === 1 ? 1 : 0;
     });
   }
 

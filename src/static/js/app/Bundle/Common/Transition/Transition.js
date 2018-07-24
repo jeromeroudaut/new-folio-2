@@ -152,7 +152,6 @@ Transition.scrollInit()
         } else {
             Transition.nextStep = Transition.currentStep + 1
         }
-        console.log('scrolling down - nextItem')
         Transition.currentStep = Transition.nextStep 
         
         console.log('currentStep: ' + Transition.currentStep)
@@ -204,11 +203,11 @@ Transition.scrollInit()
         } else {
             Transition.nextStep = Transition.currentStep - 1
         }
+        Transition.currentStep = Transition.nextStep 
+
         //for cirular array
         //Transition.nextStep = (Transition.currentStep + Transition.arr.length - 1) % Transition.arr.length
-        console.log('scrolling up - prevItem')
-        Transition.currentStep = Transition.nextStep 
-        
+        console.log('scrolling up - prevItem')        
 
         console.log('currentStep: ' + Transition.currentStep)
         console.log('nextStep: ' + Transition.nextStep)
@@ -270,11 +269,11 @@ Transition.scrollInit()
         //   Jello.imageCounter = 0;
         // }
 
-        Transition.currentStep = 0;
+        const init = 0
     
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
-          if(i === Transition.currentStep) {
+          if(i === init) {
             TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
           } else {
             TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
@@ -283,17 +282,16 @@ Transition.scrollInit()
       }
     
     Jello.changeImageNxt = function() {
-        // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-        //   Jello.imageCounter++;
-        // } else {
-        //   Jello.imageCounter = 0;
-        // }
+        if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+          Jello.imageCounter++;
+        } else {
+          Jello.imageCounter = 0;
+        }
 
-        Transition.next()
     
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
-          if(i === Transition.currentStep) {
+          if(i === Jello.imageCounter) {
             TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
           } else {
             TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
@@ -302,17 +300,15 @@ Transition.scrollInit()
       }
 
       Jello.changeImagePrv = function() {
-        // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-        //   Jello.imageCounter++;
-        // } else {
-        //   Jello.imageCounter = 0;
-        // }
-
-        Transition.prev()
+        if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+          Jello.imageCounter++;
+        } else {
+          Jello.imageCounter = 0;
+        }
     
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
-          if(i === Transition.currentStep) {
+          if(i === Jello.imageCounter) {
             TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
           } else {
             TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
@@ -763,18 +759,20 @@ Transition.recognitionDown = function() {
 
     Transition.n2 = function() {
 
-        var timer
-        
-        if(timer) {
-            window.clearTimeout(timer);
-        }
-        timer = window.setTimeout(function() {
-           // actual code here. Your call back function.
         Transition.next()
+
+
+        // var timer
+        
+        // if(timer) {
+        //     window.clearTimeout(timer);
+        // }
+        // timer = window.setTimeout(function() {
+           // actual code here. Your call back function.
         //switchVideo(Transition.currentStep)
-        Jello.toggleDistortionIn(1, Jello.changeImageNxt)
-          console.log( "Firing!" );
-        }, 250);
+        Jello.toggleDistortionIn(1, Jello.changeImageNxt())
+        //   console.log( "Firing!" );
+        // }, 250);
 
         Transition.textInOut = new S.Timeline()
         const isObj8 = S.Is.object(Transition.textInOut)
@@ -893,7 +891,7 @@ Transition.recognitionDown = function() {
            // actual code here. Your call back function.
         Transition.prev()
         //switchVideo(Transition.currentStep)
-        Jello.toggleDistortionIn(1, Jello.changeImagePrv)
+        Jello.toggleDistortionIn(1, Jello.changeImagePrv())
 
         console.log( "Firing!" );
         }, 250);
