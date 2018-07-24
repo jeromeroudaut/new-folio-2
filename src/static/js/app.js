@@ -934,7 +934,7 @@ Jello.initialize = function () {
   console.log('Jello initialized');
 
   Jello.defaults = {
-    transition: 0,
+    transition: 0.4,
     speed: 0.4,
     dispScale: 200,
     dispX: true,
