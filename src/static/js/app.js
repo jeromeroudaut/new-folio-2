@@ -1211,18 +1211,20 @@ Jello.changeImageNxt = function (currenti) {
     });
 };
 
-Jello.changeImagePrv = function () {
+Jello.changeImagePrv = function (currenti) {
     var _this3 = this;
 
-    if (Jello.imageCounter < Jello.bgArray.length - 1) {
-        Jello.imageCounter++;
-    } else {
-        Jello.imageCounter = 0;
-    }
+    // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+    //   Jello.imageCounter++;
+    // } else {
+    //   Jello.imageCounter = 0;
+    // }
+
+    // Jello.imageCounter = currenti
 
     Jello.bgSpriteArray.map(function (sprite, i, callback) {
 
-        if (i === Jello.imageCounter) {
+        if (i === currenti) {
             TweenLite.to(sprite, 2, { alpha: 1, ease: Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: _this3 });
         } else {
             TweenLite.to(sprite, 2, { alpha: 0, ease: Power2.easeInOut });
@@ -1747,19 +1749,20 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
     Transition.p2 = function () {
 
-        var timer;
+        Transition.prev();
 
-        if (timer) {
-            window.clearTimeout(timer);
-        }
-        timer = window.setTimeout(function () {
-            // actual code here. Your call back function.
-            Transition.prev();
-            //switchVideo(Transition.currentStep)
-            Jello.toggleDistortionIn(1, Jello.changeImagePrv());
+        // var timer
 
-            console.log("Firing!");
-        }, 250);
+        // if(timer) {
+        //     window.clearTimeout(timer);
+        // }
+        // timer = window.setTimeout(function() {
+        // actual code here. Your call back function.
+        //switchVideo(Transition.currentStep)
+        Jello.toggleDistortionIn(1, Jello.changeImagePrv(Transition.currentStep));
+
+        console.log("Firing!");
+        // }, 250);
 
         Transition.updateProgress(Transition.currentStep - 1);
 

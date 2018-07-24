@@ -298,21 +298,23 @@ Transition.scrollInit()
         });
       }
 
-      Jello.changeImagePrv = function() {
-        if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-          Jello.imageCounter++;
-        } else {
-          Jello.imageCounter = 0;
-        }
+      Jello.changeImagePrv = function(currenti) {
+        // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+        //   Jello.imageCounter++;
+        // } else {
+        //   Jello.imageCounter = 0;
+        // }
+
+        // Jello.imageCounter = currenti
     
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
-          if(i === Jello.imageCounter) {
-            TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
-          } else {
-            TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
-          }
-        });
+            if(i === currenti) {
+              TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
+            } else {
+              TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
+            }
+          });
       }
 
       Jello.toggleDistortionIn = function(dis, callback) {
@@ -881,19 +883,20 @@ Transition.recognitionDown = function() {
 
     Transition.p2 = function() {
 
-        var timer
-        
-        if(timer) {
-            window.clearTimeout(timer);
-        }
-        timer = window.setTimeout(function() {
-           // actual code here. Your call back function.
         Transition.prev()
+
+        // var timer
+        
+        // if(timer) {
+        //     window.clearTimeout(timer);
+        // }
+        // timer = window.setTimeout(function() {
+           // actual code here. Your call back function.
         //switchVideo(Transition.currentStep)
-        Jello.toggleDistortionIn(1, Jello.changeImagePrv())
+        Jello.toggleDistortionIn(1, Jello.changeImagePrv(Transition.currentStep))
 
         console.log( "Firing!" );
-        }, 250);
+        // }, 250);
 
         Transition.updateProgress(Transition.currentStep - 1);
 
