@@ -979,6 +979,40 @@ Jello.initialize = function () {
 
 Jello.initialize();
 
+// class CircularListWithIndex {
+
+var PrevNext = {};
+// PrevNext.items = 0
+PrevNext.index = 0;
+
+PrevNext.moveIndexNext = function () {
+    if (PrevNext.items.length === 0) {
+        return;
+    }
+    if (PrevNext.index + 1 === PrevNext.items.length) {
+        return PrevNext.index = 0;
+    } else {
+        return PrevNext.index++;
+    }
+    // PrevNext.getCurrentItem()
+};
+
+PrevNext.moveIndexPrevious = function () {
+    if (PrevNext.items.length === 0) {
+        return;
+    }
+    if (PrevNext.index - 1 === -1) {
+        return PrevNext.index = PrevNext.items.length - 1;
+    } else {
+        return PrevNext.index--;
+    }
+    // PrevNext.getCurrentItem()
+};
+
+PrevNext.getCurrentItem = function () {
+    return PrevNext.items[PrevNext.index];
+};
+
 /* eslint-disable */
 
 var Transition = {};
@@ -1007,9 +1041,7 @@ Transition.open = function () {
 
     // Transition.arrPagiProgWrap = S.Geb.class('h-pagi-prog-no-wrap')
     Transition.arrPagiProgNo = skylake.Geb.class('h-pagi-prog-no');
-    // Transition.arrPagiProgNoMarker = S.Geb.class('h-pagi-prog-no-marker')
-
-    Transition.sectionTitle = skylake.Geb.class("h-section-title");
+    Transition.nodes = Array.prototype.slice.call(document.querySelector('.h-pagi-prog-no').children), Transition.sectionTitle = skylake.Geb.class("h-section-title");
 
     Transition.pagiBottomMarkerWrap = skylake.Geb.id('h-pagi-bottom-marker-wrap');
     Transition.pagiLine = skylake.Geb.id('h-pagi-line');
@@ -1081,14 +1113,18 @@ Transition.enable_scroll = function () {
 Transition.next = debounce(function () {
 
     Transition.disable_scroll();
-    if (Transition.currentStep >= 6) {
-        Transition.nextStep = 7;
-    } else if (Transition.currentStep === -1) {
-        Transition.nextStep = 0;
-    } else {
-        Transition.nextStep = Transition.currentStep + 1;
-    }
-    Transition.currentStep = Transition.nextStep;
+    PrevNext.items = Transition.nodes.length;
+    Transition.currentStep = PrevNext.moveIndexNext();
+
+    // if (Transition.currentStep >= 6) {
+    //     Transition.nextStep = 7
+    // } else if (Transition.currentStep === -1) {
+    //     Transition.nextStep = 0
+    // } else {
+    //     Transition.nextStep = Transition.currentStep + 1
+    // }
+    // Transition.currentStep = Transition.nextStep 
+
 
     console.log('currentStep: ' + Transition.currentStep);
     console.log('nextStep: ' + Transition.nextStep);

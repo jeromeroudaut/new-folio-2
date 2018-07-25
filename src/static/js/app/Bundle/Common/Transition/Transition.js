@@ -2,6 +2,7 @@
 
 import S from 'skylake'
 import Jello from "./Jello.js"
+import PrevNext from "./PrevNext.js"
 
 
 const Transition = {}
@@ -31,6 +32,8 @@ Transition.arrBotTitleWrap = S.Geb.class('h-pagi-bottom-title-wrap')
 
 // Transition.arrPagiProgWrap = S.Geb.class('h-pagi-prog-no-wrap')
 Transition.arrPagiProgNo = S.Geb.class('h-pagi-prog-no')
+Transition.nodes = Array.prototype.slice.call( document.querySelector('.h-pagi-prog-no').children ),
+
 // Transition.arrPagiProgNoMarker = S.Geb.class('h-pagi-prog-no-marker')
 
 Transition.sectionTitle = S.Geb.class("h-section-title")
@@ -145,14 +148,18 @@ Transition.scrollInit()
    Transition.next = debounce(function() {
  
         Transition.disable_scroll() 
-        if (Transition.currentStep >= 6) {
-            Transition.nextStep = 7
-        } else if (Transition.currentStep === -1) {
-            Transition.nextStep = 0
-        } else {
-            Transition.nextStep = Transition.currentStep + 1
-        }
-        Transition.currentStep = Transition.nextStep 
+        PrevNext.items = Transition.nodes.length
+        Transition.currentStep = PrevNext.moveIndexNext()
+        
+        // if (Transition.currentStep >= 6) {
+        //     Transition.nextStep = 7
+        // } else if (Transition.currentStep === -1) {
+        //     Transition.nextStep = 0
+        // } else {
+        //     Transition.nextStep = Transition.currentStep + 1
+        // }
+        // Transition.currentStep = Transition.nextStep 
+
         
         console.log('currentStep: ' + Transition.currentStep)
         console.log('nextStep: ' + Transition.nextStep)
