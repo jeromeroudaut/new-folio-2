@@ -992,7 +992,7 @@ PrevNext.moveIndexNext = function () {
     if (PrevNext.index + 1 === PrevNext.items.length) {
         return PrevNext.index = 0;
     } else {
-        return PrevNext.index++;
+        return ++PrevNext.index;
     }
     // PrevNext.getCurrentItem()
 };
@@ -1004,7 +1004,7 @@ PrevNext.moveIndexPrevious = function () {
     if (PrevNext.index - 1 === -1) {
         return PrevNext.index = PrevNext.items.length - 1;
     } else {
-        return PrevNext.index--;
+        return --PrevNext.index;
     }
     // PrevNext.getCurrentItem()
 };
@@ -1116,18 +1116,8 @@ Transition.next = debounce(function () {
     PrevNext.items = Transition.nodes.length;
     Transition.currentStep = PrevNext.moveIndexNext();
 
-    // if (Transition.currentStep >= 6) {
-    //     Transition.nextStep = 7
-    // } else if (Transition.currentStep === -1) {
-    //     Transition.nextStep = 0
-    // } else {
-    //     Transition.nextStep = Transition.currentStep + 1
-    // }
-    // Transition.currentStep = Transition.nextStep 
-
-
+    console.log('scrolling down - nextItem');
     console.log('currentStep: ' + Transition.currentStep);
-    console.log('nextStep: ' + Transition.nextStep);
 
     if (Transition.currentStep === 4) {
 
@@ -1163,19 +1153,9 @@ Transition.prev = debounce(function () {
     Transition.disable_scroll();
     PrevNext.items = Transition.nodes.length;
     Transition.currentStep = PrevNext.moveIndexPrevious();
-    // if (Transition.currentStep <= -1) {
-    //     return Transition.nextStep = 0
-    // } else {
-    //     Transition.nextStep = Transition.currentStep - 1
-    // }
-    // Transition.currentStep = Transition.nextStep 
 
-    //for cirular array
-    //Transition.nextStep = (Transition.currentStep + Transition.arr.length - 1) % Transition.arr.length
     console.log('scrolling up - prevItem');
-
     console.log('currentStep: ' + Transition.currentStep);
-    console.log('nextStep: ' + Transition.nextStep);
 
     if (Transition.currentStep < 0) {
 
@@ -1914,12 +1894,12 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         if (delta < 0 && divOffset.top === 0) {
 
             Transition.headerUp();
-        } else if (delta > 0 && divOffset.top < -600) {
-
-            Transition.p2();
         } else if (delta < 0 && divOffset.top < -600) {
 
             Transition.n2();
+        } else if (delta > 0 && divOffset.top < -600) {
+
+            Transition.p2();
         }
     }
 };

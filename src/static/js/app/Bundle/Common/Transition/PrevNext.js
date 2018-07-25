@@ -16,7 +16,7 @@ PrevNext.moveIndexNext = function() {
         if (PrevNext.index + 1 === PrevNext.items.length) {
             return PrevNext.index = 0;
         } else {
-            return PrevNext.index++;
+            return ++PrevNext.index;
         }
         // PrevNext.getCurrentItem()
     }
@@ -28,7 +28,7 @@ PrevNext.moveIndexPrevious = function() {
         if (PrevNext.index - 1 === -1) {
             return PrevNext.index = PrevNext.items.length - 1;
         } else {
-            return PrevNext.index--;
+            return --PrevNext.index;
         }
         // PrevNext.getCurrentItem()
     }

@@ -151,18 +151,8 @@ Transition.scrollInit()
         PrevNext.items = Transition.nodes.length
         Transition.currentStep = PrevNext.moveIndexNext()
         
-        // if (Transition.currentStep >= 6) {
-        //     Transition.nextStep = 7
-        // } else if (Transition.currentStep === -1) {
-        //     Transition.nextStep = 0
-        // } else {
-        //     Transition.nextStep = Transition.currentStep + 1
-        // }
-        // Transition.currentStep = Transition.nextStep 
-
-        
+        console.log('scrolling down - nextItem')        
         console.log('currentStep: ' + Transition.currentStep)
-        console.log('nextStep: ' + Transition.nextStep)
 
         if (Transition.currentStep === 1) {
 
@@ -207,19 +197,9 @@ Transition.scrollInit()
         Transition.disable_scroll()
         PrevNext.items = Transition.nodes.length
         Transition.currentStep = PrevNext.moveIndexPrevious()
-        // if (Transition.currentStep <= -1) {
-        //     return Transition.nextStep = 0
-        // } else {
-        //     Transition.nextStep = Transition.currentStep - 1
-        // }
-        // Transition.currentStep = Transition.nextStep 
 
-        //for cirular array
-        //Transition.nextStep = (Transition.currentStep + Transition.arr.length - 1) % Transition.arr.length
         console.log('scrolling up - prevItem')        
-
         console.log('currentStep: ' + Transition.currentStep)
-        console.log('nextStep: ' + Transition.nextStep)
 
         // if (Transition.currentStep === -1) {
 
@@ -1033,17 +1013,17 @@ Transition.recognitionDown = function() {
             
             Transition.headerUp()
 
+        }  else if (delta < 0 && divOffset.top < -600) {
+
+            Transition.n2()
+            
+            
         } else if (delta > 0 && divOffset.top < -600) {
 
             Transition.p2()
 
 
-        } else if (delta < 0 && divOffset.top < -600) {
-
-            Transition.n2()
-            
-            
-        } 
+        }
 
     }
 }
