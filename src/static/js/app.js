@@ -1001,8 +1001,8 @@ PrevNext.moveIndexPrevious = function () {
     if (PrevNext.items.length === 0) {
         return;
     }
-    if (PrevNext.index - 1 === -1) {
-        return PrevNext.index = PrevNext.items.length - 1;
+    if (PrevNext.index - 1 <= -1) {
+        return PrevNext.index = -1;
     } else {
         return --PrevNext.index;
     }
@@ -1157,12 +1157,25 @@ Transition.prev = debounce(function () {
     console.log('scrolling up - prevItem');
     console.log('currentStep: ' + Transition.currentStep);
 
-    if (Transition.currentStep < 0) {
+    // if (Transition.currentStep === -1) {
+
+    //     console.log('index 0 header down')
+
+    //     Transition.headerDown()
+
+    // } 
+
+    // if (Transition.currentStep === -1) {
+
+
+    // } 
+
+    if (Transition.currentStep === -1) {
 
         Transition.headerDown();
         Transition.pagiReset();
 
-        //return Transition.currentStep = -1
+        return Transition.currentStep = -1;
     }
 
     if (Transition.currentStep === 3) {
@@ -1684,6 +1697,10 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         } else if (Transition.currentStep >= 7) {
             Transition.updateProgress(6);
         }
+
+        // if (Transition.currentStep === 1) {
+        //     Transition.textInit()
+        // }
 
         Transition.textInOut.from({ el: Transition.arr[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         Transition.textInOut.from({ el: Transition.arrText[Transition.currentStep], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });

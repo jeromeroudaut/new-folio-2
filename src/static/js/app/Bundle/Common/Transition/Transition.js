@@ -209,17 +209,17 @@ Transition.scrollInit()
 
         // } 
 
+        // if (Transition.currentStep === -1) {
+
+
+        // } 
+
         if (Transition.currentStep === -1) {
-
-
-        } 
-
-        if (Transition.currentStep < 0) {
 
             Transition.headerDown()
             Transition.pagiReset()
 
-            //return Transition.currentStep = -1
+            return Transition.currentStep = -1
                 
         } 
 
@@ -776,6 +776,9 @@ Transition.recognitionDown = function() {
             Transition.updateProgress(6)
         }
         
+        // if (Transition.currentStep === 1) {
+        //     Transition.textInit()
+        // }
 
         Transition.textInOut.from({el: Transition.arr[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         Transition.textInOut.from({el: Transition.arrText[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
@@ -1008,7 +1011,7 @@ Transition.recognitionDown = function() {
         delta = -event.detail / 2;
     }
     if ( delta !== null) {
-        
+    
         if (delta < 0 && divOffset.top === 0) {
             
             Transition.headerUp()
