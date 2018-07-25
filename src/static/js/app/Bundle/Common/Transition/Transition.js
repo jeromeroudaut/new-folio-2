@@ -272,7 +272,7 @@ Transition.scrollInit()
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
           if(i === Jello.imageCounter) {
-            TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
+            TweenLite.to(sprite, 3, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
           } else {
             TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
           }

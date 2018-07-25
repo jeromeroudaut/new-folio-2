@@ -1183,7 +1183,7 @@ Jello.changeImageInit = function () {
     Jello.bgSpriteArray.map(function (sprite, i, callback) {
 
         if (i === Jello.imageCounter) {
-            TweenLite.to(sprite, 2, { alpha: 1, ease: Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: _this });
+            TweenLite.to(sprite, 3, { alpha: 1, ease: Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: _this });
         } else {
             TweenLite.to(sprite, 2, { alpha: 0, ease: Power2.easeInOut });
         }
@@ -12627,21 +12627,20 @@ var intro = function intro() {
   var tl = new skylake.Timeline();
   var isObj = skylake.Is.object(tl);
 
+  Jello.toggleDistortionIn(1, Jello.changeImageInit);
+
   tl.from({ el: "#loader-line-wrap", p: { opacity: [1, 0] }, d: 400, e: 'Power4InOut' });
   Loader.lineWrap.style.display = "none";
 
   tl.from({ el: '#sail-top', p: { y: [0, -100] }, d: 1500, e: 'Power4InOut' });
   tl.from({ el: '#sail-bot', p: { y: [0, 100] }, d: 1500, e: 'Power4InOut' });
 
-  tl.from({ el: '.header', p: { opacity: [0, 1] }, d: 1200, delay: 900, e: 'Power4InOut' });
+  tl.from({ el: '.header', p: { opacity: [0, 1] }, d: 1200, e: 'Power4InOut' });
+  tl.from({ el: '#intro', p: { opacity: [0, 1] }, d: 1200, delay: 300, e: 'Power4InOut' });
+  tl.from({ el: '.tagline', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 300 });
+  tl.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 500 });
 
-  tl.from({ el: '#intro', p: { opacity: [0, 1] }, d: 1200, delay: 900, e: 'Power4InOut' });
-  tl.from({ el: '.tagline', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 1200 });
-
-  tl.from({ el: '.menu', p: { opacity: [0, 1] }, d: 1500, e: 'ExpoOut' });
-  tl.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 1500, e: 'Power4InOut', delay: 600 });
-  // start()
-  Jello.toggleDistortionIn(1, Jello.changeImageInit);
+  tl.from({ el: '.menu', p: { opacity: [0, 1] }, d: 900, e: 'ExpoOut' });
 
   tl.play();
 };
