@@ -1161,12 +1161,14 @@ Transition.next = debounce(function () {
 Transition.prev = debounce(function () {
 
     Transition.disable_scroll();
-    if (Transition.currentStep <= -1) {
-        return Transition.nextStep = 0;
-    } else {
-        Transition.nextStep = Transition.currentStep - 1;
-    }
-    Transition.currentStep = Transition.nextStep;
+    PrevNext.items = Transition.nodes.length;
+    Transition.currentStep = PrevNext.moveIndexPrevious();
+    // if (Transition.currentStep <= -1) {
+    //     return Transition.nextStep = 0
+    // } else {
+    //     Transition.nextStep = Transition.currentStep - 1
+    // }
+    // Transition.currentStep = Transition.nextStep 
 
     //for cirular array
     //Transition.nextStep = (Transition.currentStep + Transition.arr.length - 1) % Transition.arr.length
