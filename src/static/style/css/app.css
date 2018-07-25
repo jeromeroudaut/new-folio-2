@@ -1503,7 +1503,7 @@ a:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
   bottom: -5vh;
-  right: 4.2vw;
+  right: 4.7vw;
   z-index: 6000;
   fill: #f4f8fd;
   -webkit-transform: translate3d(0, 100%, 0);
@@ -1516,12 +1516,12 @@ a:hover {
   
   .icon-insta {
   margin-right: 20px;
-  width: 24px;
+  width: 16px;
   
 }
   
   .icon-twitter {
-  width: 24px;
+  width: 16px;
 
 }
   
@@ -5318,8 +5318,8 @@ a:hover {
     background: transparent;
     border-radius: 2px;
     z-index: 2;
-    -webkit-transform: translate3d(0%, 0%, 0);
-            transform: translate3d(0%, 0%, 0);
+    -webkit-transform: translate3d(0, 0%, 0);
+            transform: translate3d(0, 0%, 0);
     opacity: 0;
  }
   
