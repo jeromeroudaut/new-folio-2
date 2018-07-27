@@ -1001,8 +1001,8 @@ PrevNext.moveIndexPrevious = function () {
     if (PrevNext.items.length === 0) {
         return;
     }
-    if (PrevNext.index - 1 === -1) {
-        return PrevNext.index = -1;
+    if (PrevNext.index - 1 === 0) {
+        return PrevNext.index = 0;
     } else {
         return --PrevNext.index;
     }
@@ -1175,7 +1175,7 @@ Transition.prev = debounce(function () {
 
     // } 
 
-    if (Transition.currentStep === -1) {
+    if (Transition.currentStep === 0) {
 
         Transition.headerDown();
         Transition.pagiReset();
