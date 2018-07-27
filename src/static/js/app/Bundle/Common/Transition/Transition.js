@@ -445,6 +445,8 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 800})
+        textInit.from({el: '.header', p: {y: [0, -100]}, d: 1200, e: 'Power4InOut'})
+
         // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
 
     
