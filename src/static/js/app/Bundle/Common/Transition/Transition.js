@@ -7,9 +7,10 @@ import PrevNext from "./PrevNext.js"
 
 const Transition = {}
 
-Transition.headerVisible = !0;
 Transition.currentStep = 0
-Transition.nextStep = 0
+Transition.state = {
+    open: false
+}
 
 
 Transition.open = function() {
@@ -142,7 +143,11 @@ Transition.scrollInit()
      Transition.enable_scroll = function() {
         const body = S.Dom.body
         S.Listen(body, 'add', 'mouseWheel', Transition.headerScroll)
+        
+      }
 
+      Transition.toggleState = function() {
+        !Transition.state.open ? Transition.state.open = true : Transition.state.open = false;
       }
 
    Transition.next = debounce(function() {
@@ -218,8 +223,6 @@ Transition.scrollInit()
 
             Transition.headerDown()
             Transition.pagiReset()
-
-            return Transition.currentStep = -1
                 
         } 
 
@@ -348,7 +351,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
     }
 
     // example use
-    var div = document.querySelector('.header');
+    var div = document.querySelector('#header');
     var divOffset = offset(div);
     console.log(divOffset.top)
 
@@ -359,7 +362,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.headerUp = new S.Timeline()
         const isObj3 = S.Is.object(Transition.headerUp)
         
-        Transition.headerUp.from({el: '.header', p: {y: [0, -100]}, d: 400, e: 'ExpoOut'})
+        Transition.headerUp.from({el: '#header', p: {y: [0, -100]}, d: 400, e: 'ExpoOut'})
         Transition.headerUp.play({cb: Transition.titleInit})
 
     };
@@ -385,12 +388,14 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.headerDown.from({el: '#body-mid', p: {x: [0, -200]}, d: 600, delay: 800, e: 'Power4InOut'})
         Transition.headerDown.from({el: '#body-right', p: {x: [0, 100]}, d: 600, e: 'Power4InOut'})
 
-        Transition.headerDown.from({el: '.header', p: {y: [-100, 0]}, d: 800, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '#header', p: {y: [-100, 0]}, d: 800, e: 'Power4InOut'})
 
         Transition.headerDown.from({el: '#intro', p: {opacity: [0, 1]}, d: 400, delay: 400, e: 'Power4InOut'})
         Transition.headerDown.from({el: '.tagline', p: {y: [100, 0]}, d: 800, e: 'Power4InOut', delay: 800})
 
         Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 800, e: 'Power4InOut'})
+
+        Transition.toggleState()
 
         Transition.headerDown.play({cb: setTimeout(Transition.enable_scroll, 3000)})
 
@@ -436,7 +441,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
     Transition.titleInit = function() {
   
-        Transition.currentStep = 0
+        //Transition.currentStep = 0
 
         const textInit = new S.Timeline()
         const isObj5 = S.Is.object(textInit)
@@ -445,7 +450,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 800})
-        textInit.from({el: '.header', p: {y: [0, -100]}, d: 1200, e: 'Power4InOut'})
+        textInit.from({el: '#header', p: {y: [0, -100]}, d: 1200, e: 'Power4InOut'})
 
         // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
 
@@ -458,35 +463,33 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         textInit.from({el: Transition.arrBotTitle[1], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: Transition.arrBotTitle[2], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
     
-        textInit.from({el: Transition.arrBotRole[Transition.currentStep], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
-        textInit.from({el: Transition.arrBotAgency[Transition.currentStep], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
-        textInit.from({el: Transition.arrBotYear[Transition.currentStep], p: {y: [100, 0]}, d: 1700, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrBotRole[0], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrBotAgency[0], p: {y: [100, 0]}, d: 1500, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrBotYear[0], p: {y: [100, 0]}, d: 1700, e: 'Power4InOut'})
 
-        textInit.from({el: Transition.arr[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
-        console.log('title text')
-        textInit.from({el: Transition.arrText[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
-        textInit.from({el: Transition.arrTitle[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
+        textInit.from({el: Transition.arr[0], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrText[0], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrTitle[0], p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
 
         textInit.from({el: '#h-pagi-line', p: {x: [-110, 0], opacity: [0, 1]}, d: 2500, e: 'Power4InOut'})
         textInit.from({el: '#h-pagi-prog', p: {opacity: [0, 1]}, d: 300, e: 'Power4InOut'})
         textInit.from({el: '.icon-wrap', p: {y: [100, 0]}, d: 600, e: 'Power4InOut'})
 
-        Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
-        Transition.arrTopTitleWrap[Transition.currentStep + 1].style.height = "auto";
+        Transition.arrTopPagiWrap[1].style.height = "auto";
+        Transition.arrTopTitleWrap[1].style.height = "auto";
 
-        textInit.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {y: [-100, 0]}, d: 900, e: 'Power4InOut'})
+        textInit.from({el: Transition.arrPagiTopNo[1], p: {y: [-100, 0]}, d: 900, e: 'Power4InOut'})
 
         textInit.from({el: '#h-pagi-bottom-marker', p: {y: [100, 0]}, d: 900, e: 'Power4InOut'})
 
         textInit.from({el: '#h-pagi-progress', p: {opacity: [0, 1]}, d: 900, e: 'Power4InOut'})
         textInit.from({el: '.h-pagi-prog-no-marker', p: {y: [100, 0]}, d: 900, e: 'Power4InOut', delay: 300})
-        textInit.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 900, e: 'Power4InOut', delay: 300})
+        textInit.from({el: Transition.arrPagiProgNo[0], p: {y: [100, 0]}, d: 900, e: 'Power4InOut', delay: 300})
 
-        console.log(Transition.arrPagiProgNo)
+        console.log('hello from textInit!')
 
-        // textInit.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, delay: 400, e: 'Power4InOut'})
+        Transition.toggleState()
 
-    
         textInit.play({cb: setTimeout(Transition.enable_scroll, 3000)})
     
         };
@@ -753,7 +756,6 @@ Transition.recognitionDown = function() {
 
         Transition.next()
 
-
         // var timer
         
         // if(timer) {
@@ -1014,11 +1016,11 @@ Transition.recognitionDown = function() {
     }
     if ( delta !== null) {
     
-        if (delta < 0 && divOffset.top === 0) {
+        if (delta < 0 && divOffset.top === 0 && !Transition.state.open) {
             
             Transition.headerUp()
 
-        }  else if (delta < 0 && divOffset.top < -600) {
+        }  else if (delta < 0 && divOffset.top < -600 && Transition.state.open) {
 
             Transition.n2()
             

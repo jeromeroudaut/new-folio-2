@@ -1109,7 +1109,7 @@ $grid-width: 114rem;
   text-decoration: none;
 }
   
-  .header {
+  #header {
   z-index: 3000;
   position: absolute;
   top: 0;

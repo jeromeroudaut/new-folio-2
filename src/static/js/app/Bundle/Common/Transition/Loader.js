@@ -21,7 +21,7 @@ const intro = function() {
   tl.from({el: '#sail-top', p: {y: [0, -100]}, d: 1500, e: 'Power4InOut'})
   tl.from({el: '#sail-bot', p: {y: [0, 100]}, d: 1500, e: 'Power4InOut'})
 
-  tl.from({el: '.header', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
+  tl.from({el: '#header', p: {opacity: [0, 1]}, d: 1200, e: 'Power4InOut'})
   tl.from({el: '#intro', p: {opacity: [0, 1]}, d: 1200, delay: 300, e: 'Power4InOut'})
   tl.from({el: '.tagline', p: {y: [100, 0]}, d: 1500, e: 'Power4InOut', delay: 300})
   tl.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 500})

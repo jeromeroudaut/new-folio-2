@@ -1,5 +1,5 @@
 
-            <header class="header">
+            <header id="header">
 
                             <!-- <div id="h">
                                 <a id="h-link" href="/about">ABOUT</a>
