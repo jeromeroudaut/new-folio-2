@@ -1042,7 +1042,7 @@ Transition.open = function () {
 
     // Transition.arrPagiProgWrap = S.Geb.class('h-pagi-prog-no-wrap')
     Transition.arrPagiProgNo = skylake.Geb.class('h-pagi-prog-no');
-    Transition.nodes = Array.prototype.slice.call(document.querySelector('.h-pagi-prog-no').children), Transition.sectionTitle = skylake.Geb.class("h-section-title");
+    Transition.nodes = Array.prototype.slice.call(document.querySelector('.project').children), Transition.sectionTitle = skylake.Geb.class("h-section-title");
 
     Transition.pagiBottomMarkerWrap = skylake.Geb.id('h-pagi-bottom-marker-wrap');
     Transition.pagiLine = skylake.Geb.id('h-pagi-line');
@@ -1436,6 +1436,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         console.log('hello from textInit!');
 
         Transition.toggleState();
+        // setTimeout(Transition.next, 2000)
 
         textInit.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
     };
@@ -1719,7 +1720,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         //     Transition.textInOut.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
         // }
 
-        if (Transition.currentStep > -1 && Transition.currentStep <= 5) {
+        if (Transition.currentStep >= 0 && Transition.currentStep <= 5) {
 
             Transition.textInOut.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
                 p: { x: [0, -100] }, d: 900, e: 'Power4InOut' });
@@ -1759,7 +1760,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
                 //     Transition.textIn2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, e: 'Power4InOut'})
                 // } 
 
-                if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
+                if (Transition.currentStep >= 0 && Transition.currentStep <= 6) {
 
                     Transition.textIn2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [100, 0] }, d: 900, e: 'Power4InOut' });
 

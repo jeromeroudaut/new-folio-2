@@ -1,4 +1,15 @@
 
+            <div class="project-wrap">
+					<div class="project"></div>
+					<div class="project"></div>
+					<div class="project"></div>
+					<div class="project"></div>
+					<div class="project"></div>
+                    <div class="project"></div>
+                    <div class="project"></div>
+					<div class="project"></div>
+            </div>
+            
             <header id="header">
 
                             <!-- <div id="h">

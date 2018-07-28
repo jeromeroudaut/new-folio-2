@@ -33,7 +33,7 @@ Transition.arrBotTitleWrap = S.Geb.class('h-pagi-bottom-title-wrap')
 
 // Transition.arrPagiProgWrap = S.Geb.class('h-pagi-prog-no-wrap')
 Transition.arrPagiProgNo = S.Geb.class('h-pagi-prog-no')
-Transition.nodes = Array.prototype.slice.call( document.querySelector('.h-pagi-prog-no').children ),
+Transition.nodes = Array.prototype.slice.call( document.querySelector('.project').children ),
 
 // Transition.arrPagiProgNoMarker = S.Geb.class('h-pagi-prog-no-marker')
 
@@ -489,6 +489,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         console.log('hello from textInit!')
 
         Transition.toggleState()
+        // setTimeout(Transition.next, 2000)
 
         textInit.play({cb: setTimeout(Transition.enable_scroll, 3000)})
     
@@ -796,7 +797,7 @@ Transition.recognitionDown = function() {
         //     Transition.textInOut.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
         // }
 
-        if (Transition.currentStep > -1 && Transition.currentStep <= 5) {
+        if (Transition.currentStep >= 0 && Transition.currentStep <= 5) {
 
             Transition.textInOut.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
                 p: {x: [0, -100]}, d: 900, e: 'Power4InOut'})
@@ -843,7 +844,7 @@ Transition.recognitionDown = function() {
             //     Transition.textIn2.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [0, .3]}, d: 1200, e: 'Power4InOut'})
             // } 
 
-            if (Transition.currentStep > -1 && Transition.currentStep <= 6) {
+            if (Transition.currentStep >= 0 && Transition.currentStep <= 6) {
 
                 Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [100, 0]}, d: 900, e: 'Power4InOut'})
 
