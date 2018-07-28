@@ -25,8 +25,8 @@ PrevNext.moveIndexPrevious = function() {
         if (PrevNext.items.length === 0) {
             return;
         }
-        if (PrevNext.index - 1 === 0) {
-            return PrevNext.index = 0;
+        if (PrevNext.index - 1 === -1) {
+            return PrevNext.index = -1;
         } else {
             return --PrevNext.index;
         }
