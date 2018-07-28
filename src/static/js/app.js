@@ -1113,6 +1113,7 @@ Transition.enable_scroll = function () {
 
 Transition.toggleState = function () {
     !Transition.state.open ? Transition.state.open = true : Transition.state.open = false;
+    console.log('Transition.state: ' + Transition.state.open);
 };
 
 Transition.next = debounce(function () {
@@ -1177,8 +1178,7 @@ Transition.prev = debounce(function () {
 
     if (Transition.currentStep === 0) {
 
-        Transition.headerDown();
-        Transition.pagiReset();
+        Transition.toggleState();
     }
 
     if (Transition.currentStep === 3) {
@@ -1344,7 +1344,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         Transition.headerDown.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 800, e: 'Power4InOut' });
 
-        Transition.toggleState();
+        // Transition.toggleState()
 
         Transition.headerDown.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
     };
@@ -1920,9 +1920,14 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         } else if (delta < 0 && divOffset.top < -600 && Transition.state.open) {
 
             Transition.n2();
-        } else if (delta > 0 && divOffset.top < -600) {
+        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open) {
 
             Transition.p2();
+        } else if (delta > 0 && divOffset.top < -600 && !Transition.state.open) {
+
+            Transition.p2();
+            Transition.headerDown();
+            Transition.pagiReset();
         }
     }
 };
