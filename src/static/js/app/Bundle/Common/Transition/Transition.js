@@ -375,29 +375,45 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const isObj4 = S.Is.object(Transition.headerDown)
         const t = -1
 
+        // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
 
-        Transition.headerDown.from({el: Transition.arrBotTitle[0], p: {y: [0, 100]}, d: 300, e: 'Power4InOut'})
-        Transition.headerDown.from({el: Transition.arrBotTitle[1], p: {y: [0, 100]}, d: 300, e: 'Power4InOut'})
-        Transition.headerDown.from({el: Transition.arrBotTitle[2], p: {y: [0, 100]}, d: 300, e: 'Power4InOut'})
-        
-        Transition.headerDown.from({el: '.icon-wrap', p: {y: [0, 100]}, d: 800, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '#body-mid', p: {x: [0, -200]}, d: 900, e: 'Power4InOut', delay: 1000})
+        Transition.headerDown.from({el: '#body-right', p: {x: [0, 100]}, d: 900, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '#body-mid-line', p: {x: [0, -100], opacity: [0, .15]}, d: 900, e: 'Power4InOut', delay: 400})
 
-        //Transition.headerDown.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 800, e: 'Power4InOut'})
-        //Transition.headerDown.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
+        Transition.headerDown.from({el: Transition.arrBotTitle[0], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
+        Transition.headerDown.from({el: Transition.arrBotTitle[1], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
+        Transition.headerDown.from({el: Transition.arrBotTitle[2], p: {y: [0, 100]}, d: 1500, e: 'Power4InOut'})
+    
+        Transition.headerDown.from({el: Transition.arrBotRole[0], p: {y: [0, 100]}, d: 1500, e: 'Power4InOut'})
+        Transition.headerDown.from({el: Transition.arrBotAgency[0], p: {y: [0, 100]}, d: 1500, e: 'Power4InOut'})
+        Transition.headerDown.from({el: Transition.arrBotYear[0], p: {y: [0, 100]}, d: 1700, e: 'Power4InOut'})
 
-        Transition.headerDown.from({el: '#body-mid-line', p: {y: [0, -100], opacity: [.15, 0]}, d: 600, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '#body-mid', p: {x: [0, -200]}, d: 600, delay: 800, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '#body-right', p: {x: [0, 100]}, d: 600, e: 'Power4InOut'})
+        Transition.headerDown.from({el: Transition.arr[0], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
+        Transition.headerDown.from({el: Transition.arrText[0], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
+        Transition.headerDown.from({el: Transition.arrTitle[0], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
 
-        Transition.headerDown.from({el: '#header', p: {y: [-100, 0]}, d: 800, e: 'Power4InOut'})
+        // Transition.headerDown.from({el: '#h-pagi-line', p: {x: [0, -110], opacity: [0, 1]}, d: 2500, e: 'Power4InOut'})
+        // Transition.headerDown.from({el: '#h-pagi-prog', p: {opacity: [1, 0]}, d: 300, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '.icon-wrap', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
 
-        Transition.headerDown.from({el: '#intro', p: {opacity: [0, 1]}, d: 400, delay: 400, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '.tagline', p: {y: [100, 0]}, d: 800, e: 'Power4InOut', delay: 800})
+        // Transition.arrTopPagiWrap[1].style.height = "auto";
+        // Transition.arrTopTitleWrap[1].style.height = "auto";
 
-        Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 800, e: 'Power4InOut'})
+        Transition.headerDown.from({el: Transition.arrPagiTopNo[1], p: {y: [0, -100]}, d: 900, e: 'Power4InOut'})
+
+        Transition.headerDown.from({el: '#h-pagi-bottom-marker', p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
+
+        Transition.headerDown.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 900, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '.h-pagi-prog-no-marker', p: {y: [0, 100]}, d: 900, e: 'Power4InOut', delay: 300})
+        Transition.headerDown.from({el: Transition.arrPagiProgNo[2], p: {y: [0, 100]}, d: 900, e: 'Power4InOut', delay: 300})
+
+        Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
+        Transition.headerDown.from({el: '.tagline', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 800})
+        Transition.headerDown.from({el: '#header', p: {y: [-100, 0]}, d: 1200, e: 'Power4InOut'})
 
         // Transition.toggleState()
-
+        console.log('hello from headerDown!')
         Transition.headerDown.play({cb: setTimeout(Transition.enable_scroll, 3000)})
 
     };
@@ -1034,7 +1050,7 @@ Transition.recognitionDown = function() {
 
         } else if (delta > 0 && divOffset.top < -600 && !Transition.state.open) {
 
-            Transition.p2()
+            // Transition.p2()
             Transition.headerDown()
             Transition.pagiReset()
 
