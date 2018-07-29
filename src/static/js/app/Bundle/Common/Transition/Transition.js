@@ -8,11 +8,29 @@ import PrevNext from "./PrevNext.js"
 const Transition = {}
 
 Transition.currentStep = 0
+
 Transition.state = {
     open: false,
-    change: true
-}
+    change: true,
 
+    // save initial values
+    init: function() {
+        var origValues = {};
+        for (var prop in this) {
+            if (this.hasOwnProperty(prop) && prop != "origValues") {
+                origValues[prop] = this[prop];
+            }
+        }
+        this.origValues = origValues;
+    },
+
+    // restore initial values
+    reset: function() {
+        for (var prop in this.origValues) {
+            this[prop] = this.origValues[prop];
+        }
+    }
+}
 
 Transition.open = function() {
 
@@ -54,7 +72,7 @@ const isObj = S.Is.object(Transition.intro)
 // const isObj2 = S.Is.object(Transition.outro)
 // Transition.outro.from({el: '#sail', p: {y: [100, -100]}, d: 5000, e: 'Power4InOut'})
 
-
+Transition.state.init()
 Transition.scrollInit()
 }
 
@@ -152,8 +170,10 @@ Transition.scrollInit()
         console.log('Transition.state: ' + Transition.state.open)
       }
 
-      Transition.toggleChangePage = function() {
+      Transition.toggleChangePage = function(callback) {
         Transition.state.change ? Transition.state.change = false : Transition.state.change = true;
+        if(typeof callback == "function") 
+        callback();
         console.log('Transition.change: ' + Transition.state.change)
       }
 
@@ -169,7 +189,8 @@ Transition.scrollInit()
 
         if (Transition.currentStep === 1) {
 
-            //Transition.imgReset()
+            Transition.toggleChangePage()        
+        
         } 
 
         if (Transition.currentStep === 4) {
@@ -230,6 +251,7 @@ Transition.scrollInit()
         if (Transition.currentStep === 0) {
 
             Transition.toggleState()
+            Transition.toggleChangePage()        
 
                 
         } 
@@ -411,6 +433,8 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         Transition.headerDown.from({el: Transition.arrPagiTopNo[1], p: {y: [0, -100]}, d: 900, e: 'Power4InOut'})
 
+        Transition.headerDown.from({el: '#h-pagi-line', p: {x: [0, 100]}, d: 1200, e: 'Power4InOut'})
+
         Transition.headerDown.from({el: '#h-pagi-bottom-marker', p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
 
         Transition.headerDown.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 900, e: 'Power4InOut'})
@@ -421,7 +445,9 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.headerDown.from({el: '.tagline', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 800})
         Transition.headerDown.from({el: '#header', p: {y: [-100, 0]}, d: 1200, e: 'Power4InOut'})
 
-        Transition.toggleChangePage()
+        //Transition.toggleChangePage()
+        // Transition.toggleState()
+        Transition.state.reset()
 
         console.log('hello from headerDown!')
         Transition.headerDown.play({cb: setTimeout(Transition.enable_scroll, 3000)})
@@ -516,6 +542,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         console.log('hello from textInit!')
 
         Transition.toggleChangePage()
+        Transition.toggleState()
         // setTimeout(Transition.next, 2000)
 
         textInit.play({cb: setTimeout(Transition.enable_scroll, 3000)})
@@ -1042,7 +1069,7 @@ Transition.recognitionDown = function() {
     } else if ( event.detail ) { // fallback for Firefox
         delta = -event.detail / 2;
     }
-    if ( delta !== null) {
+    if ( delta !== null ) {
     
         if (delta < 0 && divOffset.top === 0 && !Transition.state.open) {
             
@@ -1053,19 +1080,17 @@ Transition.recognitionDown = function() {
             Transition.n2()
             
             
-        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open) {
-
-            Transition.p2()
-
-
         } else if (delta > 0 && divOffset.top < -600 && !Transition.state.change) {
 
             // Transition.p2()
             Transition.headerDown()
-            Transition.pagiReset()
+            //Transition.pagiReset()
 
+        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open) {
 
-        }
+            Transition.p2()
+
+        } 
 
     }
 }
