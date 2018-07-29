@@ -9,7 +9,8 @@ const Transition = {}
 
 Transition.currentStep = 0
 Transition.state = {
-    open: false
+    open: false,
+    change: true
 }
 
 
@@ -151,6 +152,11 @@ Transition.scrollInit()
         console.log('Transition.state: ' + Transition.state.open)
       }
 
+      Transition.toggleChangePage = function() {
+        Transition.state.change ? Transition.state.change = false : Transition.state.change = true;
+        console.log('Transition.change: ' + Transition.state.change)
+      }
+
    Transition.next = debounce(function() {
  
         Transition.disable_scroll() 
@@ -224,6 +230,7 @@ Transition.scrollInit()
         if (Transition.currentStep === 0) {
 
             Transition.toggleState()
+
                 
         } 
 
@@ -375,6 +382,8 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const isObj4 = S.Is.object(Transition.headerDown)
         const t = -1
 
+        Jello.toggleDistortionIn(1, Jello.changeImagePrv(0))
+
         // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
 
         Transition.headerDown.from({el: '#body-mid', p: {x: [0, -200]}, d: 900, e: 'Power4InOut', delay: 1000})
@@ -412,7 +421,8 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.headerDown.from({el: '.tagline', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 800})
         Transition.headerDown.from({el: '#header', p: {y: [-100, 0]}, d: 1200, e: 'Power4InOut'})
 
-        // Transition.toggleState()
+        Transition.toggleChangePage()
+
         console.log('hello from headerDown!')
         Transition.headerDown.play({cb: setTimeout(Transition.enable_scroll, 3000)})
 
@@ -505,7 +515,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         console.log('hello from textInit!')
 
-        Transition.toggleState()
+        Transition.toggleChangePage()
         // setTimeout(Transition.next, 2000)
 
         textInit.play({cb: setTimeout(Transition.enable_scroll, 3000)})
@@ -1048,7 +1058,7 @@ Transition.recognitionDown = function() {
             Transition.p2()
 
 
-        } else if (delta > 0 && divOffset.top < -600 && !Transition.state.open) {
+        } else if (delta > 0 && divOffset.top < -600 && !Transition.state.change) {
 
             // Transition.p2()
             Transition.headerDown()
