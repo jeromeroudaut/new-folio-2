@@ -1899,7 +1899,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
             Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 800 });
         }
 
-        if (Transition.currentStep === 7) {
+        if (Transition.currentStep >= 7) {
 
             Transition.textOutIn.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
                 p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
@@ -1947,7 +1947,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
                     Transition.pagiLine.style.background = "";
                 }
 
-                if (Transition.currentStep === 6) {
+                if (Transition.currentStep >= 6) {
 
                     Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
 
