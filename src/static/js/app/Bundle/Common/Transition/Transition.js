@@ -971,7 +971,7 @@ Transition.recognitionDown = function() {
             
         } 
         
-        Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 100]}, d: 900, e: 'Power4InOut'})
+        // Transition.textOutIn.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 100]}, d: 900, e: 'Power4InOut'})
 
         // if (Transition.currentStep < 4) {
         //     Transition.textOutIn.from({el: "#h-img-" + Transition.currentStep, p: {opacity: [.3, 0]}, d: 1200, e: 'Power4InOut'})
