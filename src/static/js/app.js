@@ -1392,7 +1392,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         Transition.headerDown.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 900, e: 'Power4InOut' });
         Transition.headerDown.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 300 });
-        Transition.headerDown.from({ el: Transition.arrPagiProgNo[2], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 300 });
+        Transition.headerDown.from({ el: Transition.arrPagiProgNo[0], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 300 });
 
         Transition.headerDown.from({ el: '.scroll-icon', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
         Transition.headerDown.from({ el: '.tagline', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 800 });
@@ -1488,7 +1488,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         textInit.from({ el: '#h-pagi-progress', p: { opacity: [0, 1] }, d: 900, e: 'Power4InOut' });
         textInit.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 900, e: 'Power4InOut', delay: 300 });
-        textInit.from({ el: Transition.arrPagiProgNo[2], p: { y: [100, 0] }, d: 900, e: 'Power4InOut', delay: 300 });
+        textInit.from({ el: Transition.arrPagiProgNo[0], p: { y: [100, 0] }, d: 900, e: 'Power4InOut', delay: 300 });
 
         console.log('hello from textInit!');
 
@@ -1785,7 +1785,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
             Transition.textInOut.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 800, e: 'Power4InOut' });
 
-            Transition.textInOut.from({ el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 800 });
+            Transition.textInOut.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 800 });
         } else if (Transition.currentStep >= 6) {
 
             Transition.textInOut.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1],
@@ -1826,13 +1826,16 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
                     Transition.textIn2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
 
-                    Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 150 });
-                } else if (Transition.currentStep >= 7) {
-
-                    Transition.textIn2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
-
-                    Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+                    Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 150 });
                 }
+                // else if (Transition.currentStep >= 6) {
+
+                //     Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 0]}, d: 800, e: 'Power4InOut'})
+
+                //     Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: {y: [0, 0]}, d: 800, e: 'Power4InOut'})
+
+                // } 
+
 
                 if (Transition.currentStep <= 6) {
                     Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
@@ -1893,7 +1896,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
             Transition.textOutIn.from({ el: '#h-pagi-progress', p: { opacity: [1, 0] }, d: 800, e: 'Power4InOut' });
 
-            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 800 });
+            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 100] }, d: 900, e: 'Power4InOut', delay: 800 });
         }
 
         if (Transition.currentStep >= 7) {
@@ -1905,7 +1908,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
             Transition.textOutIn.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
 
-            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+            Transition.textOutIn.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
         }
 
         Transition.textOutIn.play({ cbDelay: 300, cb: function cb() {
@@ -1935,7 +1938,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
                     Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
 
-                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 150 });
+                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 150 });
                 }
 
                 if (Transition.currentStep < 4 && Transition.currentStep > -1) {
@@ -1948,7 +1951,7 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
                     Transition.textOut2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
 
-                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
+                    Transition.textOut2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
 
                     Transition.textOut2.from({ el: '.h-pagi-prog-no-marker', p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
 
