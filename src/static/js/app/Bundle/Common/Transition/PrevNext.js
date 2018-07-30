@@ -8,7 +8,7 @@ import S from 'skylake'
 const PrevNext = {}
 // PrevNext.items = 0
 PrevNext.index = 0
-PrevNext.limit = 6
+PrevNext.limit = 7
 
 PrevNext.moveIndexNext = function() {
         if (PrevNext.items.length === 0) {

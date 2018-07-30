@@ -984,7 +984,7 @@ Jello.initialize();
 var PrevNext = {};
 // PrevNext.items = 0
 PrevNext.index = 0;
-PrevNext.limit = 6;
+PrevNext.limit = 7;
 
 PrevNext.moveIndexNext = function () {
     if (PrevNext.items.length === 0) {
@@ -1827,15 +1827,12 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
                     Transition.textIn2.from({ el: '.h-pagi-prog-no-marker', p: { y: [100, 0] }, d: 1200, e: 'Power4InOut' });
 
                     Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep], p: { y: [100, 0] }, d: 1200, e: 'Power4InOut', delay: 150 });
+                } else if (Transition.currentStep >= 7) {
+
+                    Transition.textIn2.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { x: [0, 0] }, d: 800, e: 'Power4InOut' });
+
+                    Transition.textIn2.from({ el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: { y: [0, 0] }, d: 800, e: 'Power4InOut' });
                 }
-                // else if (Transition.currentStep >= 6) {
-
-                //     Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 0]}, d: 800, e: 'Power4InOut'})
-
-                //     Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: {y: [0, 0]}, d: 800, e: 'Power4InOut'})
-
-                // } 
-
 
                 if (Transition.currentStep <= 6) {
                     Transition.arrTopPagiWrap[Transition.currentStep + 1].style.height = "auto";
