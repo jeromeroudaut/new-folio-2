@@ -984,13 +984,14 @@ Jello.initialize();
 var PrevNext = {};
 // PrevNext.items = 0
 PrevNext.index = 0;
+PrevNext.limit = 6;
 
 PrevNext.moveIndexNext = function () {
     if (PrevNext.items.length === 0) {
         return;
     }
-    if (PrevNext.index + 1 === PrevNext.items.length) {
-        return PrevNext.index = 0;
+    if (PrevNext.index + 1 === PrevNext.limit) {
+        return PrevNext.limit;
     } else {
         return ++PrevNext.index;
     }
