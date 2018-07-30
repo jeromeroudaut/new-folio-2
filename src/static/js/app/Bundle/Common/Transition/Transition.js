@@ -210,16 +210,10 @@ Transition.scrollInit()
 
             console.log('index 6 socialUp')
             Transition.socialUp()
-            //Transition.pagiFadeOut()
             
             
         } 
 
-        // if (Transition.currentStep >= 7) {
-
-        //     return Transition.currentStep = 7
-                
-        // } 
 
         return Transition.currentStep
         
@@ -235,22 +229,10 @@ Transition.scrollInit()
         console.log('scrolling up - prevItem')        
         console.log('currentStep: ' + Transition.currentStep)
 
-        // if (Transition.currentStep === -1) {
-
-        //     console.log('index 0 header down')
-
-        //     Transition.headerDown()
-
-        // } 
-
-        // if (Transition.currentStep === -1) {
-
-
-        // } 
 
         if (Transition.currentStep === 0) {
 
-            Transition.toggleState()
+            //Transition.toggleState()
             Transition.toggleChangePage()        
 
                 
@@ -1041,7 +1023,7 @@ Transition.recognitionDown = function() {
     }
     if ( delta !== null ) {
     
-        if (delta < 0 && divOffset.top === 0 && !Transition.state.open) {
+        if (delta < 0 && divOffset.top === 0 && Transition.state.change) {
             
             Transition.headerUp()
 
@@ -1049,12 +1031,9 @@ Transition.recognitionDown = function() {
 
             Transition.n2()
             
-            
         } else if (delta > 0 && divOffset.top < -600 && !Transition.state.change) {
 
-            // Transition.p2()
             Transition.headerDown()
-            //Transition.pagiReset()
 
         } else if (delta > 0 && divOffset.top < -600 && Transition.state.open) {
 
