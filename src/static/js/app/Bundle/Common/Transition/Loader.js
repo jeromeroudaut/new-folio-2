@@ -13,7 +13,7 @@ const intro = function() {
   const tl = new S.Timeline()
   const isObj = S.Is.object(tl)
 
-  Jello.toggleDistortionIn(1, Jello.changeImageInit)
+  Jello.toggleDistortionIn(1, Jello.changeImageInit(0))
 
   tl.from({el: "#loader-line-wrap", p: { opacity: [1, 0]}, d: 400, e: 'Power4InOut'})
   Loader.lineWrap.style.display = "none";

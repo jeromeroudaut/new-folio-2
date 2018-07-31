@@ -286,14 +286,14 @@ import S from 'skylake'
     // An array of images for background (.jpg)
     // They'll transition in the order listed below
     Jello.bgArray.push(
+      'image-0',
       'image-1',
       'image-2',
       'image-3',
       'image-4',
       'image-5',
       'image-6',
-      'image-7',
-      'image-8'
+      'image-7'
     );
 
     // An array of displacement maps

@@ -180,7 +180,7 @@ Transition.scrollInit()
    Transition.next = debounce(function() {
  
         Transition.disable_scroll() 
-        PrevNext.items = Transition.nodes.length
+        PrevNext.items = Transition.nodes.length - 1
         Transition.currentStep = PrevNext.moveIndexNext()
         
         console.log('scrolling down - nextItem')        
@@ -223,7 +223,7 @@ Transition.scrollInit()
     Transition.prev = debounce(function() {
 
         Transition.disable_scroll()
-        PrevNext.items = Transition.nodes.length
+        PrevNext.items = Transition.nodes.length - 1
         Transition.currentStep = PrevNext.moveIndexPrevious()
 
         console.log('scrolling up - prevItem')        
@@ -271,7 +271,7 @@ Transition.scrollInit()
         
     }, 250);
 
-    Jello.changeImageInit = function() {
+    Jello.changeImageInit = function(currenti) {
         // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
         //   Jello.imageCounter++;
         // } else {
@@ -280,7 +280,7 @@ Transition.scrollInit()
     
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
-          if(i === Jello.imageCounter) {
+          if(i === currenti) {
             TweenLite.to(sprite, 3, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
           } else {
             TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
@@ -288,6 +288,44 @@ Transition.scrollInit()
         });
       }
     
+      Jello.changeImageTextInit = function(currenti) {
+        // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+        //   Jello.imageCounter++;
+        // } else {
+        //   Jello.imageCounter = 0;
+        // }
+
+        // Jello.imageCounter = currenti
+        console.log('changeImageTextInit currenti is: ' + currenti)
+        Jello.bgSpriteArray.map((sprite, i, callback) => {
+    
+          if(i === currenti) {
+            TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
+          } else {
+            TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
+          }
+        });
+      }  
+
+      Jello.changeImageHeaderDown = function(currenti) {
+        // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
+        //   Jello.imageCounter++;
+        // } else {
+        //   Jello.imageCounter = 0;
+        // }
+
+        // Jello.imageCounter = currenti
+        console.log('changeImageHeaderDown currenti is: ' + currenti)
+        Jello.bgSpriteArray.map((sprite, i, callback) => {
+    
+          if(i === currenti) {
+            TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
+          } else {
+            TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
+          }
+        });
+      }  
+
     Jello.changeImageNxt = function(currenti) {
         // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
         //   Jello.imageCounter++;
@@ -296,10 +334,10 @@ Transition.scrollInit()
         // }
 
         // Jello.imageCounter = currenti
-    
+        console.log('changeImageNxt currenti is: ' + currenti)
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
-          if(i === currenti) {
+          if(i === (currenti + 1)) {
             TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
           } else {
             TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
@@ -315,10 +353,10 @@ Transition.scrollInit()
         // }
 
         // Jello.imageCounter = currenti
-    
+        console.log('changeImagePrv currenti is: ' + currenti)
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
-            if(i === currenti) {
+            if(i === (currenti - 1)) {
               TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
             } else {
               TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
@@ -391,7 +429,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const isObj4 = S.Is.object(Transition.headerDown)
         const t = -1
 
-        Jello.toggleDistortionIn(1, Jello.changeImagePrv(0))
+        Jello.toggleDistortionIn(1, Jello.changeImageHeaderDown(0))
 
         // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
 
@@ -486,7 +524,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         const textInit = new S.Timeline()
         const isObj5 = S.Is.object(textInit)
     
-        Jello.toggleDistortionIn(1, Jello.changeImageNxt(1))
+        Jello.toggleDistortionIn(1, Jello.changeImageTextInit(1))
 
         textInit.from({el: '.scroll-icon', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
         textInit.from({el: '.tagline', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 800})
@@ -848,16 +886,17 @@ Transition.recognitionDown = function() {
         
             Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 900, e: 'Power4InOut', delay: 800})
         
-        } else if (Transition.currentStep >= 6) {
-
-            Transition.textInOut.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
-                p: {x: [0, 0]}, d: 900, e: 'Power4InOut'})
-
-            Transition.textInOut.from({el: '#h-pagi-progress', p: {opacity: [1, 1]}, d: 800, e: 'Power4InOut'})
-    
-            Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}, d: 900, e: 'Power4InOut'})
-
         } 
+        // else if (Transition.currentStep >= 6) {
+
+        //     Transition.textInOut.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], 
+        //         p: {x: [0, 0]}, d: 900, e: 'Power4InOut'})
+
+        //     Transition.textInOut.from({el: '#h-pagi-progress', p: {opacity: [1, 1]}, d: 800, e: 'Power4InOut'})
+    
+        //     Transition.textInOut.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 0]}, d: 900, e: 'Power4InOut'})
+
+        // } 
 
 
         if (Transition.currentStep <= 6) {
@@ -897,13 +936,15 @@ Transition.recognitionDown = function() {
                 Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 150})
 
             
-            } else if (Transition.currentStep >= 7) {
-
-                Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 0]}, d: 800, e: 'Power4InOut'})
-
-                Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: {y: [0, 0]}, d: 800, e: 'Power4InOut'})
-
             } 
+            
+            // else if (Transition.currentStep >= 7) {
+
+            //     Transition.textIn2.from({el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: {x: [0, 0]}, d: 800, e: 'Power4InOut'})
+
+            //     Transition.textIn2.from({el: Transition.arrPagiProgNo[Transition.currentStep + 2], p: {y: [0, 0]}, d: 800, e: 'Power4InOut'})
+
+            // } 
 
 
             if (Transition.currentStep <= 6) {
