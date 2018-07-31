@@ -1024,6 +1024,7 @@ Transition.currentStep = 0;
 Transition.state = {
     open: false,
     change: true,
+    header: false,
 
     // save initial values
     init: function init() {
@@ -1904,19 +1905,19 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         if (delta < 0 && divOffset.top === 0 && Transition.state.change) {
 
-            Transition.headerUp();
+            Transition.headerUp(); //headerUp calls back textInit
         } else if (delta < 0 && divOffset.top < -600 && Transition.state.open) {
 
-            Transition.n2();
-        } else if (delta > 0 && divOffset.top < -600 && !Transition.state.change) {
+            Transition.n2(); //scroll next
+        } else if (delta > 0 && divOffset.top < -600 && !Transition.state.change && !Transition.state.header) {
 
-            Transition.headerDown();
+            Transition.headerDown(); //turns off Transition.p2, and headerDown from section 2
         } else if (delta > 0 && divOffset.top < -600 && Transition.state.open) {
 
-            Transition.p2();
+            Transition.p2(); //scroll prev
         } else if (delta > 0 && divOffset.top < -600 && !Transition.state.open && PrevNext.limit) {
 
-            Transition.p2();
+            Transition.p2(); //scroll prev from section 8 backstop
         }
     }
 };
