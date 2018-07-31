@@ -1226,12 +1226,6 @@ Transition.prev = debounce(function () {
 Jello.changeImageInit = function (currenti) {
     var _this = this;
 
-    // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-    //   Jello.imageCounter++;
-    // } else {
-    //   Jello.imageCounter = 0;
-    // }
-
     Jello.bgSpriteArray.map(function (sprite, i, callback) {
 
         if (i === currenti) {
@@ -1244,12 +1238,6 @@ Jello.changeImageInit = function (currenti) {
 
 Jello.changeImageTextInit = function (currenti) {
     var _this2 = this;
-
-    // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-    //   Jello.imageCounter++;
-    // } else {
-    //   Jello.imageCounter = 0;
-    // }
 
     // Jello.imageCounter = currenti
     console.log('changeImageTextInit currenti is: ' + currenti);
@@ -1266,12 +1254,6 @@ Jello.changeImageTextInit = function (currenti) {
 Jello.changeImageHeaderDown = function (currenti) {
     var _this3 = this;
 
-    // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-    //   Jello.imageCounter++;
-    // } else {
-    //   Jello.imageCounter = 0;
-    // }
-
     // Jello.imageCounter = currenti
     console.log('changeImageHeaderDown currenti is: ' + currenti);
     Jello.bgSpriteArray.map(function (sprite, i, callback) {
@@ -1286,12 +1268,6 @@ Jello.changeImageHeaderDown = function (currenti) {
 
 Jello.changeImageNxt = function (currenti) {
     var _this4 = this;
-
-    // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-    //   Jello.imageCounter++;
-    // } else {
-    //   Jello.imageCounter = 0;
-    // }
 
     // Jello.imageCounter = currenti
     console.log('changeImageNxt currenti is: ' + currenti);
@@ -1308,12 +1284,6 @@ Jello.changeImageNxt = function (currenti) {
 Jello.changeImagePrv = function (currenti) {
     var _this5 = this;
 
-    // if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-    //   Jello.imageCounter++;
-    // } else {
-    //   Jello.imageCounter = 0;
-    // }
-
     // Jello.imageCounter = currenti
     console.log('changeImagePrv currenti is: ' + currenti);
     Jello.bgSpriteArray.map(function (sprite, i, callback) {
@@ -1327,7 +1297,7 @@ Jello.changeImagePrv = function (currenti) {
 };
 
 Jello.toggleDistortionIn = function (dis, callback) {
-    //if(!Jello.isDistorted) {
+
     if (!dis) {
         Jello.distortionLevel(1);
     }
@@ -1336,11 +1306,10 @@ Jello.toggleDistortionIn = function (dis, callback) {
     console.log('distortion in');
 
     if (typeof callback == "function") callback();
-    //} 
 };
 
 Jello.toggleDistortionOut = function (dis, callback) {
-    //if(Jello.isDistorted) {
+
     if (!dis) {
         Jello.distortionLevel(0);
     }
@@ -1348,7 +1317,6 @@ Jello.toggleDistortionOut = function (dis, callback) {
     Jello.isDistorted = false;
     console.log('distortion out');
     if (typeof callback == "function") callback();
-    //} 
 };
 
 Transition.headerScroll = function (currentScrollY, delta, event) {
@@ -1441,11 +1409,6 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         pagiReset.from({ el: '#h-pagi-line', p: { x: [0, 100] }, d: 1200, e: 'Power4InOut' });
         pagiReset.from({ el: Transition.arrPagiTopNo[Transition.currentStep + 1], p: { y: [0, 100] }, d: 1200, e: 'Power4InOut' });
         pagiReset.from({ el: '#h-pagi-bottom-marker', p: { y: [0, -100] }, d: 1200, e: 'Power4InOut' });
-
-        // pagiReset.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
-        // pagiReset.from({el: Transition.arrPagiProgNo[Transition.currentStep], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 300})
-        // pagiReset.from({el: '.h-pagi-prog-no-marker', p: {y: [0, 100]}, d: 1200, e: 'Power4InOut', delay: 300})
-
 
         pagiReset.play();
     };
