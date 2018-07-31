@@ -315,10 +315,10 @@ Transition.scrollInit()
     Jello.changeImageNxt = function(currenti) {
 
         // Jello.imageCounter = currenti
-        console.log('changeImageNxt currenti is: ' + currenti)
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
           if(i === (currenti + 1)) {
+            console.log('changeImageNxt currenti is: ' + currenti)
             TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
           } else {
             TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
@@ -329,10 +329,10 @@ Transition.scrollInit()
       Jello.changeImagePrv = function(currenti) {
 
         // Jello.imageCounter = currenti
-        console.log('changeImagePrv currenti is: ' + currenti)
         Jello.bgSpriteArray.map((sprite, i, callback) => {
     
             if(i === (currenti - 1)) {
+            console.log('changeImagePrv currenti is: ' + currenti)
               TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
             } else {
               TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
@@ -411,7 +411,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         Transition.headerDown.from({el: '#body-mid', p: {x: [0, -200]}, d: 900, e: 'Power4InOut', delay: 1000})
         Transition.headerDown.from({el: '#body-right', p: {x: [0, 100]}, d: 900, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '#body-mid-line', p: {x: [0, -100], opacity: [0, .15]}, d: 900, e: 'Power4InOut', delay: 400})
+        Transition.headerDown.from({el: '#body-mid-line', p: {x: [0, -100], opacity: [.15, 0]}, d: 900, e: 'Power4InOut', delay: 400})
 
         Transition.headerDown.from({el: Transition.arrBotTitle[0], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
         Transition.headerDown.from({el: Transition.arrBotTitle[1], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
