@@ -409,9 +409,11 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         // textInit.from({el: '#intro', p: {opacity: [1, 0]}, d: 1200, e: 'Power4InOut'})
 
-        Transition.headerDown.from({el: '#body-mid', p: {x: [0, -200]}, d: 900, e: 'Power4InOut', delay: 1000})
-        Transition.headerDown.from({el: '#body-right', p: {x: [0, 100]}, d: 900, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '#body-mid-line', p: {x: [0, -100], opacity: [.15, 0]}, d: 900, e: 'Power4InOut', delay: 400})
+        Transition.headerDown.from({el: Transition.arrPagiTopNo[1], p: {y: [0, -100]}, d: 900, e: 'Power4InOut'})
+
+        Transition.headerDown.from({el: '#h-pagi-line', p: {x: [0, 100]}, d: 1200, e: 'Power4InOut'})
+
+        Transition.headerDown.from({el: '#h-pagi-bottom-marker', p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
 
         Transition.headerDown.from({el: Transition.arrBotTitle[0], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
         Transition.headerDown.from({el: Transition.arrBotTitle[1], p: {y: [0, 100]}, d: 1200, e: 'Power4InOut'})
@@ -425,6 +427,15 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         Transition.headerDown.from({el: Transition.arrText[0], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
         Transition.headerDown.from({el: Transition.arrTitle[0], p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
 
+        Transition.headerDown.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 900, e: 'Power4InOut'})
+        // Transition.headerDown.from({el: '.h-pagi-prog-no-marker', p: {y: [0, 100]}, d: 900, e: 'Power4InOut', delay: 300})
+        Transition.headerDown.from({el: Transition.arrPagiProgNo[0], p: {y: [0, 100]}, d: 900, e: 'Power4InOut', delay: 900})
+
+        Transition.headerDown.from({el: '#body-mid-line', p: {x: [0, -100], opacity: [.15, 0]}, d: 900, e: 'Power4InOut', delay: 400})
+        Transition.headerDown.from({el: '#body-mid', p: {x: [0, -200]}, d: 900, e: 'Power4InOut', delay: 1000})
+        Transition.headerDown.from({el: '#body-right', p: {x: [0, 100]}, d: 900, e: 'Power4InOut'})
+
+
         // Transition.headerDown.from({el: '#h-pagi-line', p: {x: [0, -110], opacity: [0, 1]}, d: 2500, e: 'Power4InOut'})
         // Transition.headerDown.from({el: '#h-pagi-prog', p: {opacity: [1, 0]}, d: 300, e: 'Power4InOut'})
         Transition.headerDown.from({el: '.icon-wrap', p: {y: [0, 100]}, d: 600, e: 'Power4InOut'})
@@ -432,15 +443,6 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
         // Transition.arrTopPagiWrap[1].style.height = "auto";
         // Transition.arrTopTitleWrap[1].style.height = "auto";
 
-        Transition.headerDown.from({el: Transition.arrPagiTopNo[1], p: {y: [0, -100]}, d: 900, e: 'Power4InOut'})
-
-        Transition.headerDown.from({el: '#h-pagi-line', p: {x: [0, 100]}, d: 1200, e: 'Power4InOut'})
-
-        Transition.headerDown.from({el: '#h-pagi-bottom-marker', p: {y: [0, 100]}, d: 900, e: 'Power4InOut'})
-
-        Transition.headerDown.from({el: '#h-pagi-progress', p: {opacity: [1, 0]}, d: 900, e: 'Power4InOut'})
-        Transition.headerDown.from({el: '.h-pagi-prog-no-marker', p: {y: [0, 100]}, d: 900, e: 'Power4InOut', delay: 300})
-        Transition.headerDown.from({el: Transition.arrPagiProgNo[0], p: {y: [0, 100]}, d: 900, e: 'Power4InOut', delay: 300})
 
         Transition.headerDown.from({el: '.scroll-icon', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut'})
         Transition.headerDown.from({el: '.tagline', p: {y: [100, 0]}, d: 1200, e: 'Power4InOut', delay: 800})
@@ -1027,7 +1029,7 @@ Transition.recognitionDown = function() {
 
             Transition.headerDown() //turns off Transition.p2, and headerDown from section 2
 
-        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open) {
+        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open && Transition.currentStep > 0) {
 
             Transition.p2() //scroll prev
 
