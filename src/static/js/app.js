@@ -1191,7 +1191,7 @@ Transition.prev = debounce(function () {
 
     if (Transition.currentStep === 0) {
 
-        //Transition.toggleState()
+        Transition.toggleState();
         Transition.toggleChangePage();
     }
 
@@ -1917,13 +1917,13 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         if (delta < 0 && divOffset.top === 0 && Transition.state.change) {
 
             Transition.headerUp(); //headerUp calls back textInit
-        } else if (delta < 0 && divOffset.top < -600 && Transition.state.open && Transition.currentStep >= 0) {
+        } else if (delta < 0 && divOffset.top < -600 && Transition.state.open) {
 
             Transition.n2(); //scroll next
         } else if (delta > 0 && divOffset.top < -600 && !Transition.state.change && !Transition.state.header) {
 
             Transition.headerDown(); //turns off Transition.p2, and headerDown from section 2
-        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open && Transition.currentStep > 0) {
+        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open && Transition.currentStep >= 1) {
 
             Transition.p2(); //scroll prev
         } else if (delta > 0 && divOffset.top < -600 && !Transition.state.open && PrevNext.limit) {

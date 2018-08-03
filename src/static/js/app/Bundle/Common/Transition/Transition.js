@@ -233,7 +233,7 @@ Transition.scrollInit()
 
         if (Transition.currentStep === 0) {
 
-            //Transition.toggleState()
+            Transition.toggleState()
             Transition.toggleChangePage()        
 
                 
@@ -1021,7 +1021,7 @@ Transition.recognitionDown = function() {
             
             Transition.headerUp() //headerUp calls back textInit
 
-        }  else if (delta < 0 && divOffset.top < -600 && Transition.state.open && Transition.currentStep >= 0) {
+        }  else if (delta < 0 && divOffset.top < -600 && Transition.state.open) {
 
             Transition.n2() //scroll next
             
@@ -1029,7 +1029,7 @@ Transition.recognitionDown = function() {
 
             Transition.headerDown() //turns off Transition.p2, and headerDown from section 2
 
-        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open && Transition.currentStep > 0) {
+        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open && Transition.currentStep >= 1) {
 
             Transition.p2() //scroll prev
 
