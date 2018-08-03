@@ -13,6 +13,7 @@ Transition.state = {
     open: false,
     change: true,
     header: false,
+    prev: false,
 
     // save initial values
     init: function() {
@@ -168,14 +169,17 @@ Transition.scrollInit()
 
       Transition.toggleState = function() {
         !Transition.state.open ? Transition.state.open = true : Transition.state.open = false;
-        console.log('Transition.state: ' + Transition.state.open)
+        console.log('Transition.state.open: ' + Transition.state.open)
       }
 
-      Transition.toggleChangePage = function(callback) {
+      Transition.togglePrev = function() {
+        !Transition.state.prev ? Transition.state.prev = true : Transition.state.prev = false;
+        console.log('Transition.state.prev: ' + Transition.state.prev)
+      }
+
+      Transition.toggleChangePage = function() {
         Transition.state.change ? Transition.state.change = false : Transition.state.change = true;
-        if(typeof callback == "function") 
-        callback();
-        console.log('Transition.change: ' + Transition.state.change)
+        console.log('Transition.state.change: ' + Transition.state.change)
       }
 
    Transition.next = debounce(function() {
@@ -235,8 +239,8 @@ Transition.scrollInit()
 
             Transition.toggleState()
             Transition.toggleChangePage()        
+            Transition.togglePrev()
 
-                
         } 
 
         if (Transition.currentStep === 3) {
@@ -537,6 +541,7 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         console.log('hello from textInit!')
 
+        Transition.togglePrev()
         Transition.toggleChangePage()
         Transition.toggleState()
 
@@ -1029,7 +1034,7 @@ Transition.recognitionDown = function() {
 
             Transition.headerDown() //turns off Transition.p2, and headerDown from section 2
 
-        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open && Transition.currentStep >= 1) {
+        } else if (delta > 0 && divOffset.top < -600 && Transition.state.open && Transition.state.prev) {
 
             Transition.p2() //scroll prev
 
