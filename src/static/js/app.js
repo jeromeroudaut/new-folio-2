@@ -1198,7 +1198,6 @@ Transition.prev = debounce(function () {
 
         Transition.toggleState();
         Transition.toggleChangePage();
-        Transition.togglePrev();
     }
 
     if (Transition.currentStep === 3) {
@@ -1836,6 +1835,11 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         // }, 250);
 
         Transition.updateProgress(Transition.currentStep - 1);
+
+        if (Transition.currentStep === 0) {
+
+            Transition.togglePrev();
+        }
 
         Transition.textOutIn = new skylake.Timeline();
         var isObj10 = skylake.Is.object(Transition.textOutIn);

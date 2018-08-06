@@ -239,7 +239,6 @@ Transition.scrollInit()
 
             Transition.toggleState()
             Transition.toggleChangePage()        
-            Transition.togglePrev()
 
         } 
 
@@ -927,6 +926,12 @@ Transition.recognitionDown = function() {
         // }, 250);
 
         Transition.updateProgress(Transition.currentStep - 1);
+
+        if (Transition.currentStep === 0) {
+
+            Transition.togglePrev()
+
+        }
 
         Transition.textOutIn = new S.Timeline()
         const isObj10 = S.Is.object(Transition.textOutIn)
