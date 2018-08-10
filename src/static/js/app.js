@@ -1198,6 +1198,7 @@ Transition.prev = debounce(function () {
 
         Transition.toggleState();
         Transition.toggleChangePage();
+        Transition.togglePrev();
     }
 
     if (Transition.currentStep === 3) {

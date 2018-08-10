@@ -238,7 +238,8 @@ Transition.scrollInit()
         if (Transition.currentStep === 0) {
 
             Transition.toggleState()
-            Transition.toggleChangePage()        
+            Transition.toggleChangePage() 
+            Transition.togglePrev()       
 
         } 
 
