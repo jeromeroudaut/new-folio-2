@@ -1162,6 +1162,8 @@ Transition.next = debounce(function () {
     if (Transition.currentStep === 1) {
 
         Transition.toggleChangePage();
+        Transition.togglePrev();
+        //Transition.toggleState()       
     }
 
     if (Transition.currentStep === 4) {
@@ -1196,9 +1198,9 @@ Transition.prev = debounce(function () {
 
     if (Transition.currentStep === 0) {
 
-        Transition.toggleState();
+        //Transition.toggleState()
         Transition.toggleChangePage();
-        Transition.togglePrev();
+        //Transition.togglePrev()       
     }
 
     if (Transition.currentStep === 3) {
@@ -1488,9 +1490,8 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
 
         console.log('hello from textInit!');
 
-        Transition.togglePrev();
-        Transition.toggleChangePage();
         Transition.toggleState();
+        Transition.toggleChangePage();
 
         textInit.play({ cb: setTimeout(Transition.enable_scroll, 3000) });
     };
@@ -1836,11 +1837,6 @@ Transition.headerScroll = function (currentScrollY, delta, event) {
         // }, 250);
 
         Transition.updateProgress(Transition.currentStep - 1);
-
-        if (Transition.currentStep === 0) {
-
-            Transition.togglePrev();
-        }
 
         Transition.textOutIn = new skylake.Timeline();
         var isObj10 = skylake.Is.object(Transition.textOutIn);

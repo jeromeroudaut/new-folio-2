@@ -194,7 +194,9 @@ Transition.scrollInit()
 
         if (Transition.currentStep === 1) {
 
-            Transition.toggleChangePage()        
+            Transition.toggleChangePage() 
+            Transition.togglePrev()
+            //Transition.toggleState()       
         
         } 
 
@@ -237,9 +239,9 @@ Transition.scrollInit()
 
         if (Transition.currentStep === 0) {
 
-            Transition.toggleState()
+            //Transition.toggleState()
             Transition.toggleChangePage() 
-            Transition.togglePrev()       
+            //Transition.togglePrev()       
 
         } 
 
@@ -541,9 +543,8 @@ Transition.headerScroll = (currentScrollY, delta, event) => {
 
         console.log('hello from textInit!')
 
-        Transition.togglePrev()
+        Transition.toggleState()       
         Transition.toggleChangePage()
-        Transition.toggleState()
 
         textInit.play({cb: setTimeout(Transition.enable_scroll, 3000)})
     
@@ -928,11 +929,6 @@ Transition.recognitionDown = function() {
 
         Transition.updateProgress(Transition.currentStep - 1);
 
-        if (Transition.currentStep === 0) {
-
-            Transition.togglePrev()
-
-        }
 
         Transition.textOutIn = new S.Timeline()
         const isObj10 = S.Is.object(Transition.textOutIn)
