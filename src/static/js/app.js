@@ -1,5 +1,7 @@
 'use strict';
 
+var PIXI = require('pixi.js');
+
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
@@ -676,308 +678,443 @@ EventDelegation.destAbout = function () {
     });
 };
 
-//export default class Jello {
+/* eslint-disable */
 
-// class Jello {
+var Jello = function () {
+    // Cached variables that can be used and changed in all the functions in the class
+    function Jello() {
+        var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+        classCallCheck(this, Jello);
 
-// class Jello {
-// Cached variables that can be used and changed in all the functions in the class
-// constructor() {
+        this.defaults = {};
+        this.options = options;
+        this.canvasHolder = document.getElementById('jello-container');
+        this.imgWidth = 1920;
+        this.imgHeight = 1080;
+        this.imgRatio = this.imgHeight / this.imgWidth;
+        this.winWidth = window.innerWidth;
+        this.bgArray = [];
+        this.bgSpriteArray = [];
+        this.renderer = PIXI.autoDetectRenderer(this.imgWidth, this.winWidth * this.imgRatio, { transparent: true });
+        this.stage = new PIXI.Container();
+        this.imgContainer = new PIXI.Container();
+        this.imageCounter = 0;
+        this.displacementSprite = PIXI.Sprite.fromImage('static/media/img/distortion/clouds.jpg');
+        this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
+        this.currentMap = {};
+        this.mapCounter = 0;
+        this.mapArray = [];
+        this.raf = this.animateFilters.bind(this);
 
-//   if (!(this instanceof Jello)) {
-//       throw new Error("Jello needs to be called with the new keyword");
-//   }
-var Jello = {};
+        // PREVNEXT
+        this.current = 0;
+        this.isDistorted = false; // begin transition with no distortion
+        this.isTransitioning = false;
 
-Jello.defaults = {};
-Jello.options = {};
-Jello.canvasHolder = document.getElementById('jello-container');
-Jello.imgWidth = 1920;
-Jello.imgHeight = 960;
-Jello.imgRatio = Jello.imgHeight / Jello.imgWidth;
-Jello.winWidth = window.innerWidth;
-Jello.bgArray = [];
-Jello.bgSpriteArray = [];
-Jello.renderer = PIXI.autoDetectRenderer(Jello.winWidth, Jello.winWidth * Jello.imgRatio);
-Jello.stage = new PIXI.Container();
-Jello.imgContainer = new PIXI.Container();
-Jello.imageCounter = 0;
-Jello.displacementSprite = PIXI.Sprite.fromImage('static/media/img/distortion/clouds.jpg');
-Jello.displacementFilter = new PIXI.filters.DisplacementFilter(Jello.displacementSprite);
-Jello.currentMap = {};
-Jello.mapCounter = 0;
-Jello.mapArray = [];
-//Jello.raf = Jello.animateFilters.bind(Jello.raf);
+        this.initialize();
+    }
 
-Jello.isDistorted = false; // begin transition with no distortion
-Jello.isTransitioning = false;
+    createClass(Jello, [{
+        key: 'initialize',
+        value: function initialize() {
+            console.log('Jello initialized');
 
-// }
+            this.defaults = {
+                transition: 0,
+                speed: 0.5,
+                dispScale: 200,
+                dispX: true,
+                dispY: true,
+                count: 0
+            };
 
-window.requestAnimationFrame = function () {
-  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function ( /* function FrameRequestCallback */callback, /* DOMElement Element */element) {
-    return window.setTimeout(callback, 1000 / 60);
-  };
+            this.update();
+
+            // An array of images for background (.jpg)
+            // They'll transition in the order listed below
+            // this.bgArray.push(
+            //   'image-1',
+            //   'image-2',
+            //   'image-3',
+            //   'image-4'
+            // );
+
+            // Video array
+            this.bgArray.push('video-0', 'video-1', 'video-2', 'video-3');
+
+            // An array of displacement maps
+            // They'll transition in the order below with the included settings
+            this.mapArray.push({
+                image: 'dmap-clouds-01.jpg',
+                speed: 0.5,
+                scale: 200
+            }, {
+                image: 'dmap-clouds-02.jpg',
+                speed: 0.3,
+                scale: 200
+            });
+
+            this.unloadScrollBars();
+            this.backgroundFill();
+            this.buildStage();
+            this.createBackgrounds();
+            this.createFilters();
+            this.animateFilters();
+            //this.eventListener();
+            // MOUSEWHEEL
+            this.debounce(this.initScroll());
+
+            this.renderer.view.setAttribute('class', 'jello-canvas');
+            this.canvasHolder.appendChild(this.renderer.view);
+        }
+    }, {
+        key: 'unloadScrollBars',
+        value: function unloadScrollBars() {
+            document.documentElement.style.overflow = 'hidden'; // firefox, chrome
+            document.body.scroll = 'no'; // ie only
+        }
+
+        // define animations and call this.raf
+
+    }, {
+        key: 'animateFilters',
+        value: function animateFilters() {
+            this.displacementFilter.scale.x = this.settings.dispX ? this.settings.transition * this.settings.dispScale : 0;
+            this.displacementFilter.scale.y = this.settings.dispY ? this.settings.transition * (this.settings.dispScale + 10) : 0;
+
+            this.displacementSprite.x = Math.sin(this.settings.count * 0.15) * 200;
+            this.displacementSprite.y = Math.cos(this.settings.count * 0.13) * 200;
+
+            // by commenting out rotation - we get yard.agency transition effect
+            // this.displacementSprite.rotation = this.settings.count * 0.06;
+
+            this.settings.count += 0.05 * this.settings.speed;
+
+            this.renderer.render(this.stage);
+
+            window.requestAnimationFrame(this.raf);
+        }
+
+        // canvas built to fill width of window
+
+    }, {
+        key: 'backgroundFill',
+        value: function backgroundFill() {
+            this.renderer.view.setAttribute('style', 'height:auto;width:100%;');
+        }
+
+        // main container for animation
+
+    }, {
+        key: 'buildStage',
+        value: function buildStage() {
+            this.imgContainer.position.x = this.imgWidth / 2;
+            this.imgContainer.position.y = this.imgHeight / 2;
+
+            this.stage.scale.x = this.stage.scale.y = this.winWidth / this.imgWidth;
+            this.stage.interactive = true;
+            this.stage.addChild(this.imgContainer);
+        }
+    }, {
+        key: 'debounce',
+        value: function debounce(func, wait, immediate) {
+            var timeout = void 0;
+            return function () {
+                var context = this;var args = arguments;
+                var later = function later() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        }
+
+        // scroll index
+
+    }, {
+        key: 'next',
+        value: function next() {
+            this.current = this.current < this.bgArray.length - 1 ? this.current + 1 : 0;
+            return this.getCurrentIndex();
+        }
+    }, {
+        key: 'prev',
+        value: function prev() {
+            this.current = this.current > 0 ? this.current - 1 : this.bgArray.length - 1;
+            return this.getCurrentIndex();
+        }
+    }, {
+        key: 'getCurrentIndex',
+        value: function getCurrentIndex() {
+            return this.bgArray[this.current];
+        }
+    }, {
+        key: 'changeImage',
+        value: function changeImage() {
+            var _this = this;
+
+            this.bgSpriteArray.map(function (sprite, i, callback) {
+                if (i === _this.current) {
+                    TweenLite.to(sprite, 2, { alpha: 1, ease: Power2.easeInOut, onComplete: _this.toggleDistortionOut, onCompleteScope: _this });
+                } else {
+                    TweenLite.to(sprite, 2, { alpha: 0, ease: Power2.easeInOut });
+                }
+            });
+        }
+
+        // cycle through this.mapArray and change displacement maps
+        // changeMap() {
+        //   if(this.mapCounter < (this.mapArray.length - 1)) {
+        //     this.mapCounter++;
+        //   } else {
+        //     this.mapCounter = 0;
+        //   }
+
+        //   this.currentMap = this.mapArray[this.mapCounter];
+        //   console.log(this.currentMap)
+        //   this.displacementSprite = PIXI.Sprite.fromImage(`/assets/img/distortion/${this.currentMap.image}`);
+        //   this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
+        //   this.createFilters();
+        // }
+
+        // preload all backgrounds for quick transitions
+
+    }, {
+        key: 'createBackgrounds',
+        value: function createBackgrounds() {
+            var _this2 = this;
+
+            this.bgArray.map(function (video) {
+
+                // const bg = PIXI.AnimatedSprite.from(`../assets/video/${video}.mp4`);
+                // bg.baseTexture.resource.source.loop = true;
+                // // Set image anchor to the center of the image
+                // bg.anchor.x = 0.5;
+                // bg.anchor.y = 0.5; 
+
+                // bg.loop = true;
+
+                // this.imgContainer.addChild(bg);
+                // this.bgSpriteArray.push(bg);
+
+                // // IMAGE
+                // bg.alpha = this.bgSpriteArray.length === 1 ? 1 : 0;
+
+                // create a video texture from a path
+                var bg = PIXI.Sprite.fromImage('/static/media/video/' + image + '.mp4');
+
+                // https://github.com/pixijs/pixi.js/issues/6501 - SOLVED!!
+                bg.baseTexture.resource.source.preload = true;
+                bg.baseTexture.resource.source.loop = true;
+                bg.baseTexture.resource.source.autoplay = true;
+
+                var videoSprite = new PIXI.Sprite(bg);
+
+                videoSprite.anchor.x = 0.5;
+                videoSprite.anchor.y = 0.5;
+
+                // preload and autoplay video
+                //videoSprite.preload = 'auto';
+                //this.autoPlay = videoSprite.autoplay;
+
+                _this2.imgContainer.addChild(videoSprite);
+                _this2.bgSpriteArray.push(videoSprite);
+
+                // IMAGE
+                videoSprite.alpha = _this2.bgSpriteArray.length === 1 ? 1 : 0;
+            });
+        }
+
+        // distortion filters added to stage
+
+    }, {
+        key: 'createFilters',
+        value: function createFilters() {
+            this.stage.addChild(this.displacementSprite);
+
+            this.displacementFilter.scale.x = this.displacementFilter.scale.y = this.winWidth / this.imgWidth;
+
+            this.imgContainer.filters = [this.displacementFilter];
+        }
+
+        // function changes the distortion level to a specific amount
+
+    }, {
+        key: 'distortionLevel',
+        value: function distortionLevel(amt) {
+            var _this3 = this;
+
+            if (!this.isTransitioning) {
+                this.isTransitioning = true;
+                TweenLite.to(this.settings, 1, {
+                    transition: amt,
+                    speed: this.currentMap.speed,
+                    dispScale: this.currentMap.scale,
+                    ease: Power2.easeInOut,
+                    onComplete: function onComplete() {
+                        _this3.isTransitioning = false;
+                    }
+                });
+            }
+        }
+    }, {
+        key: 'handleWheel',
+        value: function handleWheel() {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }, {
+        key: 'onTouchUp',
+        value: function onTouchUp(event) {
+            event.stopPropagation();
+
+            this.mouse.x = event.changedTouches ? event.changedTouches[0].clientX : event.clientX;
+            this.mouse.y = event.changedTouches ? event.changedTouches[0].clientY : event.clientY;
+
+            if (this.canvas) {
+                this.canvas.onTouchUp(this.mouse);
+            }
+        }
+    }, {
+        key: 'onWheel',
+        value: function onWheel(event) {
+            var normalized = Normalize(event);
+            var speed = normalized.pixelY * 0.2;
+
+            if (this.canvas) {
+                this.canvas.onWheel(speed);
+            }
+        }
+    }, {
+        key: 'addEventListeners',
+        value: function addEventListeners() {
+            window.addEventListener('mousewheel', this.onWheel.bind(this));
+            window.addEventListener('wheel', this.onWheel.bind(this));
+
+            window.addEventListener('mousedown', this.onTouchDown.bind(this));
+            window.addEventListener('mousemove', this.onTouchMove.bind(this));
+            window.addEventListener('mouseup', this.onTouchUp.bind(this));
+
+            window.addEventListener('touchstart', this.onTouchDown.bind(this));
+            window.addEventListener('touchmove', this.onTouchMove.bind(this));
+            window.addEventListener('touchend', this.onTouchUp.bind(this));
+        }
+    }, {
+        key: 'throttle',
+        value: function throttle(cb, timeout) {
+            // You can rewrite this function by replacing the time limit with the
+            // scroll pitch. I think that would be the best solution.
+            // let delta = e.deltaY || e.detail || e.wheelDelta;
+            // ... sum delta and call callback by the number of steps: accumulator/step
+
+            var lastCall = 100;
+
+            return function () {
+                if (new Date() - lastCall > timeout) {
+                    lastCall = new Date();
+
+                    cb();
+                }
+            };
+        }
+    }, {
+        key: 'initScroll',
+        value: function initScroll() {
+            var _this4 = this;
+
+            window.addEventListener('wheel', function (e) {
+                _this4.direction = e.deltaY < 0;
+
+                if (e.deltaY < 0 && _this4.isDistorted === false) {
+                    _this4.toggleDistortionIn(1, _this4.changeImage.bind(_this4), _this4.next());
+
+                    console.log('scrolling up - next');
+                }
+
+                if (e.deltaY > 0 && _this4.isDistorted === false) {
+                    _this4.toggleDistortionIn(1, _this4.changeImage.bind(_this4), _this4.prev());
+
+                    console.log('scrolling down - previous');
+                }
+            });
+        }
+        // click events
+        // eventListener() {
+        //   const changeImageBtn = document.getElementsByClassName('js-change-image')[0];
+        //   const changeDistortionBtn = document.getElementsByClassName('js-change-distortion')[0];
+        //   const toggleDistorionBtn = document.getElementsByClassName('js-toggle-distortion')[0];
+
+        //   changeImageBtn.onclick = () => {
+        //     this.changeImage();
+        //   }
+
+        //   changeDistortionBtn.onclick = () => {
+        //     this.changeMap();
+        //   }
+
+        //   toggleDistorionBtn.onclick = () => {
+        //     this.toggleDistortion();
+        //   }
+
+        // }
+
+    }, {
+        key: 'toggleDistortionIn',
+        value: function toggleDistortionIn(dis, callback, callback2) {
+            if (!this.dis) {
+                this.distortionLevel(1);
+            }
+            this.distortionLevel(dis);
+            this.isDistorted = true;
+            console.log('distortion in');
+
+            if (typeof callback == 'function') {
+                callback();
+            }
+            if (typeof callback2 == 'function') {
+                callback2();
+            }
+            // }
+        }
+    }, {
+        key: 'toggleDistortionOut',
+        value: function toggleDistortionOut(dis, callback) {
+            if (!dis) {
+                this.distortionLevel(0);
+            }
+            this.distortionLevel(dis);
+            this.isDistorted = false;
+            console.log('distortion out');
+            if (typeof callback == 'function') {
+                callback();
+            }
+            // }
+        }
+
+        // Object.assign overwrites defaults with options to create settings
+
+    }, {
+        key: 'update',
+        value: function update() {
+            this.settings = Object.assign({}, this.defaults, this.options);
+        }
+
+        // ============ TEAR DOWN =============== //
+
+    }, {
+        key: 'tearDown',
+        value: function tearDown() {
+            window.cancelAnimationFrame(this.raf);
+            this.settings = {};
+            this.bgArray = [];
+            this.bgSpriteArray = [];
+        }
+    }]);
+    return Jello;
 }();
-
-// define animations and call Jello.raf
-Jello.animateFilters = function () {
-  Jello.displacementFilter.scale.x = Jello.settings.dispX ? Jello.settings.transition * Jello.settings.dispScale : 0;
-  Jello.displacementFilter.scale.y = Jello.settings.dispY ? Jello.settings.transition * (Jello.settings.dispScale + 10) : 0;
-
-  Jello.displacementSprite.x = Math.sin(Jello.settings.count * 0.15) * 200;
-  Jello.displacementSprite.y = Math.cos(Jello.settings.count * 0.13) * 200;
-
-  Jello.displacementSprite.rotation = Jello.settings.count * 0.06;
-
-  Jello.settings.count += 0.05 * Jello.settings.speed;
-
-  Jello.renderer.render(Jello.stage);
-
-  window.requestAnimationFrame(Jello.animateFilters);
-};
-
-// canvas built to fill width of window
-Jello.backgroundFill = function () {
-  Jello.renderer.view.setAttribute('style', 'height:auto;width:100%;');
-};
-
-// main container for animation
-Jello.buildStage = function () {
-  Jello.imgContainer.position.x = Jello.imgWidth / 2;
-  Jello.imgContainer.position.y = Jello.imgHeight / 2;
-
-  Jello.stage.scale.x = Jello.stage.scale.y = Jello.winWidth / Jello.imgWidth;
-  Jello.stage.interactive = true;
-  Jello.stage.addChild(Jello.imgContainer);
-};
-
-// cycle through Jello.bgArray and change images with crossfade
-// Jello.changeImage = function() {
-//   if(Jello.imageCounter < (Jello.bgArray.length - 1)) {
-//     Jello.imageCounter++;
-//   } else {
-//     Jello.imageCounter = 0;
-//   }
-
-//   Jello.bgSpriteArray.map((sprite, i, callback) => {
-
-//     if(i == Jello.imageCounter) {
-//       TweenLite.to(sprite, 2, {alpha: 1, ease:Power2.easeInOut, onComplete: Jello.toggleDistortionOut, onCompleteScope: this});
-//     } else {
-//       TweenLite.to(sprite, 2, {alpha: 0, ease:Power2.easeInOut});
-//     }
-//   });
-// }
-
-// cycle through Jello.mapArray and change displacement maps
-Jello.changeMap = function () {
-  if (Jello.mapCounter < Jello.mapArray.length - 1) {
-    Jello.mapCounter++;
-  } else {
-    Jello.mapCounter = 0;
-  }
-
-  Jello.currentMap = Jello.mapArray[Jello.mapCounter];
-  console.log(Jello.currentMap);
-  Jello.displacementSprite = PIXI.Sprite.fromImage('/static/media/img/distortion/' + Jello.currentMap.image);
-  Jello.displacementFilter = new PIXI.filters.DisplacementFilter(Jello.displacementSprite);
-  Jello.createFilters();
-};
-
-// preload all backgrounds for quick transitions
-Jello.createBackgrounds = function () {
-  Jello.bgArray.map(function (image) {
-    var bg = PIXI.Sprite.fromImage('/static/media/img/bg/' + image + '.jpg');
-    // create a video texture from a path
-    //var bg = PIXI.Texture.fromVideo(`/assets/images/bg/${image}.mp4`);
-
-    // create a new Sprite using the video texture (yes it's that easy)
-    // var videoSprite = new PIXI.Sprite(bg);
-
-    // // Stetch the fullscreen
-    // // videoSprite.width = app.screen.width;
-    // // videoSprite.height = app.screen.height;
-    // videoSprite.autoPlay = true;
-    // videoSprite.loop = true; 
-    // // Set image anchor to the center of the image
-    // videoSprite.anchor.x = 0.5;
-    // videoSprite.anchor.y = 0.5;      
-    bg.anchor.x = 0.5;
-    bg.anchor.y = 0.5;
-
-    // Jello.imgContainer.addChild(videoSprite);
-    // Jello.bgSpriteArray.push(videoSprite);
-
-    Jello.imgContainer.addChild(bg);
-    Jello.bgSpriteArray.push(bg);
-
-    // set first image alpha to 1, all else to 0
-    bg.alpha = Jello.bgSpriteArray.length === 1 ? 1 : 0;
-  });
-};
-
-// distortion filters added to stage
-Jello.createFilters = function () {
-  Jello.stage.addChild(Jello.displacementSprite);
-
-  Jello.displacementFilter.scale.x = Jello.displacementFilter.scale.y = Jello.winWidth / Jello.imgWidth;
-
-  Jello.imgContainer.filters = [Jello.displacementFilter];
-};
-
-// function changes the distortion level to a specific amount
-Jello.distortionLevel = function (amt) {
-  if (!Jello.isTransitioning) {
-    Jello.isTransitioning = true;
-    TweenLite.to(Jello.settings, 1, {
-      transition: amt,
-      speed: Jello.currentMap.speed,
-      dispScale: Jello.currentMap.scale,
-      ease: Power2.easeInOut,
-      onComplete: function onComplete() {
-        Jello.isTransitioning = false;
-      }
-    });
-  }
-};
-
-// scroll events
-
-// Jello.initScroll = function() {
-//   window.addEventListener('wheel', (e) => {
-//     if (e.deltaY > 0) {
-//     Jello.toggleDistortionIn(1, Jello.changeImage.bind(this))
-//     // Jello.changeImage()
-//     console.log('scrolling down')
-//     }
-//     if (e.deltaY < 0) {
-//     Jello.toggleDistortionIn(1, Jello.changeImage.bind(this))
-//     // Jello.changeImage()
-//     console.log('scrolling up')
-//     }
-//   })
-
-//}
-// click events
-//   eventListener() {
-//     const changeImageBtn = document.getElementsByClassName('js-change-image')[0];
-//     const changeDistortionBtn = document.getElementsByClassName('js-change-distortion')[0];
-//     const toggleDistorionBtn = document.getElementsByClassName('js-toggle-distortion')[0];
-
-//     changeImageBtn.onclick = () => {
-//       Jello.changeImage();
-//     }
-
-//     changeDistortionBtn.onclick = () => {
-//       Jello.changeMap();
-//     }
-
-//     toggleDistorionBtn.onclick = () => {
-//       Jello.toggleDistortion();
-//     }
-
-// }
-
-
-// turn the distortion on and off using the options.transistion variable
-// toggleDistortion(dis, callback) {
-//   if(!Jello.isDistorted) {
-//     Jello.distortionLevel(dis);
-//     Jello.isDistorted = true;
-//   } else {
-//     Jello.distortionLevel(dis);
-//     Jello.isDistorted = false;
-//   }
-//   if(typeof callback == "function") 
-//   callback();
-// }
-
-// Jello.toggleDistortionIn = function(dis, callback) {
-//   //if(!Jello.isDistorted) {
-//     if (!dis) {
-//       Jello.distortionLevel(1);
-//     }
-//     Jello.distortionLevel(dis);
-//     Jello.isDistorted = true;
-//     console.log('distortion in')
-
-//     if(typeof callback == "function") 
-//     callback();
-//   //} 
-// }
-
-// Jello.toggleDistortionOut = function(dis, callback) {
-//   //if(Jello.isDistorted) {
-//     if (!dis) {
-//       Jello.distortionLevel(0);
-//     }
-//     Jello.distortionLevel(dis);
-//     Jello.isDistorted = false;
-//     console.log('distortion out')
-//     if(typeof callback == "function") 
-//     callback();
-//   //} 
-// }
-
-
-// ============ TEAR DOWN =============== //
-
-Jello.tearDown = function () {
-  window.cancelAnimationFrame(Jello.animateFilters);
-  Jello.settings = {};
-  Jello.bgArray = [];
-  Jello.bgSpriteArray = [];
-};
-
-Jello.initialize = function () {
-  console.log('Jello initialized');
-
-  Jello.defaults = {
-    transition: 0.8,
-    speed: 0.4,
-    dispScale: 200,
-    dispX: true,
-    dispY: true,
-    count: 0
-  };
-
-  // Object.assign overwrites defaults with options to create settings
-  Jello.update = function () {
-    Jello.settings = Object.assign({}, Jello.defaults, Jello.options);
-  };
-
-  Jello.update();
-
-  // An array of images for background (.jpg)
-  // They'll transition in the order listed below
-  Jello.bgArray.push('image-0', 'image-1', 'image-2', 'image-3', 'image-4', 'image-5', 'image-6', 'image-7');
-
-  // An array of displacement maps
-  // They'll transition in the order below with the included settings
-  Jello.mapArray.push({
-    image: 'dmap-clouds-01.jpg',
-    speed: 0.5,
-    scale: 200
-  }, {
-    image: 'dmap-glass-01.jpg',
-    speed: 0.3,
-    scale: 200
-  });
-
-  Jello.backgroundFill();
-  Jello.buildStage();
-  Jello.createBackgrounds();
-  Jello.createFilters();
-  Jello.animateFilters();
-  //Jello.eventListener();
-  //Jello.initScroll();
-
-  Jello.renderer.view.setAttribute('class', 'jello-canvas');
-  Jello.canvasHolder.appendChild(Jello.renderer.view);
-};
-
-Jello.initialize();
 
 // class CircularListWithIndex {
 
