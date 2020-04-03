@@ -979,40 +979,27 @@ Jello.initialize = function () {
 
 Jello.initialize();
 
-// class CircularListWithIndex {
+var _this = undefined;
 
 var PrevNext = {};
 // PrevNext.items = 0
 PrevNext.index = 0;
 PrevNext.limit = 7;
 
-PrevNext.moveIndexNext = function () {
-    if (PrevNext.items.length === 0) {
-        return;
-    }
-    if (PrevNext.index + 1 === PrevNext.limit) {
-        return PrevNext.limit;
-    } else {
-        return ++PrevNext.index;
-    }
-    // PrevNext.getCurrentItem()
+// scroll index
+PrevNext.next = function () {
+    _this.current = _this.current < _this.bgArray.length - 1 ? _this.current + 1 : 0;
+    return _this.getCurrentIndex();
 };
 
-PrevNext.moveIndexPrevious = function () {
-    if (PrevNext.items.length === 0) {
-        return;
-    }
-    // if (PrevNext.index - 1 === PrevNext.limit) {
-    //     return PrevNext.limit;
-    // }
-    else {
-            return --PrevNext.index;
-        }
-    // PrevNext.getCurrentItem()
+PrevNext.prev = function () {
+    _this.current = _this.current > 0 ? _this.current - 1 : _this.bgArray.length - 1;
+    return _this.getCurrentIndex();
 };
 
-PrevNext.getCurrentItem = function () {
-    return PrevNext.items[PrevNext.index];
+PrevNext.getCurrentIndex = function () {
+    console.log(_this.current);
+    return _this.bgArray[_this.current];
 };
 
 /* eslint-disable */
@@ -1154,7 +1141,7 @@ Transition.next = debounce(function () {
 
     Transition.disable_scroll();
     PrevNext.items = Transition.nodes.length - 1;
-    Transition.currentStep = PrevNext.moveIndexNext();
+    Transition.currentStep = PrevNext.next();
 
     console.log('scrolling down - nextItem');
     console.log('currentStep: ' + Transition.currentStep);
@@ -1191,7 +1178,7 @@ Transition.prev = debounce(function () {
 
     Transition.disable_scroll();
     PrevNext.items = Transition.nodes.length - 1;
-    Transition.currentStep = PrevNext.moveIndexPrevious();
+    Transition.currentStep = PrevNext.prev();
 
     console.log('scrolling up - prevItem');
     console.log('currentStep: ' + Transition.currentStep);

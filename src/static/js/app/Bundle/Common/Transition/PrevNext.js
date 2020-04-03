@@ -10,33 +10,20 @@ const PrevNext = {}
 PrevNext.index = 0
 PrevNext.limit = 7
 
-PrevNext.moveIndexNext = function() {
-        if (PrevNext.items.length === 0) {
-            return;
-        }
-        if (PrevNext.index + 1 === PrevNext.limit) {
-            return PrevNext.limit;
-        } else {
-            return ++PrevNext.index;
-        }
-        // PrevNext.getCurrentItem()
-    }
+// scroll index
+PrevNext.next = () => {
+    this.current = this.current < this.bgArray.length - 1 ? this.current + 1 : 0;
+    return this.getCurrentIndex();
+}
 
-PrevNext.moveIndexPrevious = function() {
-        if (PrevNext.items.length === 0) {
-            return;
-        }
-        // if (PrevNext.index - 1 === PrevNext.limit) {
-        //     return PrevNext.limit;
-        // }
-        else {
-            return --PrevNext.index;
-        }
-        // PrevNext.getCurrentItem()
-    }
+PrevNext.prev = () => {
+    this.current = this.current > 0 ? this.current - 1 : this.bgArray.length - 1;
+    return this.getCurrentIndex();
+}
 
-PrevNext.getCurrentItem = function() {
-        return PrevNext.items[PrevNext.index];
-    }
+PrevNext.getCurrentIndex = () => {
+    console.log(this.current);
+    return this.bgArray[this.current];
+}
 
 export default PrevNext

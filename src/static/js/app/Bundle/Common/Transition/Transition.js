@@ -186,7 +186,7 @@ Transition.scrollInit()
  
         Transition.disable_scroll() 
         PrevNext.items = Transition.nodes.length - 1
-        Transition.currentStep = PrevNext.moveIndexNext()
+        Transition.currentStep = PrevNext.next();
         
         console.log('scrolling down - nextItem')        
         console.log('currentStep: ' + Transition.currentStep)
@@ -231,7 +231,7 @@ Transition.scrollInit()
 
         Transition.disable_scroll()
         PrevNext.items = Transition.nodes.length - 1
-        Transition.currentStep = PrevNext.moveIndexPrevious()
+        Transition.currentStep = PrevNext.prev();
 
         console.log('scrolling up - prevItem')        
         console.log('currentStep: ' + Transition.currentStep)
